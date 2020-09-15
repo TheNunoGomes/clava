@@ -1,0 +1,105 @@
+import lara.benchmark.SDVBSBenchmarkInstance;
+import lara.benchmark.SDVBSBenchmarkResources;
+
+import lara.benchmark.BenchmarkSet;
+
+import lara.util.PredefinedStrings;
+import lara.util.StringSet;
+import lara.Io;
+
+/**
+ * C-version of the SDVBS benchmarks.
+ */
+function SDVBSBenchmarkSet(version) {
+	// Parent constructor
+	BenchmarkSet.call(this, "SDVBSBenchmarkSet");
+
+	// Default version is 4.2
+	this._version = version !== undefined ? version.toString() : "1.0";
+
+	// Check if version is supported
+	if(!SDVBSBenchmarkSet.getVersions().isValid(this._version)) {
+		throw "Version '" + this._version + "' not supported. Supported versions: " + SDVBSBenchmarkSet.getVersions().values();
+	}
+
+
+	var benchData = SDVBSBenchmarkResources.getJson(this._version + "/data.json");
+		
+	this._benchmarkNames = new PredefinedStrings("benchmark name", true, benchData["names"]);
+	this._inputSizes = new PredefinedStrings("input size", false, benchData["sizes"]);	
+	
+	// By default, all benchmarks
+	this._testBenchmarks = this._benchmarkNames.values();
+	
+	// By default, the second smallest size
+	this._testInputSizes = [this._inputSizes.values()[1]];
+}
+// Inheritance
+SDVBSBenchmarkSet.prototype = Object.create(BenchmarkSet.prototype);
+
+
+/**
+ * @return {lara.util.PredefinedStrings} the benchmark names.
+ */
+SDVBSBenchmarkSet.prototype.getBenchmarkNames = function() {
+	return this._benchmarkNames;
+}
+
+/**
+ * @return {lara.util.PredefinedStrings} Available input sizes.
+ */
+ SDVBSBenchmarkSet.prototype.getInputSizes = function() {
+	return this._inputSizes;
+}
+
+/**
+ * @return {lara.util.PredefinedStrings} Available versions.
+ */
+SDVBSBenchmarkSet.getVersions = function() {
+	return SDVBSBenchmarkSet._VERSIONS;
+	//return SDVBSBenchmarkSet._calculateVersions();
+}
+
+
+SDVBSBenchmarkSet._calculateVersions = function() {
+	var versions = Io.getFolders(SDVBSBenchmarkResources.getBaseFolder()).map(function(value) {return value.getName();});
+	return new PredefinedStrings("versions", false, versions);
+}
+
+SDVBSBenchmarkSet._VERSIONS = SDVBSBenchmarkSet._calculateVersions();
+
+SDVBSBenchmarkSet.prototype.setBenchmarks = function() {
+	this._testBenchmarks = this.getBenchmarkNames().parse(arrayFromArgs(arguments));
+}
+
+SDVBSBenchmarkSet.prototype.setInputSizes = function() {
+	this._testInputSizes = this.getInputSizes().parse(arrayFromArgs(arguments));
+}
+
+
+
+/**
+ * Prints the current SDVBS benchmark set.
+ */
+SDVBSBenchmarkSet.prototype.print = function() {
+	println("BenchmarkSet: " + this.getName());
+	println("Benchmark names: " + this._testBenchmarks);
+	println("Benchmark sizes: " + this._testInputSizes);	
+	println("Benchmark version: " + this._version);			
+}
+
+/*** IMPLEMENTATIONS ***/
+
+SDVBSBenchmarkSet.prototype._getInstancesPrivate = function() {
+
+	var instances = [];
+
+	for(var benchName of this._testBenchmarks) {
+	
+		for(var inputSize of this._testInputSizes) {
+			instances.push(new SDVBSBenchmarkInstance(benchName, inputSize, this._version));	
+		}	
+	}
+	
+	return instances;
+}
