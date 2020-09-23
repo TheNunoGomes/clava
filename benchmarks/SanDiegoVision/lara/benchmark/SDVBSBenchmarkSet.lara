@@ -10,20 +10,11 @@ import lara.Io;
 /**
  * C-version of the SDVBS benchmarks.
  */
-function SDVBSBenchmarkSet(version) {
+function SDVBSBenchmarkSet() {
 	// Parent constructor
 	BenchmarkSet.call(this, "SDVBSBenchmarkSet");
 
-	// Default version is 4.2
-	this._version = version !== undefined ? version.toString() : "1.0";
-
-	// Check if version is supported
-	if(!SDVBSBenchmarkSet.getVersions().isValid(this._version)) {
-		throw "Version '" + this._version + "' not supported. Supported versions: " + SDVBSBenchmarkSet.getVersions().values();
-	}
-
-
-	var benchData = SDVBSBenchmarkResources.getJson(this._version + "/data.json");
+	var benchData = SDVBSBenchmarkResources.getJson("./data.json");
 		
 	this._benchmarkNames = new PredefinedStrings("benchmark name", true, benchData["names"]);
 	this._inputSizes = new PredefinedStrings("input size", false, benchData["sizes"]);	
@@ -52,22 +43,6 @@ SDVBSBenchmarkSet.prototype.getBenchmarkNames = function() {
 	return this._inputSizes;
 }
 
-/**
- * @return {lara.util.PredefinedStrings} Available versions.
- */
-SDVBSBenchmarkSet.getVersions = function() {
-	return SDVBSBenchmarkSet._VERSIONS;
-	//return SDVBSBenchmarkSet._calculateVersions();
-}
-
-
-SDVBSBenchmarkSet._calculateVersions = function() {
-	var versions = Io.getFolders(SDVBSBenchmarkResources.getBaseFolder()).map(function(value) {return value.getName();});
-	return new PredefinedStrings("versions", false, versions);
-}
-
-SDVBSBenchmarkSet._VERSIONS = SDVBSBenchmarkSet._calculateVersions();
-
 SDVBSBenchmarkSet.prototype.setBenchmarks = function() {
 	this._testBenchmarks = this.getBenchmarkNames().parse(arrayFromArgs(arguments));
 }
@@ -84,8 +59,7 @@ SDVBSBenchmarkSet.prototype.setInputSizes = function() {
 SDVBSBenchmarkSet.prototype.print = function() {
 	println("BenchmarkSet: " + this.getName());
 	println("Benchmark names: " + this._testBenchmarks);
-	println("Benchmark sizes: " + this._testInputSizes);	
-	println("Benchmark version: " + this._version);			
+	println("Benchmark sizes: " + this._testInputSizes);			
 }
 
 /*** IMPLEMENTATIONS ***/
@@ -97,7 +71,7 @@ SDVBSBenchmarkSet.prototype._getInstancesPrivate = function() {
 	for(var benchName of this._testBenchmarks) {
 	
 		for(var inputSize of this._testInputSizes) {
-			instances.push(new SDVBSBenchmarkInstance(benchName, inputSize, this._version));	
+			instances.push(new SDVBSBenchmarkInstance(benchName, inputSize));	
 		}	
 	}
 	

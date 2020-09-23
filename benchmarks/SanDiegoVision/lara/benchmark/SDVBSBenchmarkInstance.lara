@@ -1,5 +1,6 @@
 import lara.benchmark.ClavaBenchmarkInstance;
 import lara.benchmark.SDVBSBenchmarkResources;
+import lara.Io;
 
 import clava.Clava;
 import clava.ClavaJoinPoints;
@@ -9,19 +10,20 @@ import weaver.WeaverJps;
 /**
  * Instance of a C SDVBS benchmark.
  */
-function SDVBSBenchmarkInstance(benchmarkName, inputSize, version) {
+function SDVBSBenchmarkInstance(benchmarkName, inputSize) {
     // Parent constructor
     ClavaBenchmarkInstance.call(this, "SDVBS-" + benchmarkName + "-" + inputSize);
 	
 	this._benchmarkName = benchmarkName;
 	this._inputSize = inputSize;
-	this._version = version;
 	
 	this._previousStandard = undefined;
 	this._previousFlags = undefined;
 	
 	// Add -lm
 	this.getCMaker().addLibs("m");
+	this.getCMaker().addFlags("-DGCC", "-DCHECK");
+	this.getCMaker().setName(this._benchmarkName);
 }
 // Inheritance
 SDVBSBenchmarkInstance.prototype = Object.create(ClavaBenchmarkInstance.prototype);
@@ -59,13 +61,14 @@ SDVBSBenchmarkInstance.prototype._loadPrivate = function() {
 
 SDVBSBenchmarkInstance.prototype._closePrivate = function() {
 	// Restore standard
-	Clava.getData().setStandard(this._previousStandard);	
-	this._previousStandard = undefined;
+	if(!this.isCachedAst()) {
+		Clava.getData().setStandard(this._previousStandard);	
+		this._previousStandard = undefined;
 
-	// Restore flags
-	Clava.getData().setFlags(this._previousFlags);
-	this._previousFlags = undefined;	
-
+		// Restore flags
+		Clava.getData().setFlags(this._previousFlags);
+		this._previousFlags = undefined;	
+	}
 	// Restore previous AST
 	Clava.popAst();
 		
@@ -75,15 +78,44 @@ SDVBSBenchmarkInstance.prototype._addCode = function() {
 
 	// Create array with source files	
 	var sourceFiles = [];
-	sourceFiles.push(this._benchmarkName + ".c");
-	sourceFiles.push(this._benchmarkName + ".h");	
-	sourceFiles.push("sdvbs.c");
-	sourceFiles.push("sdvbs.h");	
+	var commonPath = "vision/common/c/";
+	var benchmarkPath = "vision/benchmarks/" + this._benchmarkName.toLowerCase() + "/src/c/";
+	
+	var folders = [SDVBSBenchmarkResources.getFolder(commonPath), SDVBSBenchmarkResources.getFolder(benchmarkPath)];
+	var commonFileList = SDVBSBenchmarkResources.getFileList(commonPath);
+	var benchmarkFileList = SDVBSBenchmarkResources.getFileList(benchmarkPath);
+	
+	for(var file of commonFileList) {
+		if(file.getAbsolutePath().endsWith(".c")) {
+			sourceFiles.push(file);
+		}
+	}
+
+	for(var file of benchmarkFileList) {
+		if(file.getAbsolutePath().endsWith(".c")) {
+			sourceFiles.push(file);
+		}
+	}
+	
+	Clava.getData().setUserIncludes(folders);
 
 	// Add files to tree
-	for(var filename of sourceFiles) {
-		var file = SDVBSBenchmarkResources.getFile(this._version + "/" + filename);
+	for(var file of sourceFiles) {
 		var clavaJPFile = ClavaJoinPoints.file(file);
 		Clava.addFile(clavaJPFile);	
 	}
+	
+	
+}
+
+SDVBSBenchmarkInstance.prototype._executePrivate = function () {
+	var dataPath = "vision/benchmarks/" + this._benchmarkName.toLowerCase() + "/data/" + this._inputSize.toLowerCase();
+	var benchmarkPath = "vision/benchmarks/" + this._benchmarkName.toLowerCase() + "/src/c/";
+
+	this._currentExecutor.setWorkingDir(SDVBSBenchmarkResources.getFolder(dataPath).getAbsolutePath());
+	this._currentExecutor.execute([this._currentExe.getAbsolutePath(), "./"]);
+	
+	this._currentExecutor.setPrintToConsole(true);
+	
+	return this._currentExecutor;
 }
