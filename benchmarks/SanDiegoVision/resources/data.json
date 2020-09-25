@@ -1,0 +1,4 @@
+{
+	"names": ["disparity", "sift", "featureTracking"],
+	"sizes": ["SQCIF", "QCIF", "CIF", "FullHD"]
+}
