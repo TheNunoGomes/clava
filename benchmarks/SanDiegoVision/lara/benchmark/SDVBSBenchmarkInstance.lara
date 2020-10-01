@@ -20,7 +20,6 @@ function SDVBSBenchmarkInstance(benchmarkName, inputSize) {
 	this._previousStandard = undefined;
 	this._previousFlags = undefined;
 	
-	// Add -lm
 	this.getCMaker().addLibs("m");
 	this.getCMaker().addFlags("-DGCC", "-DCHECK");
 	this.getCMaker().setName(this._benchmarkName);

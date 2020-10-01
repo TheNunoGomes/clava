@@ -1,0 +1,158 @@
+import lara.benchmark.SDVBSBenchmarkSet;
+import lara.benchmark.BenchmarkSet;
+import lara.code.Timer;
+
+import lara.utils.Utils;
+
+import clava.ClavaJoinPoints;
+import clava.gprofer.Gprofer;
+
+import weaver.Query;
+
+aspectdef Main	
+	for(var benchmark of setupSanDiego("sift", ["QCIF"])) {
+		var i;
+		//*
+		Utils.removeMethodCalls([
+			"assert", 
+			"photonReportTiming", 
+			"photonPrintTiming", 
+			"photonStartTiming", 
+			"photonEndTiming",
+			"printf"
+		]);
+		//*/
+		Utils.timeMethodCalls("sift");
+		
+		replacePowCalls();
+		replaceDoublesWithFloats();
+		loopSearch();
+		
+		//benchmark.execute();
+	}
+end
+
+function setupSanDiego(benchmarkNames, inputSizes) {
+	var sdvbs = new SDVBSBenchmarkSet();
+	sdvbs.setInputSizes(inputSizes);
+	sdvbs.setBenchmarks(benchmarkNames);
+	
+	return sdvbs;
+}
+
+function loopSearch() {
+	for(var chain of Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).search("loop", {kind: "for"}).search("loop", {kind: "for"}).chain()) {
+		
+		println("\n\n");
+		
+		println(chain["loop_1"].code);
+		
+		println("\n\n");
+		
+		println(chain["loop_2"].code);
+
+		println("\n\n");
+		
+		for(var statement of Utils.getExclusiveLoopStatements(chain["loop_1"], chain["loop_2"])) {
+			println(statement.code);
+		}
+		println("\n\n");
+
+	/* PSEUDO CODIGO
+	var direction = variavel usada nos Macros
+
+	(O iterador a alterar sera o que for detetado em "direction". Abaixo, o caso especifico em que alteramos j)
+
+	VAR node = (
+      	//Moldura superior
+		for(j = 0; j < W; ++j)
+			for(i = 0; i < N; ++i)
+     	     	for(k=0; k<=j+W; k++)
+					subsref(out,j,i) += subsref(buffer,k,i) * temp[k+W-j]; (SUBSTITUIDO PELA MACRO)
+     	 //Valores interiores da matriz
+     	 for(j = W; j < M-W-1; ++j)
+     	 	for(i = 0; i < N; ++i)
+     	     	for(k=0; k<=2*W; k++)
+     	         		subsref(out,j,i) += subsref(buffer,k+j-W,i) * temp[k]; (SUBSTITUIDO PELA MACRO)
+     	 //Moldura inferior
+	 	 for(j = M-W-1; j < M; ++j)
+     	 	for(i = 0; i < N; ++i)
+     	     	for(k=0; k<=M+W-j-1; k++)
+     	     	    subsref(out,j,i) += subsref(buffer,k+j-W,i) * temp[k]; (SUBSTITUIDO PELA MACRO)
+	)
+	loop_0.replaceWith(node)
+	
+	*/
+	}
+}
+
+/** 
+* Replace literal double arguments in float returning calls with a literal float argument.
+* Example: '0.5' is replaced by '0.5f' if it's an argument of a float returning method.
+* Limitations: doubles with lots of significant digits are also turned into floats, which
+*			may cause	loss of information, distortion, or other issues.
+*			These limitations do not express themselves in the Vision benchmarks.
+* @author {Nuno Gomes}
+*/
+function replaceDoublesWithFloats() {
+	println("Replacing doubles.");
+	for(var $call of Query.search("call")) {
+		if($call.type.code !== "float" && $call.type.code !== "F2D" && $call.type.code !== "float *" && $call.type.code !== "F2D *") {
+			continue;
+		}
+		for(var argument of $call.args) {
+			if(argument.type.code !== "double") {
+				continue;
+			}
+			for(var expression of argument.descendants) {
+				if(expression.type.code === "double" && expression.descendants.length === 0) {
+					println("Replacing double "+ expression.code + " for float " + expression.code + 
+							"f in " + $call.code + " of type " + $call.type.code + ".");
+					expression.replaceWith(expression.code + "f");
+				}
+			}
+		}
+	}
+}
+
+/** 
+* Replace every call of the function pow(k, n), with:
+* k * (... n times ...) * k, when n >= 2
+* k, when n = 1
+* 1, when n = 0
+* Limitations: negative values of n
+* @author {Tiago Lascasas}
+*/
+function replacePowCalls() {
+	println("Replacing 'pow()' calls.");
+	var changes = true;
+	while(changes) {
+		changes = false;
+		for(var $call of Query.search("call", {name: "pow"})) {
+			if (!($call.args[1].type === "int" || /[0-9]\d*/.test($call.args[1].code)))
+				continue;
+			var power = parseInt($call.args[1].code);
+			var expression = ClavaJoinPoints.parenthesis($call.args[0]);
+			if(power >= 2) {
+				node = ClavaJoinPoints.binaryOp("mul", expression.copy(), expression.copy(), $call.args[1].type);
+				for (var i = 3; i <= power; i++) {
+					node = ClavaJoinPoints.binaryOp("mul", expression.copy(), node, $call.args[1].type);
+				}
+				$call.replaceWith(node);
+				
+				println("Replacing " + $call.code + " call for " + node.code + ".");
+				changes = true;
+			}
+			else if (power == 1) {
+				$call.replaceWith(expression);
+				println("Replacing " + $call.code + " call.");// for " + expression.code + ".");
+				changes = true;
+			}
+			else if (power == 0) {
+				println("Replacing " + $call.code + " call for 1.");
+				$call.replaceWith(ClavaJoinPoints.integerLiteral(1));
+				changes = true;
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+import clava.ClavaJoinPoints;
+
+var Utils = {};
+
+Utils.getExclusiveLoopStatements = function(outterLoop, innerLoop) {
+	var exclusiveStatements = outterLoop.body.stmts;
+	var once = false;
+	
+	exclusiveStatements.forEach((outterStatement, index) => {
+		for(var innerStatement of innerLoop.body.stmts) {
+			if(outterStatement.code === innerStatement.code) {
+				if(once)
+					exclusiveStatements.splice(index, 1);
+				else {
+					exclusiveStatements.splice(index - 3, 4);
+					once = true;
+				};
+				break;
+			}
+		}
+	});
+	return exclusiveStatements;
+}
+
+
+/** 
+* Insert Timers around the specified method.
+* @param {method} - the method around which to insert the timers.
+* @author {Nuno Gomes}
+*/
+Utils.timeMethodCalls = function(method) { 
+	println("Inserting timers around all '" + method + "' calls.");
+	for(var $call of Query.search("call", {name: method})) {
+		timer = new Timer();
+		timer.time($call);
+		
+	}
+}
+
+
+/**
+* Remove specified methods from the original code.
+* @param {methods} - array of strings with all the methods to remove.
+* @author {Nuno Gomes}	
+*/
+Utils.removeMethodCalls = function(methods) {
+	println("Removing calls to irrelevant methods.");
+	var changes;
+	for(var method of methods) {
+		changes = true;
+		while(changes) {
+			changes = false;
+			for(var $call of Query.search("call", {name: method})) {
+				$call.replaceWith("");
+				changes = true;
+			}
+		}
+	}
+}
