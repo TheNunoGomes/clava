@@ -2,13 +2,13 @@ import clava.ClavaJoinPoints;
 
 var Utils = {};
 
-Utils.getExclusiveLoopStatements = function(outterLoop, innerLoop) {
-	var exclusiveStatements = outterLoop.body.stmts;
+Utils.getExclusiveLoopStatements = function(outerLoop, innerLoop) {
+	var exclusiveStatements = outerLoop.body.stmts;
 	var once = false;
 	
-	exclusiveStatements.forEach((outterStatement, index) => {
+	exclusiveStatements.forEach((outerStatement, index) => {
 		for(var innerStatement of innerLoop.body.stmts) {
-			if(outterStatement.code === innerStatement.code) {
+			if(outerStatement.code === innerStatement.code) {
 				if(once)
 					exclusiveStatements.splice(index, 1);
 				else {
