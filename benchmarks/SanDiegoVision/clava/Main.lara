@@ -40,29 +40,19 @@ function setupSanDiego(benchmarkNames, inputSizes) {
 	return sdvbs;
 }
 
+/**
+* Limitations: Only works for loops with 3 nesting levels - can be worked around by looking at the 3 innermost loops.
+*/
 function loopSearch() {
-	for(var chain of Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).search("loop", {kind: "for"}).search("loop", {kind: "for"}).chain()) {
-		
-		println("\n\n");
-		
-		println(chain["loop_1"].code);
-		
-		println("\n\n");
-		
-		println(chain["loop_2"].code);
+	for(var chain of Query.search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {
+		var direction = Utils.getDirectionIterator(chain);
 
-		println("\n\n");
-		
-		for(var statement of Utils.getExclusiveLoopStatements(chain["loop_1"], chain["loop_2"])) {
-			println(statement.code);
-		}
+		//If the intermediate loop has dependencies on more than one iterator, this transformation cannot be applied.
+		if(!direction) continue;
+		println(chain["loop_0"].code);
 		println("\n\n");
 
 	/* PSEUDO CODIGO
-	var direction = variavel usada nos Macros
-
-	(O iterador a alterar sera o que for detetado em "direction". Abaixo, o caso especifico em que alteramos j)
-
 	VAR node = (
       	//Moldura superior
 		for(j = 0; j < W; ++j)

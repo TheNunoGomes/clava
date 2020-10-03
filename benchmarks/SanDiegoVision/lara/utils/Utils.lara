@@ -2,6 +2,22 @@ import clava.ClavaJoinPoints;
 
 var Utils = {};
 
+Utils.getDirectionIterator = function(loopChain) { 
+	var iterators = [loopChain["loop_0"].controlVar, loopChain["loop_1"].controlVar, loopChain["loop_2"].controlVar];
+	var direction;
+	for(var statement of Utils.getExclusiveLoopStatements(loopChain["loop_1"], loopChain["loop_2"])) {
+		for(var descendant of statement.descendants.filter(descendant => {
+			return iterators.contains(descendant.code);
+		})) {
+			if(!direction)
+				direction = descendant.code;
+			else if(direction != descendant.code)
+				return null;
+		}
+	}
+	return direction;
+}
+
 Utils.getExclusiveLoopStatements = function(outerLoop, innerLoop) {
 	var exclusiveStatements = outerLoop.body.stmts;
 	var once = false;
