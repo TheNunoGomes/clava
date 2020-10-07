@@ -2,6 +2,24 @@ import clava.ClavaJoinPoints;
 
 var Utils = {};
 
+Utils.getCondExpression = function(controlVar, condRelation, endValue) {
+	switch(condRelation) {
+	case "lt":
+		return controlVar + " < " + endValue + ";";
+	case "gt":
+		return controlVar + " > " + endValue + ";";
+	case "le":
+		return controlVar + " <= " + endValue + ";";
+	case "ge":
+		return controlVar + " >= " + endValue + ";";
+	case "eq":
+		return controlVar + " == " + endValue + ";";
+	case "ne":
+		return controlVar + " != " + endValue + ";";
+	}
+
+	return null;
+}
 Utils.getDirectionIterator = function(loopChain) { 
 	var iterators = [loopChain["loop_0"].controlVar, loopChain["loop_1"].controlVar, loopChain["loop_2"].controlVar];
 	var direction;

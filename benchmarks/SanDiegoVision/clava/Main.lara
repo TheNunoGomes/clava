@@ -12,7 +12,7 @@ import weaver.Query;
 aspectdef Main	
 	for(var benchmark of setupSanDiego("sift", ["QCIF"])) {
 		var i;
-		//*
+		/*
 		Utils.removeMethodCalls([
 			"assert", 
 			"photonReportTiming", 
@@ -22,10 +22,10 @@ aspectdef Main
 			"printf"
 		]);
 		//*/
-		Utils.timeMethodCalls("sift");
+		//Utils.timeMethodCalls("sift");
 		
-		replacePowCalls();
-		replaceDoublesWithFloats();
+		//replacePowCalls();
+		//replaceDoublesWithFloats();
 		loopSearch();
 		
 		//benchmark.execute();
@@ -44,16 +44,34 @@ function setupSanDiego(benchmarkNames, inputSizes) {
 * Limitations: Only works for loops with 3 nesting levels - can be worked around by looking at the 3 innermost loops.
 */
 function loopSearch() {
-	for(var chain of Query.search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {
+	for(var chain of Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {
 		var direction = Utils.getDirectionIterator(chain);
-
 		//If the intermediate loop has dependencies on more than one iterator, this transformation cannot be applied.
 		if(!direction) continue;
-		println(chain["loop_0"].code);
+		var condExpression = Utils.getCondExpression(chain["loop_0"].controlVar, chain["loop_0"].condRelation.toString(), chain["loop_0"].endValue);
+		
+		println(typeof chain["loop_0"].stepValue);
+		switch(chain["loop_0"].stepValue) {
+			case "1":
+				var stepExpression = "++" + chain["loop_0"].controlVar;
+				break;
+			case "-1":
+				var stepExpression = "--" + chain["loop_0"].controlVar;
+				break;
+			default:
+				var stepExpression = chain["loop_0"].controlVar + " = " + chain["loop_0"].controlVar + " + " + chain["loop_0"].stepValue;
+		}
+		var expression = ClavaJoinPoints.forStmt(chain["loop_0"].init, condExpression, stepExpression, chain["loop_0"].body);
+		println(expression.code);
+
 		println("\n\n");
 
 	/* PSEUDO CODIGO
-	VAR node = (
+
+	1. Construir os 3 loops - parametros base, ainda que errados
+
+	2. Alterar os parametros dos loops - Referencia abaixo, devera ser preciso fazer rebuild da AST
+	2.1. VAR node = (
       	//Moldura superior
 		for(j = 0; j < W; ++j)
 			for(i = 0; i < N; ++i)
