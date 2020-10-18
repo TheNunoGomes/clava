@@ -1,4 +1,7 @@
 import clava.ClavaJoinPoints;
+import lara.code.Timer;
+
+import weaver.Query;
 
 var Utils = {};
 
@@ -67,7 +70,7 @@ Utils.timeMethodCalls = function(method) {
 	for(var $call of Query.search("call", {name: method})) {
 		timer = new Timer();
 		timer.time($call);
-		
+
 	}
 }
 
@@ -85,7 +88,7 @@ Utils.removeMethodCalls = function(methods) {
 		while(changes) {
 			changes = false;
 			for(var $call of Query.search("call", {name: method})) {
-				$call.replaceWith("");
+				$call.ancestor("statement").detach();
 				changes = true;
 			}
 		}

@@ -1,0 +1,21 @@
+import clava.ClavaJoinPoints;
+
+var Templates = {};
+
+Templates.segmentedForLoop = function() {
+	var forLoop = "for() {}";
+
+	var node = ClavaJoinPoints.parenthesis("");
+	var direction;
+	for(var statement of Utils.getExclusiveLoopStatements(loopChain["loop_1"], loopChain["loop_2"])) {
+		for(var descendant of statement.descendants.filter(descendant => {
+			return iterators.contains(descendant.code);
+		})) {
+			if(!direction)
+				direction = descendant.code;
+			else if(direction != descendant.code)
+				return null;
+		}
+	}
+	return direction;
+}

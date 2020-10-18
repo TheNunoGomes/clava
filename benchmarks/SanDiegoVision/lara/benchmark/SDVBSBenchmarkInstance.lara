@@ -43,6 +43,29 @@ SDVBSBenchmarkInstance.prototype._loadPrivate = function() {
 	this._addCode();
 	
 	// Set standard
+	//this._previousStandard = Clava.getData().getStandard();
+	//Clava.getData().setStandard("c99");	
+
+	// Set define
+	//this._previousFlags = Clava.getData().getFlags();
+	//var modifiedFlags = this._previousFlags + " -D" + this._inputSize + "_DATASET -DSDVBS_TIME";
+	//Clava.getData().setFlags(modifiedFlags);
+
+	// Rebuild
+	Clava.rebuild();
+
+}
+
+SDVBSBenchmarkInstance.prototype._loadPrologue = function() {
+	var commonPath = "vision/common/c/";
+	var benchmarkPath = "vision/benchmarks/" + this._benchmarkName.toLowerCase() + "/src/c/";
+	
+	var folders = [SDVBSBenchmarkResources.getFolder(commonPath), SDVBSBenchmarkResources.getFolder(benchmarkPath)];
+
+	Clava.getData().setUserIncludes(folders);
+
+
+	// Set standard
 	this._previousStandard = Clava.getData().getStandard();
 	Clava.getData().setStandard("c99");	
 
@@ -50,13 +73,7 @@ SDVBSBenchmarkInstance.prototype._loadPrivate = function() {
 	this._previousFlags = Clava.getData().getFlags();
 	var modifiedFlags = this._previousFlags + " -D" + this._inputSize + "_DATASET -DSDVBS_TIME";
 	Clava.getData().setFlags(modifiedFlags);
-
-	// Rebuild
-	Clava.rebuild();
-
 }
-
-
 
 SDVBSBenchmarkInstance.prototype._closePrivate = function() {
 	// Restore standard
@@ -96,7 +113,7 @@ SDVBSBenchmarkInstance.prototype._addCode = function() {
 		}
 	}
 	
-	Clava.getData().setUserIncludes(folders);
+	//Clava.getData().setUserIncludes(folders);
 
 	// Add files to tree
 	for(var file of sourceFiles) {
@@ -110,7 +127,6 @@ SDVBSBenchmarkInstance.prototype._addCode = function() {
 SDVBSBenchmarkInstance.prototype._executePrivate = function () {
 	var dataPath = "vision/benchmarks/" + this._benchmarkName.toLowerCase() + "/data/" + this._inputSize.toLowerCase();
 	var benchmarkPath = "vision/benchmarks/" + this._benchmarkName.toLowerCase() + "/src/c/";
-
 	this._currentExecutor.setWorkingDir(SDVBSBenchmarkResources.getFolder(dataPath).getAbsolutePath());
 	this._currentExecutor.execute([this._currentExe.getAbsolutePath(), "./"]);
 	

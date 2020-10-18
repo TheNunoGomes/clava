@@ -63,15 +63,8 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
         int startCol = MAX(i-W,0);
         int endCol = MIN(i+W, N-1);
         int filterStart = MAX(0, W-i);
-
-		assert(j < array->height);
-		assert(j < buffer->height);
-		assert(i < buffer->width);
-        for(k=startCol; k<=endCol; k++) {
-			assert(k < array->width);
-			assert(filterStart < 2*W+1);
+        for(k=startCol; k<=endCol; k++)
             subsref(buffer,j,i) += subsref(array, j, k) * temp[filterStart++];
-		}
       }
     }
  

@@ -34,7 +34,7 @@
     </entry>
     <entry>
       <string>main</string>
-      <string>Main</string>
+      <string></string>
     </entry>
     <entry>
       <string>systemIncludesThreshold</string>
@@ -119,7 +119,7 @@
     </entry>
     <entry>
       <string>parseIncludes</string>
-      <boolean>false</boolean>
+      <boolean>true</boolean>
     </entry>
     <entry>
       <string>javascript</string>
