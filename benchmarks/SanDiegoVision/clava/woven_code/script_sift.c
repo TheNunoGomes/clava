@@ -1,9 +1,13 @@
+#define _POSIX_C_SOURCE 199309L
 #include <stdio.h>
 #include <stdlib.h>
 #include "sift.h"
+#include <time.h>
 /********************************
 Author: Sravanthi Kota Venkata
 ********************************/
+int powCount = 0;
+int dFCount = 0;
 void normalizeImage(F2D *image) {
    int i;
    int rows;
@@ -25,7 +29,6 @@ int main(int argc, char *argv[]) {
    unsigned int *startTime, *endTime, *elapsed;
    char imSrc[100];
    if(argc < 2) {
-      printf("We need input image path\n");
       
       return -1;
    }
@@ -39,14 +42,20 @@ int main(int argc, char *argv[]) {
    /** Normalize the input image to lie between 0-1 **/
    normalizeImage(image);
    /** Extract sift features for the normalized image **/
+   struct timespec clava_timing_start_0, clava_timing_end_0;
+   clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
    frames = sift(image);
+   clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+   double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
    endTime = photonEndTiming();
-   printf("Input size\t\t- (%dx%d)\n", rows, cols);
    elapsed = photonReportTiming(startTime, endTime);
    photonPrintTiming(elapsed);
    free(startTime);
    free(endTime);
    free(elapsed);
+   printf("  Pow calls: %d", powCount);
+   printf("  Floats that were previously doubles were used these many times: %d", dFCount);
    fFreeHandle(frames);
    
    return 0;

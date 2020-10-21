@@ -1,4 +1,4 @@
 {
-	"names": ["disparity", "sift", "tracking", "pca", "stitch", "texture_synthesis", "localization"],
+	"names": ["disparity", "sift", "tracking", "stitch", "texture_synthesis", "pca", "localization"],
 	"sizes": ["SQCIF", "QCIF", "CIF", "FullHD"]
 }

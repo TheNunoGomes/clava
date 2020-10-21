@@ -15,11 +15,11 @@ var dFCount = "dFCount";
 
 aspectdef Main	
 	
-//setDebug(true);
-var benchmarkNames = ["disparity", "sift", "tracking", "pca", "stitch", "texture_synthesis", "localization"];
+setDebug(!true);
+var benchmarkNames = ["sift"];
 for(var benchmarkName of benchmarkNames) {
 	for(var benchmark of setupSanDiego(benchmarkName, ["FullHD"])) {
-		/*
+		
 		var mainFunction = Query.search("function", { name: "main" }).first();
 		var mainFile = mainFunction.ancestor("file");
 		mainFile.addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
@@ -36,24 +36,24 @@ for(var benchmarkName of benchmarkNames) {
 			"printf"
 		]);
 		//
-		
+		var logLocation = mainFunction.descendants("statement")[mainFunction.descendants("statement").length-2];
 		loggerPow.text("  Pow calls: ").int("powCount");
-		loggerPow.log(Query.search("call", { name: benchmarkName }).first());
+		loggerPow.logBefore(logLocation);
 		
 		loggerDF.text("  Floats that were previously doubles were used these many times: ").int("dFCount");
-		loggerDF.log(Query.search("call", { name: benchmarkName  }).first());
+		loggerDF.logBefore(logLocation);
 		//*/
-		//Utils.timeMethodCalls(benchmarkName);
-		//for(var i = 0; i < 10; i++)
-		//	benchmark.execute();
+		Utils.timeMethodCalls(benchmarkName);
 		
 		replaceDoublesWithFloats();
 		replacePowCalls();
 		// loopSearch();
 		
-		//benchmark.compile();
+		benchmark.compile();
 		//for(var i = 0; i < 10; i++)
-		//benchmark.execute();
+
+		var execution = benchmark.execute();
+		println(execution.getReturnValue());
 	}
 }
 end
@@ -143,14 +143,18 @@ function replaceDoublesWithFloats() {
 				if(expression.type.code === "double" && expression.descendants.length === 0) {
 					//println("Replacing double "+ expression.code + " for float " + expression.code + 
 					//		"f in " + $call.code + " of type " + $call.type.code + ".");
-					//$call.ancestor("file").addGlobal(dFCount, ClavaJoinPoints.builtinType("int"), "0");
-					//$call.ancestor("statement").insertBefore(dFCount + "++;");
+					if(!functions.includes($call.ancestor("file").name)) {
+						functions.push($call.ancestor("file").name);
+						$call.ancestor("file").addGlobal(dFCount, ClavaJoinPoints.builtinType("int"), "0");
+					}
+					$call.ancestor("statement").insertBefore(dFCount + "++;");
 					expression.replaceWith(expression.code + "f");
 					count++;
 				}
 			}
 		}
 	}
+	println(functions);
 	println("Number of doubles replaced with floats: " + count);
 }
 
@@ -170,37 +174,50 @@ function replacePowCalls() {
 	while(changes) {
 		changes = false;
 		for(var $call of Query.search("call", {name: "pow"})) {
-			var callFile = $call.ancestor("file");
 			if (!($call.args[1].type === "int" || /[0-9]\d*/.test($call.args[1].code)))
 				continue;
 			var power = parseInt($call.args[1].code);
 			var expression = ClavaJoinPoints.parenthesis($call.args[0]);
 			if(power >= 2) {
-				node = ClavaJoinPoints.binaryOp("mul", expression.copy(), expression.copy(), $call.args[1].type);
+				node = ClavaJoinPoints.binaryOp("mul", expression.copy(), expression.copy(), $call.args[0].type);
 				for (var i = 3; i <= power; i++) {
-					node = ClavaJoinPoints.binaryOp("mul", expression.copy(), node, $call.args[1].type);
+					node = ClavaJoinPoints.binaryOp("mul", expression.copy(), node, $call.args[0].type);
 				}
-				//$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
-				//$call.ancestor("statement").insertBefore(powCount + "++;");
+				if(!functions.includes($call.ancestor("file").name)) {
+					functions.push($call.ancestor("file").name);
+					$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
+				}
+				$call.ancestor("statement").insertBefore(powCount + "++;");
+
+				// Wrap my node in parenthesis in case it is part of a denominator
+				node = ClavaJoinPoints.parenthesis(node);
+				
 				$call.replaceWith(node);
 				changes = true;
 				count++;
 			}
 			else if (power == 1) {
-				//$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
-				//$call.ancestor("statement").insertBefore(powCount+ "++;");
+				if(!functions.includes($call.ancestor("file").name)) {
+					functions.push($call.ancestor("file").name);
+					$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
+				}
+				$call.ancestor("statement").insertBefore(powCount + "++;");
 				$call.replaceWith(expression);
 				changes = true;
 				count++;
 			}
 			else if (power == 0) {
-				//$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
-				//$call.ancestor("statement").insertBefore(powCount + "++;");
+				if(!functions.includes($call.ancestor("file").name)) {
+					functions.push($call.ancestor("file").name);
+					$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
+				}
+				$call.ancestor("statement").insertBefore(powCount + "++;");
 				$call.replaceWith(ClavaJoinPoints.integerLiteral(1));
 				changes = true;
 				count++;
 			}
 		}
 	}
+	println(functions);
 	println("Number of pow() calls replaced: " + count);
 }

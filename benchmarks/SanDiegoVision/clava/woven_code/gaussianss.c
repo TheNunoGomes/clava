@@ -2,6 +2,8 @@
 /********************************
 Author: Sravanthi Kota Venkata
 ********************************/
+extern int dFCount;
+extern int powCount;
 F2D * resizeArray(F2D *array, int omin) {
    F2D *prev = ((void *) 0);
    F2D *current = array;
@@ -45,8 +47,11 @@ F2D ** gaussianss(F2D *array, float sigman, int O, int S, int omin, int smin, in
    F2D **gss;
    F2D *I = array;
    // Scale multiplicative step
-   k = pow(2, (1.0 / S));
-   dsigma0 = sigma0 * sqrt(1 - (1.0 / pow(k, 2))); // Scale step factor
+   dFCount++;
+   k = pow(2, (1.0f / S));
+   dFCount++;
+   powCount++;
+   dsigma0 = sigma0 * sqrt(1 - (1.0f / (k) * (k))); // Scale step factor
    // If omin < 0, multiply the size of the image.
    I = resizeArray(I, omin);
    M = I->height;
@@ -54,7 +59,6 @@ F2D ** gaussianss(F2D *array, float sigman, int O, int S, int omin, int smin, in
    so = -smin + 1; // Index offset
    gss = malloc(O * intervals * sizeof(F2D *));
    if(gss == ((void *) 0)) {
-      printf("Could not allocate memory\n");
       
       return ((void *) 0);
    }

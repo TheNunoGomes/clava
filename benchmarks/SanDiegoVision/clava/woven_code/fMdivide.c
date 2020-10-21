@@ -8,7 +8,6 @@ F2D * fMdivide(F2D *a, F2D *b) {
    rows = a->height;
    cols = a->width;
    if(rows != b->height || cols != b->width) {
-      printf("fMDivide Mismatch = \nrows: %d\t%d\ncols: %d\t%d\n", rows, b->height, cols, b->width);
       
       return ((void *) 0);
    }

@@ -59,7 +59,6 @@ I2D * readImage(char const *pathName) {
       srcImage = iMallocHandle(height, width);
       // Conditions to check whether the BMP is interleaved and handling few exceptions
       if(srcImage->height <= 0 || srcImage->width <= 0 || signature[0] != 'B' || signature[1] != 'M' || (bits_per_pixel != 24 && bits_per_pixel != 8)) {
-         printf("ERROR in BMP read: The input file is not in standard BMP format");
          
          return ((void *) 0);
       }

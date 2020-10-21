@@ -4,6 +4,8 @@
 /********************************
 Author: Sravanthi Kota Venkata
 ********************************/
+int powCount = 0;
+int dFCount = 0;
 int main(int argc, char *argv[]) {
    int rows = 32;
    int cols = 32;
@@ -16,7 +18,6 @@ int main(int argc, char *argv[]) {
    int WIN_SZ = 8, SHIFT = 64;
    FILE *fp;
    if(argc < 2) {
-      printf("We need input image path and output path\n");
       
       return -1;
    }
@@ -29,7 +30,6 @@ int main(int argc, char *argv[]) {
    start = photonStartTiming();
    retDisparity = getDisparity(imleft, imright, WIN_SZ, SHIFT);
    endC = photonEndTiming();
-   printf("Input size\t\t- (%dx%d)\n", rows, cols);
    /** Self checking - use expected.txt from data directory  **/
    /** Self checking done **/
    elapsed = photonReportTiming(start, endC);

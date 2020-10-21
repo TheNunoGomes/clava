@@ -10,7 +10,6 @@ F2D * readFile(unsigned char *fileName) {
    int i, j;
    fp = fopen(fileName, "r");
    if(fp == ((void *) 0)) {
-      printf("Error in file %s\n", fileName);
       
       return ((void *) 0);
    }

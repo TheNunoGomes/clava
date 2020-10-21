@@ -20,7 +20,6 @@ int selfCheck(I2D *in1, char *path, int tol) {
    sprintf(file, "%s/expected_C.txt", path);
    fd = fopen(file, "r");
    if(fd == ((void *) 0)) {
-      printf("Error: Expected file not opened \n");
       
       return -1;
    }
@@ -30,21 +29,17 @@ int selfCheck(I2D *in1, char *path, int tol) {
    }
    count--;
    if(count < (r1 * c1)) {
-      printf("Checking error: dimensions mismatch. Expected = %d, Observed = %d \n", count, (r1 * c1));
       
       return -1;
    }
    for(i = 0; i < r1 * c1; i++) {
       if((abs(data[i]) - abs(buffer[i])) > tol || (abs(buffer[i]) - abs(data[i])) > tol) {
-         printf("Checking error: Values mismtach at %d element\n", i);
-         printf("Expected value = %d, observed = %d\n", buffer[i], data[i]);
          
          return -1;
       }
    }
    fclose(fd);
    free(buffer);
-   printf("Verification\t\t- Successful\n");
    
    return ret;
 }
