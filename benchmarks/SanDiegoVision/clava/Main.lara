@@ -16,7 +16,7 @@ var dFCount = "dFCount";
 aspectdef Main	
 	
 setDebug(!true);
-var benchmarkNames = ["sift"];
+var benchmarkNames = ["pca"];
 for(var benchmarkName of benchmarkNames) {
 	for(var benchmark of setupSanDiego(benchmarkName, ["FullHD"])) {
 		
@@ -174,22 +174,28 @@ function replacePowCalls() {
 	while(changes) {
 		changes = false;
 		for(var $call of Query.search("call", {name: "pow"})) {
+			// If power is not a literal integer, no change is supported
 			if (!($call.args[1].type === "int" || /[0-9]\d*/.test($call.args[1].code)))
 				continue;
 			var power = parseInt($call.args[1].code);
 			var expression = ClavaJoinPoints.parenthesis($call.args[0]);
 			if(power >= 2) {
+				// Store first 2 multiplication operands in node
 				node = ClavaJoinPoints.binaryOp("mul", expression.copy(), expression.copy(), $call.args[0].type);
+				// Store the rest of the multiplication operands in node
+				// Stop after power is reached
 				for (var i = 3; i <= power; i++) {
 					node = ClavaJoinPoints.binaryOp("mul", expression.copy(), node, $call.args[0].type);
 				}
+				// Introduce global variable in file
 				if(!functions.includes($call.ancestor("file").name)) {
 					functions.push($call.ancestor("file").name);
 					$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
 				}
+				// Add 1 execution counter incrementation
 				$call.ancestor("statement").insertBefore(powCount + "++;");
 
-				// Wrap my node in parenthesis in case it is part of a denominator
+				// Wrap new node in parenthesis to guarantee arithmetic consistency
 				node = ClavaJoinPoints.parenthesis(node);
 				
 				$call.replaceWith(node);
@@ -197,25 +203,31 @@ function replacePowCalls() {
 				count++;
 			}
 			else if (power == 1) {
+				// Introduce global variable in file
 				if(!functions.includes($call.ancestor("file").name)) {
 					functions.push($call.ancestor("file").name);
 					$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
 				}
+				// Add 1 execution counter incrementation
 				$call.ancestor("statement").insertBefore(powCount + "++;");
+				
 				$call.replaceWith(expression);
 				changes = true;
 				count++;
 			}
 			else if (power == 0) {
+				// Introduce global variable in file
 				if(!functions.includes($call.ancestor("file").name)) {
 					functions.push($call.ancestor("file").name);
 					$call.ancestor("file").addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
 				}
+				// Add 1 execution counter incrementation
 				$call.ancestor("statement").insertBefore(powCount + "++;");
 				$call.replaceWith(ClavaJoinPoints.integerLiteral(1));
 				changes = true;
 				count++;
 			}
+			// Negative exponents are not supported, yet
 		}
 	}
 	println(functions);
