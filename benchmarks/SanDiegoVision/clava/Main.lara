@@ -48,17 +48,17 @@ for(var benchmarkName of benchmarkNames) {
 		Transformations.replaceDoublesWithFloats();
 		Transformations.replacePowCalls();
 		//*/
-		
+		/*
 		var loggerOut = new Logger();
 		var array = Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain();
 		var chain = array[array.length - 1];
 		loggerOut.text("out = ").double("out->data[(j) * out->width + (i)]");
 		loggerOut.log(chain["loop_2"].body.stmts[0]);
-		
-		Transformations.loopFission();
-		benchmark.compile();
+		*/
+		Transformations.loopFission(true);
+		//benchmark.compile();
 		//for(var i = 0; i < 10; i++)
-		benchmark.execute();
+		//	benchmark.execute();
 		//println(ex.getReturnValue());
 	}
 }
