@@ -133,6 +133,11 @@ Transformations.loopFission = function(log) {
 		outerLoop.replaceWith(outerLoops[0]);
 
 	}
+
+	if(log) {
+		var imsmooth = Query.search("function", {name: "imsmooth"}).first();
+		println(imsmooth.code);
+	}
 }
 
 
