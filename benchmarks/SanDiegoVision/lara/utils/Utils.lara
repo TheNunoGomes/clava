@@ -23,17 +23,16 @@ Utils.getCondExpression = function(controlVar, condRelation, endValue) {
 
 	return null;
 }
-Utils.getDirectionIterator = function(loopChain) { 
-	var iterators = [loopChain["loop_0"].controlVar, loopChain["loop_1"].controlVar, loopChain["loop_2"].controlVar];
+Utils.getDirectionIterator = function(exclusiveLoopStatements, iterators) { 
 	var direction;
-	for(var statement of Utils.getExclusiveLoopStatements(loopChain["loop_1"], loopChain["loop_2"])) {
+	for(var statement of exclusiveLoopStatements) {
 		for(var descendant of statement.descendants.filter(descendant => {
 			return iterators.contains(descendant.code);
 		})) {
 			if(!direction)
 				direction = descendant.code;
 			else if(direction != descendant.code)
-				return null;
+				throw "Transformation not applicable to loop";
 		}
 	}
 	return direction;
