@@ -34,7 +34,7 @@
     </entry>
     <entry>
       <string>main</string>
-      <string></string>
+      <string>Main</string>
     </entry>
     <entry>
       <string>systemIncludesThreshold</string>
@@ -181,7 +181,7 @@
     </entry>
     <entry>
       <string>C/C++ Standard</string>
-      <pt.up.fe.specs.clava.language.Standard>CXX11</pt.up.fe.specs.clava.language.Standard>
+      <pt.up.fe.specs.clava.language.Standard>C99</pt.up.fe.specs.clava.language.Standard>
     </entry>
     <entry>
       <string>workspace_extra</string>
