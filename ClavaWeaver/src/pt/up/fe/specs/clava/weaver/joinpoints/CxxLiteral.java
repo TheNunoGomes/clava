@@ -1,8 +1,5 @@
-package pt.up.fe.specs.clava.weaver.memoi;
-import java.util.function.Predicate;
-
 /**
- * Copyright 2019 SPeCS.
+ * Copyright 2020 SPeCS.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -14,7 +11,25 @@ import java.util.function.Predicate;
  * specific language governing permissions and limitations under the License. under the License.
  */
 
-public class InsertPolicy {
+package pt.up.fe.specs.clava.weaver.joinpoints;
 
-    public static final Predicate<MergedMemoiEntry> ALWAYS = (e) -> true;
+import pt.up.fe.specs.clava.ClavaNode;
+import pt.up.fe.specs.clava.ast.expr.Literal;
+import pt.up.fe.specs.clava.weaver.abstracts.joinpoints.ALiteral;
+
+public class CxxLiteral extends ALiteral {
+
+    private final Literal literal;
+
+    public CxxLiteral(Literal literal) {
+        super(new CxxExpression(literal));
+
+        this.literal = literal;
+    }
+
+    @Override
+    public ClavaNode getNode() {
+        return literal;
+    }
+
 }

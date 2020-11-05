@@ -13,6 +13,7 @@
 
 package pt.up.fe.specs.clava.weaver.memoi;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -21,65 +22,104 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.function.Predicate;
 
+import pt.up.fe.specs.JacksonPlus.SpecsJackson;
+import pt.up.fe.specs.clava.weaver.memoi.comparator.MeanComparator;
+import pt.up.fe.specs.clava.weaver.memoi.policy.apply.SimplePolicies;
+import pt.up.fe.specs.clava.weaver.memoi.policy.insert.AlwaysInsert;
 import pt.up.fe.specs.util.SpecsCheck;
 
-public class DirectMappedTable {
+public class DirectMappedTable implements java.io.Serializable {
+
+    private static final long serialVersionUID = 3951666310732380835L;
 
     private static final List<Integer> ALLOWED_SIZES = Arrays.asList(256, 512, 1024, 2048, 4096, 8192, 16384, 32768,
             65536);
     private static final int BASE = 16;
     private static final int KEY_STRING_LENGTH = 16;
-    private final MergedMemoiReport report;
-    private final int indexBits;
-    private final int numSets;
-    private final Predicate<MergedMemoiEntry> insertPred;
-    private final Comparator<MergedMemoiEntry> countComparator;
+    private MergedMemoiReport report;
+    private int indexBits;
+    private int numSets;
+    private Predicate<MergedMemoiEntry> insertPred;
+    private Comparator<MergedMemoiEntry> countComparator;
+
+    private Map<String, MergedMemoiEntry> table;
+    int totalCollisions;
+    int totalElements;
+    int maxCollision;
 
     private boolean debug;
 
-    /**
-     * Defaults to using mean comparator.
-     * 
-     * @param report
-     * @param indexBits
-     * @param numSets
-     * @param insertPred
-     */
-    public DirectMappedTable(MergedMemoiReport report, int numSets,
-            Predicate<MergedMemoiEntry> insertPred) {
+    private DmtStats stats;
 
-        this(report, numSets, insertPred, MemoiComparator.mean(report));
-    }
+    private Predicate<DirectMappedTable> applyPolicy;
 
     /**
-     * Defaults to using the ALWAYS predicate.
+     * Defaults to using {@link AlwaysInsert}, {@link MeanComparator}, and {@link ApplyIfNotEmpty}.
      * 
      * @param report
-     * @param indexBits
-     * @param numSets
-     * @param countComparator
-     */
-    public DirectMappedTable(MergedMemoiReport report, int numSets,
-            Comparator<MergedMemoiEntry> countComparator) {
-
-        this(report, numSets, InsertPolicy.ALWAYS, countComparator);
-    }
-
-    /**
-     * Defaults to using the ALWAYS predicate and the mean comparator.
-     * 
-     * @param report
-     * @param indexBits
      * @param numSets
      */
     public DirectMappedTable(MergedMemoiReport report, int numSets) {
 
-        this(report, numSets, InsertPolicy.ALWAYS, MemoiComparator.mean(report));
+        this(report, numSets, new AlwaysInsert(), new MeanComparator(report), SimplePolicies.NOT_EMPTY);
     }
 
+    /**
+     * Defaults to using {@link MeanComparator} and {@link ApplyIfNotEmpty}.
+     * 
+     * @param report
+     * @param numSets
+     * @param insertPred
+     * @return
+     */
+    public static DirectMappedTable fromInsertPredicate(MergedMemoiReport report, int numSets,
+            Predicate<MergedMemoiEntry> insertPred) {
+
+        return new DirectMappedTable(report, numSets, insertPred, new MeanComparator(report), SimplePolicies.NOT_EMPTY);
+    }
+
+    /**
+     * Defaults to using {@link AlwaysInsert} and {@link ApplyIfNotEmpty}.
+     * 
+     * @param report
+     * @param numSets
+     * @param countComparator
+     * @return
+     */
+    public static DirectMappedTable fromCountComparator(MergedMemoiReport report, int numSets,
+            Comparator<MergedMemoiEntry> countComparator) {
+
+        return new DirectMappedTable(report, numSets, new AlwaysInsert(), countComparator, SimplePolicies.NOT_EMPTY);
+    }
+
+    /**
+     * Defaults to using {@link AlwaysInsert} and {@link MeanComparator}.
+     * 
+     * @param report
+     * @param numSets
+     * @param applyPolicy
+     * @return
+     */
+    public static DirectMappedTable fromApplyPolicy(MergedMemoiReport report, int numSets,
+            Predicate<DirectMappedTable> applyPolicy) {
+
+        return new DirectMappedTable(report, numSets, new AlwaysInsert(), new MeanComparator(report),
+                applyPolicy);
+    }
+
+    /**
+     * Full constructor.
+     * 
+     * @param report
+     * @param numSets
+     * @param insertPred
+     * @param countComparator
+     * @param applyPolicy
+     */
     public DirectMappedTable(MergedMemoiReport report, int numSets,
             Predicate<MergedMemoiEntry> insertPred,
-            Comparator<MergedMemoiEntry> countComparator) {
+            Comparator<MergedMemoiEntry> countComparator,
+            Predicate<DirectMappedTable> applyPolicy) {
 
         int maxSize = ALLOWED_SIZES.get(ALLOWED_SIZES.size() - 1);
 
@@ -91,9 +131,14 @@ public class DirectMappedTable {
         this.indexBits = (int) MemoiUtils.log2(numSets);
         this.insertPred = insertPred;
         this.countComparator = countComparator;
+        this.applyPolicy = applyPolicy;
         this.numSets = numSets;
 
         this.debug = false;
+
+        this.table = generateTable();
+        this.stats = new DmtStats(this);
+        System.out.println(this.stats);
     }
 
     public void setDebug() {
@@ -108,12 +153,14 @@ public class DirectMappedTable {
         return debug;
     }
 
-    public Map<String, MergedMemoiEntry> generate() {
+    public Map<String, MergedMemoiEntry> getTable() {
+
+        return table;
+    }
+
+    private HashMap<String, MergedMemoiEntry> generateTable() {
 
         var table = new HashMap<String, MergedMemoiEntry>();
-
-        int totalCollisions = 0;
-        int maxCollision = 0;
 
         List<MergedMemoiEntry> counts = report.getSortedCounts(countComparator.reversed());
 
@@ -147,17 +194,12 @@ public class DirectMappedTable {
             }
         }
 
-        printTableReport(totalCollisions, counts.size(), maxCollision, table);
-
-        if (isDebug()) {
-            printTable(table);
-        }
+        totalElements = (int) MemoiUtils.mean(report.getElements(), report.getReportCount());
 
         return table;
     }
 
-    private void printTableReport(int totalCollisions, int totalElements, int maxCollision,
-            HashMap<String, MergedMemoiEntry> table) {
+    public void printTableReport() {
 
         int reportCount = report.getReportCount();
 
@@ -293,5 +335,104 @@ public class DirectMappedTable {
         }
 
         return combinedKey.toString();
+    }
+
+    public static DirectMappedTable load(File file) {
+
+        // FileInputStream fileIn = new FileInputStream(file);
+        // ObjectInputStream in = new ObjectInputStream(fileIn);
+        // DirectMappedTable dmt = (DirectMappedTable) in.readObject();
+        // in.close();
+        // fileIn.close();
+
+        return SpecsJackson.fromFile(file, DirectMappedTable.class, true);
+    }
+
+    public static void save(File file, DirectMappedTable dmt) {
+
+        // FileOutputStream fileOut = new FileOutputStream(file);
+        // ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        // out.writeObject(dmt);
+        // out.close();
+        // fileOut.close();
+
+        SpecsJackson.toFile(dmt, file, true);
+    }
+
+    public MergedMemoiReport getReport() {
+        return report;
+    }
+
+    public void setReport(MergedMemoiReport report) {
+        this.report = report;
+    }
+
+    public int getIndexBits() {
+        return indexBits;
+    }
+
+    public void setIndexBits(int indexBits) {
+        this.indexBits = indexBits;
+    }
+
+    public int getNumSets() {
+        return numSets;
+    }
+
+    public void setNumSets(int numSets) {
+        this.numSets = numSets;
+    }
+
+    public Predicate<MergedMemoiEntry> getInsertPred() {
+        return insertPred;
+    }
+
+    public void setInsertPred(Predicate<MergedMemoiEntry> insertPred) {
+        this.insertPred = insertPred;
+    }
+
+    public Comparator<MergedMemoiEntry> getCountComparator() {
+        return countComparator;
+    }
+
+    public void setCountComparator(Comparator<MergedMemoiEntry> countComparator) {
+        this.countComparator = countComparator;
+    }
+
+    public int getTotalCollisions() {
+        return totalCollisions;
+    }
+
+    public void setTotalCollisions(int totalCollisions) {
+        this.totalCollisions = totalCollisions;
+    }
+
+    public int getTotalElements() {
+        return totalElements;
+    }
+
+    public void setTotalElements(int totalElements) {
+        this.totalElements = totalElements;
+    }
+
+    public int getMaxCollision() {
+        return maxCollision;
+    }
+
+    public void setMaxCollision(int maxCollision) {
+        this.maxCollision = maxCollision;
+    }
+
+    public void setTable(Map<String, MergedMemoiEntry> table) {
+        this.table = table;
+    }
+
+    public DmtStats getStats() {
+        return stats;
+    }
+
+    public boolean testPolicy() {
+
+        return applyPolicy.test(this);
     }
 }

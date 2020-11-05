@@ -1,9 +1,5 @@
-package pt.up.fe.specs.clava.weaver.memoi;
-import java.util.List;
-import java.util.function.Predicate;
-
 /**
- * Copyright 2019 SPeCS.
+ * Copyright 2020 SPeCS.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
  * the License. You may obtain a copy of the License at
@@ -15,20 +11,27 @@ import java.util.function.Predicate;
  * specific language governing permissions and limitations under the License. under the License.
  */
 
-public class ApplyPolicy {
+package pt.up.fe.specs.clang;
 
-    public static final Predicate<MergedMemoiReport> IF_NOT_EMPTY = (r) -> {
+import java.io.File;
+import java.util.List;
 
-        List<Integer> reportElements = r.getElements();
+public class ClangFiles {
 
-        /*
-        int reportCount = r.getReportCount();
-        
-        double mean = reportElements.stream().reduce(0, Integer::sum) / reportCount;
-        
-        return mean != 0.0;
-        
-        */
-        return reportElements.stream().anyMatch(e -> e != 0.0);
-    };
+    private final File clangExecutable;
+    private final List<String> builtinIncludes;
+
+    public ClangFiles(File clangExecutable, List<String> builtinIncludes) {
+        this.clangExecutable = clangExecutable;
+        this.builtinIncludes = builtinIncludes;
+    }
+
+    public File getClangExecutable() {
+        return clangExecutable;
+    }
+
+    public List<String> getBuiltinIncludes() {
+        return builtinIncludes;
+    }
+
 }

@@ -37,6 +37,7 @@ import pt.up.fe.specs.clava.ClavaOptions;
 import pt.up.fe.specs.clava.ast.extra.TranslationUnit;
 import pt.up.fe.specs.clava.context.ClavaContext;
 import pt.up.fe.specs.clava.language.Standard;
+import pt.up.fe.specs.clava.utils.SourceType;
 import pt.up.fe.specs.util.SpecsCheck;
 import pt.up.fe.specs.util.SpecsIo;
 import pt.up.fe.specs.util.SpecsLogs;
@@ -245,6 +246,11 @@ public class AstDumpParser implements ClangParser {
             arguments.add("-Dcl_khr_fp64");
 
         }
+        // If header file, add the language flag (-x) that corresponds to the standard
+        else if (SourceType.isHeader(sourceFile)) {
+            arguments.add("-x");
+            arguments.add(standard.isCxx() ? "c++" : "c");
+        }
 
         List<String> systemIncludes = new ArrayList<>();
 
@@ -347,6 +353,12 @@ public class AstDumpParser implements ClangParser {
             if (output.isError()) {
                 ClavaLog.debug("Dumper returned an error value: '" + output.getReturnValue() + "'");
             }
+
+            // If exception happened while processing output, throw exception
+            output.getOutputException().ifPresent(exception -> {
+                throw new RuntimeException("Exception while processing the output streams", exception);
+            });
+
             parsedData = output.getStdErr();
             SpecsCheck.checkNotNull(parsedData, () -> "Did not expect error output to be null");
             parsedData.set(ClangParserData.HAS_ERRORS, output.isError());

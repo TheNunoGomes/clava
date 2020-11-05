@@ -41,6 +41,7 @@ const std::map<const std::string, clava::StmtNode > clava::EXPR_DATA_MAP = {
         {"UnresolvedLookupExpr", clava::StmtNode::UNRESOLVED_LOOKUP_EXPR},
         {"UnresolvedMemberExpr", clava::StmtNode::UNRESOLVED_MEMBER_EXPR},
         {"CXXConstructExpr", clava::StmtNode::CXX_CONSTRUCT_EXPR},
+        {"CXXTemporaryObjectExpr", clava::StmtNode::CXX_TEMPORARY_OBJECT_EXPR},
         {"MemberExpr", clava::StmtNode::MEMBER_EXPR},
         {"MaterializeTemporaryExpr", clava::StmtNode::MATERIALIZE_TEMPORARY_EXPR},
         {"BinaryOperator", clava::StmtNode::BINARY_OPERATOR},
@@ -146,6 +147,8 @@ void clava::ClavaDataDumper::dump(clava::StmtNode stmtNode, const Stmt* S) {
             DumpUnresolvedLookupExprData(static_cast<const UnresolvedLookupExpr *>(S)); break;
         case clava::StmtNode ::CXX_CONSTRUCT_EXPR:
             DumpCXXConstructExprData(static_cast<const CXXConstructExpr *>(S)); break;
+        case clava::StmtNode ::CXX_TEMPORARY_OBJECT_EXPR:
+            DumpCXXTemporaryObjectExprData(static_cast<const CXXTemporaryObjectExpr  *>(S)); break;
         case clava::StmtNode ::MEMBER_EXPR:
             DumpMemberExprData(static_cast<const MemberExpr *>(S)); break;
         case clava::StmtNode ::MATERIALIZE_TEMPORARY_EXPR:
@@ -505,18 +508,26 @@ void clava::ClavaDataDumper::DumpCXXConstructExprData(const CXXConstructExpr *E)
     clava::dump(clava::CONSTRUCTION_KIND[E->getConstructionKind()]);
     // Taken from here: http://codergears.com/Blog/?p=328
     clava::dump(E->isTemporaryObject(*Context, E->getConstructor()->getParent()));
+    clava::dump(clava::getId(E->getConstructor(), id));
 }
+
+void clava::ClavaDataDumper::DumpCXXTemporaryObjectExprData(const CXXTemporaryObjectExpr  *E) {
+    DumpCXXConstructExprData(E);
+}
+
 
 void clava::ClavaDataDumper::DumpMemberExprData(const MemberExpr *E) {
     DumpExprData(E);
 
     clava::dump(E->isArrow());
     clava::dump(E->getMemberNameInfo().getAsString());
+    clava::dump(clava::getId(E->getMemberDecl(), id));
+
 //    clava::dump(clava::getId(E->getMemberDecl(), id));
 
     // Found decl
-//    clava::dump(clava::getId(E->getFoundDecl().getDecl(), id));
-//    clava::dump(ACCESS_SPECIFIER[E->getFoundDecl().getAccess()]);
+    clava::dump(clava::getId(E->getFoundDecl().getDecl(), id));
+    clava::dump(ACCESS_SPECIFIER[E->getFoundDecl().getAccess()]);
 
     //clava::dump(clava::getId(E->getMemberDecl(), id));
 

@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 
 import org.lara.interpreter.joptions.config.interpreter.LaraiKeys;
 import org.lara.interpreter.profile.WeavingReport;
+import org.lara.interpreter.weaver.ast.AstMethods;
+import org.lara.interpreter.weaver.ast.TreeNodeAstMethods;
 import org.lara.interpreter.weaver.interf.AGear;
 import org.lara.interpreter.weaver.interf.JoinPoint;
 import org.lara.interpreter.weaver.options.WeaverOption;
@@ -395,7 +397,9 @@ public class CxxWeaver extends ACxxWeaver {
             }
 
             if (source.isDirectory()) {
-                allSources.put(source, source);
+                var sourceMapping = args.get(CxxWeaverOption.FLAT_OUTPUT_FOLDER) ? null : source;
+                allSources.put(source, sourceMapping);
+                // allSources.put(source, source);
                 continue;
             }
 
@@ -1755,6 +1759,16 @@ public class CxxWeaver extends ACxxWeaver {
         // weaverData.pushAst(clonedApp);
     }
 
+    public void pushAst(App app) {
+        // Adjust context in case it is different
+        if (app.getContext() != getContex()) {
+            ClavaLog.debug("Pushing app with different context, might happen due to serialization/deserialization");
+            app.set(ClavaNode.CONTEXT, getContex());
+        }
+
+        weaverData.pushAst(app);
+    }
+
     public void popAst() {
         // Discard app and user values
         weaverData.popAst();
@@ -1993,5 +2007,11 @@ public class CxxWeaver extends ACxxWeaver {
 
     public int getStackSize() {
         return context.getStackSize();
+    }
+
+    @Override
+    public AstMethods getAstMethods() {
+        return new TreeNodeAstMethods<>(this, ClavaNode.class, node -> CxxJoinpoints.create(node),
+                node -> ClavaCommonLanguage.getJoinPointName(node), node -> node.getScopeChildren());
     }
 }

@@ -1,0 +1,65 @@
+import weaver.jp.ClassJp;
+import weaver.Weaver;
+
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'id', {
+	get: function () { 
+		return this.name; 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'name', {
+	get: function () { 
+		return Weaver.AST_METHODS.toJavaJoinPoint(this.astNode).name; 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'superClasses', {
+	get: function () { 
+		return CommonJoinPoints.toJoinPoints(Weaver.toJs(this.astNode.getBases())); 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'allSuperClasses', {
+	get: function () {
+		var allSuperClasses = [];
+
+		for(superClass of this.superClasses){
+			allSuperClasses.push(superClass);
+			allSuperClasses = allSuperClasses.concat(superClass.allSuperClasses);
+		}
+			 
+		return allSuperClasses;
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'allMethods', {
+	get: function () { 	
+		return CommonJoinPoints.toJoinPoints(Weaver.toJs(this.astNode.getMethods()));
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'methods', {
+	get: function () { 	
+		return this.allMethods.filter(method => method.joinPointType === "method");
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'constructors', {
+	get: function () { 	
+		return this.allMethods.filter(method => method.joinPointType === "constructor");
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, 'fields', {
+	get: function () {
+		return CommonJoinPoints.toJoinPoints(Weaver.toJs(this.astNode.getFields())); 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(ClassJp.prototype, '_kind', {
+	get: function () { 	
+		return "class";
+	}
+});
+

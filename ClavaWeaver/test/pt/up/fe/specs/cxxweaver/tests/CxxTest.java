@@ -284,4 +284,19 @@ public class CxxTest {
     public void testThis() {
         newTester().test("ThisTest.lara", "this.cpp");
     }
+
+    @Test
+    public void testMember() {
+        newTester().test("Member.lara", "member.cpp");
+    }
+
+    @Test
+    public void testFieldRef() {
+        newTester().test("FieldRef.lara", "fieldRef.cpp");
+    }
+
+    @Test
+    public void testExpressionDecls() {
+        newTester().test("ExpressionDecls.lara", "expressionDecls.cpp");
+    }
 }

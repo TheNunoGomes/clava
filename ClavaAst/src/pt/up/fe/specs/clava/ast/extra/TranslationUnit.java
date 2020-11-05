@@ -122,7 +122,7 @@ public class TranslationUnit extends ClavaNode {
         //
         // includes = new IncludeManager(includesList, this);
 
-        isCxxUnit = Lazy.newInstance(this::testIsCXXUnit);
+        isCxxUnit = Lazy.newInstanceSerializable(this::testIsCXXUnit);
     }
 
     // @Override
@@ -835,7 +835,7 @@ public class TranslationUnit extends ClavaNode {
     }
 
     @Override
-    public String getNodeId() {
+    public String getStableId() {
         return "file$" + getRelativeFilepath();
     }
 

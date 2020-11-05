@@ -13,16 +13,16 @@
 
 package pt.up.fe.specs.clava.weaver.memoi.stats;
 
-import java.io.File;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import pt.up.fe.specs.clava.weaver.memoi.MemoiComparator;
 import pt.up.fe.specs.clava.weaver.memoi.MemoiUtils;
 import pt.up.fe.specs.clava.weaver.memoi.MergedMemoiReport;
-import pt.up.fe.specs.util.SpecsIo;
+import pt.up.fe.specs.clava.weaver.memoi.comparator.MeanComparator;
 
-public class Stats {
+public class Stats implements java.io.Serializable {
+
+    private static final long serialVersionUID = -3810845133276540446L;
 
     final private double unique;
     final private double totalCalls;
@@ -53,18 +53,11 @@ public class Stats {
         var elements = report.getElements();
         var reportCount = report.getReportCount();
         var calls = report.getCalls();
-        var entries = report.getSortedCounts(MemoiComparator.mean(report).reversed());
-
-        File file = new File("/home/pedro/Desktop/parboil_sunday_experiment/entries.txt");
+        var entries = report.getSortedCounts(new MeanComparator(report).reversed());
 
         var meanCounts = entries.stream()
                 .map(c -> (int) MemoiUtils.mean(c.getCounter(), reportCount))
                 .collect(Collectors.toList());
-
-        SpecsIo.delete(file);
-        entries.forEach(e -> {
-            SpecsIo.append(file, e.toString() + "\n");
-        });
 
         this.unique = MemoiUtils.mean(elements, reportCount);
         this.totalCalls = MemoiUtils.mean(calls, reportCount);
@@ -123,22 +116,44 @@ public class Stats {
 
     public void print() {
 
-        System.out.println("unique inputs: " + unique);
-        System.out.println("total calls: " + totalCalls);
+        System.out.println(toString());
+    }
 
-        System.out.println("repetition: " + repetition);
-        System.out.println("average repetition: " + averageRepetition);
+    @Override
+    public String toString() {
+        StringBuilder b = new StringBuilder();
 
-        System.out.println("top 3: " + String.format("%.2f%%", top3percentage));
-        System.out.println("top 5: " + String.format("%.2f%%", top5percentage));
-        System.out.println("top 10: " + String.format("%.2f%%", top10percentage));
+        b.append("unique inputs: " + unique);
+        b.append(System.lineSeparator());
+        b.append("total calls: " + totalCalls);
+        b.append(System.lineSeparator());
 
-        System.out.println("elements for 5%: " + elements5);
-        System.out.println("elements for 10%: " + elements10);
-        System.out.println("elements for 25%: " + elements25);
-        System.out.println("elements for 50%: " + elements50);
+        b.append("repetition: " + String.format("%.2f%%", repetition));
+        b.append(System.lineSeparator());
+        b.append("average repetition: " + averageRepetition);
+        b.append(System.lineSeparator());
 
-        System.out.println(bw);
-        System.out.println(hist);
+        b.append("top 3: " + String.format("%.2f%%", top3percentage));
+        b.append(System.lineSeparator());
+        b.append("top 5: " + String.format("%.2f%%", top5percentage));
+        b.append(System.lineSeparator());
+        b.append("top 10: " + String.format("%.2f%%", top10percentage));
+        b.append(System.lineSeparator());
+
+        b.append("elements for 5%: " + elements5);
+        b.append(System.lineSeparator());
+        b.append("elements for 10%: " + elements10);
+        b.append(System.lineSeparator());
+        b.append("elements for 25%: " + elements25);
+        b.append(System.lineSeparator());
+        b.append("elements for 50%: " + elements50);
+        b.append(System.lineSeparator());
+
+        b.append(bw);
+        b.append(System.lineSeparator());
+        b.append(hist);
+        b.append(System.lineSeparator());
+
+        return b.toString();
     }
 }

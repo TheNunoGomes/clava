@@ -17,30 +17,70 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import pt.up.fe.specs.clava.weaver.memoi.policy.apply.DmtRepetition;
+import pt.up.fe.specs.clava.weaver.memoi.policy.apply.SimplePolicies;
 
 public class MemoiCodeGen {
 
-    private static final String NAN_BITS = "fff8000000000000";
+    private static final String H = "0x";
+    private static final String NAN_BITS = "0xfff8000000000000";
+    private static Map<String, Predicate<DirectMappedTable>> policyMap;
+    static {
+        policyMap = new HashMap<>();
+        policyMap.put("ALWAYS", SimplePolicies.ALWAYS);
+        policyMap.put("NOT_EMPTY", SimplePolicies.NOT_EMPTY);
+        policyMap.put("OVER_25_PCT", DmtRepetition.OVER_25_PCT);
+        policyMap.put("OVER_50_PCT", DmtRepetition.OVER_50_PCT);
+        policyMap.put("OVER_75_PCT", DmtRepetition.OVER_75_PCT);
+        policyMap.put("OVER_90_PCT", DmtRepetition.OVER_90_PCT);
+    }
 
     /**
-     * 
-     * list of param names
+     * Generates the {@link DirectMappedTable} based on the report.
      * 
      * @param numSets
      * @param report
-     * @param func
+     * @param applyPolicyName
+     * @return
+     */
+    public static DirectMappedTable generateDmt(int numSets, MergedMemoiReport report, String applyPolicyName) {
+
+        Predicate<DirectMappedTable> applyPolicy = policyMap.get(applyPolicyName);
+        if (applyPolicy == null) {
+
+            throw new RuntimeException("Could not translate the apply policy '" + applyPolicyName + "'.");
+        }
+
+        return DirectMappedTable.fromApplyPolicy(report, numSets, applyPolicy);
+    }
+
+    /**
+     * Generates the table code based on the {@link DirectMappedTable} and the parameters.
      * 
-     * 
+     * @param numSets
+     * @param paramNames
+     * @param isMemoiEmpty
+     * @param isMemoiOnline
+     * @param memoiApproxBits
+     * @param dmt
+     * @param inputCount
+     * @param outputCount
+     * @param inputTypes
+     * @param outputTypes
      * @return
      */
     public static String generateDmtCode(int numSets, List<String> paramNames, boolean isMemoiEmpty,
-            boolean isMemoiOnline, int memoiApproxBits, MergedMemoiReport report, int inputCount, int outputCount,
+            boolean isMemoiOnline, int memoiApproxBits, DirectMappedTable dmt, int inputCount, int outputCount,
             List<String> inputTypes, List<String> outputTypes) {
 
         Map<String, MergedMemoiEntry> table = new HashMap<String, MergedMemoiEntry>();
+
         if (!isMemoiEmpty) {
-            table = new DirectMappedTable(report, numSets).generate();
+
+            table = dmt.getTable();
         }
 
         return generateDmtCode(table, numSets, paramNames, isMemoiOnline, memoiApproxBits, inputCount, outputCount,
@@ -60,11 +100,11 @@ public class MemoiCodeGen {
     }
 
     public static String generateUpdateCode(int numSets, List<String> paramNames,
-            boolean isUpdateAlways, int inputCount, int outputCount) {
+            boolean isUpdateAlways, int inputCount, int outputCount, String updatesName, boolean isZeroSim) {
 
         int indexBits = (int) MemoiUtils.log2(numSets);
 
-        return updateCode(inputCount, outputCount, indexBits, paramNames, isUpdateAlways);
+        return updateCode(inputCount, outputCount, indexBits, paramNames, isUpdateAlways, updatesName, isZeroSim);
     }
 
     private static List<String> makeVarNames(List<String> paramNames) {
@@ -89,7 +129,7 @@ public class MemoiCodeGen {
     }
 
     private static String updateCode(int inputCount, int outputCount, int indexBits,
-            List<String> paramNames, boolean isUpdateAlways) {
+            List<String> paramNames, boolean isUpdateAlways, String updatesName, boolean isZeroSim) {
 
         StringBuilder code = new StringBuilder();
 
@@ -104,7 +144,11 @@ public class MemoiCodeGen {
             inputUpdate.append("[");
             inputUpdate.append(v);
             inputUpdate.append("] = ");
-            inputUpdate.append(varNames.get(v));
+            if (isZeroSim) {
+                inputUpdate.append(NAN_BITS); // for 0% -> assign NaN
+            } else {
+                inputUpdate.append(varNames.get(v));
+            }
             inputUpdate.append(";");
 
             inputUpdates.add(inputUpdate.toString());
@@ -119,6 +163,12 @@ public class MemoiCodeGen {
             code.append(varNames.size());
             code.append("] = *(uint64_t*) &result;");
 
+            code.append("\n");
+            if (updatesName != null) {
+                code.append(updatesName);
+                code.append("++;\n");
+            }
+
         } else {
 
             for (int o = 0; o < outputCount; o++) {
@@ -132,13 +182,20 @@ public class MemoiCodeGen {
                 code.append(paramNames.get(outputIndex));
                 code.append(";\n");
             }
+
+            code.append("\n");
+            if (updatesName != null) {
+                code.append(updatesName);
+                code.append("++;\n");
+            }
+
             code.append("\treturn;\n\n");
         }
 
         if (!isUpdateAlways) {
             StringBuilder condition = new StringBuilder("if(");
             condition.append(access);
-            condition.append("[0] == 0x");
+            condition.append("[0] == ");
             condition.append(NAN_BITS);
             condition.append(") {\n");
 
@@ -169,7 +226,7 @@ public class MemoiCodeGen {
 
             testClauses.add(testClause.toString());
         }
-        code.append(String.join(" && ", testClauses));
+        code.append(String.join(" && ", testClauses)); // TODO: for 100% -> negate the condition, use parenthesis
 
         code.append(") {\n");
 
@@ -330,11 +387,9 @@ public class MemoiCodeGen {
 
             MergedMemoiEntry entry = table.get(key);
 
-            final String H = "0x";
             if (entry == null) {
 
                 for (int ic = 0; ic < inputCount; ic++) {
-                    code.append(H);
                     code.append(NAN_BITS);
                     code.append(", ");
                 }

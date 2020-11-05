@@ -1,0 +1,58 @@
+import weaver.jp.FunctionJp;
+import weaver.Weaver;
+
+
+// Override FunctionJp contructor
+var oldFunctionJp = FunctionJp.prototype;
+
+FunctionJp = function(astNode) {
+	// check for definition
+	if(astNode.getDefinition().isPresent())
+		astNode = astNode.getDefinition().get();
+		
+	// Parent constructor
+    DeclJp.call(this,astNode);
+}
+
+FunctionJp.prototype = oldFunctionJp;
+
+_lara_dummy_ = Object.defineProperty(FunctionJp.prototype, 'id', {
+	get: function () { 
+		return this.name; 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(FunctionJp.prototype, 'name', {
+	get: function () {  
+		return Weaver.AST_METHODS.toJavaJoinPoint(this.astNode).name; 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(FunctionJp.prototype, 'signature', {
+	get: function () {  
+		return Weaver.AST_METHODS.toJavaJoinPoint(this.astNode).signature; 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(FunctionJp.prototype, 'returnType', {
+	get: function () {  	
+		return CommonJoinPoints.toJoinPoint(this.astNode.getReturnType()); 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(FunctionJp.prototype, 'stmts', {
+	get: function () {
+		var functionBody = this.astNode.getBody();
+		if(!functionBody.isPresent())
+			return [];
+			
+		var functionStmts = functionBody.get().getStatements();
+		return CommonJoinPoints.toJoinPoints(Weaver.toJs(functionStmts)); 
+	}
+});
+
+_lara_dummy_ = Object.defineProperty(FunctionJp.prototype, 'hasBody', {
+	get: function () {  	
+		return this.astNode.getBody().isPresent(); 
+	}
+});

@@ -1,5 +1,6 @@
 package pt.up.fe.specs.clava.weaver.memoi;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 import pt.up.fe.specs.clava.weaver.memoi.stats.Stats;
 import pt.up.fe.specs.util.SpecsCheck;
+import pt.up.fe.specs.util.SpecsIo;
 
 /**
  * Copyright 2019 SPeCS.
@@ -22,8 +24,17 @@ import pt.up.fe.specs.util.SpecsCheck;
  * specific language governing permissions and limitations under the License. under the License.
  */
 
-public class MergedMemoiReport {
+/**
+ * Represents the merge of several profiling runs for the same function (signature) and call site.
+ * 
+ * @author pedro
+ *
+ */
+public class MergedMemoiReport implements java.io.Serializable {
 
+    private static final long serialVersionUID = -8261433007204000797L;
+
+    private String uuid;
     private String id;
     private String funcSig;
     private int inputCount;
@@ -43,8 +54,13 @@ public class MergedMemoiReport {
 
     private Stats stats;
 
+    public MergedMemoiReport() {
+
+    }
+
     public MergedMemoiReport(MemoiReport report) {
 
+        this.uuid = report.getUuid();
         this.id = report.getId();
         this.funcSig = report.getFuncSig();
         this.outputTypes = report.getOutputTypes();
@@ -53,34 +69,51 @@ public class MergedMemoiReport {
         this.inputTypes = new ArrayList<>(report.getInputTypes());
         this.callSites = new ArrayList<>(report.getCall_sites());
 
-        this.elements = new ArrayList<Integer>();
+        this.elements = new ArrayList<Integer>(50);
         this.elements.add(report.getElements());
 
-        this.calls = new ArrayList<Integer>();
+        this.calls = new ArrayList<Integer>(50);
         this.calls.add(report.getCalls());
 
-        this.hits = new ArrayList<Integer>();
+        this.hits = new ArrayList<Integer>(50);
         this.hits.add(report.getHits());
 
-        this.misses = new ArrayList<Integer>();
+        this.misses = new ArrayList<Integer>(50);
         this.misses.add(report.getMisses());
 
-        this.counts = new HashMap<String, MergedMemoiEntry>();
-        for (MemoiEntry oldEntry : report.getCounts()) {
+        this.counts = new HashMap<String, MergedMemoiEntry>(report.getCounts().size());
+        // for (MemoiEntry oldEntry : report.getCounts()) {
+        //
+        // String key = oldEntry.getKey();
+        // MergedMemoiEntry newEntry = new MergedMemoiEntry(oldEntry, this);
+        // counts.put(key, newEntry);
+        // }
 
-            String key = oldEntry.getKey();
-            MergedMemoiEntry newEntry = new MergedMemoiEntry(oldEntry);
-            counts.put(key, newEntry);
-        }
+        // report.getCounts().forEach(
+        // (k, v) -> {
+        // MergedMemoiEntry newEntry = new MergedMemoiEntry(v, this);
+        // counts.put(k, newEntry);
+        // });
+
+        report.getCounts().values()
+                .stream()
+                .map(me -> new MergedMemoiEntry(me))
+                .forEach(mme -> counts.put(mme.getKey(), mme));
+
+        // this.counts = report.getCounts().values()
+        // .parallelStream()
+        // .map(me -> new MergedMemoiEntry(me, this))
+        // .collect(
+        // Collectors.toMap(MergedMemoiEntry::getKey, mme -> mme));
     }
 
-    public List<MergedMemoiEntry> getMeanSorted() {
-
-        var list = new ArrayList<MergedMemoiEntry>(counts.values());
-        list.sort(MemoiComparator.mean(this));
-
-        return list;
-    }
+    // public List<MergedMemoiEntry> getMeanSorted() {
+    //
+    // var list = new ArrayList<MergedMemoiEntry>(counts.values());
+    // list.sort(new MeanComparator(this));
+    //
+    // return list;
+    // }
 
     public List<MergedMemoiEntry> getSortedCounts(Comparator<MergedMemoiEntry> countComparator) {
 
@@ -108,26 +141,40 @@ public class MergedMemoiReport {
             testReport(tempReport);
         }
 
+        uuid.concat(tempReport.getUuid());
         elements.add(tempReport.getElements());
         calls.add(tempReport.getCalls());
         hits.add(tempReport.getHits());
         misses.add(tempReport.getMisses());
 
-        for (MemoiEntry oldEntry : tempReport.getCounts()) {
+        tempReport.getCounts().forEach(
+                (k, v) -> {
 
-            String key = oldEntry.getKey();
+                    if (counts.containsKey(k)) {
 
-            if (!counts.containsKey(key)) {
+                        counts.get(k).addCounter(v.getCounter());
+                    } else {
 
-                MergedMemoiEntry newEntry = new MergedMemoiEntry(oldEntry);
+                        MergedMemoiEntry newEntry = new MergedMemoiEntry(v);
+                        counts.put(k, newEntry);
+                    }
+                });
 
-                counts.put(key, newEntry);
-            } else {
-
-                counts.get(key).addCounter(oldEntry.getCounter());
-            }
-
-        }
+        // for (MemoiEntry oldEntry : tempReport.getCounts()) {
+        //
+        // String key = oldEntry.getKey();
+        //
+        // if (!counts.containsKey(key)) {
+        //
+        // MergedMemoiEntry newEntry = new MergedMemoiEntry(oldEntry, this);
+        //
+        // counts.put(key, newEntry);
+        // } else {
+        //
+        // counts.get(key).addCounter(oldEntry.getCounter());
+        // }
+        //
+        // }
 
         this.reportCount += 1;
     }
@@ -240,6 +287,18 @@ public class MergedMemoiReport {
         return reportCount;
     }
 
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public void setOutputTypes(List<String> outputTypes) {
+        this.outputTypes = outputTypes;
+    }
+
+    public void setReportCount(int reportCount) {
+        this.reportCount = reportCount;
+    }
+
     public void printStats() {
 
         System.out.println("\n\n=== profile stats ===");
@@ -247,10 +306,18 @@ public class MergedMemoiReport {
         System.out.println("call sites: " + callSites);
         System.out.println("report count: " + reportCount);
 
-        stats.print();
+        // stats.print();
+        File d = SpecsIo.mkdir("./memoi-report-stats/" + funcSig);
+        File f = new File(d, callSites.toString());
+        SpecsIo.write(f, stats.toString());
     }
 
     public void makeStats() {
         this.stats = new Stats(this);
     }
+
+    public String getUuid() {
+        return uuid;
+    }
+
 }

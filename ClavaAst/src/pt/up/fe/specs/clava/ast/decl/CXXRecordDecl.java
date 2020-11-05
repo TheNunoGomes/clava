@@ -24,6 +24,7 @@ import org.suikasoft.jOptions.Interfaces.DataStore;
 
 import pt.up.fe.specs.clava.ClavaNode;
 import pt.up.fe.specs.clava.ast.decl.data.CXXBaseSpecifier;
+import pt.up.fe.specs.clava.ast.type.TagType;
 
 /**
  * Represents a C++ class.
@@ -132,6 +133,7 @@ public class CXXRecordDecl extends RecordDecl {
 
         // Set record of method
         method.set(CXXMethodDecl.RECORD, this);
+        method.set(CXXMethodDecl.RECORD_ID, getId());
 
         var methodDeclaration = method;
 
@@ -155,5 +157,11 @@ public class CXXRecordDecl extends RecordDecl {
         }
 
     }
-
+    
+	public List<Decl> getBases() {
+		return get(RECORD_BASES).stream()
+				.map(baseSpec -> baseSpec.get(CXXBaseSpecifier.TYPE).get(TagType.DECL))
+				.collect(Collectors.toList());
+	}
+	
 }
