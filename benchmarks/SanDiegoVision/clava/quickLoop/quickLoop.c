@@ -16,6 +16,20 @@ int main(int argc, char* argv[])
 			array[i][j] = 2;
 	}
 
+	#pragma clava data intervals: [\
+	{\
+		startValue: "0",\
+		endValue: "W"\
+	},\
+	{\
+		startValue: "W",\
+		endValue: "N-W-1"\
+	},\
+	{\
+		startValue: "N-W-1",\
+		endValue: "N"\
+	}\
+	]
 	//Actual loop
 	for(i = 0 ; i < N ; ++i) 
 	{	

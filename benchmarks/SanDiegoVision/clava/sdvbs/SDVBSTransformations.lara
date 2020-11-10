@@ -1,0 +1,140 @@
+import lara.utils.Utils;
+import clava.ClavaJoinPoints;
+
+import weaver.Query;
+
+var SDVBSTransformations = {};
+
+/**
+* Limitations: Only works for loops with 3 nesting levels - can be worked around by looking at the 3 innermost loops.
+* This transformation is application specific for the SIFT benchmark in the San Diego Vision Benchmark Suite
+*/
+SDVBSTransformations.loopSplitting = function() {
+	for(var chain of Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {	
+		var iterators = [chain["loop_0"].controlVar, chain["loop_1"].controlVar, chain["loop_2"].controlVar];
+		var exclusiveLoopStatements = Utils.getExclusiveLoopStatements(chain["loop_1"], chain["loop_2"]);
+		//If the intermediate loop has dependencies on more than one iterator, this transformation cannot be applied.
+		try {
+			var it = Utils.getDirectionIterator(exclusiveLoopStatements, iterators);
+		}
+		catch(err) {
+			println(err);
+			continue;
+		}
+				
+		var outerLoop = chain["loop_0"];
+	
+		debug("Creating copies of outer loop.");
+		
+		// Create 3 copies of the outer loop
+		var outerLoops = [
+			outerLoop.copy(),
+			outerLoop.copy(),
+			outerLoop.copy()
+		];
+		debug("Getting copies of medium loops.");
+		// Get the medium loop of each copy (which's body we will manipulate)
+		var mediumLoops = [
+			outerLoops[0].descendants("loop")[0],
+			outerLoops[1].descendants("loop")[0], 
+			outerLoops[2].descendants("loop")[0]
+		];
+		debug("Getting body copies of medium loops.");
+		// Get the body of each medium Loop
+		var bodies = [
+			mediumLoops[0].body,
+			mediumLoops[1].body,
+			mediumLoops[2].body
+		];
+	
+		// If the iterating loop is the outermost, we will change the outerLoops
+		// If the iterating loop is the medium, we will change the mediumLoops
+		
+		debug("Getting copies of inner loops.");
+		// Create 3 copies of the inner loop
+		var innerLoops = [
+			outerLoops[0].descendants("loop")[1],
+			outerLoops[1].descendants("loop")[1],
+			outerLoops[2].descendants("loop")[1]
+		];
+	
+		debug("Setting iterating loops as copy of outer or medium loops.");
+		itLoops = outerLoop.controlVar === it ? outerLoops : mediumLoops;
+		
+			
+		/****** Unused for now ******
+		
+		// And respective bodies
+		var innerBodies = [
+			innerLoops[0].body,
+			innerLoops[1].body,
+			innerLoops[2].body,
+		];
+		
+		// Assumes increments of 1
+		var stepExpression = "++" + itLoop.stepValue;
+		
+		var controlVar = itLoop.controlVar;
+		var condRelation = itLoop.condRelation;	
+		
+		var startInflex_1 = "0";
+		var startInflex_2 = "i-W";
+		var endInflex_1 = "i+W";
+		var endInflex_2 = "N-1";
+		/****************************/
+		
+		var startNode_1 = "0";
+		var startNode_2 = it +"-W";
+		
+		var endNode_1 = it + "+W";
+		var endNode_2 = "N-1";
+		
+		var filterNode_1 = ClavaJoinPoints.stmtLiteral("int filterStart = W-" + it + ";");
+		var filterNode_2 = ClavaJoinPoints.stmtLiteral("int filterStart = 0;");
+	
+		debug("Creating first loop.");
+		var init_1 = "0";
+		var end_1 = "W";
+		itLoops[0].setInitValue(init_1);
+		itLoops[0].setEndValue(end_1);
+		//var cond_1 = Utils.getCondExpression(controlVar, condRelation, loop_1.endValue);
+		innerLoops[0].setInitValue(startNode_1);
+		innerLoops[0].setEndValue(endNode_1);
+		bodies[0].stmts[0].detach();
+		bodies[0].stmts[0].detach();
+		bodies[0].stmts[0].replaceWith(filterNode_1);
+		
+		debug("Creating second loop.");
+		var init_2 = "W";
+		var end_2 = "N-W-1";
+		itLoops[1].setInitValue(init_2);
+		itLoops[1].setEndValue(end_2);
+		//var cond_2 = Utils.getCondExpression(controlVar, condRelation, loop_3.endValue);
+		innerLoops[1].setInitValue(startNode_2);
+		innerLoops[1].setEndValue(endNode_1);
+		bodies[1].stmts[0].detach();
+		bodies[1].stmts[0].detach();
+		bodies[1].stmts[0].replaceWith(filterNode_2);
+		
+		debug("Creating third loop.");
+		var init_3 = "N-W-1";
+		var end_3 = "N";
+		itLoops[2].setInitValue(init_3);
+		itLoops[2].setEndValue(end_3);
+		//var cond_3 = Utils.getCondExpression(controlVar, condRelation, loop_3.endValue);
+		innerLoops[2].setInitValue(startNode_2);
+		innerLoops[2].setEndValue(endNode_2);
+		bodies[2].stmts[0].detach();
+		bodies[2].stmts[0].detach();
+		bodies[2].stmts[0].replaceWith(filterNode_2);
+	
+		debug("Replacing original loop with 3 modified loops.");
+		outerLoop.insertAfter(outerLoops[2]);
+		outerLoop.insertAfter(outerLoops[1]);
+		outerLoop.replaceWith(outerLoops[0]);
+
+	}
+	
+	var imsmooth = Query.search("function", {name: "imsmooth"}).first();
+	debug(imsmooth.code);
+}
