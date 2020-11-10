@@ -65,7 +65,7 @@ Utils.getExclusiveLoopStatements = function(outerLoop, innerLoop) {
 * @author {Nuno Gomes}
 */
 Utils.timeMethodCalls = function(method) { 
-	println("Inserting timers around all '" + method + "' calls.");
+	debug("Inserting timers around all '" + method + "' calls.");
 	for(var $call of Query.search("call", {name: method})) {
 		timer = new Timer();
 		timer.time($call);
@@ -80,7 +80,7 @@ Utils.timeMethodCalls = function(method) {
 * @author {Nuno Gomes}	
 */
 Utils.removeMethodCalls = function(methods) {
-	println("Removing calls to irrelevant methods.");
+	debug("Removing calls to irrelevant methods.");
 	var changes;
 	for(var method of methods) {
 		changes = true;

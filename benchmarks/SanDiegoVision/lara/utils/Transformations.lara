@@ -8,9 +8,9 @@ var Transformations = {};
 /**
 * Limitations: Only works for loops with 3 nesting levels - can be worked around by looking at the 3 innermost loops.
 */
-Transformations.loopFission = function(log) {
-	log = log || false;
-	for(var chain of Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {	
+Transformations.loopSplitting = function() {
+	for(var chain of Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for", data: data => data.intervals}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {	
+
 		var iterators = [chain["loop_0"].controlVar, chain["loop_1"].controlVar, chain["loop_2"].controlVar];
 		var exclusiveLoopStatements = Utils.getExclusiveLoopStatements(chain["loop_1"], chain["loop_2"]);
 		//If the intermediate loop has dependencies on more than one iterator, this transformation cannot be applied.
@@ -21,123 +21,44 @@ Transformations.loopFission = function(log) {
 			println(err);
 			continue;
 		}
-				
 		var outerLoop = chain["loop_0"];
-	
-		if(log) println("Creating copies of outer loop.");
-		// Create 3 copies of the outer loop
-		var outerLoops = [
-			outerLoop.copy(),
-			outerLoop.copy(),
-			outerLoop.copy()
-		];
-		if(log) println("Getting copies of medium loops.");
-		// Get the medium loop of each copy (which's body we will manipulate)
-		var mediumLoops = [
-			outerLoops[0].descendants("loop")[0],
-			outerLoops[1].descendants("loop")[0], 
-			outerLoops[2].descendants("loop")[0]
-		];
-		if(log) println("Getting body copies of medium loops.");
-		// Get the body of each medium Loop
-		var bodies = [
-			mediumLoops[0].body,
-			mediumLoops[1].body,
-			mediumLoops[2].body
-		];
-	
+		var intervals = outerLoop.data.intervals;
+		
+		var outerLoops = [], mediumLoops = [];
+		// Create a copy of the outer loop for each interval
+		debug("Creating copies of outer loop.");
+		for(var interval in intervals) {
+			outerLoops.push(outerLoop.copy());
+		}
+		debug("Getting copies of medium loops.");
+		// Get the medium loop of each outer loop copy
+		for(var oLoop of outerLoops) {
+			mediumLoops.push(oLoop.descendants("loop")[0]);
+		}
+		
 		// If the iterating loop is the outermost, we will change the outerLoops
 		// If the iterating loop is the medium, we will change the mediumLoops
-		
-		if(log) println("Getting copies of inner loops.");
-		// Create 3 copies of the inner loop
-		var innerLoops = [
-			outerLoops[0].descendants("loop")[1],
-			outerLoops[1].descendants("loop")[1],
-			outerLoops[2].descendants("loop")[1]
-		];
-	
-		if(log) println("Setting iterating loops as copy of outer or medium loops.");
+		debug("Setting iterating loops as copy of outer or medium loops.");
 		itLoops = outerLoop.controlVar === it ? outerLoops : mediumLoops;
+
+		var index;
+		for(index = 0; index < itLoops.length; index++) {
+			debug("Creating split loop number " + (index + 1));
+			itLoops[index].setInitValue(intervals[index].startValue);
+			itLoops[index].setEndValue(intervals[index].endValue);
+		}
 		
-			
-		/****** Unused for now ******
-		
-		// And respective bodies
-		var innerBodies = [
-			innerLoops[0].body,
-			innerLoops[1].body,
-			innerLoops[2].body,
-		];
-		
-		// Assumes increments of 1
-		var stepExpression = "++" + itLoop.stepValue;
-		
-		var controlVar = itLoop.controlVar;
-		var condRelation = itLoop.condRelation;	
-		
-		var startInflex_1 = "0";
-		var startInflex_2 = "i-W";
-		var endInflex_1 = "i+W";
-		var endInflex_2 = "N-1";
-		/****************************/
-		
-		var startNode_1 = "0";
-		var startNode_2 = it +"-W";
-		
-		var endNode_1 = it + "+W";
-		var endNode_2 = "N-1";
-		
-		var filterNode_1 = ClavaJoinPoints.stmtLiteral("int filterStart = W-" + it + ";");
-		var filterNode_2 = ClavaJoinPoints.stmtLiteral("int filterStart = 0;");
-	
-		if(log) println("Creating first loop.");
-		var init_1 = "0";
-		var end_1 = "W";
-		itLoops[0].setInitValue(init_1);
-		itLoops[0].setEndValue(end_1);
-		//var cond_1 = Utils.getCondExpression(controlVar, condRelation, loop_1.endValue);
-		innerLoops[0].setInitValue(startNode_1);
-		innerLoops[0].setEndValue(endNode_1);
-		bodies[0].stmts[0].detach();
-		bodies[0].stmts[0].detach();
-		bodies[0].stmts[0].replaceWith(filterNode_1);
-		
-		if(log) println("Creating second loop.");
-		var init_2 = "W";
-		var end_2 = "N-W-1";
-		itLoops[1].setInitValue(init_2);
-		itLoops[1].setEndValue(end_2);
-		//var cond_2 = Utils.getCondExpression(controlVar, condRelation, loop_3.endValue);
-		innerLoops[1].setInitValue(startNode_2);
-		innerLoops[1].setEndValue(endNode_1);
-		bodies[1].stmts[0].detach();
-		bodies[1].stmts[0].detach();
-		bodies[1].stmts[0].replaceWith(filterNode_2);
-		
-		if(log) println("Creating third loop.");
-		var init_3 = "N-W-1";
-		var end_3 = "N";
-		itLoops[2].setInitValue(init_3);
-		itLoops[2].setEndValue(end_3);
-		//var cond_3 = Utils.getCondExpression(controlVar, condRelation, loop_3.endValue);
-		innerLoops[2].setInitValue(startNode_2);
-		innerLoops[2].setEndValue(endNode_2);
-		bodies[2].stmts[0].detach();
-		bodies[2].stmts[0].detach();
-		bodies[2].stmts[0].replaceWith(filterNode_2);
-	
-		if(log) println("Replacing original loop with 3 modified loops.");
-		outerLoop.insertAfter(outerLoops[2]);
-		outerLoop.insertAfter(outerLoops[1]);
+		debug("Replacing original loop with 3 modified loops.");
+		for(index = outerLoops.length - 1; index > 0; index--) {	
+			debug("Inserting loop number " + (outerLoops.length - index));
+			outerLoop.insertAfter(outerLoops[index]);
+		}
+		debug("Inserting loop number " + (outerLoops.length));
 		outerLoop.replaceWith(outerLoops[0]);
-
 	}
-
-	if(log) {
-		var imsmooth = Query.search("function", {name: "imsmooth"}).first();
-		println(imsmooth.code);
-	}
+	
+	var imsmooth = Query.search("function", {name: "imsmooth"}).first();
+	debug(imsmooth.code);
 }
 
 
@@ -149,9 +70,8 @@ Transformations.loopFission = function(log) {
 *			These limitations do not express themselves in the Vision benchmarks.
 * @author {Nuno Gomes}
 */
-Transformations.replaceDoublesWithFloats =  function(log) {
-	log = log || false;
-	if(log) println("Replacing doubles.");
+Transformations.replaceDoublesWithFloats =  function() {
+	debug("Replacing doubles.");
 	var count = 0;
 	var functions = [];
 	for(var $call of Query.search("call")) {
@@ -162,7 +82,7 @@ Transformations.replaceDoublesWithFloats =  function(log) {
 				continue;
 			for(var expression of argument.descendants) {
 				if(expression.type.code === "double" && expression.descendants.length === 0) {
-					if(log) println("Replacing double "+ expression.code + " for float " + expression.code + 
+					debug("Replacing double "+ expression.code + " for float " + expression.code + 
 							"f in " + $call.code + " of type " + $call.type.code + ".");
 					if(!functions.includes($call.ancestor("file").name)) {
 						functions.push($call.ancestor("file").name);
@@ -175,10 +95,9 @@ Transformations.replaceDoublesWithFloats =  function(log) {
 			}
 		}
 	}
-	if(log) {
-		println(functions);
-		println("Number of doubles replaced with floats: " + count);
-	}
+	
+	debug(functions);
+	debug("Number of doubles replaced with floats: " + count);
 }
 
 /** 
@@ -189,9 +108,54 @@ Transformations.replaceDoublesWithFloats =  function(log) {
 * Limitations: negative values of n
 * @author {Tiago Lascasas}
 */
-Transformations.replacePowCalls =  function(log) {
-	log = log || false;
-	if(log) println("Replacing 'pow()' calls.");
+Transformations.replaceCeilCalls =  function() {
+	debug("Replacing ceil() calls with ceilf().");
+	var functions = [];
+	for(var $call of Query.search("call", { name: "ceil"})) {
+		var statement = $call.ancestor("statement");
+		var binaryOp = statement.descendants("binaryOp").filter(operator => {
+			return operator.kind === "assign";
+		})[0];
+		var varDecl = statement.descendants("vardecl")[0];
+		if(!binaryOp && !varDecl)
+			continue;
+		
+		if(binaryOp) {
+			if(binaryOp.left.type.code !== "float" && binaryOp.left.type.code !== "int")
+				continue;
+		}
+		if(varDecl) {
+			if(varDecl.type.code !== "float" && varDecl.type.code !== "int")
+				continue;
+		}
+
+		var ceilfString = "ceilf(";
+		for(var arg of $call.args) {
+			ceilfString += arg.code;
+		}
+		ceilfString += ");";
+		
+		if(!functions.includes($call.ancestor("file").name)) {
+			functions.push($call.ancestor("file").name);
+			//$call.ancestor("file").addGlobal(ceilCount, ClavaJoinPoints.builtinType("int"), "0");
+		}
+		debug("Replacing " + $call.code + " with " + ceilfString);
+		var newJp = ClavaJoinPoints.exprLiteral(ceilfString);
+		$call.replaceWith(newJp);
+	}
+	debug(functions);
+}
+
+/** 
+* Replace every call of the function pow(k, n), with:
+* k * (... n times ...) * k, when n >= 2
+* k, when n = 1
+* 1, when n = 0
+* Limitations: negative values of n
+* @author {Tiago Lascasas}
+*/
+Transformations.replacePowCalls =  function() {
+	debug("Replacing 'pow()' calls.");
 	var changes = true;
 	var count = 0;	
 	var functions = [];
@@ -254,10 +218,8 @@ Transformations.replacePowCalls =  function(log) {
 			// Negative exponents are not supported, yet
 		}
 	}
-	if(log) {
-		println(functions);
-		println("Number of pow() calls replaced: " + count);
-	}
+	debug(functions);
+	debug("Number of pow() calls replaced: " + count);
 }
 	
 	/**** CREATE LOOP PARAMETER STATEMENTS *****/
