@@ -14,7 +14,7 @@ var powCount = "powCount";
 var dFCount = "dFCount";
 aspectdef Main	
 	
-setDebug(!true);
+setDebug(true);
 var benchmarkNames = ["sift"];
 for(var benchmarkName of benchmarkNames) {
 	for(var benchmark of setupSanDiego(benchmarkName, ["SQCIF"])) {
@@ -47,8 +47,8 @@ for(var benchmarkName of benchmarkNames) {
 		/*
 		Transformations.replaceDoublesWithFloats();
 		Transformations.replacePowCalls();
-		//*/
 		Transformations.replaceCeilCalls();
+		//*/
 		/*
 		var loggerOut = new Logger();
 		var array = Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain();
@@ -56,8 +56,8 @@ for(var benchmarkName of benchmarkNames) {
 		loggerOut.text("out = ").double("out->data[(j) * out->width + (i)]");
 		loggerOut.log(chain["loop_2"].body.stmts[0]);
 		*/
-		//Transformations.loopFission(true);
-		//benchmark.compile();
+		Transformations.loopSplitting();
+		benchmark.compile();
 		//for(var i = 0; i < 10; i++)
 		//	benchmark.execute();
 		//println(ex.getReturnValue());

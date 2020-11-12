@@ -2,7 +2,6 @@
 /********************************
 Author: Sravanthi Kota Venkata
 ********************************/
-extern int dFCount;
 I2D * iiConv2(I2D *a, I2D *b) {
    I2D *c;
    I2D *out;
@@ -12,12 +11,8 @@ I2D * iiConv2(I2D *a, I2D *b) {
    na = a->width;
    mb = b->height;
    nb = b->width;
-   dFCount++;
-   dFCount++;
-   r_index = ceil((mb + 1.0f) / 2.0f);
-   dFCount++;
-   dFCount++;
-   c_index = ceil((nb + 1.0f) / 2.0f);
+   r_index = ceil((mb + 1.0) / 2.0);
+   c_index = ceil((nb + 1.0) / 2.0);
    ci = ma + mb - 1;
    cj = na + nb - 1;
    c = iSetArray(ci, cj, 0);

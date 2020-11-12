@@ -13,7 +13,6 @@ This function is similar to imageBlur in common/c folder.
 Here, we can specify the sigma value for the gaussian filter
 function.
 **/
-extern int dFCount;
 void imsmooth(F2D *array, float dsigma, F2D *out) {
    int M, N;
    int i, j, k;
@@ -34,8 +33,7 @@ void imsmooth(F2D *array, float dsigma, F2D *out) {
       float acc = 0.0;
       buffer = fSetArray(M, N, 0);
       for(j = 0; j < (2 * W + 1); ++j) {
-         dFCount++;
-         temp[j] = (float) (expf(-0.5f * (j - W) * (j - W) / (s * s)));
+         temp[j] = (float) (expf(-0.5 * (j - W) * (j - W) / (s * s)));
          acc += temp[j];
       }
       for(j = 0; j < (2 * W + 1); ++j) {
@@ -45,6 +43,20 @@ void imsmooth(F2D *array, float dsigma, F2D *out) {
       ** Convolve along the columns
       **/
       for(j = 0; j < M; ++j) {
+         #pragma clava data intervals: [\
+         {\
+         startValue: "0",\
+         endValue: "W",\
+         },\
+         {\
+         startValue: "W",\
+         endValue: "N-W-1",\
+         },\
+         {\
+         startValue: "N-W-1",\
+         endValue: "N",\
+         },\
+         ]
          for(i = 0; i < N; ++i) {
             int startCol = (((i - W) > (0)) ? (i - W) : (0));
             int endCol = (((i + W) < (N - 1)) ? (i + W) : (N - 1));
@@ -55,6 +67,20 @@ void imsmooth(F2D *array, float dsigma, F2D *out) {
       /*
       ** Convolve along the rows
       **/
+      #pragma clava data intervals: [\
+      {\
+      startValue: "0",\
+      endValue: "W",\
+      },\
+      {\
+      startValue: "W",\
+      endValue: "M-W-1",\
+      },\
+      {\
+      startValue: "M-W-1",\
+      endValue: "M",\
+      },\
+      ]
       for(j = 0; j < M; ++j) {
          for(i = 0; i < N; ++i) {
             int startRow = (((j - W) > (0)) ? (j - W) : (0));

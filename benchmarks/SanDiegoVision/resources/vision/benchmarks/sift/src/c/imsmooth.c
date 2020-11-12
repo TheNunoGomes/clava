@@ -58,6 +58,20 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
 
     for(j = 0 ; j < M ; ++j) 
     {
+    	#pragma clava data intervals: [\
+		{\
+			startValue: "0",\
+			endValue: "W",\
+		},\
+		{\
+			startValue: "W",\
+			endValue: "N-W-1",\
+		},\
+		{\
+			startValue: "N-W-1",\
+			endValue: "N",\
+		},\
+	]
       for(i = 0 ; i < N ; ++i) 
       {
         int startCol = MAX(i-W,0);
@@ -71,6 +85,20 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
     /*
     ** Convolve along the rows
     **/
+    	#pragma clava data intervals: [\
+		{\
+			startValue: "0",\
+			endValue: "W",\
+		},\
+		{\
+			startValue: "W",\
+			endValue: "M-W-1",\
+		},\
+		{\
+			startValue: "M-W-1",\
+			endValue: "M",\
+		},\
+	]
     for(j = 0 ; j < M ; ++j) 
     {
       for(i = 0 ; i < N ; ++i) 

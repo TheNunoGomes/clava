@@ -9,7 +9,41 @@ var Transformations = {};
 * Limitations: Only works for loops with 3 nesting levels - can be worked around by looking at the 3 innermost loops.
 */
 Transformations.loopSplitting = function() {
-	for(var chain of Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for", data: data => data.intervals}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {	
+	var functions = [];
+	debug("Splitting Loops");
+	for(var $loop of Query.search("loop", {kind: "for", data: data => data.intervals})) {
+		if(!functions.includes($loop.ancestor("function").name)) {
+			functions.push($loop.ancestor("function").name);
+		}
+		
+		var intervals = $loop.data.intervals;
+		var loops = [];
+		// Create a copy of the outer loop for each interval
+		debug("Creating copies of outer loop.");
+		var index;
+		for(index = 0; index < intervals.length; index++) {
+			loop = $loop.copy();
+			
+			debug("Creating split loop number " + (index + 1));
+			loop.setInitValue(intervals[index].startValue);
+			loop.setEndValue(intervals[index].endValue);
+
+			debug("Inserting loop number " + index + 1);
+			$loop.insertBefore(loop);
+		}
+		
+		$loop.detach();
+
+	}
+	debug(functions);
+}
+
+/**
+* Limitations: Only works for loops with 3 nesting levels - can be worked around by looking at the 3 innermost loops.
+*/
+Transformations.loopSplitting_3Levels = function() {
+	var functions = [];
+	for(var chain of Query.search("function").search("loop", {kind: "for", data: data => data.intervals}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain()) {	
 
 		var iterators = [chain["loop_0"].controlVar, chain["loop_1"].controlVar, chain["loop_2"].controlVar];
 		var exclusiveLoopStatements = Utils.getExclusiveLoopStatements(chain["loop_1"], chain["loop_2"]);
@@ -55,10 +89,12 @@ Transformations.loopSplitting = function() {
 		}
 		debug("Inserting loop number " + (outerLoops.length));
 		outerLoop.replaceWith(outerLoops[0]);
+
+		if(!functions.includes(chain["function"].name)) {
+			functions.push(chain["function"].name);
+		}
 	}
-	
-	var imsmooth = Query.search("function", {name: "imsmooth"}).first();
-	debug(imsmooth.code);
+	debug(functions);
 }
 
 
