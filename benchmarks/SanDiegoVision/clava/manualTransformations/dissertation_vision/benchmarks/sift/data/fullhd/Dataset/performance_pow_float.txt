@@ -1,0 +1,502 @@
+
+Benchmark		- sift
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1704026031
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1934921481
+
+Time Elapsed (miliseconds)		 - 1797.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1830817882
+
+Time Elapsed (miliseconds)		 - 1765.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1695278856
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1681237310
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 11033782921
+
+Time Elapsed (miliseconds)		 - 1844.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2707748683
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1691020644
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2675586369
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1696173128
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2681679042
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1674709947
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2712993293
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1717963971
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2836458821
+
+Time Elapsed (miliseconds)		 - 1765.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 11025452109
+
+Time Elapsed (miliseconds)		 - 1843.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 11227735272
+
+Time Elapsed (miliseconds)		 - 1891.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 21298799245
+
+Time Elapsed (miliseconds)		 - 1906.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 11185540435
+
+Time Elapsed (miliseconds)		 - 1874.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 11310773268
+
+Time Elapsed (miliseconds)		 - 1922.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 21112318637
+
+Time Elapsed (miliseconds)		 - 1859.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1746116356
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2691067909
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1674246787
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2732572730
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1720469344
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1724308427
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1697242985
+
+Time Elapsed (miliseconds)		 - 1735.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1700181088
+
+Time Elapsed (miliseconds)		 - 1735.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1684350393
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1679492932
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1702807493
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1689845246
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1695546136
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1699170320
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2696043585
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1695761102
+
+Time Elapsed (miliseconds)		 - 1720.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1690009777
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1697444852
+
+Time Elapsed (miliseconds)		 - 1720.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1703549248
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1692671167
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1702994924
+
+Time Elapsed (miliseconds)		 - 1717.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1799035870
+
+Time Elapsed (miliseconds)		 - 1766.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1734960576
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1716616766
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1684945312
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2709430473
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1697309528
+
+Time Elapsed (miliseconds)		 - 1704.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2774659567
+
+Time Elapsed (miliseconds)		 - 1749.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1721233186
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2723367936
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1703366084
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1689470613
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1675722834
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1696795019
+
+Time Elapsed (miliseconds)		 - 1735.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1704417076
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1720139354
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1712242516
+
+Time Elapsed (miliseconds)		 - 1720.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1703702305
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2688166936
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1691728294
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2699566999
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1690105139
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1699069061
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1704666461
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1680197511
+
+Time Elapsed (miliseconds)		 - 1704.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1696662394
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1688627789
+
+Time Elapsed (miliseconds)		 - 1704.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1657028223
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1694426959
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2668279119
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1682376231
+
+Time Elapsed (miliseconds)		 - 1702.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2665048368
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1671416937
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1682016544
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1686398733
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1922236596
+
+Time Elapsed (miliseconds)		 - 1797.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1690837603
+
+Time Elapsed (miliseconds)		 - 1704.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1663761751
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1673903538
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1665730171
+
+Time Elapsed (miliseconds)		 - 1704.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1709894707
+
+Time Elapsed (miliseconds)		 - 1735.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1682389157
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2698751922
+
+Time Elapsed (miliseconds)		 - 1735.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1713849599
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1674479881
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1678700175
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1689572115
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1685439289
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1677338511
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1668005985
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1668291080
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2687377560
+
+Time Elapsed (miliseconds)		 - 1734.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1747064956
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 2682920174
+
+Time Elapsed (miliseconds)		 - 1718.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1676668098
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1670606515
+
+Time Elapsed (miliseconds)		 - 1719.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1690426933
+
+Time Elapsed (miliseconds)		 - 1703.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1663020643
+
+Time Elapsed (miliseconds)		 - 1702.0
+Input size		- (1080x1080)
+Verification		- Successful
+Cycles elapsed		- 1711868160
+
+Time Elapsed (miliseconds)		 - 1719.0
