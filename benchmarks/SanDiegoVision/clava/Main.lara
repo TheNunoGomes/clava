@@ -14,7 +14,7 @@ var powCount = "powCount";
 var dFCount = "dFCount";
 aspectdef Main	
 	
-setDebug(true);
+setDebug(!true);
 var benchmarkNames = ["sift"];
 for(var benchmarkName of benchmarkNames) {
 	for(var benchmark of setupSanDiego(benchmarkName, ["SQCIF"])) {

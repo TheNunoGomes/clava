@@ -6,7 +6,10 @@ import weaver.Query;
 var Transformations = {};
 
 /**
-* Limitations: Only works for loops with 3 nesting levels - can be worked around by looking at the 3 innermost loops.
+* Loop Splitting Transformation.
+* Pragma provides array of start and end value pairs.
+* Limitations: Needs pragmas to understand which loops have the potential of being split
+* @author {Nuno Gomes} 
 */
 Transformations.loopSplitting = function() {
 	var functions = [];
