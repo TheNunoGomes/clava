@@ -86,7 +86,7 @@ profile: compile-prof
 compile: $(C_SRC)
 	@echo 
 	@echo -e "Benchmark\t\t- $(BMARK)"
-	@$(COMPILE_C) $(COMMON_SRC) $(C_SRC) -S $(BMARK)$(EXE)
+	@$(COMPILE_C) $(COMMON_SRC) $(C_SRC) -o $(BMARK)$(EXE) -lm
 
 compile-prof: $(C_SRC)
 	@echo 
