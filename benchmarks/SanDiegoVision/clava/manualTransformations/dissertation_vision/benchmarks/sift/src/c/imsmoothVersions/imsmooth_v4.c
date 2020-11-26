@@ -220,7 +220,7 @@ struct rusage ruse;
 			b += b4 * temp[W+4-i];
 			b += b5 * temp[W+5-i];
 			for(k = 0; k < i; ++k) {
-				b += array->data[(j) * size + (k+W+1)] * temp[W-i+k+6];
+				b += array->data[(j) * size + (k+W+1)] * temp[2*W-i+k+1];
 			}
             		buffer->data[(j) * size + (i)] += b;
 		}
@@ -298,7 +298,7 @@ struct rusage ruse;
       for(j = M-W-1; j < M; ++j) {
          for(i = 0; i < N; ++i) {
 	    for(k = 0; k <= M-1-j+W; k++) {
-            	out->data[(j) * size + (i)] += buffer->data[(k+j-W) * buffer->width + (i)] * temp[k];
+            	out->data[(j) * size + (i)] += buffer->data[(k+j-W) * size + (i)] * temp[k];
             }
          }
       }
@@ -353,7 +353,7 @@ struct rusage ruse;
     return;
   }
   
-  void imsmooth7W(F2D* array, float dsigma, F2D* out)
+  void imsmooth7W(F2D* array, float dsigma, F2D* out, int size)
   {
     int M,N;
     int i,j,k;
@@ -377,6 +377,7 @@ struct rusage ruse;
       float temp[2*W+1];
       F2D* buffer;
       float acc = 0.0;
+      float b, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14;
 
       buffer = fSetArray(M,N,0);
 
@@ -391,36 +392,122 @@ struct rusage ruse;
         temp[j] /= acc ;
       }
 
-      /*
-      ** Convolve along the columns
-      **/
+      for(j = 0; j < M; ++j) {
+		b0 = array->data[(j) * size + (0)];
+		b1 = array->data[(j) * size + (1)];
+		b2 = array->data[(j) * size + (2)];
+		b3 = array->data[(j) * size + (3)];
+		b4 = array->data[(j) * size + (4)];
+		b5 = array->data[(j) * size + (5)];
+		b6 = array->data[(j) * size + (6)];
+		b7 = array->data[(j) * size + (7)];
+		for(i = 0; i < W; ++i) {
+			b = b0 * temp[W-i];
+			b += b1 * temp[W+1-i];
+			b += b2 * temp[W+2-i];
+			b += b3 * temp[W+3-i];
+			b += b4 * temp[W+4-i];
+			b += b5 * temp[W+5-i];
+			b += b6 * temp[W+6-i];
+			b += b7 * temp[W+7-i];
+			for(k = 0; k < i; ++k) {
+				b += array->data[(j) * size + (k+W+1)] * temp[2*W-i+k+1];
+			}
+            		buffer->data[(j) * size + (i)] += b;
+		}
+	}
+	for(j = 0; j < M; ++j) {
+		b0 = array->data[(j) * size + (0)];
+		b1 = array->data[(j) * size + (1)];
+		b2 = array->data[(j) * size + (2)];
+		b3 = array->data[(j) * size + (3)];
+		b4 = array->data[(j) * size + (4)];
+		b5 = array->data[(j) * size + (5)];
+		b6 = array->data[(j) * size + (6)];
+		b7 = array->data[(j) * size + (7)];
+		b8 = array->data[(j) * size + (8)];
+		b9 = array->data[(j) * size + (9)];
+		b10 = array->data[(j) * size + (10)];
+		b11 = array->data[(j) * size + (11)];
+		b12 = array->data[(j) * size + (12)];
+		b13 = array->data[(j) * size + (13)];
+		
+		for(i = 0; i < N-2*W-1; ++i) {
+		
+			b14 = array->data[(j) * size + (i+2*W)];
+			
+			b = b0 * temp[0];
+			b += b1 * temp[1];
+			b += b2 * temp[2];
+			b += b3 * temp[3];
+			b += b4 * temp[4];
+			b += b5 * temp[5];
+			b += b6 * temp[6];
+			b += b7 * temp[7];
+			b += b8 * temp[8];
+			b += b9 * temp[9];
+			b += b10 * temp[10];
+			b += b11 * temp[11];
+			b += b12 * temp[12];
+			b += b13 * temp[13];
+			b += b14 * temp[14];
+			
+			b0 = b1;
+			b1 = b2;
+			b2 = b3;
+			b3 = b4;
+			b4 = b5;
+			b5 = b6;
+			b6 = b7;
+			b7 = b8;
+			b8 = b9;
+			b9 = b10;
+			b10 = b11;
+			b11 = b12;
+			b12 = b13;
+			b13 = b14;
 
-      for(j = 0 ; j < M ; ++j)
-      {
-        for(i = 0 ; i < N ; ++i)
-        {
-          int startCol = MAX(i-W,0);
-          int endCol = MIN(i+W, N-1);
-          int filterStart = MAX(0, W-i);
-          for(k=startCol; k<=endCol; k++)
-              subsref(buffer,j,i) += subsref(array, j, k) * temp[filterStart++];
-        }
+			buffer->data[(j) * size + (i+W)] += b;
+		}
+	}
+	for(j = 0; j < M; ++j) {
+		for(i = N-W-1; i < N; ++i) {
+			b = array->data[(j) * size + (0+i-W)] * temp[0];
+			b += array->data[(j) * size + (1+i-W)] * temp[1];
+			b += array->data[(j) * size + (2+i-W)] * temp[2];
+			b += array->data[(j) * size + (3+i-W)] * temp[3];
+			b += array->data[(j) * size + (4+i-W)] * temp[4];
+			b += array->data[(j) * size + (5+i-W)] * temp[5];
+			b += array->data[(j) * size + (6+i-W)] * temp[6];
+			for(k = 0; k < N-i; ++k) {
+				b += array->data[(j) * size + (k+i)] * temp[k+W];
+			}
+			buffer->data[(j) * size + (i)] += b;
+		}
+	}
+      
+	for(j = 0; j < W; ++j) {
+		for(i = 0; i < N; ++i) {
+			for(k = 0; k <= j+W; k++) {
+				out->data[(j) * size + (i)] += buffer->data[(k) * size + (i)] * temp[W-j+k];
+			}	    	
+		}
+	}
+      for(j = 0; j < M-2*W-1; ++j) {
+         for(i = 0; i < N; ++i) {
+	    for(k = 0; k <= 2*W; k++) {
+            	out->data[(j+W) * size + (i)] += buffer->data[(k+j) * size + (i)] * temp[k];
+            }
+         }
       }
-
-      /*
-      ** Convolve along the rows
-      **/
-      for(j = 0 ; j < M ; ++j)
-      {
-        for(i = 0 ; i < N ; ++i)
-        {
-          int startRow = MAX(j-W,0);
-          int endRow = MIN(j+W, M-1);
-          int filterStart = MAX(0, W-j);
-          for(k=startRow; k<=endRow; k++)
-              subsref(out,j,i) += subsref(buffer,k,i) * temp[filterStart++];
-        }
+      for(j = M-W-1; j < M; ++j) {
+         for(i = 0; i < N; ++i) {
+	    for(k = 0; k <= M-1-j+W; k++) {
+            	out->data[(j) * size + (i)] += buffer->data[(k+j-W) * size + (i)] * temp[k];
+            }
+         }
       }
+      
 	#ifdef test
         F2D* buffer1;
         buffer1 = fSetArray(M,N,0);
