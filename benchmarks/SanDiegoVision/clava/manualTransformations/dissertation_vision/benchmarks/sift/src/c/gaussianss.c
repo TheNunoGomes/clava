@@ -89,13 +89,13 @@ F2D* resizeArray(F2D* array, int omin)
 	    			imsmooth7W( gss[(s+so-1)] , dsigma, gss[(s+so)], gss[(s+so-1)]->width);
 		    		break;
 		    	case 8:
-		    		imsmooth8W( gss[(s+so-1)] , dsigma, gss[(s+so)] );
+		    		imsmooth8W( gss[(s+so-1)] , dsigma, gss[(s+so)], gss[(s+so-1)]->width);
 		    		break;
 		    	case 10:
-		    		imsmooth10W( gss[(s+so-1)] , dsigma, gss[(s+so)] );
+		    		imsmooth10W( gss[(s+so-1)] , dsigma, gss[(s+so)], gss[(s+so-1)]->width);
 		    		break;
 		    	case 13:
-		    		imsmooth13W( gss[(s+so-1)] , dsigma, gss[(s+so)] );
+		    		imsmooth13W( gss[(s+so-1)] , dsigma, gss[(s+so)], gss[(s+so-1)]->width);
 		    		break;
 		    	default:
 		    		imsmooth( gss[(s+so-1)] , dsigma, gss[(s+so)] );
@@ -129,13 +129,13 @@ F2D* resizeArray(F2D* array, int omin)
 					imsmooth7W(TMP, temp, gss[o*intervals], TMP->width );
 			    		break;
 			    	case 8:
-					imsmooth8W(TMP, temp, gss[o*intervals] );
+					imsmooth8W(TMP, temp, gss[o*intervals], TMP->width);
 			    		break;
 			    	case 10:
-					imsmooth10W(TMP, temp, gss[o*intervals] );
+					imsmooth10W(TMP, temp, gss[o*intervals], TMP->width);
 			    		break;
 			    	case 13:
-					imsmooth13W(TMP, temp, gss[o*intervals] );
+					imsmooth13W(TMP, temp, gss[o*intervals], TMP->width);
 			    		break;
 			    	default:
 					imsmooth(TMP, temp, gss[o*intervals] );
@@ -173,13 +173,13 @@ F2D* resizeArray(F2D* array, int omin)
 					imsmooth7W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], gss[o*intervals+s-1+so]->width);
 			    		break;
 			    	case 8:
-					imsmooth8W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth8W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], gss[o*intervals+s-1+so]->width);
 			    		break;
 			    	case 10:
-					imsmooth10W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth10W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], gss[o*intervals+s-1+so]->width);
 			    		break;
 			    	case 13:
-					imsmooth13W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth13W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], gss[o*intervals+s-1+so]->width);
 			    		break;
 			    	default:
 					imsmooth( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
