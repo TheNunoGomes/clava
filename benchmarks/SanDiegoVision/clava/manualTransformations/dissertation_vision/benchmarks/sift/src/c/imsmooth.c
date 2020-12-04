@@ -9,11 +9,11 @@ Author: Sravanthi Kota Venkata
 #include <string.h>
 
 #include <time.h>
-#include <sys/resource.h>
+//#include <sys/resource.h>
 
-struct rusage ruse;
+//struct rusage ruse;
 
-#define CPU_TIME (getrusage(RUSAGE_SELF,&ruse), ruse.ru_utime.tv_sec + \
+//#define CPU_TIME (getrusage(RUSAGE_SELF,&ruse), ruse.ru_utime.tv_sec + \
     ruse.ru_stime.tv_sec + 1e-6 * \
     (ruse.ru_utime.tv_usec + ruse.ru_stime.tv_usec))
 
@@ -34,9 +34,9 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
+    //double first, second;
     // Save user and CPU start time
-    first = CPU_TIME;
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -150,8 +150,8 @@ struct rusage ruse;
     }
 
     // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   void imsmooth5W(F2D* array, float dsigma, F2D* out, int size)
@@ -160,9 +160,9 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
+    //double first, second;
     // Save user and CPU start time
-    first = CPU_TIME;
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -379,8 +379,8 @@ struct rusage ruse;
 
 
     // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -390,9 +390,9 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
+    //double first, second;
     // Save user and CPU start time
-    first = CPU_TIME;
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -626,8 +626,8 @@ struct rusage ruse;
 
 
     // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -637,9 +637,9 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
+    //double first, second;
     // Save user and CPU start time
-    first = CPU_TIME;
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -888,8 +888,8 @@ struct rusage ruse;
 
 
     // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -899,9 +899,9 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
+    //double first, second;
     // Save user and CPU start time
-    first = CPU_TIME;
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -1179,8 +1179,8 @@ struct rusage ruse;
 
 
     // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -1190,9 +1190,9 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
+    //double first, second;
     // Save user and CPU start time
-    first = CPU_TIME;
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -1507,8 +1507,8 @@ struct rusage ruse;
 
 
     // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   

@@ -5,6 +5,18 @@ Author: Sravanthi Kota Venkata
 #include "sift.h"
 #include <math.h>
 #include <assert.h>
+
+#include <string.h>
+
+#include <time.h>
+#include <sys/resource.h>
+
+struct rusage ruse;
+
+#define CPU_TIME (getrusage(RUSAGE_SELF,&ruse), ruse.ru_utime.tv_sec + \
+    ruse.ru_stime.tv_sec + 1e-6 * \
+    (ruse.ru_utime.tv_usec + ruse.ru_stime.tv_usec))
+
 const double win_factor = 1.5 ;
 const int nbins = 36 ;
 const float threshold = 0.01;
@@ -21,6 +33,9 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   int i,j,k;
   float s ;
 
+    double first, second;
+    // Save user and CPU start time
+    first = CPU_TIME;
   /* ------------------------------------------------------------------
   **                                                Check the arguments
   ** --------------------------------------------------------------- */ 
@@ -58,20 +73,6 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
 
     for(j = 0 ; j < M ; ++j) 
     {
-    	#pragma clava data intervals: [\
-		{\
-			startValue: "0",\
-			endValue: "W",\
-		},\
-		{\
-			startValue: "W",\
-			endValue: "N-W-1",\
-		},\
-		{\
-			startValue: "N-W-1",\
-			endValue: "N",\
-		},\
-	]
       for(i = 0 ; i < N ; ++i) 
       {
         int startCol = MAX(i-W,0);
@@ -85,20 +86,6 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
     /*
     ** Convolve along the rows
     **/
-    	#pragma clava data intervals: [\
-		{\
-			startValue: "0",\
-			endValue: "W",\
-		},\
-		{\
-			startValue: "W",\
-			endValue: "M-W-1",\
-		},\
-		{\
-			startValue: "M-W-1",\
-			endValue: "M",\
-		},\
-	]
     for(j = 0 ; j < M ; ++j) 
     {
       for(i = 0 ; i < N ; ++i) 
@@ -121,5 +108,8 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   }
 
 
+    // Save end time
+    second = CPU_TIME;
+    printf("t - \t%.3f\n", (second - first)*1000);
   return;
 }
