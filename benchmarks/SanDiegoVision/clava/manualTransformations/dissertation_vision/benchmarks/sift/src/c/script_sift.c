@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
     frames = sift(image);
     // Save end time
     second = CPU_TIME;
-    printf("Input size\t\t- (%dx%d)\n", rows, cols);
+    //printf("Input size\t\t- (%dx%d)\n", rows, cols);
    
 #ifdef CHECK   
     {
@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
     }
 #endif    
 
-    printf("Time Elapsed (miliseconds)\t\t - %.3f\n", (second - first)*1000); 
+    printf("t - \t%.3f\n", (second - first)*1000);
 
     fFreeHandle(frames);
 
