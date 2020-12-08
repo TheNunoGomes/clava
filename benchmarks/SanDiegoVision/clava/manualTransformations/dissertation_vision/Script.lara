@@ -1,0 +1,199 @@
+import lara.util.ProcessExecutor;
+import lara.Io;
+
+var imsmoothVersions = Io.getAbsolutePath("./benchmarks/sift/src/c/imsmoothVersions");
+var gaussianssVersions = Io.getAbsolutePath("./benchmarks/sift/src/c/gaussianssVersions");
+var scriptSiftVersions = Io.getAbsolutePath("./benchmarks/sift/src/c/scriptSiftVersions");
+var headerVersions = Io.getAbsolutePath("./benchmarks/sift/src/c/headerVersions");
+
+var speedupsHotspot = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/hotspot");
+var speedupsGlobal = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/global");
+
+var imsmooth = Io.getAbsolutePath("./benchmarks/sift/src/c/imsmooth.c");
+var gaussianss = Io.getAbsolutePath("./benchmarks/sift/src/c/gaussianss.c");
+var script_sift = Io.getAbsolutePath("./benchmarks/sift/src/c/script_sift.c");
+var sift_h = Io.getAbsolutePath("./benchmarks/sift/src/c/sift.h");	
+
+var imsmoothFiles = Io.getFiles(imsmoothVersions);
+var gaussianssFiles = Io.getFiles(gaussianssVersions);
+var scriptSiftFiles = Io.getFiles(scriptSiftVersions);
+var headerFiles = Io.getFiles(headerVersions);
+
+var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
+var executor = new ProcessExecutor();
+
+var numberOfExecutions = 100;
+
+aspectdef Script
+	executor.setWorkingDir(Io.getAbsolutePath(data));
+	
+	call HotspotBaseline;
+	call HotspotV1;
+	call HotspotV2;
+	call HotspotV3;
+	call HotspotV4;
+	call HotspotV5;
+	call GlobalBaseline;
+	call GlobalV5;
+		
+end
+
+aspectdef HotspotBaseline
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsHotspot + "/baseline.txt", results);
+end
+
+aspectdef HotspotV1
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsHotspot + "/v1.txt", results);
+end
+
+aspectdef HotspotV2
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsHotspot + "/v2.txt", results);
+end
+
+aspectdef HotspotV3
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v3.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v3.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v3.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsHotspot + "/v3.txt", results);
+end
+
+aspectdef HotspotV4
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v4.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v4.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v4.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsHotspot + "/v4.txt", results);
+end
+
+aspectdef HotspotV5
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsHotspot + "/v5.txt", results);
+end
+
+aspectdef GlobalBaseline
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/baseline.txt", results);
+end
+
+aspectdef GlobalV5
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/v5.txt", results);
+end
