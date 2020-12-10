@@ -6,12 +6,6 @@ Author: Sravanthi Kota Venkata
 #include <stdlib.h>
 #include "sift.h"
 
-#include <sys/resource.h>
-struct rusage ruse;
-
-#define CPU_TIME (getrusage(RUSAGE_SELF,&ruse), ruse.ru_utime.tv_sec + \
-    ruse.ru_stime.tv_sec + 1e-6 * \
-    (ruse.ru_utime.tv_usec + ruse.ru_stime.tv_usec))
 
 void normalizeImage(F2D* image)
 {
@@ -39,8 +33,6 @@ void normalizeImage(F2D* image)
 
 int main(int argc, char* argv[])
 {
-    double first, second;
-
     I2D* im;
     F2D *image;
     int rows, cols, i, j;
@@ -61,18 +53,11 @@ int main(int argc, char* argv[])
     iFreeHandle(im);
     rows = image->height;
     cols = image->width;
-
-    // Save user and CPU start time
-    first = CPU_TIME;
     
     /** Normalize the input image to lie between 0-1 **/
 	normalizeImage(image);
     /** Extract sift features for the normalized image **/
     frames = sift(image);
-    // Save end time
-    second = CPU_TIME;
-    //printf("Input size\t\t- (%dx%d)\n", rows, cols);
-   
 #ifdef CHECK   
     {
         int ret=0;
@@ -85,8 +70,6 @@ int main(int argc, char* argv[])
             printf("Error in SIFT\n");
     }
 #endif    
-
-    printf("t - \t%.3f\n", (second - first)*1000);
 
     fFreeHandle(frames);
 
