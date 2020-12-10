@@ -2,6 +2,7 @@
 Author: Sravanthi Kota Venkata
 ********************************/
 
+#define _POSIX_C_SOURCE 199309L
 #include "sift.h"
 #include <math.h>
 #include <assert.h>
@@ -10,12 +11,6 @@ Author: Sravanthi Kota Venkata
 
 #include <time.h>
 #include <sys/resource.h>
-
-struct rusage ruse;
-
-#define CPU_TIME (getrusage(RUSAGE_SELF,&ruse), ruse.ru_utime.tv_sec + \
-    ruse.ru_stime.tv_sec + 1e-6 * \
-    (ruse.ru_utime.tv_usec + ruse.ru_stime.tv_usec))
 
 //#define test
 /**
@@ -34,9 +29,8 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
-    // Save user and CPU start time
-    first = CPU_TIME;
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -149,9 +143,9 @@ struct rusage ruse;
             asubsref(out, i) = asubsref(array, i);
     }
 
-    // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
     return;
   }
   void imsmooth5W(F2D* array, float dsigma, F2D* out)
@@ -160,9 +154,8 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
-    // Save user and CPU start time
-    first = CPU_TIME;
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -267,9 +260,9 @@ struct rusage ruse;
       fFreeHandle(buffer);
 
 
-    // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
     return;
   }
   
@@ -279,9 +272,8 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
-    // Save user and CPU start time
-    first = CPU_TIME;
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -386,9 +378,9 @@ struct rusage ruse;
       fFreeHandle(buffer);
 
 
-    // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
     return;
   }
   
@@ -398,9 +390,8 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
-    // Save user and CPU start time
-    first = CPU_TIME;
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -504,10 +495,9 @@ struct rusage ruse;
       #endif
       fFreeHandle(buffer);
 
-
-    // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
     return;
   }
   
@@ -517,9 +507,8 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
-    // Save user and CPU start time
-    first = CPU_TIME;
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -624,9 +613,9 @@ struct rusage ruse;
       fFreeHandle(buffer);
 
 
-    // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
     return;
   }
   
@@ -636,9 +625,8 @@ struct rusage ruse;
     int i,j,k;
     float s;
 
-    double first, second;
-    // Save user and CPU start time
-    first = CPU_TIME;
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -743,9 +731,9 @@ struct rusage ruse;
       fFreeHandle(buffer);
 
 
-    // Save end time
-    second = CPU_TIME;
-    printf("t - \t%.3f\n", (second - first)*1000);
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
     return;
   }
   

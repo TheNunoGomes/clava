@@ -22,18 +22,19 @@ var headerFiles = Io.getFiles(headerVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 100;
+var numberOfExecutions = 1;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
+	
 	call HotspotBaseline;
-	//call HotspotV1;
-	//call HotspotV2;
-	//call HotspotV3;
-	//call HotspotV4;
-	//call HotspotV5;
-	//call GlobalBaseline;
-	//call GlobalV5;
+	call HotspotV1;
+	call HotspotV2;
+	call HotspotV3;
+	call HotspotV4;
+	call HotspotV5;
+	call GlobalBaseline;
+	call GlobalV5;
 		
 end
 

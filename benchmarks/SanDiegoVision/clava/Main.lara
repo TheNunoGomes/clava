@@ -43,7 +43,7 @@ for(var benchmarkName of benchmarkNames) {
 		loggerDF.logBefore(logLocation);
 		
 		//*/
-		//Utils.timeMethodCalls(benchmarkName);
+		Utils.timeMethodCalls(benchmarkName);
 		/*
 		Transformations.replaceDoublesWithFloats();
 		Transformations.replacePowCalls();
@@ -56,7 +56,7 @@ for(var benchmarkName of benchmarkNames) {
 		loggerOut.text("out = ").double("out->data[(j) * out->width + (i)]");
 		loggerOut.log(chain["loop_2"].body.stmts[0]);
 		*/
-		Transformations.loopSplitting();
+		//Transformations.loopSplitting();
 		benchmark.compile();
 		//for(var i = 0; i < 10; i++)
 		//	benchmark.execute();
