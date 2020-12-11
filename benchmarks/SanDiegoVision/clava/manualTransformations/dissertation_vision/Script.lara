@@ -16,12 +16,6 @@ var script_sift = Io.getAbsolutePath("./benchmarks/sift/src/c/script_sift.c");
 var sift_h = Io.getAbsolutePath("./benchmarks/sift/src/c/sift.h");	
 var makefile = Io.getAbsolutePath("./common/makefiles/Makefile.common");	
 
-var imsmoothFiles = Io.getFiles(imsmoothVersions);
-var gaussianssFiles = Io.getFiles(gaussianssVersions);
-var scriptSiftFiles = Io.getFiles(scriptSiftVersions);
-var headerFiles = Io.getFiles(headerVersions);
-var makesfilesFiles = Io.getFiles(makefileVersions);
-
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
