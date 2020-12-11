@@ -63,6 +63,8 @@ aspectdef HotspotBaselineO2
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+	println("Executing: Baseline. Measuring: Hotspot. Flag: -O2");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -79,11 +81,14 @@ aspectdef HotspotBaselineO3
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
+	
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: Baseline. Measuring: Hotspot. Flag: -O3");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -107,6 +112,8 @@ aspectdef HotspotBaselineOfast
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+	println("Executing: Baseline. Measuring: Hotspot. Flag: -Ofast");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -128,6 +135,8 @@ aspectdef HotspotV1Ofast
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v1. Measuring: Hotspot. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -151,6 +160,8 @@ aspectdef HotspotV2Ofast
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+	println("Executing: v2. Measuring: Hotspot. Flag: -Ofast");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -173,6 +184,8 @@ aspectdef HotspotV3Ofast
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+	println("Executing: v3. Measuring: Hotspot. Flag: -Ofast");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -188,12 +201,14 @@ aspectdef HotspotV4Ofast
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
 	headerContent = Io.readFile(headerVersions + "/sift_v4.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
+	
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v4. Measuring: Hotspot. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -217,6 +232,8 @@ aspectdef HotspotV5O2
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+	println("Executing: v5. Measuring: Hotspot. Flag: -O2");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -232,12 +249,14 @@ aspectdef HotspotV5O3
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
-		
+	
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v5. Measuring: Hotspot. Flag: -O3");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -254,12 +273,14 @@ aspectdef HotspotV5Ofast
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
+	
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v5. Measuring: Hotspot. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -283,6 +304,8 @@ aspectdef GlobalBaselineO2
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+	println("Executing: Baseline. Measuring: Global. Flag: -O2");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -298,12 +321,14 @@ aspectdef GlobalBaselineO3
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
-		
+			
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: Baseline. Measuring: Global. Flag: -O3");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -327,6 +352,8 @@ aspectdef GlobalBaselineOfast
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+	println("Executing: Baseline. Measuring: Global. Flag: -Ofast");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -348,6 +375,8 @@ aspectdef GlobalV5O2
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v5. Measuring: Global. Flag: -O2");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -371,6 +400,9 @@ aspectdef GlobalV5O3
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
+
+	println("Executing: v5. Measuring: Global. Flag: -O3");
+	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
@@ -392,6 +424,8 @@ aspectdef GlobalV5Ofast
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v5. Measuring: Global. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
