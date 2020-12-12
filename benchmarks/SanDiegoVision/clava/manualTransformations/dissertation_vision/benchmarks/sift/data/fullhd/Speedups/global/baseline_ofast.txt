@@ -1,0 +1,200 @@
+7113.962294ms
+Verification		- Successful
+7112.497586ms
+Verification		- Successful
+7117.304011ms
+Verification		- Successful
+7126.722671ms
+Verification		- Successful
+7126.451660ms
+Verification		- Successful
+7123.877551ms
+Verification		- Successful
+7117.434570ms
+Verification		- Successful
+7128.136882ms
+Verification		- Successful
+7113.889625ms
+Verification		- Successful
+7118.846089ms
+Verification		- Successful
+7113.726761ms
+Verification		- Successful
+7123.921162ms
+Verification		- Successful
+7120.009445ms
+Verification		- Successful
+7112.973764ms
+Verification		- Successful
+7115.104265ms
+Verification		- Successful
+7115.574702ms
+Verification		- Successful
+7118.049906ms
+Verification		- Successful
+7113.004287ms
+Verification		- Successful
+7115.060038ms
+Verification		- Successful
+7128.433274ms
+Verification		- Successful
+7121.312139ms
+Verification		- Successful
+7114.103839ms
+Verification		- Successful
+7118.088107ms
+Verification		- Successful
+7115.821328ms
+Verification		- Successful
+7114.205043ms
+Verification		- Successful
+7119.423170ms
+Verification		- Successful
+7114.414302ms
+Verification		- Successful
+7113.436049ms
+Verification		- Successful
+7110.696401ms
+Verification		- Successful
+7127.994423ms
+Verification		- Successful
+7121.539238ms
+Verification		- Successful
+7114.498477ms
+Verification		- Successful
+7108.522869ms
+Verification		- Successful
+7118.169139ms
+Verification		- Successful
+7118.556178ms
+Verification		- Successful
+7111.897211ms
+Verification		- Successful
+7107.589294ms
+Verification		- Successful
+7123.924289ms
+Verification		- Successful
+7109.460419ms
+Verification		- Successful
+7115.809621ms
+Verification		- Successful
+7115.077953ms
+Verification		- Successful
+7113.840708ms
+Verification		- Successful
+7122.820169ms
+Verification		- Successful
+7125.286337ms
+Verification		- Successful
+7116.566312ms
+Verification		- Successful
+7122.771473ms
+Verification		- Successful
+7141.776601ms
+Verification		- Successful
+7119.376414ms
+Verification		- Successful
+7121.480837ms
+Verification		- Successful
+7113.017307ms
+Verification		- Successful
+7130.982033ms
+Verification		- Successful
+7116.716992ms
+Verification		- Successful
+7112.232332ms
+Verification		- Successful
+7144.066965ms
+Verification		- Successful
+7126.319720ms
+Verification		- Successful
+7113.943406ms
+Verification		- Successful
+7113.598443ms
+Verification		- Successful
+7121.214005ms
+Verification		- Successful
+7119.936676ms
+Verification		- Successful
+7117.254452ms
+Verification		- Successful
+7117.547898ms
+Verification		- Successful
+7115.789619ms
+Verification		- Successful
+7116.654890ms
+Verification		- Successful
+7122.647598ms
+Verification		- Successful
+7120.122911ms
+Verification		- Successful
+7139.201998ms
+Verification		- Successful
+7124.863167ms
+Verification		- Successful
+7118.161784ms
+Verification		- Successful
+7120.052293ms
+Verification		- Successful
+7125.960045ms
+Verification		- Successful
+7119.036912ms
+Verification		- Successful
+7109.970144ms
+Verification		- Successful
+7111.940819ms
+Verification		- Successful
+7139.931667ms
+Verification		- Successful
+7119.789827ms
+Verification		- Successful
+7126.537651ms
+Verification		- Successful
+7122.155489ms
+Verification		- Successful
+7126.629257ms
+Verification		- Successful
+7118.196313ms
+Verification		- Successful
+7116.917321ms
+Verification		- Successful
+7122.808988ms
+Verification		- Successful
+7132.477649ms
+Verification		- Successful
+7123.832042ms
+Verification		- Successful
+7120.379867ms
+Verification		- Successful
+7121.541221ms
+Verification		- Successful
+7120.146936ms
+Verification		- Successful
+7123.648593ms
+Verification		- Successful
+7117.072669ms
+Verification		- Successful
+7117.872482ms
+Verification		- Successful
+7124.552099ms
+Verification		- Successful
+7113.562394ms
+Verification		- Successful
+7122.958143ms
+Verification		- Successful
+7111.283491ms
+Verification		- Successful
+7113.583327ms
+Verification		- Successful
+7119.602828ms
+Verification		- Successful
+7113.200276ms
+Verification		- Successful
+7119.241817ms
+Verification		- Successful
+7117.912702ms
+Verification		- Successful
+7118.259898ms
+Verification		- Successful
+7121.614889ms
+Verification		- Successful
