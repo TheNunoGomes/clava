@@ -30,21 +30,21 @@ var numberOfExecutions = 1;
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 	
-	call HotspotBaselineO2;
-	call HotspotBaselineO3;
+	//call HotspotBaselineO2;
+	//call HotspotBaselineO3;
 	call HotspotBaselineOfast;
 	//call HotspotV1Ofast;
 	//call HotspotV2Ofast;
 	//call HotspotV3Ofast;
 	//call HotspotV4Ofast;
-	call HotspotV5O2;
-	call HotspotV5O3;
+	//call HotspotV5O2;
+	//call HotspotV5O3;
 	call HotspotV5Ofast;
-	call GlobalBaselineO2;
-	call GlobalBaselineO3;
+	//call GlobalBaselineO2;
+	//call GlobalBaselineO3;
 	call GlobalBaselineOfast;
-	call GlobalV5O2;
-	call GlobalV5O3;
+	//call GlobalV5O2;
+	//call GlobalV5O3;
 	call GlobalV5Ofast;
 		
 end
