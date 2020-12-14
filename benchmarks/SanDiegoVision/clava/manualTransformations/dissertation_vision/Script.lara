@@ -25,7 +25,7 @@ var makesfilesFiles = Io.getFiles(makefileVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 1;
+var numberOfExecutions = 100;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
