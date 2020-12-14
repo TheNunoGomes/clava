@@ -28,6 +28,7 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   int i,j,k;
   float s ;
 	
+    printf("W = %d\t\t\t ", (int) ceil(4*dsigma) );
 	struct timespec clava_timing_start_0, clava_timing_end_0;
 	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
   /* ------------------------------------------------------------------
@@ -42,7 +43,7 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   **                                                         Do the job
   ** --------------------------------------------------------------- */ 
   if(s > threshold) 
-  {
+  { 
     int W = (int) ceil(4*s) ;
     float temp[2*W+1];
     F2D* buffer;
@@ -103,6 +104,6 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
 
 	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
 	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-  printf("W = %d\t\t\t %f\n", W, clava_timing_duration_0);
+  printf("%f\n", clava_timing_duration_0);
   return;
 }
