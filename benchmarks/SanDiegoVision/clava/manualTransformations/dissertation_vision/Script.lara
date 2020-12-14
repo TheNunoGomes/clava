@@ -42,10 +42,10 @@ aspectdef Script
 	call HotspotV5Ofast;
 	//call GlobalBaselineO2;
 	//call GlobalBaselineO3;
-	call GlobalBaselineOfast;
+	//call GlobalBaselineOfast;
 	//call GlobalV5O2;
 	//call GlobalV5O3;
-	call GlobalV5Ofast;
+	//call GlobalV5Ofast;
 		
 end
 
