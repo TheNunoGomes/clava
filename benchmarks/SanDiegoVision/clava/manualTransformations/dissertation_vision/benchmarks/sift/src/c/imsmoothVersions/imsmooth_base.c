@@ -29,6 +29,7 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   float s ;
 	
     printf("W = %d\t\t\t ", (int) ceil(4*dsigma) );
+    printf("MxN = %d\t\t\t ", array->height);
 	struct timespec clava_timing_start_0, clava_timing_end_0;
 	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
   /* ------------------------------------------------------------------
