@@ -25,27 +25,30 @@ var makesfilesFiles = Io.getFiles(makefileVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 100;
+var numberOfExecutions = 10;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 	
 	//call HotspotBaselineO2;
 	//call HotspotBaselineO3;
-	call HotspotBaselineOfast;
+	//call HotspotBaselineOfast;
 	//call HotspotV1Ofast;
 	//call HotspotV2Ofast;
 	//call HotspotV3Ofast;
 	//call HotspotV4Ofast;
 	//call HotspotV5O2;
 	//call HotspotV5O3;
-	call HotspotV5Ofast;
+	//call HotspotV5Ofast;
 	//call GlobalBaselineO2;
 	//call GlobalBaselineO3;
 	//call GlobalBaselineOfast;
 	//call GlobalV5O2;
 	//call GlobalV5O3;
 	//call GlobalV5Ofast;
+
+	call perfBaselineOfast;
+	call perfV5Ofast;
 		
 end
 
@@ -433,4 +436,52 @@ aspectdef GlobalV5Ofast
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast.txt", results);
+end
+
+aspectdef perfBaselineOfast
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: Baseline. Measuring: Cache Performance. Flag: -Ofast");
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("perf stat ./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/base_ofast_perf.txt", results);
+end
+
+aspectdef perfV5Ofast
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("perf stat ./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/v5_ofast_perf.txt", results);
 end
