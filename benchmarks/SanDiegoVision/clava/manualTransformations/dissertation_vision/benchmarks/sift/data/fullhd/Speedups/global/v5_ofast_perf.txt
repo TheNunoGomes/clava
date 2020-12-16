@@ -1,0 +1,250 @@
+114466.187087ms
+Verification		- Successful
+==17363== Cachegrind, a cache and branch-prediction profiler
+==17363== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17363== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17363== Command: ./sift ./
+==17363== 
+--17363-- Warning: Cannot auto-detect cache config, using defaults.
+--17363--          Run with -v to see.
+==17363== 
+==17363== I   refs:      6,025,095,694
+==17363== I1  misses:            3,445
+==17363== LLi misses:            2,967
+==17363== I1  miss rate:          0.00%
+==17363== LLi miss rate:          0.00%
+==17363== 
+==17363== D   refs:      2,470,751,491  (1,870,377,480 rd   + 600,374,011 wr)
+==17363== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17363== LLd misses:       30,800,279  (   19,095,378 rd   +  11,704,901 wr)
+==17363== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17363== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17363== 
+==17363== LL refs:          95,340,190  (   83,605,270 rd   +  11,734,920 wr)
+==17363== LL misses:        30,803,246  (   19,098,345 rd   +  11,704,901 wr)
+==17363== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+117263.319353ms
+Verification		- Successful
+==17366== Cachegrind, a cache and branch-prediction profiler
+==17366== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17366== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17366== Command: ./sift ./
+==17366== 
+--17366-- Warning: Cannot auto-detect cache config, using defaults.
+--17366--          Run with -v to see.
+==17366== 
+==17366== I   refs:      6,025,095,545
+==17366== I1  misses:            3,444
+==17366== LLi misses:            2,964
+==17366== I1  miss rate:          0.00%
+==17366== LLi miss rate:          0.00%
+==17366== 
+==17366== D   refs:      2,470,751,452  (1,870,377,458 rd   + 600,373,994 wr)
+==17366== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17366== LLd misses:       30,800,231  (   19,095,334 rd   +  11,704,897 wr)
+==17366== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17366== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17366== 
+==17366== LL refs:          95,340,189  (   83,605,269 rd   +  11,734,920 wr)
+==17366== LL misses:        30,803,195  (   19,098,298 rd   +  11,704,897 wr)
+==17366== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+115130.489293ms
+Verification		- Successful
+==17369== Cachegrind, a cache and branch-prediction profiler
+==17369== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17369== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17369== Command: ./sift ./
+==17369== 
+--17369-- Warning: Cannot auto-detect cache config, using defaults.
+--17369--          Run with -v to see.
+==17369== 
+==17369== I   refs:      6,025,095,412
+==17369== I1  misses:            3,445
+==17369== LLi misses:            2,967
+==17369== I1  miss rate:          0.00%
+==17369== LLi miss rate:          0.00%
+==17369== 
+==17369== D   refs:      2,470,751,430  (1,870,377,449 rd   + 600,373,981 wr)
+==17369== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17369== LLd misses:       30,800,269  (   19,095,370 rd   +  11,704,899 wr)
+==17369== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17369== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17369== 
+==17369== LL refs:          95,340,190  (   83,605,270 rd   +  11,734,920 wr)
+==17369== LL misses:        30,803,236  (   19,098,337 rd   +  11,704,899 wr)
+==17369== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+114685.633903ms
+Verification		- Successful
+==17372== Cachegrind, a cache and branch-prediction profiler
+==17372== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17372== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17372== Command: ./sift ./
+==17372== 
+--17372-- Warning: Cannot auto-detect cache config, using defaults.
+--17372--          Run with -v to see.
+==17372== 
+==17372== I   refs:      6,025,095,481
+==17372== I1  misses:            3,444
+==17372== LLi misses:            2,966
+==17372== I1  miss rate:          0.00%
+==17372== LLi miss rate:          0.00%
+==17372== 
+==17372== D   refs:      2,470,751,455  (1,870,377,459 rd   + 600,373,996 wr)
+==17372== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17372== LLd misses:       30,800,269  (   19,095,370 rd   +  11,704,899 wr)
+==17372== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17372== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17372== 
+==17372== LL refs:          95,340,189  (   83,605,269 rd   +  11,734,920 wr)
+==17372== LL misses:        30,803,235  (   19,098,336 rd   +  11,704,899 wr)
+==17372== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+114527.054089ms
+Verification		- Successful
+==17375== Cachegrind, a cache and branch-prediction profiler
+==17375== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17375== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17375== Command: ./sift ./
+==17375== 
+--17375-- Warning: Cannot auto-detect cache config, using defaults.
+--17375--          Run with -v to see.
+==17375== 
+==17375== I   refs:      6,025,095,216
+==17375== I1  misses:            3,444
+==17375== LLi misses:            2,966
+==17375== I1  miss rate:          0.00%
+==17375== LLi miss rate:          0.00%
+==17375== 
+==17375== D   refs:      2,470,751,396  (1,870,377,429 rd   + 600,373,967 wr)
+==17375== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17375== LLd misses:       30,800,279  (   19,095,378 rd   +  11,704,901 wr)
+==17375== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17375== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17375== 
+==17375== LL refs:          95,340,189  (   83,605,269 rd   +  11,734,920 wr)
+==17375== LL misses:        30,803,245  (   19,098,344 rd   +  11,704,901 wr)
+==17375== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+114644.732469ms
+Verification		- Successful
+==17378== Cachegrind, a cache and branch-prediction profiler
+==17378== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17378== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17378== Command: ./sift ./
+==17378== 
+--17378-- Warning: Cannot auto-detect cache config, using defaults.
+--17378--          Run with -v to see.
+==17378== 
+==17378== I   refs:      6,025,095,806
+==17378== I1  misses:            3,445
+==17378== LLi misses:            2,965
+==17378== I1  miss rate:          0.00%
+==17378== LLi miss rate:          0.00%
+==17378== 
+==17378== D   refs:      2,470,751,506  (1,870,377,488 rd   + 600,374,018 wr)
+==17378== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17378== LLd misses:       30,800,224  (   19,095,328 rd   +  11,704,896 wr)
+==17378== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17378== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17378== 
+==17378== LL refs:          95,340,190  (   83,605,270 rd   +  11,734,920 wr)
+==17378== LL misses:        30,803,189  (   19,098,293 rd   +  11,704,896 wr)
+==17378== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+114685.147345ms
+Verification		- Successful
+==17381== Cachegrind, a cache and branch-prediction profiler
+==17381== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17381== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17381== Command: ./sift ./
+==17381== 
+--17381-- Warning: Cannot auto-detect cache config, using defaults.
+--17381--          Run with -v to see.
+==17381== 
+==17381== I   refs:      6,025,095,593
+==17381== I1  misses:            3,444
+==17381== LLi misses:            2,966
+==17381== I1  miss rate:          0.00%
+==17381== LLi miss rate:          0.00%
+==17381== 
+==17381== D   refs:      2,470,751,472  (1,870,377,468 rd   + 600,374,004 wr)
+==17381== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17381== LLd misses:       30,800,269  (   19,095,370 rd   +  11,704,899 wr)
+==17381== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17381== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17381== 
+==17381== LL refs:          95,340,189  (   83,605,269 rd   +  11,734,920 wr)
+==17381== LL misses:        30,803,235  (   19,098,336 rd   +  11,704,899 wr)
+==17381== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+114717.283816ms
+Verification		- Successful
+==17384== Cachegrind, a cache and branch-prediction profiler
+==17384== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17384== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17384== Command: ./sift ./
+==17384== 
+--17384-- Warning: Cannot auto-detect cache config, using defaults.
+--17384--          Run with -v to see.
+==17384== 
+==17384== I   refs:      6,025,095,594
+==17384== I1  misses:            3,444
+==17384== LLi misses:            2,964
+==17384== I1  miss rate:          0.00%
+==17384== LLi miss rate:          0.00%
+==17384== 
+==17384== D   refs:      2,470,751,472  (1,870,377,468 rd   + 600,374,004 wr)
+==17384== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17384== LLd misses:       30,800,277  (   19,095,370 rd   +  11,704,907 wr)
+==17384== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17384== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17384== 
+==17384== LL refs:          95,340,189  (   83,605,269 rd   +  11,734,920 wr)
+==17384== LL misses:        30,803,241  (   19,098,334 rd   +  11,704,907 wr)
+==17384== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+119018.046045ms
+Verification		- Successful
+==17387== Cachegrind, a cache and branch-prediction profiler
+==17387== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17387== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17387== Command: ./sift ./
+==17387== 
+--17387-- Warning: Cannot auto-detect cache config, using defaults.
+--17387--          Run with -v to see.
+==17387== 
+==17387== I   refs:      6,025,095,214
+==17387== I1  misses:            3,445
+==17387== LLi misses:            2,965
+==17387== I1  miss rate:          0.00%
+==17387== LLi miss rate:          0.00%
+==17387== 
+==17387== D   refs:      2,470,751,401  (1,870,377,434 rd   + 600,373,967 wr)
+==17387== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17387== LLd misses:       30,800,224  (   19,095,328 rd   +  11,704,896 wr)
+==17387== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17387== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17387== 
+==17387== LL refs:          95,340,190  (   83,605,270 rd   +  11,734,920 wr)
+==17387== LL misses:        30,803,189  (   19,098,293 rd   +  11,704,896 wr)
+==17387== LL miss rate:            0.3% (          0.2%     +         1.9%  )
+120444.965034ms
+Verification		- Successful
+==17390== Cachegrind, a cache and branch-prediction profiler
+==17390== Copyright (C) 2002-2013, and GNU GPL'd, by Nicholas Nethercote et al.
+==17390== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==17390== Command: ./sift ./
+==17390== 
+--17390-- Warning: Cannot auto-detect cache config, using defaults.
+--17390--          Run with -v to see.
+==17390== 
+==17390== I   refs:      6,025,095,167
+==17390== I1  misses:            3,444
+==17390== LLi misses:            2,966
+==17390== I1  miss rate:          0.00%
+==17390== LLi miss rate:          0.00%
+==17390== 
+==17390== D   refs:      2,470,751,388  (1,870,377,425 rd   + 600,373,963 wr)
+==17390== D1  misses:       95,336,745  (   83,601,825 rd   +  11,734,920 wr)
+==17390== LLd misses:       30,800,269  (   19,095,370 rd   +  11,704,899 wr)
+==17390== D1  miss rate:           3.8% (          4.4%     +         1.9%  )
+==17390== LLd miss rate:           1.2% (          1.0%     +         1.9%  )
+==17390== 
+==17390== LL refs:          95,340,189  (   83,605,269 rd   +  11,734,920 wr)
+==17390== LL misses:        30,803,235  (   19,098,336 rd   +  11,704,899 wr)
+==17390== LL miss rate:            0.3% (          0.2%     +         1.9%  )
