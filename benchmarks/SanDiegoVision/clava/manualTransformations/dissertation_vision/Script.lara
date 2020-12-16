@@ -456,7 +456,7 @@ aspectdef perfBaselineOfast
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("perf stat ./sift ./");
+		executor.execute("valgrind --tool=cachegrind ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_ofast_perf.txt", results);
@@ -480,7 +480,7 @@ aspectdef perfV5Ofast
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("perf stat ./sift ./");
+		executor.execute("valgrind --tool=cachegrind ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perf.txt", results);
