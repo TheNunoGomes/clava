@@ -516,7 +516,7 @@ aspectdef perfBaselineOfastW5
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth5W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth5W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_ofast_perfW5.txt", results);
@@ -540,7 +540,7 @@ aspectdef perfBaselineOfastW7
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth7W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth7W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_ofast_perfW7.txt", results);
@@ -564,7 +564,7 @@ aspectdef perfBaselineOfastW8
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth8W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth8W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_ofast_perfW8.txt", results);
@@ -588,7 +588,7 @@ aspectdef perfBaselineOfastW10
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth10W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth10W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_ofast_perfW10.txt", results);
@@ -612,7 +612,7 @@ aspectdef perfBaselineOfastW13
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth13W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth13W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_ofast_perfW13.txt", results);
@@ -636,7 +636,7 @@ aspectdef perfV5OfastW5
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth5W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth5W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW5.txt", results);
@@ -660,7 +660,7 @@ aspectdef perfV5OfastW7
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth7W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth7W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW7.txt", results);
@@ -684,7 +684,7 @@ aspectdef perfV5OfastW8
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth8W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth8W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW8.txt", results);
@@ -708,7 +708,7 @@ aspectdef perfV5OfastW10
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth10W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth10W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW10.txt", results);
@@ -732,7 +732,7 @@ aspectdef perfV5OfastW13
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth13W ./sift ./");
+		executor.execute("valgrind --tool=cachegrind --toggle-collect=imsmooth13W(F2d*, float, F2D*, int) ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW13.txt", results);
