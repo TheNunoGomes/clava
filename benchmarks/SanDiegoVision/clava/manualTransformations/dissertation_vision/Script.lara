@@ -46,8 +46,7 @@ aspectdef Script
 	call HotspotV5Ofast_CacheW8;
 	call HotspotV5Ofast_CacheW10;
 	call HotspotV5Ofast_CacheW13;
-
-		
+	
 end
 
 aspectdef HotspotBaselineO2
