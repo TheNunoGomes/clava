@@ -30,6 +30,7 @@ var numberOfExecutions = 1;
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 
+	call GlobalBaselineOfast_Cache;
 	call HotspotBaselineOfast_Cache;
 
 	call HotspotV5Ofast_CacheW5;
@@ -426,6 +427,11 @@ aspectdef GlobalV5Ofast
 	Io.writeFile(speedupsGlobal + "/v5_ofast.txt", results);
 end
 
+
+
+
+
+
 aspectdef GlobalBaselineOfast_Cache
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
@@ -475,9 +481,10 @@ aspectdef GlobalV5Ofast_Cache
 end
 
 aspectdef HotspotBaselineOfast_Cache
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5.c");
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
 	
