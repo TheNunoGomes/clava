@@ -612,7 +612,7 @@ aspectdef perfBaselineOfastW13
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth13W ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth13W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_ofast_perfW13.txt", results);
@@ -732,7 +732,7 @@ aspectdef perfV5OfastW13
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth13W ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth13W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW13.txt", results);
