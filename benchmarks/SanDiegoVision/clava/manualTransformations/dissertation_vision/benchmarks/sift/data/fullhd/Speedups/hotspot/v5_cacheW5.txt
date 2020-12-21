@@ -1,0 +1,103 @@
+53597.015497ms
+Verification		- Successful
+==5355== Callgrind, a call-graph generating cache profiler
+==5355== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==5355== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==5355== Command: ./sift ./
+==5355== 
+--5355-- warning: L3 cache found, using its data for the LL simulation.
+==5355== For interactive control, run 'callgrind_control -h'.
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--5355-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+==5355== brk segment overflow in thread #1: can't grow to 0x5415000
+==5355== brk segment overflow in thread #1: can't grow to 0x5436000
+==5355== brk segment overflow in thread #1: can't grow to 0x5436000
+==5355== brk segment overflow in thread #1: can't grow to 0x5436000
+==5355== brk segment overflow in thread #1: can't grow to 0x5436000
+==5355== brk segment overflow in thread #1: can't grow to 0x5436000
+==5355== brk segment overflow in thread #1: can't grow to 0x4b71000
+==5355== brk segment overflow in thread #1: can't grow to 0x4b71000
+==5355== brk segment overflow in thread #1: can't grow to 0x4a94000
+==5355== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==5355== brk segment overflow in thread #1: can't grow to 0x5c14000
+==5355== brk segment overflow in thread #1: can't grow to 0x5c14000
+==5355== brk segment overflow in thread #1: can't grow to 0x5c14000
+==5355== brk segment overflow in thread #1: can't grow to 0x5c14000
+==5355== brk segment overflow in thread #1: can't grow to 0x5c14000
+==5355== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==5355== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==5355== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==5355== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==5355== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==5355== brk segment overflow in thread #1: can't grow to 0x4b64000
+==5355== brk segment overflow in thread #1: can't grow to 0x4b64000
+==5355== brk segment overflow in thread #1: can't grow to 0x4b64000
+==5355== brk segment overflow in thread #1: can't grow to 0x4b64000
+==5355== brk segment overflow in thread #1: can't grow to 0x4b64000
+==5355== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==5355== brk segment overflow in thread #1: can't grow to 0x5c14000
+==5355== 
+==5355== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==5355== Collected : 982760283 250492270 24571827 366 9316007 685899 179 2257226 657643
+==5355== 
+==5355== I   refs:      982,760,283
+==5355== I1  misses:            366
+==5355== LLi misses:            179
+==5355== I1  miss rate:        0.00%
+==5355== LLi miss rate:        0.00%
+==5355== 
+==5355== D   refs:      275,064,097  (250,492,270 rd + 24,571,827 wr)
+==5355== D1  misses:     10,001,906  (  9,316,007 rd +    685,899 wr)
+==5355== LLd misses:      2,914,869  (  2,257,226 rd +    657,643 wr)
+==5355== D1  miss rate:         3.6% (        3.7%   +        2.8%  )
+==5355== LLd miss rate:         1.1% (        0.9%   +        2.7%  )
+==5355== 
+==5355== LL refs:        10,002,272  (  9,316,373 rd +    685,899 wr)
+==5355== LL misses:       2,915,048  (  2,257,405 rd +    657,643 wr)
+==5355== LL miss rate:          0.2% (        0.2%   +        2.7%  )
