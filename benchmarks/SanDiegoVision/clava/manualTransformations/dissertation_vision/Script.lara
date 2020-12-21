@@ -732,7 +732,7 @@ aspectdef perfV5OfastW13
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind \"--toggle-collect=imsmooth13W(F2D*, float, F2D*, int)\" ./sift ./");
+		executor.execute("valgrind --tool=callgrind ./sift ./"); //\"--toggle-collect=imsmooth13W(F2D*, float, F2D*, int)\" ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW13.txt", results);
