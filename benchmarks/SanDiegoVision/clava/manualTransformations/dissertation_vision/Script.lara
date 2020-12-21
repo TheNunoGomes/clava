@@ -29,38 +29,14 @@ var numberOfExecutions = 1;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
-	
-	//call HotspotBaselineO2;
-	//call HotspotBaselineO3;
-	//call HotspotBaselineOfast;
-	//call HotspotV1Ofast;
-	//call HotspotV2Ofast;
-	//call HotspotV3Ofast;
-	//call HotspotV4Ofast;
-	//call HotspotV5O2;
-	//call HotspotV5O3;
-	//call HotspotV5Ofast;
-	//call GlobalBaselineO2;
-	//call GlobalBaselineO3;
-	//call GlobalBaselineOfast;
-	//call GlobalV5O2;
-	//call GlobalV5O3;
-	//call GlobalV5Ofast;
 
-	//call perfBaselineOfast;
-	//call perfV5Ofast;
+	call HotspotBaselineOfast_Cache;
 
-	//call perfBaselineOfastW5;
-	//call perfBaselineOfastW7;
-	//call perfBaselineOfastW8;
-	//call perfBaselineOfastW10;
-	call perfBaselineOfastW13;
-
-	//call perfV5OfastW5;
-	//call perfV5OfastW7;
-	//call perfV5OfastW8;
-	//call perfV5OfastW10;
-	call perfV5OfastW13;
+	call HotspotV5Ofast_CacheW5;
+	call HotspotV5Ofast_CacheW7;
+	call HotspotV5Ofast_CacheW8;
+	call HotspotV5Ofast_CacheW10;
+	call HotspotV5Ofast_CacheW13;
 		
 end
 
@@ -450,7 +426,7 @@ aspectdef GlobalV5Ofast
 	Io.writeFile(speedupsGlobal + "/v5_ofast.txt", results);
 end
 
-aspectdef perfBaselineOfast
+aspectdef GlobalBaselineOfast_Cache
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
@@ -471,10 +447,10 @@ aspectdef perfBaselineOfast
 		executor.execute("valgrind --tool=cachegrind ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/base_ofast_perf.txt", results);
+	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
 end
 
-aspectdef perfV5Ofast
+aspectdef GlobalV5Ofast_Cache
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
@@ -495,17 +471,16 @@ aspectdef perfV5Ofast
 		executor.execute("valgrind --tool=cachegrind ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_ofast_perf.txt", results);
+	Io.writeFile(speedupsGlobal + "/v5_cache.txt", results);
 end
 
-aspectdef perfBaselineOfastW5
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+aspectdef HotspotBaselineOfast_Cache
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
+	
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
@@ -516,109 +491,13 @@ aspectdef perfBaselineOfastW5
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth5W ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/base_ofast_perfW5.txt", results);
+	Io.writeFile(speedupsHotspot + "/base_cache.txt", results);
 end
 
-aspectdef perfBaselineOfastW7
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Cache Performance. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth7W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/base_ofast_perfW7.txt", results);
-end
-
-aspectdef perfBaselineOfastW8
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Cache Performance. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth8W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/base_ofast_perfW8.txt", results);
-end
-
-aspectdef perfBaselineOfastW10
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Cache Performance. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth10W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/base_ofast_perfW10.txt", results);
-end
-
-aspectdef perfBaselineOfastW13
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Cache Performance. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth13W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/base_ofast_perfW13.txt", results);
-end
-
-aspectdef perfV5OfastW5
+aspectdef HotspotV5Ofast_CacheW5
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
@@ -639,10 +518,10 @@ aspectdef perfV5OfastW5
 		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth5W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW5.txt", results);
+	Io.writeFile(speedupsHotspot + "/v5_cacheW5.txt", results);
 end
 
-aspectdef perfV5OfastW7
+aspectdef HotspotV5Ofast_CacheW7
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
@@ -663,10 +542,10 @@ aspectdef perfV5OfastW7
 		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth7W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW7.txt", results);
+	Io.writeFile(speedupsHotspot + "/v5_cacheW7.txt", results);
 end
 
-aspectdef perfV5OfastW8
+aspectdef HotspotV5Ofast_CacheW8
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
@@ -687,10 +566,10 @@ aspectdef perfV5OfastW8
 		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth8W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW8.txt", results);
+	Io.writeFile(speedupsHotspot + "/v5_cacheW8.txt", results);
 end
 
-aspectdef perfV5OfastW10
+aspectdef HotspotV5Ofast_CacheW10
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
@@ -711,10 +590,10 @@ aspectdef perfV5OfastW10
 		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth10W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW10.txt", results);
+	Io.writeFile(speedupsHotspot + "/v5_cacheW10.txt", results);
 end
 
-aspectdef perfV5OfastW13
+aspectdef HotspotV5Ofast_CacheW13
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
@@ -735,5 +614,5 @@ aspectdef perfV5OfastW13
 		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth13W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_ofast_perfW13.txt", results);
+	Io.writeFile(speedupsHotspot + "/v5_cacheW13.txt", results);
 end
