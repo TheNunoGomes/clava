@@ -446,7 +446,7 @@ aspectdef GlobalBaselineOfast_Cache
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Cache Performance. Flag: -Ofast");
+	println("Executing: Baseline. Measuring: Global Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -470,7 +470,7 @@ aspectdef GlobalV5Ofast_Cache
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	println("Executing: v5. Measuring: Global Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -496,7 +496,7 @@ aspectdef HotspotBaselineOfast_Cache
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Cache Performance. Flag: -Ofast");
+	println("Executing: Baseline. Measuring: Hotspot Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -520,7 +520,7 @@ aspectdef HotspotV5Ofast_CacheW5
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	println("Executing: v5. Measuring: W5 Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -544,7 +544,7 @@ aspectdef HotspotV5Ofast_CacheW7
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	println("Executing: v5. Measuring: W7 Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -568,7 +568,7 @@ aspectdef HotspotV5Ofast_CacheW8
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	println("Executing: v5. Measuring: W8 Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -592,7 +592,7 @@ aspectdef HotspotV5Ofast_CacheW10
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	println("Executing: v5. Measuring: W10 Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -616,7 +616,7 @@ aspectdef HotspotV5Ofast_CacheW13
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	println("Executing: v5. Measuring: W13 Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
