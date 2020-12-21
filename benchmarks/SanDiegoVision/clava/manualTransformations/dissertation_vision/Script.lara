@@ -450,7 +450,7 @@ aspectdef GlobalBaselineOfast_Cache
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
@@ -474,16 +474,18 @@ aspectdef GlobalV5Ofast_Cache
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=cachegrind ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_cache.txt", results);
 end
 
+
+
 aspectdef HotspotBaselineOfast_Cache
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
@@ -522,7 +524,7 @@ aspectdef HotspotV5Ofast_CacheW5
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth5W ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth5W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsHotspot + "/v5_cacheW5.txt", results);
@@ -546,7 +548,7 @@ aspectdef HotspotV5Ofast_CacheW7
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth7W ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth7W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsHotspot + "/v5_cacheW7.txt", results);
@@ -570,7 +572,7 @@ aspectdef HotspotV5Ofast_CacheW8
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth8W ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth8W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsHotspot + "/v5_cacheW8.txt", results);
@@ -594,7 +596,7 @@ aspectdef HotspotV5Ofast_CacheW10
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --toggle-collect=imsmooth10W ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth10W ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsHotspot + "/v5_cacheW10.txt", results);
