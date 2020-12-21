@@ -9,6 +9,7 @@ var makefileVersions = Io.getAbsolutePath("./common/makefiles/makefileVersions")
 
 var speedupsHotspot = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/hotspot");
 var speedupsGlobal = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/global");
+var vectorization = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/vectorization");
 
 var imsmooth = Io.getAbsolutePath("./benchmarks/sift/src/c/imsmooth.c");
 var gaussianss = Io.getAbsolutePath("./benchmarks/sift/src/c/gaussianss.c");
@@ -30,14 +31,18 @@ var numberOfExecutions = 1;
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 
-	call GlobalBaselineOfast_Cache;
-	call HotspotBaselineOfast_Cache;
 
-	call HotspotV5Ofast_CacheW5;
-	call HotspotV5Ofast_CacheW7;
-	call HotspotV5Ofast_CacheW8;
-	call HotspotV5Ofast_CacheW10;
-	call HotspotV5Ofast_CacheW13;
+	call GlobalV5Ofast_VECTORIZATION;
+
+//	call GlobalBaselineOfast_Cache;
+//	call HotspotBaselineOfast_Cache;
+//
+//	call HotspotV5Ofast_CacheW5;
+//	call HotspotV5Ofast_CacheW7;
+//	call HotspotV5Ofast_CacheW8;
+//	call HotspotV5Ofast_CacheW10;
+//	call HotspotV5Ofast_CacheW13;
+
 		
 end
 
@@ -425,6 +430,35 @@ aspectdef GlobalV5Ofast
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/v5_ofast.txt", results);
+end
+
+
+
+
+
+
+aspectdef GlobalV5Ofast_VECTORIZATION
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_Vect.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(vectorization + "/v5_ofast.txt", results);
 end
 
 
