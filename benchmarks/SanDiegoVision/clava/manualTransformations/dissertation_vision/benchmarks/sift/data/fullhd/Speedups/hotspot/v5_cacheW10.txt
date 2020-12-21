@@ -1,0 +1,29 @@
+251247.626310ms
+Verification		- Successful
+==6343== Callgrind, a call-graph generating cache profiler
+==6343== Copyright (C) 2002-2013, and GNU GPL'd, by Josef Weidendorfer et al.
+==6343== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==6343== Command: ./sift ./
+==6343== 
+--6343-- Warning: Cannot auto-detect cache config, using defaults.
+--6343--          Run with -v to see.
+==6343== For interactive control, run 'callgrind_control -h'.
+==6343== 
+==6343== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==6343== Collected : 2628584679 1055901968 245762480 1637 26138245 2235303 1338 5505703 2223737
+==6343== 
+==6343== I   refs:      2,628,584,679
+==6343== I1  misses:            1,637
+==6343== LLi misses:            1,338
+==6343== I1  miss rate:           0.0%
+==6343== LLi miss rate:           0.0%
+==6343== 
+==6343== D   refs:      1,301,664,448  (1,055,901,968 rd + 245,762,480 wr)
+==6343== D1  misses:       28,373,548  (   26,138,245 rd +   2,235,303 wr)
+==6343== LLd misses:        7,729,440  (    5,505,703 rd +   2,223,737 wr)
+==6343== D1  miss rate:           2.1% (          2.4%   +         0.9%  )
+==6343== LLd miss rate:           0.5% (          0.5%   +         0.9%  )
+==6343== 
+==6343== LL refs:          28,375,185  (   26,139,882 rd +   2,235,303 wr)
+==6343== LL misses:         7,730,778  (    5,507,041 rd +   2,223,737 wr)
+==6343== LL miss rate:            0.1% (          0.1%   +         0.9%  )
