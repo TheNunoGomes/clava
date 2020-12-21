@@ -35,6 +35,8 @@ aspectdef Script
 	call GlobalV5Ofast_VECTORIZATION;
 
 //	call GlobalBaselineOfast_Cache;
+//	call GlobalV5Ofast_Cache;
+
 //	call HotspotBaselineOfast_Cache;
 //
 //	call HotspotV5Ofast_CacheW5;
