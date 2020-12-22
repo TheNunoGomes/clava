@@ -69,7 +69,7 @@ F2D* resizeArray(F2D* array, int omin)
             gss[0] = fSetArray(I->height, I->width, 0);          
             W = (int) ceil(4*temp);
             if(I->width == I->height)
-            	imsmooth5W(I, temp, gss[0]);
+            	imsmooth5W(I, temp, gss[0], 5);
             else
             	imsmooth(I, temp, gss[0]);
         }
@@ -83,19 +83,19 @@ F2D* resizeArray(F2D* array, int omin)
 	    if(gss[(s+so-1)]->width == gss[(s+so-1)]->height) {
 	    	switch(W) {
 		    	case 5:
-	    			imsmooth5W( gss[(s+so-1)] , dsigma, gss[(s+so)]);
+	    			imsmooth5W( gss[(s+so-1)] , dsigma, gss[(s+so)], 7);
 		    		break;
 		    	case 7:
-	    			imsmooth7W( gss[(s+so-1)] , dsigma, gss[(s+so)]);
+	    			imsmooth7W( gss[(s+so-1)] , dsigma, gss[(s+so)], 7);
 		    		break;
 		    	case 8:
-		    		imsmooth8W( gss[(s+so-1)] , dsigma, gss[(s+so)]);
+		    		imsmooth8W( gss[(s+so-1)] , dsigma, gss[(s+so)], 8);
 		    		break;
 		    	case 10:
-		    		imsmooth10W( gss[(s+so-1)] , dsigma, gss[(s+so)]);
+		    		imsmooth10W( gss[(s+so-1)] , dsigma, gss[(s+so)], 10);
 		    		break;
 		    	case 13:
-		    		imsmooth13W( gss[(s+so-1)] , dsigma, gss[(s+so)]);
+		    		imsmooth13W( gss[(s+so-1)] , dsigma, gss[(s+so)], 13);
 		    		break;
 		    	default:
 		    		imsmooth( gss[(s+so-1)] , dsigma, gss[(s+so)] );
@@ -123,19 +123,19 @@ F2D* resizeArray(F2D* array, int omin)
        	if(TMP->width == TMP->height) {
        		switch(W) {
 			    	case 5:
-					imsmooth5W(TMP, temp, gss[o*intervals]);
+					imsmooth5W(TMP, temp, gss[o*intervals], 5);
 			    		break;
 			    	case 7:
-					imsmooth7W(TMP, temp, gss[o*intervals]);
+					imsmooth7W(TMP, temp, gss[o*intervals], 7);
 			    		break;
 			    	case 8:
-					imsmooth8W(TMP, temp, gss[o*intervals]);
+					imsmooth8W(TMP, temp, gss[o*intervals], 8);
 			    		break;
 			    	case 10:
-					imsmooth10W(TMP, temp, gss[o*intervals]);
+					imsmooth10W(TMP, temp, gss[o*intervals], 10);
 			    		break;
 			    	case 13:
-					imsmooth13W(TMP, temp, gss[o*intervals]);
+					imsmooth13W(TMP, temp, gss[o*intervals], 13);
 			    		break;
 			    	default:
 					imsmooth(TMP, temp, gss[o*intervals] );
@@ -167,19 +167,19 @@ F2D* resizeArray(F2D* array, int omin)
 		if(gss[o*intervals+s-1+so]->width == gss[o*intervals+s-1+so]->height)  {
 			switch(W) {
 			    	case 5:
-					imsmooth5W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth5W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], 5);
 			    		break;
 			    	case 7:
-					imsmooth7W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth7W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], 7);
 			    		break;
 			    	case 8:
-					imsmooth8W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth8W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], 8);
 			    		break;
 			    	case 10:
-					imsmooth10W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth10W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], 10);
 			    		break;
 			    	case 13:
-					imsmooth13W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+					imsmooth13W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so], 13);
 			    		break;
 			    	default:
 					imsmooth( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
