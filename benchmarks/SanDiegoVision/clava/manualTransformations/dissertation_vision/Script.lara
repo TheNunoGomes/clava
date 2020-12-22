@@ -511,7 +511,7 @@ aspectdef GlobalBaselineOfast_Cache_SplitWs
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --dump-instr=yes --trace-jump=yes ./sift ./");
 		results += executor.getConsoleOutput();
 	}
 	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
