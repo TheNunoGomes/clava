@@ -96,6 +96,9 @@ F2D* resizeArray(F2D* array, int omin)
                 case 13:
                     imsmooth13W( gss[(s+so-1)] , dsigma, gss[(s+so)]);
                     break;
+                default:
+                    imsmooth( gss[(s+so-1)] , dsigma, gss[(s+so)] );
+                    break;
             }
         }
         /** Other octaves **/
@@ -127,6 +130,9 @@ F2D* resizeArray(F2D* array, int omin)
 			    		break;
 			    	case 13:
 					    imsmooth13W(TMP, temp, gss[o*intervals]);
+			    		break;
+			    	default:
+					    imsmooth(TMP, temp, gss[o*intervals] );
 			    		break;
 		    	}
             }
@@ -164,6 +170,9 @@ F2D* resizeArray(F2D* array, int omin)
 			    		break;
 			    	case 13:
 					    imsmooth13W( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
+			    		break;
+			    	default:
+					    imsmooth( gss[o*intervals+s-1+so] , dsigma, gss[o*intervals+s+so]);
 			    		break;
 		    	}
             }    
