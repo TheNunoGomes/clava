@@ -499,7 +499,7 @@ aspectdef GlobalBaselineOfast_Cache_SplitWs
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
@@ -507,7 +507,7 @@ aspectdef GlobalBaselineOfast_Cache_SplitWs
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global Cache. Flag: -O2");
+	println("Executing: Baseline. Measuring: Global Cache. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
