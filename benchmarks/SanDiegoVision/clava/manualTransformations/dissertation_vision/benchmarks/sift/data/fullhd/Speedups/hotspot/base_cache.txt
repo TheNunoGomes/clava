@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 147116.788508ms
 Verification		- Successful
 ==4886== Callgrind, a call-graph generating cache profiler
@@ -101,3 +102,34 @@ Verification		- Successful
 ==4886== LL refs:           46,653,123  (   44,416,981 rd +     2,236,142 wr)
 ==4886== LL misses:          8,949,668  (    6,761,869 rd +     2,187,799 wr)
 ==4886== LL miss rate:             0.1% (          0.1%   +           0.2%  )
+=======
+622498.594174ms
+Verification		- Successful
+==8403== Callgrind, a call-graph generating cache profiler
+==8403== Copyright (C) 2002-2013, and GNU GPL'd, by Josef Weidendorfer et al.
+==8403== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==8403== Command: ./sift ./
+==8403== 
+--8403-- Warning: Cannot auto-detect cache config, using defaults.
+--8403--          Run with -v to see.
+==8403== For interactive control, run 'callgrind_control -h'.
+==8403== 
+==8403== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==8403== Collected : 10992647675 2751024485 1339680552 89 45224155 4567987 77 10069913 4556495
+==8403== 
+==8403== I   refs:      10,992,647,675
+==8403== I1  misses:                89
+==8403== LLi misses:                77
+==8403== I1  miss rate:            0.0%
+==8403== LLi miss rate:            0.0%
+==8403== 
+==8403== D   refs:       4,090,705,037  (2,751,024,485 rd + 1,339,680,552 wr)
+==8403== D1  misses:        49,792,142  (   45,224,155 rd +     4,567,987 wr)
+==8403== LLd misses:        14,626,408  (   10,069,913 rd +     4,556,495 wr)
+==8403== D1  miss rate:            1.2% (          1.6%   +           0.3%  )
+==8403== LLd miss rate:            0.3% (          0.3%   +           0.3%  )
+==8403== 
+==8403== LL refs:           49,792,231  (   45,224,244 rd +     4,567,987 wr)
+==8403== LL misses:         14,626,485  (   10,069,990 rd +     4,556,495 wr)
+==8403== LL miss rate:             0.0% (          0.0%   +           0.3%  )
+>>>>>>> master
