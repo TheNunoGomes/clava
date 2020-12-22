@@ -66,12 +66,8 @@ F2D* resizeArray(F2D* array, int omin)
         temp = sqrt(pow((sigma0*pow(k,smin)),2) - pow((sigman/pow(2,omin)),2));
 
         {
-            gss[0] = fSetArray(I->height, I->width, 0);          
-            W = (int) ceil(4*temp);
-            if(W == 5)
-            	imsmooth5W(I, temp, gss[0]);
-            else
-            	imsmooth(I, temp, gss[0]);
+            gss[0] = fSetArray(I->height, I->width, 0);
+            imsmooth5W(I, temp, gss[0]);
         }
 
         for(s=smin; s<smax; s++)
