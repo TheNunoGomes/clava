@@ -114,13 +114,11 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   return;
 }
 
-void imsmooth5W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth5W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
   float s ;
-  int w5 = 5;
-  M = w5;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -137,7 +135,7 @@ void imsmooth5W(F2D* array, float dsigma, F2D* out, int w)
   ** --------------------------------------------------------------- */ 
   if(s > threshold) 
   {
-    int W = (int) ceil(4*s) ;
+    int W = 5;
     float temp[2*W+1];
     F2D* buffer;
     float acc = 0.0;
@@ -202,13 +200,11 @@ void imsmooth5W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth7W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth7W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
   float s ;
-  int w7 = 7;
-  M = w7/1000;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -225,7 +221,7 @@ void imsmooth7W(F2D* array, float dsigma, F2D* out, int w)
   ** --------------------------------------------------------------- */ 
   if(s > threshold) 
   {
-    int W = (int) ceil(4*s) ;
+    int W = 7;
     float temp[2*W+1];
     F2D* buffer;
     float acc = 0.0;
@@ -290,14 +286,11 @@ void imsmooth7W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth8W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth8W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
   float s ;
-  int w8 = 8;
-
-  M = w8*8;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -314,7 +307,7 @@ void imsmooth8W(F2D* array, float dsigma, F2D* out, int w)
   ** --------------------------------------------------------------- */ 
   if(s > threshold) 
   {
-    int W = (int) ceil(4*s) ;
+    int W = 8;
     float temp[2*W+1];
     F2D* buffer;
     float acc = 0.0;
@@ -379,13 +372,11 @@ void imsmooth8W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth10W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth10W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
   float s ;
-  int w10 = 10;
-  M = w10 + 1000;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -402,7 +393,7 @@ void imsmooth10W(F2D* array, float dsigma, F2D* out, int w)
   ** --------------------------------------------------------------- */ 
   if(s > threshold) 
   {
-    int W = (int) ceil(4*s) ;
+    int W = 10;
     float temp[2*W+1];
     F2D* buffer;
     float acc = 0.0;
@@ -467,13 +458,11 @@ void imsmooth10W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth13W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth13W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
   float s ;
-  int w13 = 13;
-  M = w13 - 130;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -490,7 +479,7 @@ void imsmooth13W(F2D* array, float dsigma, F2D* out, int w)
   ** --------------------------------------------------------------- */ 
   if(s > threshold) 
   {
-    int W = (int) ceil(4*s) ;
+    int W = 13;
     float temp[2*W+1];
     F2D* buffer;
     float acc = 0.0;
