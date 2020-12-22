@@ -1,135 +1,200 @@
-<<<<<<< HEAD
-149510.655402ms
+1344.864428ms
 Verification		- Successful
-==4034== Callgrind, a call-graph generating cache profiler
-==4034== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
-==4034== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==4034== Command: ./sift ./
-==4034== 
---4034-- warning: L3 cache found, using its data for the LL simulation.
-==4034== For interactive control, run 'callgrind_control -h'.
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4034-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
-==4034== brk segment overflow in thread #1: can't grow to 0x5415000
-==4034== brk segment overflow in thread #1: can't grow to 0x5436000
-==4034== brk segment overflow in thread #1: can't grow to 0x5436000
-==4034== brk segment overflow in thread #1: can't grow to 0x5436000
-==4034== brk segment overflow in thread #1: can't grow to 0x5436000
-==4034== brk segment overflow in thread #1: can't grow to 0x5436000
-==4034== brk segment overflow in thread #1: can't grow to 0x4b71000
-==4034== brk segment overflow in thread #1: can't grow to 0x4b71000
-==4034== brk segment overflow in thread #1: can't grow to 0x4a94000
-==4034== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==4034== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4034== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4034== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4034== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4034== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4034== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4034== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4034== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4034== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4034== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4034== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4034== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4034== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4034== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4034== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4034== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==4034== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4034== 
-==4034== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==4034== Collected : 12218204572 2946357251 1398546921 2147 82132132 11716871 2119 14629510 10342695
-==4034== 
-==4034== I   refs:      12,218,204,572
-==4034== I1  misses:             2,147
-==4034== LLi misses:             2,119
-==4034== I1  miss rate:           0.00%
-==4034== LLi miss rate:           0.00%
-==4034== 
-==4034== D   refs:       4,344,904,172  (2,946,357,251 rd + 1,398,546,921 wr)
-==4034== D1  misses:        93,849,003  (   82,132,132 rd +    11,716,871 wr)
-==4034== LLd misses:        24,972,205  (   14,629,510 rd +    10,342,695 wr)
-==4034== D1  miss rate:            2.2% (          2.8%   +           0.8%  )
-==4034== LLd miss rate:            0.6% (          0.5%   +           0.7%  )
-==4034== 
-==4034== LL refs:           93,851,150  (   82,134,279 rd +    11,716,871 wr)
-==4034== LL misses:         24,974,324  (   14,631,629 rd +    10,342,695 wr)
-==4034== LL miss rate:             0.2% (          0.1%   +           0.7%  )
-=======
-643545.854524ms
+1322.938158ms
 Verification		- Successful
-==8077== Callgrind, a call-graph generating cache profiler
-==8077== Copyright (C) 2002-2013, and GNU GPL'd, by Josef Weidendorfer et al.
-==8077== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==8077== Command: ./sift ./
-==8077== 
---8077-- Warning: Cannot auto-detect cache config, using defaults.
---8077--          Run with -v to see.
-==8077== For interactive control, run 'callgrind_control -h'.
-==8077== 
-==8077== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==8077== Collected : 12882848279 3165830369 1569467842 20553 83374797 11734724 1965 18936917 11704794
-==8077== 
-==8077== I   refs:      12,882,848,279
-==8077== I1  misses:            20,553
-==8077== LLi misses:             1,965
-==8077== I1  miss rate:            0.0%
-==8077== LLi miss rate:            0.0%
-==8077== 
-==8077== D   refs:       4,735,298,211  (3,165,830,369 rd + 1,569,467,842 wr)
-==8077== D1  misses:        95,109,521  (   83,374,797 rd +    11,734,724 wr)
-==8077== LLd misses:        30,641,711  (   18,936,917 rd +    11,704,794 wr)
-==8077== D1  miss rate:            2.0% (          2.6%   +           0.7%  )
-==8077== LLd miss rate:            0.6% (          0.5%   +           0.7%  )
-==8077== 
-==8077== LL refs:           95,130,074  (   83,395,350 rd +    11,734,724 wr)
-==8077== LL misses:         30,643,676  (   18,938,882 rd +    11,704,794 wr)
-==8077== LL miss rate:             0.1% (          0.1%   +           0.7%  )
->>>>>>> master
+1331.594786ms
+Verification		- Successful
+1323.689651ms
+Verification		- Successful
+1325.006347ms
+Verification		- Successful
+1320.609224ms
+Verification		- Successful
+1326.850467ms
+Verification		- Successful
+1341.454980ms
+Verification		- Successful
+1340.678942ms
+Verification		- Successful
+1331.195848ms
+Verification		- Successful
+1325.030440ms
+Verification		- Successful
+1340.173546ms
+Verification		- Successful
+1324.177220ms
+Verification		- Successful
+1332.148464ms
+Verification		- Successful
+1323.852659ms
+Verification		- Successful
+1323.035498ms
+Verification		- Successful
+1325.793582ms
+Verification		- Successful
+1339.779484ms
+Verification		- Successful
+1333.143227ms
+Verification		- Successful
+1320.610782ms
+Verification		- Successful
+1334.064780ms
+Verification		- Successful
+1324.924429ms
+Verification		- Successful
+1342.033372ms
+Verification		- Successful
+1322.906898ms
+Verification		- Successful
+1323.217886ms
+Verification		- Successful
+1338.594370ms
+Verification		- Successful
+1336.303780ms
+Verification		- Successful
+1324.045580ms
+Verification		- Successful
+1324.986754ms
+Verification		- Successful
+1323.800075ms
+Verification		- Successful
+1322.189071ms
+Verification		- Successful
+1324.730097ms
+Verification		- Successful
+1321.877643ms
+Verification		- Successful
+1322.498029ms
+Verification		- Successful
+1333.841468ms
+Verification		- Successful
+1321.544629ms
+Verification		- Successful
+1326.694981ms
+Verification		- Successful
+1323.098739ms
+Verification		- Successful
+1324.813937ms
+Verification		- Successful
+1362.210863ms
+Verification		- Successful
+1323.752675ms
+Verification		- Successful
+1343.172127ms
+Verification		- Successful
+1335.333942ms
+Verification		- Successful
+1323.091680ms
+Verification		- Successful
+1326.727437ms
+Verification		- Successful
+1326.689161ms
+Verification		- Successful
+1324.563087ms
+Verification		- Successful
+1340.416060ms
+Verification		- Successful
+1337.823845ms
+Verification		- Successful
+1325.686597ms
+Verification		- Successful
+1326.687608ms
+Verification		- Successful
+1364.860760ms
+Verification		- Successful
+1321.672597ms
+Verification		- Successful
+1342.704246ms
+Verification		- Successful
+1325.906003ms
+Verification		- Successful
+1339.264802ms
+Verification		- Successful
+1326.843180ms
+Verification		- Successful
+1328.860071ms
+Verification		- Successful
+1344.325036ms
+Verification		- Successful
+1327.697566ms
+Verification		- Successful
+1341.955013ms
+Verification		- Successful
+1332.942140ms
+Verification		- Successful
+1330.483088ms
+Verification		- Successful
+1330.541746ms
+Verification		- Successful
+1333.420651ms
+Verification		- Successful
+1336.692725ms
+Verification		- Successful
+1336.371720ms
+Verification		- Successful
+1336.961378ms
+Verification		- Successful
+1328.482279ms
+Verification		- Successful
+1328.272792ms
+Verification		- Successful
+1323.379075ms
+Verification		- Successful
+1331.615671ms
+Verification		- Successful
+1340.632562ms
+Verification		- Successful
+1324.168184ms
+Verification		- Successful
+1325.707795ms
+Verification		- Successful
+1322.596498ms
+Verification		- Successful
+1327.135863ms
+Verification		- Successful
+1328.315041ms
+Verification		- Successful
+1326.963050ms
+Verification		- Successful
+1334.029362ms
+Verification		- Successful
+1330.520558ms
+Verification		- Successful
+1335.339606ms
+Verification		- Successful
+1341.459602ms
+Verification		- Successful
+1321.046832ms
+Verification		- Successful
+1325.461312ms
+Verification		- Successful
+1336.283462ms
+Verification		- Successful
+1326.285749ms
+Verification		- Successful
+1326.235409ms
+Verification		- Successful
+1327.085883ms
+Verification		- Successful
+1323.635588ms
+Verification		- Successful
+1334.209649ms
+Verification		- Successful
+1341.559023ms
+Verification		- Successful
+1324.597394ms
+Verification		- Successful
+1356.500862ms
+Verification		- Successful
+1338.573792ms
+Verification		- Successful
+1326.355226ms
+Verification		- Successful
+1344.786050ms
+Verification		- Successful
+1340.810182ms
+Verification		- Successful
+1323.381097ms
+Verification		- Successful
+1326.116409ms
+Verification		- Successful

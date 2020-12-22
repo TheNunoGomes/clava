@@ -1,200 +1,200 @@
-5713.480701ms
+745.749754ms
 Verification		- Successful
-5718.085184ms
+739.842383ms
 Verification		- Successful
-5717.416192ms
+725.116986ms
 Verification		- Successful
-5716.583284ms
+730.634899ms
 Verification		- Successful
-5710.758025ms
+748.745754ms
 Verification		- Successful
-5704.891474ms
+736.242326ms
 Verification		- Successful
-5715.550919ms
+739.256073ms
 Verification		- Successful
-5720.624563ms
+733.807834ms
 Verification		- Successful
-5719.092041ms
+730.740517ms
 Verification		- Successful
-5708.187846ms
+735.554483ms
 Verification		- Successful
-5709.207792ms
+728.839042ms
 Verification		- Successful
-5711.653257ms
+743.751192ms
 Verification		- Successful
-5715.528250ms
+748.991891ms
 Verification		- Successful
-5717.983342ms
+725.362993ms
 Verification		- Successful
-5709.012875ms
+729.622137ms
 Verification		- Successful
-5710.340480ms
+727.019348ms
 Verification		- Successful
-5723.118358ms
+734.190310ms
 Verification		- Successful
-5719.721319ms
+730.895174ms
 Verification		- Successful
-5715.519454ms
+744.116688ms
 Verification		- Successful
-5707.580513ms
+740.937897ms
 Verification		- Successful
-5715.233874ms
+742.969436ms
 Verification		- Successful
-5715.098582ms
+726.236501ms
 Verification		- Successful
-5724.662335ms
+743.413760ms
 Verification		- Successful
-5706.832522ms
+743.890548ms
 Verification		- Successful
-5707.294680ms
+729.855966ms
 Verification		- Successful
-5715.329037ms
+726.080620ms
 Verification		- Successful
-5719.539815ms
+733.445398ms
 Verification		- Successful
-5716.076068ms
+733.252393ms
 Verification		- Successful
-5725.473405ms
+731.640993ms
 Verification		- Successful
-5722.490066ms
+745.171807ms
 Verification		- Successful
-5704.577879ms
+736.594876ms
 Verification		- Successful
-5717.018175ms
+738.871252ms
 Verification		- Successful
-5726.961589ms
+746.036695ms
 Verification		- Successful
-5721.106747ms
+746.957546ms
 Verification		- Successful
-5722.338815ms
+734.709896ms
 Verification		- Successful
-5718.051579ms
+741.237668ms
 Verification		- Successful
-5718.040038ms
+732.420005ms
 Verification		- Successful
-5714.871116ms
+730.484341ms
 Verification		- Successful
-5714.975657ms
+734.891619ms
 Verification		- Successful
-5725.714226ms
+745.491656ms
 Verification		- Successful
-5716.668800ms
+733.965635ms
 Verification		- Successful
-5708.445404ms
+728.047665ms
 Verification		- Successful
-5710.550378ms
+738.690740ms
 Verification		- Successful
-5709.757720ms
+742.843121ms
 Verification		- Successful
-5709.014729ms
+743.552541ms
 Verification		- Successful
-5704.429204ms
+736.379093ms
 Verification		- Successful
-5716.845503ms
+722.935947ms
 Verification		- Successful
-5714.363327ms
+748.164468ms
 Verification		- Successful
-5712.713680ms
+737.736078ms
 Verification		- Successful
-5712.408724ms
+742.957356ms
 Verification		- Successful
-5708.464982ms
+741.509388ms
 Verification		- Successful
-5706.391593ms
+727.191613ms
 Verification		- Successful
-5708.351317ms
+742.136206ms
 Verification		- Successful
-5707.248914ms
+725.340976ms
 Verification		- Successful
-5717.657863ms
+737.623698ms
 Verification		- Successful
-5713.120295ms
+726.198947ms
 Verification		- Successful
-5703.138174ms
+725.764434ms
 Verification		- Successful
-5714.328154ms
+728.206304ms
 Verification		- Successful
-5714.700566ms
+741.346600ms
 Verification		- Successful
-5715.735716ms
+743.853746ms
 Verification		- Successful
-5709.027553ms
+731.034690ms
 Verification		- Successful
-5714.452441ms
+738.676718ms
 Verification		- Successful
-5710.864527ms
+741.426861ms
 Verification		- Successful
-5713.767114ms
+729.305388ms
 Verification		- Successful
-5709.185965ms
+735.197058ms
 Verification		- Successful
-5720.780275ms
+743.677734ms
 Verification		- Successful
-5712.682087ms
+746.268840ms
 Verification		- Successful
-5710.066826ms
+743.459180ms
 Verification		- Successful
-5718.128307ms
+738.077402ms
 Verification		- Successful
-5718.570882ms
+737.971489ms
 Verification		- Successful
-5721.874007ms
+738.019413ms
 Verification		- Successful
-5714.388562ms
+722.235641ms
 Verification		- Successful
-5714.533769ms
+738.579456ms
 Verification		- Successful
-5720.592731ms
+727.566681ms
 Verification		- Successful
-5713.217117ms
+735.116719ms
 Verification		- Successful
-5718.423009ms
+743.839949ms
 Verification		- Successful
-5716.670696ms
+746.341845ms
 Verification		- Successful
-5713.899148ms
+727.684716ms
 Verification		- Successful
-5721.334428ms
+730.526947ms
 Verification		- Successful
-5720.907098ms
+738.335721ms
 Verification		- Successful
-5717.082230ms
+725.950468ms
 Verification		- Successful
-5715.712998ms
+732.454167ms
 Verification		- Successful
-5712.293957ms
+740.595587ms
 Verification		- Successful
-5717.635304ms
+724.317073ms
 Verification		- Successful
-5713.323277ms
+740.904365ms
 Verification		- Successful
-5717.211183ms
+724.491880ms
 Verification		- Successful
-5721.095051ms
+740.266614ms
 Verification		- Successful
-5706.912068ms
+726.033206ms
 Verification		- Successful
-5704.212557ms
+747.597232ms
 Verification		- Successful
-5707.934010ms
+738.138314ms
 Verification		- Successful
-5713.494189ms
+737.352012ms
 Verification		- Successful
-5713.978805ms
+730.065271ms
 Verification		- Successful
-5716.647479ms
+738.729360ms
 Verification		- Successful
-5707.896091ms
+745.057037ms
 Verification		- Successful
-5708.748369ms
+731.146505ms
 Verification		- Successful
-5706.285693ms
+733.037309ms
 Verification		- Successful
-5714.079720ms
+743.391352ms
 Verification		- Successful
-5719.102443ms
+730.396573ms
 Verification		- Successful
-5725.801525ms
+738.255670ms
 Verification		- Successful
-5722.125324ms
+725.563889ms
 Verification		- Successful
