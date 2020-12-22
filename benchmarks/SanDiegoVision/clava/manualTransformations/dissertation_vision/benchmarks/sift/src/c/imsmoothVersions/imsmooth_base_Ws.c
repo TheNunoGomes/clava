@@ -114,7 +114,7 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   return;
 }
 
-void imsmooth5W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth5W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
@@ -202,7 +202,7 @@ void imsmooth5W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth7W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth7W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
@@ -290,7 +290,7 @@ void imsmooth7W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth8W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth8W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
@@ -379,7 +379,7 @@ void imsmooth8W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth10W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth10W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
@@ -467,7 +467,7 @@ void imsmooth10W(F2D* array, float dsigma, F2D* out, int w)
   return;
 }
 
-void imsmooth13W(F2D* array, float dsigma, F2D* out, int w)
+void imsmooth13W(F2D* array, float dsigma, F2D* out)
 {
   int M,N ;
   int i,j,k;
