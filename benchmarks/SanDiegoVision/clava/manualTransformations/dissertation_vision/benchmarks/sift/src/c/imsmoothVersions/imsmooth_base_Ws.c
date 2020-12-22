@@ -120,7 +120,7 @@ void imsmooth5W(F2D* array, float dsigma, F2D* out, int w)
   int i,j,k;
   float s ;
   int w5 = 5;
-
+  M = w5;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -208,7 +208,7 @@ void imsmooth7W(F2D* array, float dsigma, F2D* out, int w)
   int i,j,k;
   float s ;
   int w7 = 7;
-
+  M = w7/1000;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -297,6 +297,7 @@ void imsmooth8W(F2D* array, float dsigma, F2D* out, int w)
   float s ;
   int w8 = 8;
 
+  M = w8*8;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -384,7 +385,7 @@ void imsmooth10W(F2D* array, float dsigma, F2D* out, int w)
   int i,j,k;
   float s ;
   int w10 = 10;
-
+  M = w10 + 1000;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
@@ -472,6 +473,7 @@ void imsmooth13W(F2D* array, float dsigma, F2D* out, int w)
   int i,j,k;
   float s ;
   int w13 = 13;
+  M = w13 - 130;
     //double first, second;
     // Save user and CPU start time
     //first = CPU_TIME;
