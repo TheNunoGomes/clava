@@ -32,20 +32,19 @@ aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 
 
-	//call GlobalV5Ofast_VECTORIZATION;
+//	call GlobalV5Ofast_VECTORIZATION;
+//	call GlobalBaselineOfast_Cache;
+//	call GlobalV5Ofast_Cache;
 
+	call GlobalBaselineOfast_Cache_SplitWs;
 
-	call GlobalBaselineOfast_Cache;
-	call GlobalV5Ofast_Cache;
+//	call HotspotBaselineOfast_Cache;
 
-
-	call HotspotBaselineOfast_Cache;
-
-	call HotspotV5Ofast_CacheW5;
-	call HotspotV5Ofast_CacheW7;
-	call HotspotV5Ofast_CacheW8;
-	call HotspotV5Ofast_CacheW10;
-	call HotspotV5Ofast_CacheW13;
+//	call HotspotV5Ofast_CacheW5;
+//	call HotspotV5Ofast_CacheW7;
+//	call HotspotV5Ofast_CacheW8;
+//	call HotspotV5Ofast_CacheW10;
+//	call HotspotV5Ofast_CacheW13;
 	
 end
 
@@ -492,6 +491,32 @@ aspectdef GlobalBaselineOfast_Cache
 	}
 	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
 end
+
+
+aspectdef GlobalBaselineOfast_Cache_SplitWs
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_Ws.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: Baseline. Measuring: Global Cache. Flag: -Ofast");
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
+end
+
 
 aspectdef GlobalV5Ofast_Cache
 	var results = "";
