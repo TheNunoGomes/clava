@@ -26,7 +26,7 @@ var makesfilesFiles = Io.getFiles(makefileVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 1;
+var numberOfExecutions = 100;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
@@ -35,8 +35,11 @@ aspectdef Script
 //	call GlobalV5Ofast_VECTORIZATION;
 //	call GlobalBaselineOfast_Cache;
 
-	call GlobalBaselineOfast_Cache_SplitWs;
-	call GlobalV5Ofast_Cache;
+	//call GlobalBaselineOfast_Cache_SplitWs;
+	//call GlobalV5Ofast_Cache;
+
+	call GlobalBaselineOfast_SplitWs;
+	call GlobalV5Ofast;
 
 //	call HotspotBaselineOfast_Cache;
 
@@ -434,6 +437,29 @@ aspectdef GlobalV5Ofast
 	Io.writeFile(speedupsGlobal + "/v5_ofast.txt", results);
 end
 
+aspectdef GlobalBaselineOfast_SplitWs
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_Ws.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: Baseline. Measuring: Global Cache. Flag: -Ofast");
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
+end
 
 
 
