@@ -185,10 +185,8 @@ aspectdef GlobalBaselineOfast_Vect
 	println("Executing: Baseline. Measuring: Vectorization. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./tracking ./ > " + speedupsGlobal + "/baseline_ofast_vect.txt");
-		results += executor.getConsoleOutput();
-	}
+	results += executor.getConsoleOutput();
+	Io.writeFile(speedupsGlobal + "/v1_ofast.txt", results);
 end
 
 aspectdef Global_v1_Ofast_Vect
@@ -206,8 +204,6 @@ aspectdef Global_v1_Ofast_Vect
 	println("Executing: v1. Measuring: Vectorization. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./tracking ./ > " + speedupsGlobal + "/v1_ofast.txt");
-		results += executor.getConsoleOutput();
-	}
+	results += executor.getConsoleOutput();
+	Io.writeFile(speedupsGlobal + "/v1_o2.txt", results);
 end
