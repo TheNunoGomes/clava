@@ -1,0 +1,18 @@
+
+-e Benchmark		- tracking
+perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LC_PAPER = "en",
+	LC_ADDRESS = "en",
+	LC_MONETARY = "en",
+	LC_NUMERIC = "en",
+	LC_TELEPHONE = "en",
+	LC_IDENTIFICATION = "en",
+	LC_MEASUREMENT = "en",
+	LC_TIME = "en",
+	LC_NAME = "en",
+	LANG = (unset)
+    are supported and installed on your system.
+perl: warning: Falling back to the standard locale ("C").

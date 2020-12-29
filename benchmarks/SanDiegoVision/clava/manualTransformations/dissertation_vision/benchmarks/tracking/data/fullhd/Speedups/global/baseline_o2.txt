@@ -1,0 +1,300 @@
+Input size		- (1080x1920)
+Verification		- Successful
+5464.759507ms
+Input size		- (1080x1920)
+Verification		- Successful
+5388.284816ms
+Input size		- (1080x1920)
+Verification		- Successful
+5455.702410ms
+Input size		- (1080x1920)
+Verification		- Successful
+5303.267272ms
+Input size		- (1080x1920)
+Verification		- Successful
+5301.856456ms
+Input size		- (1080x1920)
+Verification		- Successful
+5315.115742ms
+Input size		- (1080x1920)
+Verification		- Successful
+5303.893094ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.263493ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.532711ms
+Input size		- (1080x1920)
+Verification		- Successful
+5304.891906ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.605023ms
+Input size		- (1080x1920)
+Verification		- Successful
+5323.487913ms
+Input size		- (1080x1920)
+Verification		- Successful
+5327.298072ms
+Input size		- (1080x1920)
+Verification		- Successful
+5592.928336ms
+Input size		- (1080x1920)
+Verification		- Successful
+5299.521756ms
+Input size		- (1080x1920)
+Verification		- Successful
+5370.156265ms
+Input size		- (1080x1920)
+Verification		- Successful
+5377.990663ms
+Input size		- (1080x1920)
+Verification		- Successful
+5350.338765ms
+Input size		- (1080x1920)
+Verification		- Successful
+5302.318294ms
+Input size		- (1080x1920)
+Verification		- Successful
+5302.484457ms
+Input size		- (1080x1920)
+Verification		- Successful
+5395.880634ms
+Input size		- (1080x1920)
+Verification		- Successful
+5405.869087ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.016726ms
+Input size		- (1080x1920)
+Verification		- Successful
+5397.756353ms
+Input size		- (1080x1920)
+Verification		- Successful
+5348.361442ms
+Input size		- (1080x1920)
+Verification		- Successful
+5301.974575ms
+Input size		- (1080x1920)
+Verification		- Successful
+5320.757957ms
+Input size		- (1080x1920)
+Verification		- Successful
+5560.067265ms
+Input size		- (1080x1920)
+Verification		- Successful
+5319.570217ms
+Input size		- (1080x1920)
+Verification		- Successful
+5349.866702ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.207874ms
+Input size		- (1080x1920)
+Verification		- Successful
+5380.805427ms
+Input size		- (1080x1920)
+Verification		- Successful
+5318.850552ms
+Input size		- (1080x1920)
+Verification		- Successful
+5398.228782ms
+Input size		- (1080x1920)
+Verification		- Successful
+5382.329401ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.448344ms
+Input size		- (1080x1920)
+Verification		- Successful
+5332.027415ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.284525ms
+Input size		- (1080x1920)
+Verification		- Successful
+5344.914161ms
+Input size		- (1080x1920)
+Verification		- Successful
+5306.496945ms
+Input size		- (1080x1920)
+Verification		- Successful
+5304.099514ms
+Input size		- (1080x1920)
+Verification		- Successful
+5314.191632ms
+Input size		- (1080x1920)
+Verification		- Successful
+5302.331033ms
+Input size		- (1080x1920)
+Verification		- Successful
+5311.732119ms
+Input size		- (1080x1920)
+Verification		- Successful
+5341.712192ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.602823ms
+Input size		- (1080x1920)
+Verification		- Successful
+5304.429248ms
+Input size		- (1080x1920)
+Verification		- Successful
+5379.872446ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.265819ms
+Input size		- (1080x1920)
+Verification		- Successful
+5307.403286ms
+Input size		- (1080x1920)
+Verification		- Successful
+5398.449701ms
+Input size		- (1080x1920)
+Verification		- Successful
+5311.154525ms
+Input size		- (1080x1920)
+Verification		- Successful
+5345.486000ms
+Input size		- (1080x1920)
+Verification		- Successful
+5314.306148ms
+Input size		- (1080x1920)
+Verification		- Successful
+5311.773678ms
+Input size		- (1080x1920)
+Verification		- Successful
+5312.154547ms
+Input size		- (1080x1920)
+Verification		- Successful
+5395.291229ms
+Input size		- (1080x1920)
+Verification		- Successful
+5410.489032ms
+Input size		- (1080x1920)
+Verification		- Successful
+5383.238589ms
+Input size		- (1080x1920)
+Verification		- Successful
+5313.519397ms
+Input size		- (1080x1920)
+Verification		- Successful
+5545.293257ms
+Input size		- (1080x1920)
+Verification		- Successful
+5380.292659ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.200708ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.252595ms
+Input size		- (1080x1920)
+Verification		- Successful
+5328.187447ms
+Input size		- (1080x1920)
+Verification		- Successful
+5313.599923ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.974938ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.212047ms
+Input size		- (1080x1920)
+Verification		- Successful
+5311.271656ms
+Input size		- (1080x1920)
+Verification		- Successful
+5316.674793ms
+Input size		- (1080x1920)
+Verification		- Successful
+5316.096673ms
+Input size		- (1080x1920)
+Verification		- Successful
+5345.581042ms
+Input size		- (1080x1920)
+Verification		- Successful
+5311.375730ms
+Input size		- (1080x1920)
+Verification		- Successful
+5380.893378ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.548927ms
+Input size		- (1080x1920)
+Verification		- Successful
+5314.343935ms
+Input size		- (1080x1920)
+Verification		- Successful
+5376.202806ms
+Input size		- (1080x1920)
+Verification		- Successful
+5314.164308ms
+Input size		- (1080x1920)
+Verification		- Successful
+5307.796974ms
+Input size		- (1080x1920)
+Verification		- Successful
+5315.993618ms
+Input size		- (1080x1920)
+Verification		- Successful
+5316.070282ms
+Input size		- (1080x1920)
+Verification		- Successful
+5305.357918ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.807055ms
+Input size		- (1080x1920)
+Verification		- Successful
+5346.867590ms
+Input size		- (1080x1920)
+Verification		- Successful
+5315.208911ms
+Input size		- (1080x1920)
+Verification		- Successful
+5317.968916ms
+Input size		- (1080x1920)
+Verification		- Successful
+5349.948254ms
+Input size		- (1080x1920)
+Verification		- Successful
+5394.498638ms
+Input size		- (1080x1920)
+Verification		- Successful
+5306.578806ms
+Input size		- (1080x1920)
+Verification		- Successful
+5388.570961ms
+Input size		- (1080x1920)
+Verification		- Successful
+5352.194509ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.200003ms
+Input size		- (1080x1920)
+Verification		- Successful
+5352.441666ms
+Input size		- (1080x1920)
+Verification		- Successful
+5317.425324ms
+Input size		- (1080x1920)
+Verification		- Successful
+5316.328503ms
+Input size		- (1080x1920)
+Verification		- Successful
+5311.427854ms
+Input size		- (1080x1920)
+Verification		- Successful
+5315.052890ms
+Input size		- (1080x1920)
+Verification		- Successful
+5307.104531ms
+Input size		- (1080x1920)
+Verification		- Successful
+5398.043364ms
+Input size		- (1080x1920)
+Verification		- Successful
+5315.491376ms

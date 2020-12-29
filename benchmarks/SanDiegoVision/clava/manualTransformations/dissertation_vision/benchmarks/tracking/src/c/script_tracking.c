@@ -2,7 +2,10 @@
 Author: Sravanthi Kota Venkata
 ********************************/
 
+#define _POSIX_C_SOURCE 199309L
 #include "tracking.h"
+#include <time.h>
+#include <sys/resource.h>
 
 int main(int argc, char* argv[])
 {
@@ -18,7 +21,6 @@ int main(int argc, char* argv[])
     int numFind, m, n;
     F2D *np_temp;
 
-    unsigned int* start, *end, *elapsed, *elt;
     char im1[100];
     int counter=2;
     float accuracy = 0.03;
@@ -100,14 +102,18 @@ int main(int argc, char* argv[])
     
     printf("Input size\t\t- (%dx%d)\n", rows, cols);
     
-    /** Start Timing **/
-    start = photonStartTiming();
 
     
+    
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+	
+	
+	
     /** IMAGE PRE-PROCESSING **/
 
     /** Blur the image to remove noise - weighted avergae filter **/
-    blurredImage = imageBlur(Ic);
+    blurredImage = imageBlur_1080x1920(Ic);
 
     /** Scale down the image to build Image Pyramid. We find features across all scales of the image **/
     blurred_level1 = blurredImage;                   /** Scale 0 **/
@@ -115,8 +121,8 @@ int main(int argc, char* argv[])
 
 
     /** Edge Images - From pre-processed images, build gradient images, both horizontal and vertical **/
-    verticalEdgeImage = calcSobel_dX(blurredImage);
-    horizontalEdgeImage = calcSobel_dY(blurredImage);
+    verticalEdgeImage = calcSobel_dX_1080x1920(blurredImage);
+    horizontalEdgeImage = calcSobel_dY_1080x1920(blurredImage);
 
     /** Edge images are used for feature detection. So, using the verticalEdgeImage and horizontalEdgeImage images, we compute feature strength
         across all pixels. Lambda matrix is the feature strength matrix returned by calcGoodFeature **/
@@ -144,17 +150,14 @@ int main(int argc, char* argv[])
 		}
     } 
      
-    end = photonEndTiming();
-    elapsed = photonReportTiming(start, end);
-
+   
+   
     fFreeHandle(verticalEdgeImage);
     fFreeHandle(horizontalEdgeImage);
     fFreeHandle(interestPnt);
     fFreeHandle(lambda);
     fFreeHandle(lambdaTemp);
     iFreeHandle(Ic);
-    free(start);
-    free(end);
 
 /** Until now, we processed base frame. The following for loop processes other frames **/
 for(count=1; count<=counter; count++)
@@ -164,12 +167,9 @@ for(count=1; count<=counter; count++)
     Ic = readImage(im1);
     rows = Ic->height;
     cols = Ic->width;
-    
-    /* Start timing */
-    start = photonStartTiming();
 
     /** Blur image to remove noise **/
-    blurredImage = imageBlur(Ic);
+    blurredImage = imageBlur_1080x1920(Ic);
     previousFrameBlurred_level1 = fDeepCopy(blurred_level1);
     previousFrameBlurred_level2 = fDeepCopy(blurred_level2);
     
@@ -181,11 +181,11 @@ for(count=1; count<=counter; count++)
     blurred_level2 = imageResize(blurredImage);
 
     /** Gradient image computation, for all scales **/
-    verticalEdge_level1 = calcSobel_dX(blurred_level1);   
-    horizontalEdge_level1 = calcSobel_dY(blurred_level1); 
+    verticalEdge_level1 = calcSobel_dX_1080x1920(blurred_level1);   
+    horizontalEdge_level1 = calcSobel_dY_1080x1920(blurred_level1); 
     
-    verticalEdge_level2 = calcSobel_dX(blurred_level2); 
-    horizontalEdge_level2 = calcSobel_dY(blurred_level2);
+    verticalEdge_level2 = calcSobel_dX_540x960(blurred_level2); 
+    horizontalEdge_level2 = calcSobel_dY_540x960(blurred_level2);
     
     newpoints = fSetArray(2, features->width, 0);
         
@@ -230,16 +230,7 @@ for(count=1; count<=counter; count++)
     /** Populate newpoints into features **/
     features = fDeepCopy(newpoints);
     fFreeHandle(newpoints);
-    
-    /* Timing utils */
-    end = photonEndTiming();
-    elt = photonReportTiming(start, end);
-    elapsed[0] += elt[0];
-    elapsed[1] += elt[1];
-    
-    free(start);
-    free(elt);
-    free(end);   
+     
 }
 
 #ifdef CHECK   
@@ -255,15 +246,18 @@ for(count=1; count<=counter; count++)
             printf("Error in Tracking Map\n");
     }
 #endif
-    
-    photonPrintTiming(elapsed);
 
     fFreeHandle(blurred_level1);
     fFreeHandle(blurred_level2);
     fFreeHandle(features);
 
-    free(elapsed);
+  
 
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
+   
+   
     return 0;
 
 }

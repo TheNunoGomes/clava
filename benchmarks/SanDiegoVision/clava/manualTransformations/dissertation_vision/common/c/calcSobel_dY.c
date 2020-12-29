@@ -1,5 +1,6 @@
 /********************************
 Author: Sravanthi Kota Venkata
+v3: Inline fSetArray
 ********************************/
 
 #include "sdvbs_common.h"
@@ -7,73 +8,218 @@ Author: Sravanthi Kota Venkata
 F2D* calcSobel_dY(F2D* imageIn)
 {
     int rows, cols;
-    I2D *kernel_1, *kernel_2;
+    int kernel_1[3] = { 1, 0, -1 }, kernel_2[3] = { 1, 2, 1 };
 	float temp;
-    int kernelSize, startCol, endCol, halfKernel, startRow, endRow, i, j, kernelSum;
-    int k, kernelSum_2, outputRows, outputCols;
+    int endCol, endRow, i, j;
+    int k, outputRows, outputCols;
     F2D *imageOut, *tempOut;
-    float kernelSum_1;
 
     rows = imageIn->height;
     cols = imageIn->width;
     
     // level 1 is the base image.
 
-    outputRows = rows; 
-    outputCols = cols;
-
-    imageOut = fSetArray(outputRows, outputCols, 0);
-    tempOut = fSetArray(outputRows, outputCols, 0);
-    kernel_1 = iMallocHandle(1, 3);
-    kernel_2 = iMallocHandle(1, 3);
-
-    asubsref(kernel_1,0) = 1;
-    asubsref(kernel_1,1) = 0;
-    asubsref(kernel_1,2) = -1;
-    kernelSize = 3;
-    kernelSum_1 = 2.0;
     
-    asubsref(kernel_2,0) = 1;
-    asubsref(kernel_2,1) = 2;
-    asubsref(kernel_2,2) = 1;
-    kernelSum_2 = 4;
+    //imageOut = fSetArray(rows, cols, 0);
+    //tempOut = fSetArray(rows, cols, 0);
+    
+    imageOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	imageOut->data[(i) * imageOut->width + (0)] = 0;
+	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	imageOut->data[(0) * imageOut->width + (j)] = 0;
+	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
+    }  
+      
+    tempOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	tempOut->data[(i) * tempOut->width + (0)] = 0;
+	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	tempOut->data[(0) * tempOut->width + (j)] = 0;
+	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
+    }
 
-    startCol = 1; 
     endCol = cols - 1; 
-    halfKernel = 1; 
-
-    startRow = 1; 
     endRow = rows - 1; 
-
-    for(i=startRow; i<endRow; i++)
+    
+    for(i=1; i<endRow; i++)
     {
-        for(j=startCol; j<endCol; j++)
+    
+        for(j=1; j<endCol; j++)
         {
-            temp = 0;
-            for(k=-halfKernel; k<=halfKernel; k++)
-            {
-                temp += subsref(imageIn,(i+k),j) * asubsref(kernel_1,k+halfKernel);
-            }
-            subsref(tempOut,i,j) = temp/kernelSum_1;
+            temp = subsref(imageIn,(i-1),j);
+            temp -= subsref(imageIn,(i+1),j);
+            
+            subsref(tempOut,i,j) = temp*0.5f;
         }
     }
 
-    for(i=startRow; i<endRow; i++)
+    float b0, b1, b2;
+    
+    for(i=1; i<endRow; i++)
     {
-        for(j=startCol; j<endCol; j++)
+    	b0 = subsref(tempOut,i,0);
+    	b1 = subsref(tempOut,i,1);
+        for(j=1; j<endCol; j++)
         {
-            temp = 0;
-            for(k=-halfKernel; k<=halfKernel; k++)
-            {
-                temp += subsref(tempOut,i,j+k) * asubsref(kernel_2,k+halfKernel);
-            }
-            subsref(imageOut,i,j) = temp/(float)kernelSum_2;
+            b2 = subsref(tempOut,i,j+1);
+            
+            temp = b0;
+            temp += b1 * 2;
+            temp += b2;
+            
+            b0 = b1;
+            b1 = b2;
+
+            subsref(imageOut,i,j) = temp*0.25f;
         }
     }
 
     fFreeHandle(tempOut);
-    iFreeHandle(kernel_1);
-    iFreeHandle(kernel_2);
+    return imageOut;
+    
+}
+
+F2D* calcSobel_dY_540x960(F2D* imageIn)
+{
+    int rows = 540, cols = 960;
+    int kernel_1[3] = { 1, 0, -1 }, kernel_2[3] = { 1, 2, 1 };
+	float temp;
+    int endCol, endRow, i, j;
+    int k, outputRows, outputCols;
+    F2D *imageOut, *tempOut;
+    
+    imageOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	imageOut->data[(i) * imageOut->width + (0)] = 0;
+	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	imageOut->data[(0) * imageOut->width + (j)] = 0;
+	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
+    }  
+      
+    tempOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	tempOut->data[(i) * tempOut->width + (0)] = 0;
+	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	tempOut->data[(0) * tempOut->width + (j)] = 0;
+	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
+    }
+
+    endCol = cols - 1; 
+    endRow = rows - 1; 
+    
+    for(i=1; i<endRow; i++)
+    {
+    
+        for(j=1; j<endCol; j++)
+        {
+            temp = subsref(imageIn,(i-1),j);
+            temp -= subsref(imageIn,(i+1),j);
+            
+            subsref(tempOut,i,j) = temp*0.5f;
+        }
+    }
+
+    float b0, b1, b2;
+    
+    for(i=1; i<endRow; i++)
+    {
+    	b0 = subsref(tempOut,i,0);
+    	b1 = subsref(tempOut,i,1);
+        for(j=1; j<endCol; j++)
+        {
+            b2 = subsref(tempOut,i,j+1);
+            
+            temp = b0;
+            temp += b1 * 2;
+            temp += b2;
+            
+            b0 = b1;
+            b1 = b2;
+
+            subsref(imageOut,i,j) = temp*0.25f;
+        }
+    }
+
+    fFreeHandle(tempOut);
+    return imageOut;
+    
+}
+
+F2D* calcSobel_dY_1080x1920(F2D* imageIn)
+{
+    int rows = 1080, cols = 1920;
+    int kernel_1[3] = { 1, 0, -1 }, kernel_2[3] = { 1, 2, 1 };
+	float temp;
+    int endCol, endRow, i, j;
+    int k, outputRows, outputCols;
+    F2D *imageOut, *tempOut;
+    
+    imageOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	imageOut->data[(i) * imageOut->width + (0)] = 0;
+	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	imageOut->data[(0) * imageOut->width + (j)] = 0;
+	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
+    }  
+      
+    tempOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	tempOut->data[(i) * tempOut->width + (0)] = 0;
+	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	tempOut->data[(0) * tempOut->width + (j)] = 0;
+	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
+    }
+
+    endCol = cols - 1; 
+    endRow = rows - 1; 
+    
+    for(i=1; i<endRow; i++)
+    {
+    
+        for(j=1; j<endCol; j++)
+        {
+            temp = subsref(imageIn,(i-1),j);
+            temp -= subsref(imageIn,(i+1),j);
+            
+            subsref(tempOut,i,j) = temp*0.5f;
+        }
+    }
+
+    float b0, b1, b2;
+    
+    for(i=1; i<endRow; i++)
+    {
+    	b0 = subsref(tempOut,i,0);
+    	b1 = subsref(tempOut,i,1);
+        for(j=1; j<endCol; j++)
+        {
+            b2 = subsref(tempOut,i,j+1);
+            
+            temp = b0;
+            temp += b1 * 2;
+            temp += b2;
+            
+            b0 = b1;
+            b1 = b2;
+
+            subsref(imageOut,i,j) = temp*0.25f;
+        }
+    }
+
+    fFreeHandle(tempOut);
     return imageOut;
     
 }

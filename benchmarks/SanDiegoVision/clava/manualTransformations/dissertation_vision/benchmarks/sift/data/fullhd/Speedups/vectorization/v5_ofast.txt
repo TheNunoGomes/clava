@@ -1,2 +1,6 @@
+<<<<<<< HEAD
+5734.173579ms
+=======
 768.609030ms
+>>>>>>> d00ed3f9edce2f72dc7389d63248fb705468f316
 Verification		- Successful
