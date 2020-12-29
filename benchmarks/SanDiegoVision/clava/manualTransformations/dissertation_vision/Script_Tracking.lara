@@ -116,7 +116,7 @@ aspectdef Global_v1_O2
 	Io.writeFile(imageBlur, imageBlurContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global. Flag: -O2");
+	println("Executing: v1. Measuring: Global. Flag: -O2");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -138,7 +138,7 @@ aspectdef Global_v1_O3
 	Io.writeFile(imageBlur, imageBlurContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global. Flag: -O3");
+	println("Executing: v1. Measuring: Global. Flag: -O3");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -160,7 +160,7 @@ aspectdef Global_v1_Ofast
 	Io.writeFile(imageBlur, imageBlurContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global. Flag: -Ofast");
+	println("Executing: v1. Measuring: Global. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -182,7 +182,7 @@ aspectdef GlobalBaselineOfast_Vect
 	Io.writeFile(imageBlur, imageBlurContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global. Flag: -Ofast");
+	println("Executing: Baseline. Measuring: Vectorization. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -203,7 +203,7 @@ aspectdef Global_v1_Ofast_Vect
 	Io.writeFile(imageBlur, imageBlurContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global. Flag: -Ofast");
+	println("Executing: v1. Measuring: Vectorization. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
