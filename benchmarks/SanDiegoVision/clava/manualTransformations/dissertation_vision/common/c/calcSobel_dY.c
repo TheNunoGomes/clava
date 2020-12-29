@@ -16,13 +16,28 @@ F2D* calcSobel_dY(F2D* imageIn)
     rows = imageIn->height;
     cols = imageIn->width;
     
-    // level 1 is the base image.
-
-    outputRows = rows; 
-    outputCols = cols;
-
-    imageOut = fSetArray(outputRows, outputCols, 0);
-    tempOut = fSetArray(outputRows, outputCols, 0);
+    //imageOut = fSetArray(rows, cols, 0);
+    //tempOut = fSetArray(rows, cols, 0);
+    
+    imageOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	imageOut->data[(i) * imageOut->width + (0)] = 0;
+	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	imageOut->data[(0) * imageOut->width + (j)] = 0;
+	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
+    }  
+      
+    tempOut = fMallocHandle(rows, cols);
+    for(i=0; i<rows; i++) {
+	tempOut->data[(i) * tempOut->width + (0)] = 0;
+	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+    }
+    for(j=0; j<cols; j++) {
+	tempOut->data[(0) * tempOut->width + (j)] = 0;
+	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
+    }
 
     endCol = cols - 1; 
     endRow = rows - 1; 
