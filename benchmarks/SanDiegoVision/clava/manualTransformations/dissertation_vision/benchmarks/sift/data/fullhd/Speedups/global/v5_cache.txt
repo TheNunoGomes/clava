@@ -1,135 +1,29 @@
-<<<<<<< HEAD
-68213.443091ms
+276544.538234ms
 Verification		- Successful
-==4574== Callgrind, a call-graph generating cache profiler
-==4574== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
-==4574== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==4574== Command: ./sift ./
-==4574== 
---4574-- warning: L3 cache found, using its data for the LL simulation.
-==4574== For interactive control, run 'callgrind_control -h'.
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---4574-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
-==4574== brk segment overflow in thread #1: can't grow to 0x5415000
-==4574== brk segment overflow in thread #1: can't grow to 0x5436000
-==4574== brk segment overflow in thread #1: can't grow to 0x5436000
-==4574== brk segment overflow in thread #1: can't grow to 0x5436000
-==4574== brk segment overflow in thread #1: can't grow to 0x5436000
-==4574== brk segment overflow in thread #1: can't grow to 0x5436000
-==4574== brk segment overflow in thread #1: can't grow to 0x4b71000
-==4574== brk segment overflow in thread #1: can't grow to 0x4b71000
-==4574== brk segment overflow in thread #1: can't grow to 0x4a94000
-==4574== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==4574== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4574== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4574== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4574== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4574== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4574== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4574== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4574== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4574== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4574== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==4574== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4574== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4574== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4574== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4574== brk segment overflow in thread #1: can't grow to 0x4b64000
-==4574== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==4574== brk segment overflow in thread #1: can't grow to 0x5c14000
-==4574== 
-==4574== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==4574== Collected : 6443862683 2370892647 411362862 5044 82249704 11722435 3240 14662385 10342779
-==4574== 
-==4574== I   refs:      6,443,862,683
-==4574== I1  misses:            5,044
-==4574== LLi misses:            3,240
-==4574== I1  miss rate:          0.00%
-==4574== LLi miss rate:          0.00%
-==4574== 
-==4574== D   refs:      2,782,255,509  (2,370,892,647 rd + 411,362,862 wr)
-==4574== D1  misses:       93,972,139  (   82,249,704 rd +  11,722,435 wr)
-==4574== LLd misses:       25,005,164  (   14,662,385 rd +  10,342,779 wr)
-==4574== D1  miss rate:           3.4% (          3.5%   +         2.8%  )
-==4574== LLd miss rate:           0.9% (          0.6%   +         2.5%  )
-==4574== 
-==4574== LL refs:          93,977,183  (   82,254,748 rd +  11,722,435 wr)
-==4574== LL misses:        25,008,404  (   14,665,625 rd +  10,342,779 wr)
-==4574== LL miss rate:            0.3% (          0.2%   +         2.5%  )
-=======
-276507.068594ms
-Verification		- Successful
-==8240== Callgrind, a call-graph generating cache profiler
-==8240== Copyright (C) 2002-2013, and GNU GPL'd, by Josef Weidendorfer et al.
-==8240== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==8240== Command: ./sift ./
-==8240== 
---8240-- Warning: Cannot auto-detect cache config, using defaults.
---8240--          Run with -v to see.
-==8240== For interactive control, run 'callgrind_control -h'.
-==8240== 
-==8240== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==8240== Collected : 6034492277 1864482425 596873788 22314 83582995 11734902 3430 19094917 11704883
-==8240== 
-==8240== I   refs:      6,034,492,277
-==8240== I1  misses:           22,314
-==8240== LLi misses:            3,430
-==8240== I1  miss rate:           0.0%
-==8240== LLi miss rate:           0.0%
-==8240== 
-==8240== D   refs:      2,461,356,213  (1,864,482,425 rd + 596,873,788 wr)
-==8240== D1  misses:       95,317,897  (   83,582,995 rd +  11,734,902 wr)
-==8240== LLd misses:       30,799,800  (   19,094,917 rd +  11,704,883 wr)
-==8240== D1  miss rate:           3.8% (          4.4%   +         1.9%  )
-==8240== LLd miss rate:           1.2% (          1.0%   +         1.9%  )
-==8240== 
-==8240== LL refs:          95,340,211  (   83,605,309 rd +  11,734,902 wr)
-==8240== LL misses:        30,803,230  (   19,098,347 rd +  11,704,883 wr)
-==8240== LL miss rate:            0.3% (          0.2%   +         1.9%  )
->>>>>>> master
+==11518== Callgrind, a call-graph generating cache profiler
+==11518== Copyright (C) 2002-2013, and GNU GPL'd, by Josef Weidendorfer et al.
+==11518== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==11518== Command: ./sift ./
+==11518== 
+--11518-- Warning: Cannot auto-detect cache config, using defaults.
+--11518--          Run with -v to see.
+==11518== For interactive control, run 'callgrind_control -h'.
+==11518== 
+==11518== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==11518== Collected : 6034492293 1864482399 596873764 22310 83582995 11734902 3429 19094944 11704885
+==11518== 
+==11518== I   refs:      6,034,492,293
+==11518== I1  misses:           22,310
+==11518== LLi misses:            3,429
+==11518== I1  miss rate:           0.0%
+==11518== LLi miss rate:           0.0%
+==11518== 
+==11518== D   refs:      2,461,356,163  (1,864,482,399 rd + 596,873,764 wr)
+==11518== D1  misses:       95,317,897  (   83,582,995 rd +  11,734,902 wr)
+==11518== LLd misses:       30,799,829  (   19,094,944 rd +  11,704,885 wr)
+==11518== D1  miss rate:           3.8% (          4.4%   +         1.9%  )
+==11518== LLd miss rate:           1.2% (          1.0%   +         1.9%  )
+==11518== 
+==11518== LL refs:          95,340,207  (   83,605,305 rd +  11,734,902 wr)
+==11518== LL misses:        30,803,258  (   19,098,373 rd +  11,704,885 wr)
+==11518== LL miss rate:            0.3% (          0.2%   +         1.9%  )
