@@ -89,7 +89,11 @@ I2D* isPlus(I2D* a, int b);
 
 /** Filtering operations **/
 F2D* calcSobel_dX(F2D* imageIn);
+F2D* calcSobel_dX_540x960(F2D* imageIn);
+F2D* calcSobel_dX_1080x1920(F2D* imageIn);
 F2D* calcSobel_dY(F2D* imageIn);
+F2D* calcSobel_dY_540x960(F2D* imageIn);
+F2D* calcSobel_dY_1080x1920(F2D* imageIn);
 F2D* ffConv2(F2D* a, F2D* b);
 F2D* fiConv2(I2D* a, F2D* b);
 F2D* ffConv2_dY(F2D* a, F2D* b);
@@ -100,6 +104,7 @@ I2D* iiConv2(I2D* a, I2D* b);
 /** Image Transformations - resize, integration etc **/
 F2D* imageResize(F2D* imageIn);
 F2D* imageBlur(I2D* imageIn);
+F2D* imageBlur_1080x1920(I2D* imageIn);
 
 
 /** Support functions **/
