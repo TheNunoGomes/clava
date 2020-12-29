@@ -13,7 +13,7 @@ var speedupsGlobal = Io.getAbsolutePath("./benchmarks/tracking/data/fullhd/Speed
 var sobelDx = Io.getAbsolutePath("././common/c/calcSobel_dX.c");
 var sobelDy = Io.getAbsolutePath("./common/c/calcSobel_dY.c");
 var imageBlur = Io.getAbsolutePath("./common/c/imageBlur.c");
-var script_tracking = Io.getAbsolutePath("./benchmarks/tracking/src/c/script_tracking");
+var script_tracking = Io.getAbsolutePath("./benchmarks/tracking/src/c/script_tracking.c");
 var makefile = Io.getAbsolutePath("./common/makefiles/Makefile.common");	
 
 var data = Io.getAbsolutePath("./benchmarks/tracking/data/fullhd");
