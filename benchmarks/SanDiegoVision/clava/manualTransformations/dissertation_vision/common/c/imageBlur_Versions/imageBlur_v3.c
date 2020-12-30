@@ -10,37 +10,36 @@ F2D* imageBlur(I2D* imageIn)
     int rows, cols;
     F2D *imageOut, *tempOut;
     float temp;
-    int k, endCol, endRow, i, j;
+    int endCol, endRow, i, j;
 
     rows = imageIn->height;
     cols = imageIn->width;
 
     imageOut = fMallocHandle(rows, cols);
-    for(i=0; i<rows; i++) {
-	imageOut->data[(i) * imageOut->width + (0)] = 0;
-	imageOut->data[(i) * imageOut->width + (1)] = 0;
-	imageOut->data[(i) * imageOut->width + (cols-2)] = 0;
-	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
-    }
-    for(j=0; j<cols; j++) {
-	imageOut->data[(0) * imageOut->width + (j)] = 0;
-	imageOut->data[(1) * imageOut->width + (j)] = 0;
-	imageOut->data[(rows-2) * imageOut->width + (j)] = 0;
-	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
-    }  
-      
     tempOut = fMallocHandle(rows, cols);
+
+    // VECTORIZADO
     for(i=0; i<rows; i++) {
-	tempOut->data[(i) * tempOut->width + (0)] = 0;
-	tempOut->data[(i) * tempOut->width + (1)] = 0;
-	tempOut->data[(i) * tempOut->width + (cols-2)] = 0;
-	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+	imageOut->data[(i) * cols + (0)] = 0;
+	imageOut->data[(i) * cols + (1)] = 0;
+	imageOut->data[(i) * cols + (cols-2)] = 0;
+	imageOut->data[(i) * cols + (cols-1)] = 0;
+	
+	tempOut->data[(i) * cols + (0)] = 0;
+	tempOut->data[(i) * cols + (1)] = 0;
+	tempOut->data[(i) * cols + (cols-2)] = 0;
+	tempOut->data[(i) * cols + (cols-1)] = 0;
     }
     for(j=0; j<cols; j++) {
-	tempOut->data[(0) * tempOut->width + (j)] = 0;
-	tempOut->data[(1) * tempOut->width + (j)] = 0;
-	tempOut->data[(rows-2) * tempOut->width + (j)] = 0;
-	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
+	imageOut->data[(0) * cols + (j)] = 0;
+	imageOut->data[(1) * cols + (j)] = 0;
+	imageOut->data[(rows-2) * cols + (j)] = 0;
+	imageOut->data[(rows-1) * cols + (j)] = 0;
+	
+	tempOut->data[(0) * cols + (j)] = 0;
+	tempOut->data[(1) * cols + (j)] = 0;
+	tempOut->data[(rows-2) * cols + (j)] = 0;
+	tempOut->data[(rows-1) * cols + (j)] = 0;
     }
 
     endCol = cols - 2;
@@ -74,6 +73,7 @@ F2D* imageBlur(I2D* imageIn)
     
     for(i=2; i<endRow; i++)
     {
+    	// VECTORIZADO
         for(j=2; j<endCol; j++)
         {
             temp = subsref(tempOut,(i-2),j);
@@ -98,33 +98,32 @@ F2D* imageBlur_1080x1920(I2D* imageIn)
     int k, endCol, endRow, i, j;
 
     imageOut = fMallocHandle(rows, cols);
-    for(i=0; i<rows; i++) {
-	imageOut->data[(i) * imageOut->width + (0)] = 0;
-	imageOut->data[(i) * imageOut->width + (1)] = 0;
-	imageOut->data[(i) * imageOut->width + (cols-2)] = 0;
-	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
-    }
-    for(j=0; j<cols; j++) {
-	imageOut->data[(0) * imageOut->width + (j)] = 0;
-	imageOut->data[(1) * imageOut->width + (j)] = 0;
-	imageOut->data[(rows-2) * imageOut->width + (j)] = 0;
-	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
-    }  
-      
     tempOut = fMallocHandle(rows, cols);
+
+    // VECTORIZADO
     for(i=0; i<rows; i++) {
-	tempOut->data[(i) * tempOut->width + (0)] = 0;
-	tempOut->data[(i) * tempOut->width + (1)] = 0;
-	tempOut->data[(i) * tempOut->width + (cols-2)] = 0;
-	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+	imageOut->data[(i) * cols + (0)] = 0;
+	imageOut->data[(i) * cols + (1)] = 0;
+	imageOut->data[(i) * cols + (cols-2)] = 0;
+	imageOut->data[(i) * cols + (cols-1)] = 0;
+	
+	tempOut->data[(i) * cols + (0)] = 0;
+	tempOut->data[(i) * cols + (1)] = 0;
+	tempOut->data[(i) * cols + (cols-2)] = 0;
+	tempOut->data[(i) * cols + (cols-1)] = 0;
     }
     for(j=0; j<cols; j++) {
-	tempOut->data[(0) * tempOut->width + (j)] = 0;
-	tempOut->data[(1) * tempOut->width + (j)] = 0;
-	tempOut->data[(rows-2) * tempOut->width + (j)] = 0;
-	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
+	imageOut->data[(0) * cols + (j)] = 0;
+	imageOut->data[(1) * cols+ (j)] = 0;
+	imageOut->data[(rows-2) * cols + (j)] = 0;
+	imageOut->data[(rows-1) * cols + (j)] = 0;
+	
+	tempOut->data[(0) * cols + (j)] = 0;
+	tempOut->data[(1) * cols + (j)] = 0;
+	tempOut->data[(rows-2) * cols + (j)] = 0;
+	tempOut->data[(rows-1) * cols + (j)] = 0;
     }
-
+    
     endCol = cols - 2;
     endRow = rows - 2;  
     
@@ -156,6 +155,7 @@ F2D* imageBlur_1080x1920(I2D* imageIn)
     
     for(i=2; i<endRow; i++)
     {
+    	// VECTORIZADO
         for(j=2; j<endCol; j++)
         {
             temp = subsref(tempOut,(i-2),j);

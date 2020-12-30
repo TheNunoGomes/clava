@@ -13,6 +13,7 @@ F2D* fSetArray(int rows, int cols, float val)
     out = fMallocHandle(rows, cols);
     
     for(i=0; i<rows; i++) {
+    	// VECTORIZED and UNROLLED
         for(j=0; j<cols; j++) {
             subsref(out,i,j) = val;
 		}
