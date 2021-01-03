@@ -113,7 +113,7 @@ int main(int argc, char* argv[])
     /** IMAGE PRE-PROCESSING **/
 
     /** Blur the image to remove noise - weighted avergae filter **/
-    blurredImage = imageBlur(Ic);
+    blurredImage = imageBlur_1080x1920(Ic);
 
     /** Scale down the image to build Image Pyramid. We find features across all scales of the image **/
     blurred_level1 = blurredImage;                   /** Scale 0 **/
@@ -121,8 +121,8 @@ int main(int argc, char* argv[])
 
 
     /** Edge Images - From pre-processed images, build gradient images, both horizontal and vertical **/
-    verticalEdgeImage = calcSobel_dX(blurredImage);
-    horizontalEdgeImage = calcSobel_dY(blurredImage);
+    verticalEdgeImage = calcSobel_dX_1080x1920(blurredImage);
+    horizontalEdgeImage = calcSobel_dY_1080x1920(blurredImage);
 
     /** Edge images are used for feature detection. So, using the verticalEdgeImage and horizontalEdgeImage images, we compute feature strength
         across all pixels. Lambda matrix is the feature strength matrix returned by calcGoodFeature **/
@@ -169,7 +169,7 @@ for(count=1; count<=counter; count++)
     cols = Ic->width;
 
     /** Blur image to remove noise **/
-    blurredImage = imageBlur(Ic);
+    blurredImage = imageBlur_1080x1920(Ic);
     previousFrameBlurred_level1 = fDeepCopy(blurred_level1);
     previousFrameBlurred_level2 = fDeepCopy(blurred_level2);
     
@@ -181,11 +181,11 @@ for(count=1; count<=counter; count++)
     blurred_level2 = imageResize(blurredImage);
 
     /** Gradient image computation, for all scales **/
-    verticalEdge_level1 = calcSobel_dX(blurred_level1);   
-    horizontalEdge_level1 = calcSobel_dY(blurred_level1); 
+    verticalEdge_level1 = calcSobel_dX_1080x1920(blurred_level1);   
+    horizontalEdge_level1 = calcSobel_dY_1080x1920(blurred_level1); 
     
-    verticalEdge_level2 = calcSobel_dX(blurred_level2); 
-    horizontalEdge_level2 = calcSobel_dY(blurred_level2);
+    verticalEdge_level2 = calcSobel_dX_540x960(blurred_level2); 
+    horizontalEdge_level2 = calcSobel_dY_540x960(blurred_level2);
     
     newpoints = fSetArray(2, features->width, 0);
         
