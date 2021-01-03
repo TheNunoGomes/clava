@@ -45,9 +45,11 @@ F2D* calcSobel_dX(F2D* imageIn)
 
     for(i=startRow; i<endRow; i++)
     {
+    	// VECTORIZED and UNROLLED
         for(j=startCol; j<endCol; j++)
         {
             temp = 0;
+            // UNROLLED
             for(k=-halfKernel; k<=halfKernel; k++)
             {
                 temp += subsref(imageIn,i,j+k) * asubsref(kernel_2,k+halfKernel);
@@ -58,9 +60,11 @@ F2D* calcSobel_dX(F2D* imageIn)
     
     for(i=startRow; i<endRow; i++)
     {
+    	// VECTORIZED and UNROLLED
         for(j=startCol; j<endCol; j++)
         {
             temp = 0;
+            // UNROLLED
             for(k=-halfKernel; k<=halfKernel; k++)
             {
                 temp += subsref(tempOut,(i+k),j) * asubsref(kernel_1,k+halfKernel);

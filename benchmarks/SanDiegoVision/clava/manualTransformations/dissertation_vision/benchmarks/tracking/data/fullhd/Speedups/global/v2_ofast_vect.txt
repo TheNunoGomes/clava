@@ -1,0 +1,130 @@
+calcSobel_dX.c:28:5: optimized: versioned this loop for when certain strides are 1
+calcSobel_dX.c:28:5: optimized: loop vectorized using 16 byte vectors
+calcSobel_dX.c:28:5: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dX.c:28:5: optimized: loop with 2 iterations completely unrolled (header execution count 4939767)
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+calcSobel_dX.c:36:5: optimized: loop vectorized using 16 byte vectors
+calcSobel_dX.c:36:5: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dX.c:36:5: optimized: loop with 2 iterations completely unrolled (header execution count 6174709)
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dX.c:71:9: optimized: loop vectorized using 16 byte vectors
+calcSobel_dX.c:71:9: optimized:  loop versioned for vectorization because of possible aliasing
+
+calcSobel_dX.c:71:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
+
+
+____________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dX.c:108:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
+
+
+
+_____________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dX.c:142:9: optimized: loop vectorized using 16 byte vectors
+calcSobel_dX.c:142:9: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dX.c:142:9: optimized: loop with 1 iterations completely unrolled (header execution count 8589937)
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+calcSobel_dX.c:178:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dX.c:213:9: optimized: loop vectorized using 16 byte vectors
+calcSobel_dX.c:213:9: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dX.c:213:9: optimized: loop with 1 iterations completely unrolled (header execution count 8589937)
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+imageBlur.c:22:5: optimized: loop vectorized using 16 byte vectors
+imageBlur.c:22:5: optimized:  loop versioned for vectorization because of possible aliasing
+imageBlur.c:22:5: optimized: loop turned into non-loop; it never loops
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+imageBlur.c:77:9: optimized: loop vectorized using 16 byte vectors
+imageBlur.c:77:9: optimized:  loop versioned for vectorization because of possible aliasing
+imageBlur.c:77:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+imageBlur.c:104:5: optimized: loop vectorized using 16 byte vectors
+imageBlur.c:101:5: optimized:  loop versioned for vectorization because of possible aliasing
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+imageBlur.c:159:9: optimized: loop vectorized using 16 byte vectors
+imageBlur.c:159:9: optimized:  loop versioned for vectorization because of possible aliasing
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________________________________
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dY.c:27:5: optimized: versioned this loop for when certain strides are 1
+calcSobel_dY.c:27:5: optimized: loop vectorized using 16 byte vectors
+calcSobel_dY.c:27:5: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dY.c:27:5: optimized: loop with 2 iterations completely unrolled (header execution count 4939767)
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dY.c:34:5: optimized: loop vectorized using 16 byte vectors
+calcSobel_dY.c:34:5: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dY.c:34:5: optimized: loop with 2 iterations completely unrolled (header execution count 6174709)
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dY.c:48:9: optimized: loop vectorized using 16 byte vectors
+alcSobel_dY.c:48:9: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dY.c:48:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959009)
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dY.c:100:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dY.c:114:9: optimized: loop vectorized using 16 byte vectors
+calcSobel_dY.c:114:9: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dY.c:114:9: optimized: loop with 1 iterations completely unrolled (header execution count 8589913)
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+calcSobel_dY.c:166:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+calcSobel_dY.c:180:9: optimized: loop vectorized using 16 byte vectors
+calcSobel_dY.c:180:9: optimized:  loop versioned for vectorization because of possible aliasing
+calcSobel_dY.c:180:9: optimized: loop with 1 iterations completely unrolled (header execution count 8589913)
+
+
+
+
+

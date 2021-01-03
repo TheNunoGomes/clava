@@ -47,9 +47,11 @@ F2D* calcSobel_dY(F2D* imageIn)
 
     for(i=startRow; i<endRow; i++)
     {
+    	// VECTORIZED AND UNROLLED
         for(j=startCol; j<endCol; j++)
         {
             temp = 0;
+            // UNROLLED
             for(k=-halfKernel; k<=halfKernel; k++)
             {
                 temp += subsref(imageIn,(i+k),j) * asubsref(kernel_1,k+halfKernel);
@@ -60,9 +62,11 @@ F2D* calcSobel_dY(F2D* imageIn)
 
     for(i=startRow; i<endRow; i++)
     {
+    	// VECTORIZED AND UNROLLED
         for(j=startCol; j<endCol; j++)
         {
             temp = 0;
+            // UNROLLED
             for(k=-halfKernel; k<=halfKernel; k++)
             {
                 temp += subsref(tempOut,i,j+k) * asubsref(kernel_2,k+halfKernel);
