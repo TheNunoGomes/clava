@@ -95,7 +95,7 @@ aspectdef GlobalBaselineOfast
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_base.c");
 	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_base.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ODROID.common");
 		
 	Io.writeFile(sobelDx, sobelDxContent);
 	Io.writeFile(sobelDy, sobelDyContent);
@@ -168,7 +168,7 @@ aspectdef Global_v1_Ofast
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
 	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ODROID.common");
 		
 	Io.writeFile(sobelDx, sobelDxContent);
 	Io.writeFile(sobelDy, sobelDyContent);
@@ -192,7 +192,7 @@ aspectdef Global_v2_Ofast
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v3.c");
 	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v3.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_v3.c");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ODROID.common");
 		
 	Io.writeFile(sobelDx, sobelDxContent);
 	Io.writeFile(sobelDy, sobelDyContent);
