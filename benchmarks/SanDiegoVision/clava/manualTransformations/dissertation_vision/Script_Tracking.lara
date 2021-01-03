@@ -19,7 +19,7 @@ var makefile = Io.getAbsolutePath("./common/makefiles/Makefile.common");
 var data = Io.getAbsolutePath("./benchmarks/tracking/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 100;
+var numberOfExecutions = 10;
 
 aspectdef Script_Tracking
 	executor.setWorkingDir(Io.getAbsolutePath(data));
