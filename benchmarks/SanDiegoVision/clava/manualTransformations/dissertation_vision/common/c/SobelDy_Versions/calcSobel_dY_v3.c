@@ -8,10 +8,8 @@ v3: Inline fSetArray
 F2D* calcSobel_dY(F2D* imageIn)
 {
     int rows, cols;
-    int kernel_1[3] = { 1, 0, -1 }, kernel_2[3] = { 1, 2, 1 };
 	float temp;
     int endCol, endRow, i, j;
-    int k, outputRows, outputCols;
     F2D *imageOut, *tempOut;
 
     rows = imageIn->height;
@@ -24,31 +22,31 @@ F2D* calcSobel_dY(F2D* imageIn)
     //tempOut = fSetArray(rows, cols, 0);
     
     imageOut = fMallocHandle(rows, cols);
-    for(i=0; i<rows; i++) {
-	imageOut->data[(i) * imageOut->width + (0)] = 0;
-	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
-    }
-    for(j=0; j<cols; j++) {
-	imageOut->data[(0) * imageOut->width + (j)] = 0;
-	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
-    }  
-      
     tempOut = fMallocHandle(rows, cols);
-    for(i=0; i<rows; i++) {
-	tempOut->data[(i) * tempOut->width + (0)] = 0;
-	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
-    }
-    for(j=0; j<cols; j++) {
-	tempOut->data[(0) * tempOut->width + (j)] = 0;
-	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
-    }
 
+    // VECTORIZADO
+    for(i=0; i<rows; i++) {
+	imageOut->data[(i) * cols + (0)] = 0;
+	imageOut->data[(i) * cols + (cols-1)] = 0;
+	
+	tempOut->data[(i) * cols + (0)] = 0;
+	tempOut->data[(i) * cols + (cols-1)] = 0;
+    }
+    // VECTORIZADO
+    for(j=0; j<cols; j++) {
+	imageOut->data[(0) * cols + (j)] = 0;
+	imageOut->data[(rows-1) * cols + (j)] = 0;
+	
+	tempOut->data[(0) * cols + (j)] = 0;
+	tempOut->data[(rows-1) * cols + (j)] = 0;
+    }  
+     
     endCol = cols - 1; 
     endRow = rows - 1; 
     
     for(i=1; i<endRow; i++)
     {
-    
+    	// VECTORIZADO
         for(j=1; j<endCol; j++)
         {
             temp = subsref(imageIn,(i-1),j);
@@ -87,39 +85,36 @@ F2D* calcSobel_dY(F2D* imageIn)
 F2D* calcSobel_dY_540x960(F2D* imageIn)
 {
     int rows = 540, cols = 960;
-    int kernel_1[3] = { 1, 0, -1 }, kernel_2[3] = { 1, 2, 1 };
 	float temp;
     int endCol, endRow, i, j;
-    int k, outputRows, outputCols;
     F2D *imageOut, *tempOut;
     
     imageOut = fMallocHandle(rows, cols);
-    for(i=0; i<rows; i++) {
-	imageOut->data[(i) * imageOut->width + (0)] = 0;
-	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
-    }
-    for(j=0; j<cols; j++) {
-	imageOut->data[(0) * imageOut->width + (j)] = 0;
-	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
-    }  
-      
     tempOut = fMallocHandle(rows, cols);
+    
     for(i=0; i<rows; i++) {
-	tempOut->data[(i) * tempOut->width + (0)] = 0;
-	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+	imageOut->data[(i) * cols + (0)] = 0;
+	imageOut->data[(i) * cols + (cols-1)] = 0;
+	
+	tempOut->data[(i) * cols + (0)] = 0;
+	tempOut->data[(i) * cols + (cols-1)] = 0;
     }
+    // VECTORIZADO
     for(j=0; j<cols; j++) {
-	tempOut->data[(0) * tempOut->width + (j)] = 0;
-	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
-    }
-
+	imageOut->data[(0) * cols + (j)] = 0;
+	imageOut->data[(rows-1) * cols + (j)] = 0;
+	
+	tempOut->data[(0) * cols + (j)] = 0;
+	tempOut->data[(rows-1) * cols + (j)] = 0;
+    } 
+     
     endCol = cols - 1; 
     endRow = rows - 1; 
     
     for(i=1; i<endRow; i++)
     {
-    
-        for(j=1; j<endCol; j++)
+        // VECTORIZADO
+    	for(j=1; j<endCol; j++)
         {
             temp = subsref(imageIn,(i-1),j);
             temp -= subsref(imageIn,(i+1),j);
@@ -157,39 +152,36 @@ F2D* calcSobel_dY_540x960(F2D* imageIn)
 F2D* calcSobel_dY_1080x1920(F2D* imageIn)
 {
     int rows = 1080, cols = 1920;
-    int kernel_1[3] = { 1, 0, -1 }, kernel_2[3] = { 1, 2, 1 };
 	float temp;
     int endCol, endRow, i, j;
-    int k, outputRows, outputCols;
     F2D *imageOut, *tempOut;
     
     imageOut = fMallocHandle(rows, cols);
-    for(i=0; i<rows; i++) {
-	imageOut->data[(i) * imageOut->width + (0)] = 0;
-	imageOut->data[(i) * imageOut->width + (cols-1)] = 0;
-    }
-    for(j=0; j<cols; j++) {
-	imageOut->data[(0) * imageOut->width + (j)] = 0;
-	imageOut->data[(rows-1) * imageOut->width + (j)] = 0;
-    }  
-      
     tempOut = fMallocHandle(rows, cols);
+    
     for(i=0; i<rows; i++) {
-	tempOut->data[(i) * tempOut->width + (0)] = 0;
-	tempOut->data[(i) * tempOut->width + (cols-1)] = 0;
+	imageOut->data[(i) * cols + (0)] = 0;
+	imageOut->data[(i) * cols + (cols-1)] = 0;
+	
+	tempOut->data[(i) * cols + (0)] = 0;
+	tempOut->data[(i) * cols + (cols-1)] = 0;
     }
+    // VECTORIZADO
     for(j=0; j<cols; j++) {
-	tempOut->data[(0) * tempOut->width + (j)] = 0;
-	tempOut->data[(rows-1) * tempOut->width + (j)] = 0;
-    }
+	imageOut->data[(0) * cols + (j)] = 0;
+	imageOut->data[(rows-1) * cols + (j)] = 0;
+	
+	tempOut->data[(0) * cols + (j)] = 0;
+	tempOut->data[(rows-1) * cols + (j)] = 0;
+    }  
 
     endCol = cols - 1; 
     endRow = rows - 1; 
     
     for(i=1; i<endRow; i++)
     {
-    
-        for(j=1; j<endCol; j++)
+    	// VECTORIZADO
+    	for(j=1; j<endCol; j++)
         {
             temp = subsref(imageIn,(i-1),j);
             temp -= subsref(imageIn,(i+1),j);

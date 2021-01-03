@@ -33,11 +33,13 @@ F2D* imageBlur(I2D* imageIn)
 
     startRow = 2;    
     endRow = rows - 2;  
-
-    for(i=startRow; i<endRow; i++){
+    // OPTIMIZED BASIC BLOCK VECTORIZED
+    for(i=startRow; i<endRow; i++) {
+	// VECTORIZED and UNROLLED
         for(j=startCol; j<endCol; j++)
         {
             temp = 0;
+            // UNROLLED
             for(k=-halfKernel; k<=halfKernel; k++)
             {
                 temp += subsref(imageIn,i,j+k) * asubsref(kernel,k+halfKernel);
@@ -48,9 +50,11 @@ F2D* imageBlur(I2D* imageIn)
     
     for(i=startRow; i<endRow; i++)
     {
+	// VECTORIZED and UNROLLED
         for(j=startCol; j<endCol; j++)
         {
             temp = 0;
+            // UNROLLED
             for(k=-halfKernel; k<=halfKernel; k++)
             {
                 temp += subsref(tempOut,(i+k),j) * asubsref(kernel,k+halfKernel);

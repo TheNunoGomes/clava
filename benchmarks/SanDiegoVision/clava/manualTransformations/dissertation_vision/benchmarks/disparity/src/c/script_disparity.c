@@ -2,6 +2,9 @@
 Author: Sravanthi Kota Venkata
 ********************************/
 
+#define _POSIX_C_SOURCE 199309L
+#include <time.h>
+#include <sys/resource.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "disparity.h"
@@ -11,8 +14,6 @@ int main(int argc, char* argv[])
     int rows = 32;
     int cols = 32;
     I2D *imleft, *imright, *retDisparity;
-
-    unsigned int *start, *endC, *elapsed;
     
     int i, j;
     char im1[100], im2[100], timFile[100];
@@ -47,11 +48,28 @@ int main(int argc, char* argv[])
     SHIFT = 8;
 #endif
 
-    start = photonStartTiming();
+    
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+	
+	
+	
     retDisparity = getDisparity(imleft, imright, WIN_SZ, SHIFT);
-    endC = photonEndTiming();
+    
+    
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%fms\n", clava_timing_duration_0);
 
-    printf("Input size\t\t- (%dx%d)\n", rows, cols);
+
+/*
+    for(i = 0; i < rows; i++) {
+    	for(j = 0; j < cols; j++) {
+    	     printf("%d\t", retDisparity->data[i * retDisparity->width + j]);
+    	}
+    	printf("\n");
+    }
+   //*/
 #ifdef CHECK   
     /** Self checking - use expected.txt from data directory  **/
     {
@@ -66,16 +84,10 @@ int main(int argc, char* argv[])
     }
     /** Self checking done **/
 #endif
-
-    elapsed = photonReportTiming(start, endC);
-    photonPrintTiming(elapsed);
     
     iFreeHandle(imleft);
     iFreeHandle(imright);
     iFreeHandle(retDisparity);
-    free(start);
-    free(endC);
-    free(elapsed);
 
     return 0;
 }
