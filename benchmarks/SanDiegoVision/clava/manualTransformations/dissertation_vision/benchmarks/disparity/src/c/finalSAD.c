@@ -75,19 +75,18 @@ void finalSAD(F2D *__restrict__ integralImg, int win_sz, F2D *__restrict__ retSA
             tr7 = subsref(integralImg, i+1, j+8);
             bl7 = subsref(integralImg, i+8, j+1);
             
-            if(tl7 != bl0) {
+            //*
+    	    if(tl7 != bl0) {
 		printf("right: %f / %f\n", tr7, br0);
 		//printf("left: %f / %f\n", tl7, bl0);
-            	count++;
-            }
-            if(tr7 != br0) {
+    		count++;
+    	    }
+    	    if(tr7 != br0) {
 		//printf("right: %f / %f\n", tr7, br0);
 		printf("left: %f / %f\n", tl7, bl0);
-            	count++;
-            }
-            
-            total++;
-            
+    		count++;
+    	    }
+            //*/
             subsref(retSAD,i,j) = br7 + tl7 - tr7 - bl7;
             
             
@@ -127,8 +126,6 @@ void finalSAD(F2D *__restrict__ integralImg, int win_sz, F2D *__restrict__ retSA
             bl6 = bl7;
         }
     }
-    	
-	printf("%d / %d\n", count, total);
     return;
 }
 

@@ -253,5 +253,56 @@ aspectdef Global_v2_Ofast_Vect
 	
 	executor.execute("make", "compile");
 	results += executor.getConsoleOutput();
-	Io.writeFile(speedupsGlobal + "/v1_ofast_vect.txt", results);
+	Io.writeFile(speedupsGlobal + "/v2_ofast_vect.txt", results);
+end
+
+
+
+
+
+
+aspectdef GlobalBaselineOfast_Cache
+	var results = "";
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_base.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_base.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_base.c");
+	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(sobelDx, sobelDxContent);
+	Io.writeFile(sobelDy, sobelDyContent);
+	Io.writeFile(imageBlur, imageBlurContent);
+	Io.writeFile(script_tracking, mainContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: Baseline. Measuring: Cache. Flag: -Ofast");
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./tracking ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(speedupsGlobal + "/base_ofast_cache.txt", results);
+end
+
+aspectdef Global_v2_Ofast_Cache
+	var results = "";
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v3.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v3.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v3.c");
+	mainContent = Io.readFile(mainVersions + "/script_tracking_v3.c");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(sobelDx, sobelDxContent);
+	Io.writeFile(sobelDy, sobelDyContent);
+	Io.writeFile(imageBlur, imageBlurContent);
+	Io.writeFile(script_tracking, mainContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	println("Executing: v2. Measuring: Cache. Flag: -Ofast");
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./tracking ./");
+	results += executor.getConsoleOutput();
+
+	Io.writeFile(speedupsGlobal + "/v2_ofast_cache.txt", results);
 end
