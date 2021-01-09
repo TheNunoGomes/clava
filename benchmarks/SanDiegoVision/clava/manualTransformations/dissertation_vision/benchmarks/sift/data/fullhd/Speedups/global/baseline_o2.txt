@@ -1,0 +1,60 @@
+Executing: Baseline. Measuring: Global. Flag: -O27112.210652ms
+Verification		- Successful
+7119.886593ms
+Verification		- Successful
+7099.585944ms
+Verification		- Successful
+7094.886383ms
+Verification		- Successful
+7108.284956ms
+Verification		- Successful
+7104.935918ms
+Verification		- Successful
+7094.213852ms
+Verification		- Successful
+7100.786265ms
+Verification		- Successful
+7099.829375ms
+Verification		- Successful
+7096.740085ms
+Verification		- Successful
+7091.578528ms
+Verification		- Successful
+7096.349005ms
+Verification		- Successful
+7111.206769ms
+Verification		- Successful
+7087.871913ms
+Verification		- Successful
+7091.794069ms
+Verification		- Successful
+7093.316132ms
+Verification		- Successful
+7108.744888ms
+Verification		- Successful
+7111.752973ms
+Verification		- Successful
+7104.668525ms
+Verification		- Successful
+7108.440477ms
+Verification		- Successful
+7104.514320ms
+Verification		- Successful
+7116.470538ms
+Verification		- Successful
+7106.652252ms
+Verification		- Successful
+7103.595294ms
+Verification		- Successful
+7103.370796ms
+Verification		- Successful
+7115.648843ms
+Verification		- Successful
+7108.238150ms
+Verification		- Successful
+7108.666603ms
+Verification		- Successful
+7122.704877ms
+Verification		- Successful
+7108.227568ms
+Verification		- Successful
