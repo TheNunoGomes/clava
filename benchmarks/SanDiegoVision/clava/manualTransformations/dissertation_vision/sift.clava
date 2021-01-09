@@ -56,6 +56,10 @@
       <pt.up.fe.specs.jsengine.JsEngineType>GRAALVM_COMPAT</pt.up.fe.specs.jsengine.JsEngineType>
     </entry>
     <entry>
+      <string>flatOutputFolder</string>
+      <boolean>false</boolean>
+    </entry>
+    <entry>
       <string>output</string>
       <file></file>
     </entry>
@@ -83,11 +87,17 @@
     </entry>
     <entry>
       <string>aspect</string>
-      <file>Script.lara</file>
+      <file>Script_SIFT.lara</file>
     </entry>
     <entry>
       <string>parsingNumThreads</string>
       <int>0</int>
+    </entry>
+    <entry>
+      <string>ignoreHeaderIncludes</string>
+      <StringList>
+        <stringList/>
+      </StringList>
     </entry>
     <entry>
       <string>stack trace</string>
