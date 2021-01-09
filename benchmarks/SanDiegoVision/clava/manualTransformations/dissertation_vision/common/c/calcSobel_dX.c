@@ -191,6 +191,7 @@ F2D* calcSobel_dX_1080x1920(F2D* imageIn)
     
     for(i=1; i<endRow; i++)
     {
+<<<<<<< HEAD
     	b0 = subsref(imageIn,(i),0);
     	b1 = subsref(imageIn,(i),1);
         for(j=1; j<endCol; j++)
@@ -204,11 +205,24 @@ F2D* calcSobel_dX_1080x1920(F2D* imageIn)
             b1 = b2;
             
             subsref(tempOut,i,j) = temp*0.5f;
+=======
+    	// VECTORIZED and UNROLLED
+        for(j=startCol; j<endCol; j++)
+        {
+            temp = 0;
+            // UNROLLED
+            for(k=-halfKernel; k<=halfKernel; k++)
+            {
+                temp += subsref(imageIn,i,j+k) * asubsref(kernel_2,k+halfKernel);
+            }
+            subsref(tempOut,i,j) = temp/kernelSum_2;
+>>>>>>> master
         }
     }
     
     for(i=1; i<endRow; i++)
     {
+<<<<<<< HEAD
     	// VECTORIZADO
         for(j=1; j<endCol; j++)
         {
@@ -216,6 +230,18 @@ F2D* calcSobel_dX_1080x1920(F2D* imageIn)
             temp += subsref(tempOut,(i),j) * 2;
             temp += subsref(tempOut,(i+1),j);
             subsref(imageOut,i,j) = temp*0.25f;
+=======
+    	// VECTORIZED and UNROLLED
+        for(j=startCol; j<endCol; j++)
+        {
+            temp = 0;
+            // UNROLLED
+            for(k=-halfKernel; k<=halfKernel; k++)
+            {
+                temp += subsref(tempOut,(i+k),j) * asubsref(kernel_1,k+halfKernel);
+            }
+            subsref(imageOut,i,j) = temp/(float)kernelSum_1;
+>>>>>>> master
         }
     }
 
