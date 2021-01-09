@@ -10,6 +10,7 @@ var makefileVersions = Io.getAbsolutePath("./common/makefiles/makefileVersions")
 var speedupsHotspot = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/hotspot");
 var speedupsGlobal = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/global");
 var vectorization = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/vectorization");
+var cache = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/cache");
 
 var imsmooth = Io.getAbsolutePath("./benchmarks/sift/src/c/imsmooth.c");
 var gaussianss = Io.getAbsolutePath("./benchmarks/sift/src/c/gaussianss.c");
@@ -26,270 +27,74 @@ var makesfilesFiles = Io.getFiles(makefileVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 100;
+var numberOfExecutions = 30;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 
-
-//	call GlobalV5Ofast_VECTORIZATION;
-//	call GlobalBaselineOfast_Cache;
-
-	//call GlobalBaselineOfast_Cache_SplitWs;
-	//call GlobalV5Ofast_Cache;
-
-	call GlobalBaselineOfast_SplitWs;
-	call GlobalV5Ofast;
-
-//	call HotspotBaselineOfast_Cache;
-
-//	call HotspotV5Ofast_CacheW5;
-//	call HotspotV5Ofast_CacheW7;
-//	call HotspotV5Ofast_CacheW8;
-//	call HotspotV5Ofast_CacheW10;
-//	call HotspotV5Ofast_CacheW13;
+	call GlobalBaselineO0;
+	call GlobalBaselineO2;
+	call GlobalBaselineO3;
+	
+	call GlobalV5O0;
+	call GlobalV5O2;
+	call GlobalV5O3;
+	
 	
 end
 
-aspectdef HotspotBaselineO2
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Hotspot. Flag: -O2");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/baseline_o2.txt", results);
-end
 
-aspectdef HotspotBaselineO3
+
+aspectdef GlobalBaselineSplitWsO3
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_Ws.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
-	
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Hotspot. Flag: -O3");
+	var measuring = "Executing: Baseline Split Ws. Measuring: Global. Flag: -O3";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsHotspot + "/baseline_o3.txt", results);
+	Io.writeFile(speedupsGlobal + "/baseSplitWs_o3.txt", results);
 end
 
-aspectdef HotspotBaselineOfast
+aspectdef GlobalBaselineO0
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Hotspot. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/baseline_ofast.txt", results);
-end
-
-aspectdef HotspotV1Ofast
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
 		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v1. Measuring: Hotspot. Flag: -Ofast");
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O0";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsHotspot + "/v1_ofast.txt", results);
-end
-
-aspectdef HotspotV2Ofast
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v2. Measuring: Hotspot. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v2_ofast.txt", results);
-end
-
-aspectdef HotspotV3Ofast
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v3.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v3.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift_v3.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v3. Measuring: Hotspot. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v3_ofast.txt", results);
-end
-
-aspectdef HotspotV4Ofast
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v4.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v4.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift_v4.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-	
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v4. Measuring: Hotspot. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v4_ofast.txt", results);
-end
-
-aspectdef HotspotV5O2
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: Hotspot. Flag: -O2");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_o2.txt", results);
-end
-
-aspectdef HotspotV5O3
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
-	
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: Hotspot. Flag: -O3");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_O3.txt", results);
-end
-
-aspectdef HotspotV5Ofast
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_hotspot.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-	
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: Hotspot. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_ofast.txt", results);
+	Io.writeFile(speedupsGlobal+ "/baseline_o0.txt", results);
 end
 
 aspectdef GlobalBaselineO2
@@ -305,15 +110,17 @@ aspectdef GlobalBaselineO2
 	Io.writeFile(script_sift, scriptSiftContent);
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Global. Flag: -O2");
+			
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O2";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/baseline_o2.txt", results);
+	Io.writeFile(speedupsGlobal+ "/baseline_o2.txt", results);
 end
 
 aspectdef GlobalBaselineO3
@@ -323,30 +130,6 @@ aspectdef GlobalBaselineO3
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
-			
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Global. Flag: -O3");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/baseline_o3.txt", results);
-end
-
-aspectdef GlobalBaselineOfast
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
@@ -354,20 +137,50 @@ aspectdef GlobalBaselineOfast
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global. Flag: -Ofast");
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O3";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/baseline_ofast.txt", results);
+	Io.writeFile(speedupsGlobal+ "/baseline_o3.txt", results);
+end
+
+
+
+aspectdef GlobalV5O0
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5_noprints.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O0";
+	results += measuring
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal+ "/v5_o0.txt", results);
 end
 
 aspectdef GlobalV5O2
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5_noprints.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
@@ -378,20 +191,22 @@ aspectdef GlobalV5O2
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -O2");
+	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O2";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_o2.txt", results);
+	Io.writeFile(speedupsGlobal+ "/v5_o2.txt", results);
 end
 
 aspectdef GlobalV5O3
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5_noprints.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
@@ -402,24 +217,30 @@ aspectdef GlobalV5O3
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-
-	println("Executing: v5. Measuring: Global. Flag: -O3");
+	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O3";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/v5_o3.txt", results);
+	Io.writeFile(speedupsGlobal+ "/v5_o3.txt", results);
 end
 
-aspectdef GlobalV5Ofast
+
+
+
+
+
+aspectdef GlobalBaselineO3_VECTORIZATION
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3_Vect.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
@@ -427,45 +248,17 @@ aspectdef GlobalV5Ofast
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	var measuring = "Executing: Baseline. Measuring: Vectorization. Flag: -O3";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/v5_ofast.txt", results);
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(vectorization + "/baseline_o3.txt", results);
 end
 
-aspectdef GlobalBaselineOfast_SplitWs
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_Ws.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Global Cache. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
-end
-
-
-
-
-
-aspectdef GlobalV5Ofast_VECTORIZATION
+aspectdef GlobalV5O3_VECTORIZATION
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
@@ -479,28 +272,27 @@ aspectdef GlobalV5Ofast_VECTORIZATION
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global. Flag: -Ofast");
+	var measuring = "Executing: SIFTv5. Measuring: Vectorization. Flag: -O3";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(vectorization + "/v5_ofast.txt", results);
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(vectorization + "/v5_o3.txt", results);
 end
 
 
 
 
 
-
-aspectdef GlobalBaselineOfast_Cache
+aspectdef GlobalBaselineO3_CACHE
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	headerContent = Io.readFile(headerVersions + "/sift_base.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
@@ -508,24 +300,24 @@ aspectdef GlobalBaselineOfast_Cache
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global Cache. Flag: -Ofast");
+	var measuring = "Executing: Baseline. Measuring: Cache. Flag: -O3";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/baseline_o3.txt", results);
 end
 
-
-aspectdef GlobalBaselineOfast_Cache_SplitWs
+aspectdef GlobalBaselineSplitWsO3_CACHE
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_Ws.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
@@ -533,25 +325,26 @@ aspectdef GlobalBaselineOfast_Cache_SplitWs
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global Cache. Flag: -Ofast");
+	var measuring = "Executing: Baseline Split Ws. Measuring: Cache. Flag: -O3";
+	results += measuring
+	println(measuring);
 	
 	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/base_cache.txt", results);
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/baselineSplitWs_o3.txt", results);
 end
 //valgrind --tool=callgrind --simulate-cache=yes 
 
 
-aspectdef GlobalV5Ofast_Cache
+aspectdef GlobalV5O3_CACHE
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
@@ -559,158 +352,12 @@ aspectdef GlobalV5Ofast_Cache
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Global Cache. Flag: -Ofast");
+	println("Executing: v5. Measuring: Cache. Flag: -O3");
 	
 	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/v5_cache.txt", results);
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/v5_o3.txt", results);
 end
 
-
-
-aspectdef HotspotBaselineOfast_Cache
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-	
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: Baseline. Measuring: Hotspot Cache. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/base_cache.txt", results);
-end
-
-aspectdef HotspotV5Ofast_CacheW5
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: W5 Cache. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth5W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_cacheW5.txt", results);
-end
-
-aspectdef HotspotV5Ofast_CacheW7
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: W7 Cache. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth7W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_cacheW7.txt", results);
-end
-
-aspectdef HotspotV5Ofast_CacheW8
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: W8 Cache. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth8W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_cacheW8.txt", results);
-end
-
-aspectdef HotspotV5Ofast_CacheW10
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: W10 Cache. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth10W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_cacheW10.txt", results);
-end
-
-aspectdef HotspotV5Ofast_CacheW13
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	println("Executing: v5. Measuring: W13 Cache. Flag: -Ofast");
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("valgrind --tool=callgrind --simulate-cache=yes --toggle-collect=imsmooth13W ./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsHotspot + "/v5_cacheW13.txt", results);
-end

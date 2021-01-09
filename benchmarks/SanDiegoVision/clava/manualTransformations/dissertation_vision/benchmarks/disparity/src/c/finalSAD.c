@@ -9,7 +9,7 @@ Author: Sravanthi Kota Venkata
 void finalSAD(F2D *__restrict__ integralImg, int win_sz, F2D *__restrict__ retSAD)
 {
     int endR, endC;
-    int i, j, i0;
+    int i, j, k;
     
     endR = 1920;
     endC = 1080;
@@ -20,12 +20,12 @@ void finalSAD(F2D *__restrict__ integralImg, int win_sz, F2D *__restrict__ retSA
     float tr0, tr1, tr2, tr3, tr4, tr5, tr6, tr7;
     float bl0, bl1, bl2, bl3, bl4, bl5, bl6, bl7;
     float br0, br1, br2, br3, br4, br5, br6, br7;
-    int count = 0, total = 0, diff = 0;
+    int count = 0, total = 0;
     
     for(j=0; j<endC; j++)
     {
     	br0 = subsref(integralImg, 8, j+8);
-    	bl0 = subsref(integralImg, 8, j+1);	
+    	bl0 = subsref(integralImg, 8, j+1);    	
     	
     	br1 = subsref(integralImg, 9, j+8);
     	bl1 = subsref(integralImg, 9, j+1);
@@ -56,65 +56,47 @@ void finalSAD(F2D *__restrict__ integralImg, int win_sz, F2D *__restrict__ retSA
             
         for(i=7; i<endR; i++)
         {
-        	//*
-            if(bl0 == subsref(integralImg, i+1, j+1))
-            {
-           	tl7 = bl0; //subsref(integralImg, i+1, j+1); 
-            	count++;
-        	total++;
-            }
-            else
-            {
-            	//printf("bl0 = %f, integralImg = %f\n", bl0, subsref(integralImg, i+1, j+1));
-            	tl7 = subsref(integralImg, i+1, j+1);
-            	diff++;
-        	total++;
-            }
-            if(br0 == subsref(integralImg, i+1, j+8))
-            {
-            	tr7 = br0; //subsref(integralImg, i+1, j+8);
-            	count++;
-        	total++;
-            }
-            else
-            {
-            	//printf("Batatas");
-            	//printf("i = %d, j = %d\n", i, j);
-            	tr7 = subsref(integralImg, i+1, j+8);
-            	diff++;
-        	total++;
-            }
-            //*/
+            tl7 = bl0; //subsref(integralImg, i+1, j+1);
+            tr7 = br0; //subsref(integralImg, i+1, j+8);
             
-            //tl7 = subsref(integralImg, i+1, j+1);
-            //tr7 = subsref(integralImg, i+1, j+8);
+            //printf("%d-%d\n", bl0, br0);
+            //printf("%d-%d\n", tl7, tr7);
+            /*
+    	    if(tl7 != bl0) {
+		printf("right: %f / %f\n", tr7, br0);
+		//printf("left: %f / %f\n", tl7, bl0);
+    		count++;
+    	    }
+    	    if(tr7 != br0) {
+		//printf("right: %f / %f\n", tr7, br0);
+		printf("left: %f / %f\n", tl7, bl0);
+    		count++;
+    	    }
+            //*/
             subsref(retSAD,i,j) = subsref(integralImg, i+8, j+8) + tl7 - tr7 - subsref(integralImg, i+8, j+1);
             
             br0 = br1;
-            i0++;
             bl0 = bl1;
-            
+
             br1 = br2;
             bl1 = bl2;
-            
+
             br2 = br3;
             bl2 = bl3;
-            
+
             br3 = br4;
             bl3 = bl4;
-            
+
             br4 = br5;
             bl4 = bl5;
-            
+
             br5 = br6;
             bl5 = bl6;
-            
+
             br6 = subsref(integralImg, i+8, j+8);
             bl6 = subsref(integralImg, i+8, j+1);
         }
     }
-    
-    //printf("certos: %d, errados: %d, total: %d\n", count, diff, total);
     return;
 }
 
