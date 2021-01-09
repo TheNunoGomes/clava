@@ -44,7 +44,6 @@ F2D* imageBlur(I2D* imageIn)
 
     endCol = cols - 2;
     endRow = rows - 2;  
-<<<<<<< HEAD
     
     float b0, b1, b2, b3, b4;
     for(i=2; i<endRow; i++)
@@ -151,26 +150,11 @@ F2D* imageBlur_1080x1920(I2D* imageIn)
             b3 = b4;
             
             subsref(tempOut,i,j) = temp*0.0625f;
-=======
-    // OPTIMIZED BASIC BLOCK VECTORIZED
-    for(i=startRow; i<endRow; i++) {
-	// VECTORIZED and UNROLLED
-        for(j=startCol; j<endCol; j++)
-        {
-            temp = 0;
-            // UNROLLED
-            for(k=-halfKernel; k<=halfKernel; k++)
-            {
-                temp += subsref(imageIn,i,j+k) * asubsref(kernel,k+halfKernel);
-            }
-            subsref(tempOut,i,j) = temp/kernelSum;
->>>>>>> master
         }
     }
     
     for(i=2; i<endRow; i++)
     {
-<<<<<<< HEAD
     	// VECTORIZADO
         for(j=2; j<endCol; j++)
         {
@@ -181,18 +165,6 @@ F2D* imageBlur_1080x1920(I2D* imageIn)
             temp += subsref(tempOut,(i+2),j);
 
             subsref(imageOut,i,j) = temp*0.0625f;
-=======
-	// VECTORIZED and UNROLLED
-        for(j=startCol; j<endCol; j++)
-        {
-            temp = 0;
-            // UNROLLED
-            for(k=-halfKernel; k<=halfKernel; k++)
-            {
-                temp += subsref(tempOut,(i+k),j) * asubsref(kernel,k+halfKernel);
-            }
-            subsref(imageOut,i,j) = temp/kernelSum;
->>>>>>> master
         }
     }
 
