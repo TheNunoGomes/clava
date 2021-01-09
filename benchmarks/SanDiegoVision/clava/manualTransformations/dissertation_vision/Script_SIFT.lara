@@ -60,7 +60,7 @@ aspectdef GlobalBaselineSplitWsO3
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: Baseline Split Ws. Measuring: Global. Flag: -O3";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -86,7 +86,7 @@ aspectdef GlobalBaselineO0
 	Io.writeFile(makefile, makefileContent);
 		
 	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O0";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -112,7 +112,7 @@ aspectdef GlobalBaselineO2
 	Io.writeFile(makefile, makefileContent);
 			
 	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O2";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -138,7 +138,7 @@ aspectdef GlobalBaselineO3
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O3";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -166,7 +166,7 @@ aspectdef GlobalV5O0
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O0";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -192,7 +192,7 @@ aspectdef GlobalV5O2
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O2";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -218,7 +218,7 @@ aspectdef GlobalV5O3
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O3";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -249,7 +249,7 @@ aspectdef GlobalBaselineO3_VECTORIZATION
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: Baseline. Measuring: Vectorization. Flag: -O3";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -273,7 +273,7 @@ aspectdef GlobalV5O3_VECTORIZATION
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: SIFTv5. Measuring: Vectorization. Flag: -O3";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -301,7 +301,7 @@ aspectdef GlobalBaselineO3_CACHE
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: Baseline. Measuring: Cache. Flag: -O3";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
@@ -326,7 +326,7 @@ aspectdef GlobalBaselineSplitWsO3_CACHE
 	Io.writeFile(makefile, makefileContent);
 	
 	var measuring = "Executing: Baseline Split Ws. Measuring: Cache. Flag: -O3";
-	results += measuring
+	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
