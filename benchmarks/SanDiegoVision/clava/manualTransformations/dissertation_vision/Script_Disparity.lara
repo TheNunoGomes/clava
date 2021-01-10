@@ -21,7 +21,11 @@ aspectdef Script_Disparity
 //	call GlobalBaselineO2;
 //
 //	call GlobalBaselineO3;
-	
+
+	call GlobalBaselineO0;
+	call GlobalBaselineO2;
+	call GlobalBaselineO3;
+
 	call GlobalV1O0;
 	call GlobalV1O2;
 	call GlobalV1O3;
