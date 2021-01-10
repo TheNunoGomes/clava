@@ -1,61 +1,61 @@
 Executing: Baseline. Measuring: Global. Flag: -O0
-5904.930609ms
+5897.889199ms
 Verification		- Successful
-5895.174812ms
+5898.819991ms
 Verification		- Successful
-5907.772995ms
+5894.413198ms
 Verification		- Successful
-5902.413210ms
+5894.587164ms
 Verification		- Successful
-6041.653244ms
+5895.127423ms
 Verification		- Successful
-5892.291942ms
+5901.258984ms
 Verification		- Successful
-6012.806430ms
+5891.430442ms
 Verification		- Successful
-5907.500039ms
+5907.298585ms
 Verification		- Successful
-5901.652809ms
+5904.067843ms
 Verification		- Successful
-5895.436953ms
+5905.371882ms
 Verification		- Successful
-5899.705685ms
+5895.549203ms
 Verification		- Successful
-5894.863721ms
+5903.822863ms
 Verification		- Successful
-5904.883208ms
+5898.958519ms
 Verification		- Successful
-5892.947218ms
+6096.385145ms
 Verification		- Successful
-5893.697616ms
+5896.094896ms
 Verification		- Successful
-5897.125356ms
+5903.249953ms
 Verification		- Successful
-5899.466452ms
+5894.863736ms
 Verification		- Successful
-5892.555045ms
+5916.370305ms
 Verification		- Successful
-5901.403732ms
+5908.662798ms
 Verification		- Successful
-5901.637380ms
+5911.585643ms
 Verification		- Successful
-5907.715202ms
+5901.611296ms
 Verification		- Successful
-5902.971581ms
+5899.835606ms
 Verification		- Successful
-5905.845314ms
+5908.247081ms
 Verification		- Successful
-5909.291940ms
+5909.488565ms
 Verification		- Successful
-5896.936676ms
+5905.290227ms
 Verification		- Successful
-5900.604965ms
+5905.931123ms
 Verification		- Successful
-6018.616112ms
+5899.411293ms
 Verification		- Successful
-5905.488951ms
+5907.063083ms
 Verification		- Successful
-6191.654282ms
+5907.392583ms
 Verification		- Successful
-5903.643894ms
+5895.486472ms
 Verification		- Successful
