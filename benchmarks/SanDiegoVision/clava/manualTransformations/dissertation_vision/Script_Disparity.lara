@@ -111,7 +111,7 @@ aspectdef GlobalV1O0
 		executor.execute("./disparity ./ ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/baseline_o0.txt", results);
+	Io.writeFile(speedupsGlobal + "/v1_o0.txt", results);
 end
 
 aspectdef GlobalV1O2
@@ -131,7 +131,7 @@ aspectdef GlobalV1O2
 		executor.execute("./disparity ./ ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/baseline_o2.txt", results);
+	Io.writeFile(speedupsGlobal + "/v1_o2.txt", results);
 end
 
 aspectdef GlobalV1O3
@@ -151,5 +151,5 @@ aspectdef GlobalV1O3
 		executor.execute("./disparity ./ ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal + "/baseline_o3.txt", results);
+	Io.writeFile(speedupsGlobal + "/v1_o3.txt", results);
 end
