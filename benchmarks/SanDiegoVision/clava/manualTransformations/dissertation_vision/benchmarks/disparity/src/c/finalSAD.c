@@ -6,7 +6,7 @@ Author: Sravanthi Kota Venkata
 #include <stdlib.h>
 #include "disparity.h"
 
-void finalSAD(F2D *__restrict__ integralImg, int win_sz, F2D *__restrict__ retSAD)
+void finalSAD(F2D* integralImg, int win_sz, F2D* retSAD)
 {
     int endR, endC;
     int i, j, k;
