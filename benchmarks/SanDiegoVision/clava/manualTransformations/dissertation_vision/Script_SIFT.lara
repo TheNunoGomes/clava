@@ -154,7 +154,7 @@ end
 aspectdef GlobalV5O0
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
@@ -180,7 +180,7 @@ end
 aspectdef GlobalV5O2
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
@@ -206,7 +206,7 @@ end
 aspectdef GlobalV5O3
 	var results = "";
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
