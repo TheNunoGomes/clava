@@ -85,7 +85,7 @@ aspectdef GlobalBaselineO0
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 		
-	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O0";
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O0\n";
 	results += measuring;
 	println(measuring);
 	
@@ -111,7 +111,7 @@ aspectdef GlobalBaselineO2
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 			
-	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O2";
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O2\n";
 	results += measuring;
 	println(measuring);
 	

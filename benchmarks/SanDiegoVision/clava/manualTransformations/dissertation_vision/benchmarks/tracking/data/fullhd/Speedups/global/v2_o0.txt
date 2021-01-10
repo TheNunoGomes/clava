@@ -1,0 +1,4 @@
+Executing: v2. Measuring: Global. Flag: -O0
+Input size		- (1080x1920)
+Verification		- Successful
+2363.775952ms
