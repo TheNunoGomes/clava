@@ -1,5 +1,6 @@
 Input size		- (1080x1920)
 Verification		- Successful
+<<<<<<< HEAD
 563.493677ms
 Input size		- (1080x1920)
 Verification		- Successful
@@ -28,3 +29,6 @@ Verification		- Successful
 Input size		- (1080x1920)
 Verification		- Successful
 549.075945ms
+=======
+1714.112866ms
+>>>>>>> master
