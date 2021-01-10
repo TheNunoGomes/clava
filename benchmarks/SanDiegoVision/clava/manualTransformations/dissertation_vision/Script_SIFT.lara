@@ -59,7 +59,7 @@ aspectdef GlobalBaselineSplitWsO3
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: Baseline Split Ws. Measuring: Global. Flag: -O3";
+	var measuring = "Executing: Baseline Split Ws. Measuring: Global. Flag: -O3\n";
 	results += measuring;
 	println(measuring);
 	
