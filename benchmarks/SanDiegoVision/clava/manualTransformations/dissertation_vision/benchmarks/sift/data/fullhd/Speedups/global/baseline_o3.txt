@@ -1,0 +1,3 @@
+Executing: Baseline. Measuring: Global. Flag: -O3
+1897.273305ms
+Verification		- Successful
