@@ -1,0 +1,91 @@
+Executing: TRACKv1. Measuring: Global. Flag: -O3
+Input size		- (1080x1920)
+Verification		- Successful
+587.093954ms
+Input size		- (1080x1920)
+Verification		- Successful
+580.843314ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.875351ms
+Input size		- (1080x1920)
+Verification		- Successful
+576.211404ms
+Input size		- (1080x1920)
+Verification		- Successful
+567.558924ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.641404ms
+Input size		- (1080x1920)
+Verification		- Successful
+578.334745ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.493231ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.404896ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.331563ms
+Input size		- (1080x1920)
+Verification		- Successful
+564.995985ms
+Input size		- (1080x1920)
+Verification		- Successful
+578.140385ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.153721ms
+Input size		- (1080x1920)
+Verification		- Successful
+587.837462ms
+Input size		- (1080x1920)
+Verification		- Successful
+568.316243ms
+Input size		- (1080x1920)
+Verification		- Successful
+568.895619ms
+Input size		- (1080x1920)
+Verification		- Successful
+568.674022ms
+Input size		- (1080x1920)
+Verification		- Successful
+562.306287ms
+Input size		- (1080x1920)
+Verification		- Successful
+576.378298ms
+Input size		- (1080x1920)
+Verification		- Successful
+586.150362ms
+Input size		- (1080x1920)
+Verification		- Successful
+576.466821ms
+Input size		- (1080x1920)
+Verification		- Successful
+587.818242ms
+Input size		- (1080x1920)
+Verification		- Successful
+587.098195ms
+Input size		- (1080x1920)
+Verification		- Successful
+577.313832ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.817886ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.986262ms
+Input size		- (1080x1920)
+Verification		- Successful
+576.001695ms
+Input size		- (1080x1920)
+Verification		- Successful
+562.769988ms
+Input size		- (1080x1920)
+Verification		- Successful
+560.482100ms
+Input size		- (1080x1920)
+Verification		- Successful
+576.101885ms
