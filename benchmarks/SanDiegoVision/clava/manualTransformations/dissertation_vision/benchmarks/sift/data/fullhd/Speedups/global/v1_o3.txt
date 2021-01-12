@@ -1,3 +1,0 @@
-Executing: SIFTv1. Measuring: Global. Flag: -O3
-2063.442173ms
-Verification		- Successful
