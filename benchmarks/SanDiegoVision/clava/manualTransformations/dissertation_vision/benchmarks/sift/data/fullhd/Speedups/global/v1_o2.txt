@@ -1,0 +1,61 @@
+Executing: SIFTv1. Measuring: Global. Flag: -O2
+7074.016347ms
+Verification		- Successful
+7078.258543ms
+Verification		- Successful
+7086.198358ms
+Verification		- Successful
+7062.954775ms
+Verification		- Successful
+7065.820654ms
+Verification		- Successful
+7072.522694ms
+Verification		- Successful
+7072.651482ms
+Verification		- Successful
+7072.910936ms
+Verification		- Successful
+7071.891864ms
+Verification		- Successful
+7072.653436ms
+Verification		- Successful
+7056.034395ms
+Verification		- Successful
+7077.821368ms
+Verification		- Successful
+7066.493302ms
+Verification		- Successful
+7066.793463ms
+Verification		- Successful
+7072.060187ms
+Verification		- Successful
+7072.556055ms
+Verification		- Successful
+7062.515597ms
+Verification		- Successful
+7085.340350ms
+Verification		- Successful
+7085.534472ms
+Verification		- Successful
+7081.519103ms
+Verification		- Successful
+7065.168516ms
+Verification		- Successful
+7063.623783ms
+Verification		- Successful
+7071.393436ms
+Verification		- Successful
+7064.684685ms
+Verification		- Successful
+7068.176183ms
+Verification		- Successful
+7065.644712ms
+Verification		- Successful
+7065.793501ms
+Verification		- Successful
+7063.952813ms
+Verification		- Successful
+7068.662711ms
+Verification		- Successful
+7080.330690ms
+Verification		- Successful
