@@ -2,7 +2,6 @@
 Author: Sravanthi Kota Venkata
 ********************************/
 
-#define _POSIX_C_SOURCE 199309L
 #include "sift.h"
 #include <math.h>
 #include <assert.h>
@@ -10,7 +9,13 @@ Author: Sravanthi Kota Venkata
 #include <string.h>
 
 #include <time.h>
-#include <sys/resource.h>
+//#include <sys/resource.h>
+
+//struct rusage ruse;
+
+//#define CPU_TIME (getrusage(RUSAGE_SELF,&ruse), ruse.ru_utime.tv_sec + \
+    ruse.ru_stime.tv_sec + 1e-6 * \
+    (ruse.ru_utime.tv_usec + ruse.ru_stime.tv_usec))
 
 //#define test
 /**
@@ -29,10 +34,9 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
-    printf("W = %d\t\t\t ", (int) ceil(4*dsigma) );
-    printf("MxN = %d\t\t\t ", array->height);
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+    //double first, second;
+    // Save user and CPU start time
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -145,9 +149,9 @@ Author: Sravanthi Kota Venkata
             asubsref(out, i) = asubsref(array, i);
     }
 
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-  printf("%f\n", clava_timing_duration_0);
+    // Save end time
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   void imsmooth5W(F2D* array, float dsigma, F2D* out, int size)
@@ -156,8 +160,9 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+    //double first, second;
+    // Save user and CPU start time
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -373,9 +378,9 @@ Author: Sravanthi Kota Venkata
       fFreeHandle(buffer);
 
 
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-   	printf("W = 5\t\t\t M/N = %d\t\t\t %f\n", size, clava_timing_duration_0);
+    // Save end time
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -385,8 +390,9 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+    //double first, second;
+    // Save user and CPU start time
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -619,9 +625,9 @@ Author: Sravanthi Kota Venkata
       fFreeHandle(buffer);
 
 
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-   	printf("W = 7\t\t\t M/N = %d\t\t\t %f\n", size, clava_timing_duration_0);
+    // Save end time
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -631,8 +637,9 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+    //double first, second;
+    // Save user and CPU start time
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -880,9 +887,9 @@ Author: Sravanthi Kota Venkata
       fFreeHandle(buffer);
 
 
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-   	printf("W = 8\t\t\t M/N = %d\t\t\t %f\n", size, clava_timing_duration_0);
+    // Save end time
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -892,8 +899,9 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+    //double first, second;
+    // Save user and CPU start time
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -1170,9 +1178,9 @@ Author: Sravanthi Kota Venkata
       fFreeHandle(buffer);
 
 
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-   	printf("W = 10\t\t\t M/N = %d\t\t\t %f\n", size, clava_timing_duration_0);
+    // Save end time
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
@@ -1182,8 +1190,9 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+    //double first, second;
+    // Save user and CPU start time
+    //first = CPU_TIME;
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -1497,9 +1506,9 @@ Author: Sravanthi Kota Venkata
       fFreeHandle(buffer);
 
 
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-   	printf("W = 13\t\t\t M/N = %d\t\t\t %f\n", size, clava_timing_duration_0);
+    // Save end time
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
     return;
   }
   
