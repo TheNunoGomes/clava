@@ -1,0 +1,56 @@
+Executing: Baseline. Measuring: Cache. Flag: -O3
+150850.540148ms
+Verification		- Successful
+==13833== Callgrind, a call-graph generating cache profiler
+==13833== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==13833== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==13833== Command: ./sift ./
+==13833== 
+--13833-- warning: L3 cache found, using its data for the LL simulation.
+==13833== For interactive control, run 'callgrind_control -h'.
+==13833== brk segment overflow in thread #1: can't grow to 0x5415000
+==13833== brk segment overflow in thread #1: can't grow to 0x5436000
+==13833== brk segment overflow in thread #1: can't grow to 0x5436000
+==13833== brk segment overflow in thread #1: can't grow to 0x5436000
+==13833== brk segment overflow in thread #1: can't grow to 0x5436000
+==13833== brk segment overflow in thread #1: can't grow to 0x5436000
+==13833== brk segment overflow in thread #1: can't grow to 0x4b71000
+==13833== brk segment overflow in thread #1: can't grow to 0x4b71000
+==13833== brk segment overflow in thread #1: can't grow to 0x4a94000
+==13833== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==13833== brk segment overflow in thread #1: can't grow to 0x5c14000
+==13833== brk segment overflow in thread #1: can't grow to 0x5c14000
+==13833== brk segment overflow in thread #1: can't grow to 0x5c14000
+==13833== brk segment overflow in thread #1: can't grow to 0x5c14000
+==13833== brk segment overflow in thread #1: can't grow to 0x5c14000
+==13833== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==13833== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==13833== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==13833== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==13833== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==13833== brk segment overflow in thread #1: can't grow to 0x4b64000
+==13833== brk segment overflow in thread #1: can't grow to 0x4b64000
+==13833== brk segment overflow in thread #1: can't grow to 0x4b64000
+==13833== brk segment overflow in thread #1: can't grow to 0x4b64000
+==13833== brk segment overflow in thread #1: can't grow to 0x4b64000
+==13833== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==13833== brk segment overflow in thread #1: can't grow to 0x5c14000
+==13833== 
+==13833== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==13833== Collected : 12218768613 2946351960 1398544163 2076 82131600 11716737 2043 14629245 10342658
+==13833== 
+==13833== I   refs:      12,218,768,613
+==13833== I1  misses:             2,076
+==13833== LLi misses:             2,043
+==13833== I1  miss rate:           0.00%
+==13833== LLi miss rate:           0.00%
+==13833== 
+==13833== D   refs:       4,344,896,123  (2,946,351,960 rd + 1,398,544,163 wr)
+==13833== D1  misses:        93,848,337  (   82,131,600 rd +    11,716,737 wr)
+==13833== LLd misses:        24,971,903  (   14,629,245 rd +    10,342,658 wr)
+==13833== D1  miss rate:            2.2% (          2.8%   +           0.8%  )
+==13833== LLd miss rate:            0.6% (          0.5%   +           0.7%  )
+==13833== 
+==13833== LL refs:           93,850,413  (   82,133,676 rd +    11,716,737 wr)
+==13833== LL misses:         24,973,946  (   14,631,288 rd +    10,342,658 wr)
+==13833== LL miss rate:             0.2% (          0.1%   +           0.7%  )
