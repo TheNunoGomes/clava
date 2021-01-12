@@ -1,6 +1,6 @@
 /********************************
 Author: Sravanthi Kota Venkata
-v2: Data Reuse
+v1: Loop Unrolling
 ********************************/
 
 #include <stdio.h>
@@ -10,6 +10,7 @@ v2: Data Reuse
 F2D* calcSobel_dX(F2D* imageIn)
 {
     int rows, cols;
+    int kernel_1[3] = { 1, 2, 1 }, kernel_2[3] = { 1, 0, -1 };
     float temp;
     int endCol, endRow, i, j;
     int k;
@@ -25,22 +26,13 @@ F2D* calcSobel_dX(F2D* imageIn)
 
     endRow = rows - 1;
 
-    float b0, b1, b2;
-    
     for(i=1; i<endRow; i++)
     {
-    	b0 = subsref(imageIn,(i),0);
-    	b1 = subsref(imageIn,(i),1);
         for(j=1; j<endCol; j++)
         {
-            b2 = subsref(imageIn,(i),j+1);
-            
-            temp = b0;
-            temp -= b2;
-            
-            b0 = b1;
-            b1 = b2;
-            
+            temp = subsref(imageIn,i,j-1) * kernel_2[0];
+            temp += subsref(imageIn,i,j) * kernel_2[1];
+            temp += subsref(imageIn,i,j+1) * kernel_2[2];
             subsref(tempOut,i,j) = temp*0.5f;
         }
     }
@@ -49,9 +41,9 @@ F2D* calcSobel_dX(F2D* imageIn)
     {
         for(j=1; j<endCol; j++)
         {
-            temp = subsref(tempOut,(i-1),j);
-            temp += subsref(tempOut,(i),j) * 2;
-            temp += subsref(tempOut,(i+1),j);
+            temp = subsref(tempOut,(i-1),j) * kernel_1[0];
+            temp += subsref(tempOut,(i),j) * kernel_1[1];
+            temp += subsref(tempOut,(i+1),j) * kernel_1[2];
             subsref(imageOut,i,j) = temp*0.25f;
         }
     }

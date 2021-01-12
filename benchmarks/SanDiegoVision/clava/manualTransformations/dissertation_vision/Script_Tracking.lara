@@ -28,24 +28,26 @@ aspectdef Script_Tracking
 	call GlobalBaselineO0;
 	call GlobalBaselineO2;
 	call GlobalBaselineO3;
-//	call GlobalBaselineOfast;
-//	call GlobalBaselineOfast_Cache;
+	call GlobalBaselineOfast;
 
-	call Global_v1_O0;
-	call Global_v1_O2;
-	call Global_v1_O3;
-//	call Global_v1_Ofast;
+	call GlobalV1O0;
+	call GlobalV1O2;
+	call GlobalV1O3;
+	call GlobalV1Ofast;
 
-	call Global_v2_O0;
-	call Global_v2_O2;
-	call Global_v2_O3;
-//	call Global_v2_Ofast;
-//	call Global_v2_Ofast_Cache;
+	call GlobalV2O0;
+	call GlobalV2O2;
+	call GlobalV2O3;
+	call GlobalV2Ofast;
 
 	
-//	call GlobalBaselineOfast_Vect;
+//	call GlobalBaselineOfast_VECTORIZATION;
 //	call Global_v1_Ofast_Vect;
 	
+//	call GlobalBaselineOfast_Cache;
+//	call Global_v1_Ofast_Cache;
+//	call Global_v2_Ofast_Cache;
+
 end
 
 aspectdef GlobalBaselineO0
@@ -143,7 +145,9 @@ aspectdef GlobalBaselineOfast
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: Baseline. Measuring: Global. Flag: -Ofast");
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -154,11 +158,11 @@ aspectdef GlobalBaselineOfast
 end
 
 
-aspectdef Global_v1_O0
+aspectdef GlobalV1O0
 	var results = "";
-	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
-	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
-	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v1.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v1.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v1.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
 		
@@ -168,7 +172,7 @@ aspectdef Global_v1_O0
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: v1. Measuring: Global. Flag: -O0\n";
+	var measuring = "Executing: TRACKv1. Measuring: Global. Flag: -O0\n";
 	results += measuring;
 	println(measuring);
 	
@@ -180,11 +184,11 @@ aspectdef Global_v1_O0
 	Io.writeFile(speedupsGlobal + "/v1_o0.txt", results);
 end
 
-aspectdef Global_v1_O2
+aspectdef GlobalV1O2
 	var results = "";
-	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
-	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
-	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v1.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v1.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v1.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
 		
@@ -194,7 +198,7 @@ aspectdef Global_v1_O2
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: v1. Measuring: Global. Flag: -O2\n";
+	var measuring = "Executing: TRACKv1. Measuring: Global. Flag: -O2\n";
 	results += measuring;
 	println(measuring);
 	
@@ -206,11 +210,11 @@ aspectdef Global_v1_O2
 	Io.writeFile(speedupsGlobal + "/v1_o2.txt", results);
 end
 
-aspectdef Global_v1_O3
+aspectdef GlobalV1O3
 	var results = "";
-	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
-	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
-	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v1.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v1.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v1.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
@@ -220,7 +224,7 @@ aspectdef Global_v1_O3
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: v1. Measuring: Global. Flag: -O3\n";
+	var measuring = "Executing: TRACKv1. Measuring: Global. Flag: -O3\n";
 	results += measuring;
 	println(measuring);
 	
@@ -232,11 +236,11 @@ aspectdef Global_v1_O3
 	Io.writeFile(speedupsGlobal + "/v1_o3.txt", results);
 end
 
-aspectdef Global_v1_Ofast
+aspectdef GlobalV1Ofast
 	var results = "";
-	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
-	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
-	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v1.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v1.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v1.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ODROID.common");
 		
@@ -246,7 +250,7 @@ aspectdef Global_v1_Ofast
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v1. Measuring: Global. Flag: -Ofast");
+	println("Executing: TRACKv1. Measuring: Global. Flag: -Ofast");
 	
 	executor.execute("make", "compile");
 	for(var i = 0; i < numberOfExecutions; i++) {
@@ -256,12 +260,12 @@ aspectdef Global_v1_Ofast
 	Io.writeFile(speedupsGlobal + "/v1_ofast.txt", results);
 end
 
-aspectdef Global_v2_O0
+aspectdef GlobalV2O0
 	var results = "";
-	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v3.c");
-	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v3.c");
-	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v3.c");
-	mainContent = Io.readFile(mainVersions + "/script_tracking_v3.c");
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	mainContent = Io.readFile(mainVersions + "/script_tracking_v2.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
 		
 	Io.writeFile(sobelDx, sobelDxContent);
@@ -270,7 +274,7 @@ aspectdef Global_v2_O0
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: v2. Measuring: Global. Flag: -O0\n";
+	var measuring = "Executing: TRACKv2. Measuring: Global. Flag: -O0\n";
 	results += measuring;
 	println(measuring);
 	
@@ -282,12 +286,12 @@ aspectdef Global_v2_O0
 	Io.writeFile(speedupsGlobal + "/v2_o0.txt", results);
 end
 
-aspectdef Global_v2_O2
+aspectdef GlobalV2O2
 	var results = "";
-	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v3.c");
-	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v3.c");
-	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v3.c");
-	mainContent = Io.readFile(mainVersions + "/script_tracking_v3.c");
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	mainContent = Io.readFile(mainVersions + "/script_tracking_v2.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
 		
 	Io.writeFile(sobelDx, sobelDxContent);
@@ -296,7 +300,7 @@ aspectdef Global_v2_O2
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: v2. Measuring: Global. Flag: -O2\n";
+	var measuring = "Executing: TRACKv2. Measuring: Global. Flag: -O2\n";
 	results += measuring;
 	println(measuring);
 	
@@ -308,12 +312,12 @@ aspectdef Global_v2_O2
 	Io.writeFile(speedupsGlobal + "/v2_o2.txt", results);
 end
 
-aspectdef Global_v2_O3
+aspectdef GlobalV2O3
 	var results = "";
-	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v3.c");
-	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v3.c");
-	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v3.c");
-	mainContent = Io.readFile(mainVersions + "/script_tracking_v3.c");
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	mainContent = Io.readFile(mainVersions + "/script_tracking_v2.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
 	Io.writeFile(sobelDx, sobelDxContent);
@@ -322,7 +326,7 @@ aspectdef Global_v2_O3
 	Io.writeFile(script_tracking, mainContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: v2. Measuring: Global. Flag: -O3\n";
+	var measuring = "Executing: TRACKv2. Measuring: Global. Flag: -O3\n";
 	results += measuring;
 	println(measuring);
 	
@@ -334,11 +338,39 @@ aspectdef Global_v2_O3
 	Io.writeFile(speedupsGlobal + "/v2_o3.txt", results);
 end
 
+aspectdef GlobalV2Ofast
+	var results = "";
+	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v2.c");
+	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v2.c");
+	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v2.c");
+	mainContent = Io.readFile(mainVersions + "/script_tracking_v2.c");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(sobelDx, sobelDxContent);
+	Io.writeFile(sobelDy, sobelDyContent);
+	Io.writeFile(imageBlur, imageBlurContent);
+	Io.writeFile(script_tracking, mainContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: TRACKv2. Measuring: Global. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./tracking ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/v2_ofast.txt", results);
+end
 
 
 
+/***************************************** VECTORIZATION *****************************************/
 
-aspectdef GlobalBaselineOfast_Vect
+
+
+aspectdef GlobalBaselineOfast_VECTORIZATION
 	var results = "";
 	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_base.c");
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_base.c");
@@ -359,7 +391,7 @@ aspectdef GlobalBaselineOfast_Vect
 	Io.writeFile(speedupsGlobal + "/base_ofast_vect.txt", results);
 end
 
-aspectdef Global_v2_Ofast_Vect
+aspectdef GlobalV1Ofast_VECTORIZATION
 	var results = "";
 	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v3.c");
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v3.c");
@@ -383,9 +415,11 @@ end
 
 
 
+/***************************************** CACHE *****************************************/
 
 
-aspectdef GlobalBaselineOfast_Cache
+
+aspectdef GlobalBaselineOfast_CACHE
 	var results = "";
 	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_base.c");
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_base.c");
@@ -408,7 +442,7 @@ aspectdef GlobalBaselineOfast_Cache
 	Io.writeFile(speedupsGlobal + "/base_ofast_cache.txt", results);
 end
 
-aspectdef Global_v2_Ofast_Cache
+aspectdef GlobalV1Ofast_CACHE
 	var results = "";
 	sobelDxContent = Io.readFile(sobelDxVersions + "/calcSobel_dX_v3.c");
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v3.c");
