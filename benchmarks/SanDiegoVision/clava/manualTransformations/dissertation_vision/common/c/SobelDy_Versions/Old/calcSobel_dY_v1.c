@@ -26,35 +26,26 @@ F2D* calcSobel_dY(F2D* imageIn)
 
     endCol = cols - 1; 
     endRow = rows - 1; 
-    
+
     for(i=1; i<endRow; i++)
     {
-    
         for(j=1; j<endCol; j++)
         {
             temp = subsref(imageIn,(i-1),j);
+            temp += subsref(imageIn,(i),j) * 0;
             temp -= subsref(imageIn,(i+1),j);
             
             subsref(tempOut,i,j) = temp*0.5f;
         }
     }
 
-    float b0, b1, b2;
-    
     for(i=1; i<endRow; i++)
     {
-    	b0 = subsref(tempOut,i,0);
-    	b1 = subsref(tempOut,i,1);
         for(j=1; j<endCol; j++)
         {
-            b2 = subsref(tempOut,i,j+1);
-            
-            temp = b0;
-            temp += b1 * 2;
-            temp += b2;
-            
-            b0 = b1;
-            b1 = b2;
+            temp = subsref(tempOut,i,j-1);
+            temp += subsref(tempOut,i,j) * 2;
+            temp += subsref(tempOut,i,j+1);
 
             subsref(imageOut,i,j) = temp*0.25f;
         }

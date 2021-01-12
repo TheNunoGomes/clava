@@ -1,6 +1,7 @@
-Executing: v1. Measuring: Global. Flag: -O2
+Executing: TRACKv1. Measuring: Global. Flag: -O2
 Input size		- (1080x1920)
 Verification		- Successful
+<<<<<<< HEAD
 640.064582ms
 Input size		- (1080x1920)
 Verification		- Successful
@@ -89,3 +90,6 @@ Verification		- Successful
 Input size		- (1080x1920)
 Verification		- Successful
 635.135255ms
+=======
+1781.712619ms
+>>>>>>> master
