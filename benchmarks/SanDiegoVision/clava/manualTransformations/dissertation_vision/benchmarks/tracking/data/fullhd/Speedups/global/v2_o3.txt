@@ -1,4 +1,0 @@
-Executing: TRACKv2. Measuring: Global. Flag: -O3
-Input size		- (1080x1920)
-Verification		- Successful
-1492.437633ms

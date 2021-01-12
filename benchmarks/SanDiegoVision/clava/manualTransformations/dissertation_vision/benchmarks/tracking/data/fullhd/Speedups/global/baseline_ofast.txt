@@ -1,4 +1,0 @@
-Executing: Baseline. Measuring: Global. Flag: -Ofast
-Input size		- (1080x1920)
-Verification		- Successful
-1499.521377ms
