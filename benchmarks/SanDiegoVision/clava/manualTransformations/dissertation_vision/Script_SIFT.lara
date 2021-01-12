@@ -35,41 +35,43 @@ aspectdef Script
 	call GlobalBaselineO0;
 	call GlobalBaselineO2;
 	call GlobalBaselineO3;
+	call GlobalBaselineOfast;
+
+	call GlobalV1O0;
+	call GlobalV1O2;
+	call GlobalV1O3;
+	call GlobalV1Ofast;
 	
-	call GlobalV5O0;
-	call GlobalV5O2;
-	call GlobalV5O3;
+	call GlobalV2O0;
+	call GlobalV2O2;
+	call GlobalV2O3;
+	call GlobalV2Ofast;
+
 	
+
+	call GlobalBaselineO3_VECTORIZATION;
+	call GlobalBaselineOfast_VECTORIZATION;
 	
+	call GlobalV1O3_VECTORIZATION;
+	call GlobalV1Ofast_VECTORIZATION;
+	
+	call GlobalV2O3_VECTORIZATION;
+	call GlobalV2Ofast_VECTORIZATION;
+
+
+	
+	call GlobalBaselineO3_CACHE;
+	call GlobalBaselineOfast_CACHE;
+	
+	call GlobalV1O3_CACHE;
+	call GlobalV1Ofast_CACHE;
+	
+	call GlobalV2O3_CACHE;
+	call GlobalV2Ofast_CACHE;
+
+	//*/
 end
 
-
-
-aspectdef GlobalBaselineSplitWsO3
-	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_Ws.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
-	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
-		
-	Io.writeFile(imsmooth, imsmoothContent);
-	Io.writeFile(gaussianss, gaussContent);
-	Io.writeFile(script_sift, scriptSiftContent);
-	Io.writeFile(sift_h, headerContent);
-	Io.writeFile(makefile, makefileContent);
-	
-	var measuring = "Executing: Baseline Split Ws. Measuring: Global. Flag: -O3\n";
-	results += measuring;
-	println(measuring);
-	
-	executor.execute("make", "compile");
-	for(var i = 0; i < numberOfExecutions; i++) {
-		executor.execute("./sift ./");
-		results += executor.getConsoleOutput();
-	}
-	Io.writeFile(speedupsGlobal + "/baseSplitWs_o3.txt", results);
-end
 
 aspectdef GlobalBaselineO0
 	var results = "";
@@ -137,7 +139,7 @@ aspectdef GlobalBaselineO3
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O3";
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -O3\n";
 	results += measuring;
 	println(measuring);
 	
@@ -149,14 +151,40 @@ aspectdef GlobalBaselineO3
 	Io.writeFile(speedupsGlobal+ "/baseline_o3.txt", results);
 end
 
-
-
-aspectdef GlobalV5O0
+aspectdef GlobalBaselineOfast
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: Baseline. Measuring: Global. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal+ "/baseline_ofast.txt", results);
+end
+
+
+
+aspectdef GlobalV1O0
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
@@ -165,7 +193,7 @@ aspectdef GlobalV5O0
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O0";
+	var measuring = "Executing: SIFTv1. Measuring: Global. Flag: -O0\n";
 	results += measuring;
 	println(measuring);
 	
@@ -174,15 +202,15 @@ aspectdef GlobalV5O0
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal+ "/v5_o0.txt", results);
+	Io.writeFile(speedupsGlobal + "/v1_o0.txt", results);
 end
 
-aspectdef GlobalV5O2
+aspectdef GlobalV1O2
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
@@ -191,7 +219,7 @@ aspectdef GlobalV5O2
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O2";
+	var measuring = "Executing: SIFTv1. Measuring: Global. Flag: -O2\n";
 	results += measuring;
 	println(measuring);
 	
@@ -200,15 +228,15 @@ aspectdef GlobalV5O2
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal+ "/v5_o2.txt", results);
+	Io.writeFile(speedupsGlobal + "/v1_o2.txt", results);
 end
 
-aspectdef GlobalV5O3
+aspectdef GlobalV1O3
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
@@ -217,7 +245,7 @@ aspectdef GlobalV5O3
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: SIFTv5. Measuring: Global. Flag: -O3";
+	var measuring = "Executing: SIFTv1. Measuring: Global. Flag: -O3\n";
 	results += measuring;
 	println(measuring);
 	
@@ -226,12 +254,144 @@ aspectdef GlobalV5O3
 		executor.execute("./sift ./");
 		results += executor.getConsoleOutput();
 	}
-	Io.writeFile(speedupsGlobal+ "/v5_o3.txt", results);
+	Io.writeFile(speedupsGlobal + "/v1_o3.txt", results);
+end
+
+aspectdef GlobalV1Ofast
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv1. Measuring: Global. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal + "/v1_ofast.txt", results);
 end
 
 
 
+aspectdef GlobalV2O0
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Global. Flag: -O0\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal+ "/v2_o0.txt", results);
+end
 
+aspectdef GlobalV2O2
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Global. Flag: -O2\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal+ "/v2_o2.txt", results);
+end
+
+aspectdef GlobalV2O3
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Global. Flag: -O3\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal+ "/v2_o3.txt", results);
+end
+
+aspectdef GlobalV2Ofast
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Global. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	for(var i = 0; i < numberOfExecutions; i++) {
+		executor.execute("./sift ./");
+		results += executor.getConsoleOutput();
+	}
+	Io.writeFile(speedupsGlobal+ "/v2_ofast.txt", results);
+end
+
+
+
+/***************************************** VECTORIZATION *****************************************/
 
 
 aspectdef GlobalBaselineO3_VECTORIZATION
@@ -248,7 +408,7 @@ aspectdef GlobalBaselineO3_VECTORIZATION
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: Baseline. Measuring: Vectorization. Flag: -O3";
+	var measuring = "Executing: Baseline. Measuring: Vectorization. Flag: -O3\n";
 	results += measuring;
 	println(measuring);
 	
@@ -258,10 +418,10 @@ aspectdef GlobalBaselineO3_VECTORIZATION
 	Io.writeFile(vectorization + "/baseline_o3.txt", results);
 end
 
-aspectdef GlobalV5O3_VECTORIZATION
+aspectdef GlobalBaselineOfast_VECTORIZATION
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_Vect.common");
@@ -272,18 +432,115 @@ aspectdef GlobalV5O3_VECTORIZATION
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: SIFTv5. Measuring: Vectorization. Flag: -O3";
+	var measuring = "Executing: Baseline. Measuring: Vectorization. Flag: -Ofast\n";
 	results += measuring;
 	println(measuring);
 	
 	executor.execute("make", "compile");
 	results += executor.getConsoleOutput();
 	
-	Io.writeFile(vectorization + "/v5_o3.txt", results);
+	Io.writeFile(vectorization + "/baseline_ofast.txt", results);
+end
+
+aspectdef GlobalV1O3_VECTORIZATION
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3_Vect.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv1. Measuring: Vectorization. Flag: -O3\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(vectorization + "/v1_o3.txt", results);
 end
 
 
+aspectdef GlobalV1Ofast_VECTORIZATION
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_Vect.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv1. Measuring: Vectorization. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(vectorization + "/v1_ofast.txt", results);
+end
 
+aspectdef GlobalV2O3_VECTORIZATION
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3_Vect.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Vectorization. Flag: -O3\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(vectorization + "/v2_o3.txt", results);
+end
+
+aspectdef GlobalV2Ofast_VECTORIZATION
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_Vect.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Vectorization. Flag: -Ofast";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(vectorization + "/v2_ofast.txt", results);
+end
+
+
+/***************************************** CACHE *****************************************/
 
 
 aspectdef GlobalBaselineO3_CACHE
@@ -300,7 +557,7 @@ aspectdef GlobalBaselineO3_CACHE
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: Baseline. Measuring: Cache. Flag: -O3";
+	var measuring = "Executing: Baseline. Measuring: Cache. Flag: -O3\n";
 	results += measuring;
 	println(measuring);
 	
@@ -311,13 +568,13 @@ aspectdef GlobalBaselineO3_CACHE
 	Io.writeFile(cache + "/baseline_o3.txt", results);
 end
 
-aspectdef GlobalBaselineSplitWsO3_CACHE
+aspectdef GlobalBaselineOfast_CACHE
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_Ws.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_baseWs.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift_baseWs.h");
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
+	headerContent = Io.readFile(headerVersions + "/sift_base.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
 	Io.writeFile(gaussianss, gaussContent);
@@ -325,7 +582,7 @@ aspectdef GlobalBaselineSplitWsO3_CACHE
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	var measuring = "Executing: Baseline Split Ws. Measuring: Cache. Flag: -O3";
+	var measuring = "Executing: Baseline. Measuring: Cache. Flag: -Ofast\n";
 	results += measuring;
 	println(measuring);
 	
@@ -333,17 +590,15 @@ aspectdef GlobalBaselineSplitWsO3_CACHE
 	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
 	results += executor.getConsoleOutput();
 	
-	Io.writeFile(cache + "/baselineSplitWs_o3.txt", results);
+	Io.writeFile(cache + "/baseline_ofast.txt", results);
 end
-//valgrind --tool=callgrind --simulate-cache=yes 
 
-
-aspectdef GlobalV5O3_CACHE
+aspectdef GlobalV1O3_CACHE
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v5_noprints.c");
-	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v5.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift.h");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
@@ -352,12 +607,91 @@ aspectdef GlobalV5O3_CACHE
 	Io.writeFile(sift_h, headerContent);
 	Io.writeFile(makefile, makefileContent);
 	
-	println("Executing: v5. Measuring: Cache. Flag: -O3");
+	var measuring = "Executing: SIFTv1. Measuring: Cache. Flag: -O3\n";
+	results += measuring;
+	println(measuring);
 	
 	executor.execute("make", "compile");
 	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
 	results += executor.getConsoleOutput();
 	
-	Io.writeFile(cache + "/v5_o3.txt", results);
+	Io.writeFile(cache + "/v1_o3.txt", results);
+end 
+
+aspectdef GlobalV1Ofast_CACHE
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v1.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v1.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv1. Measuring: Cache. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/v1_ofast.txt", results);
+end 
+
+aspectdef GlobalV2O3_CACHE
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Cache. Flag: -O3\n";
+	results += measuring;
+	println(measuring);
+	
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/v2_o3.txt", results);
+end
+
+aspectdef GlobalV2Ofast_CACHE
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_v2_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v2.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift_v2.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: SIFTv2. Measuring: Cache. Flag: -Ofast\n";
+	results += measuring;
+	println(measuring);
+	
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/v2_ofast.txt", results);
 end
 
