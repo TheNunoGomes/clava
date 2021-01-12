@@ -19,28 +19,16 @@ F2D* imageBlur(I2D* imageIn)
 
     endCol = cols - 2;
     endRow = rows - 2;  
-    
-    float b0, b1, b2, b3, b4;
+
     for(i=2; i<endRow; i++)
     {
-    	b0 = subsref(imageIn,i,0);
-    	b1 = subsref(imageIn,i,1);
-    	b2 = subsref(imageIn,i,2);
-    	b3 = subsref(imageIn,i,3);
         for(j=2; j<endCol; j++)
         {
-            b4 = subsref(imageIn,i,j+2);
-            
-            temp = b0;
-            temp += b1 * 4;
-            temp += b2 * 6;
-            temp += b3 * 4;
-            temp += b4;
-            
-            b0 = b1;
-            b1 = b2;
-            b2 = b3;
-            b3 = b4;
+            temp = subsref(imageIn,i,j-2);
+            temp += subsref(imageIn,i,j-1) * 4;
+            temp += subsref(imageIn,i,j) * 6;
+            temp += subsref(imageIn,i,j+1) * 4;
+            temp += subsref(imageIn,i,j+2);
             
             subsref(tempOut,i,j) = temp*0.0625f;
         }

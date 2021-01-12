@@ -1,3 +1,4 @@
+Executing: Baseline. Measuring: Global. Flag: -O3
 Input size		- (1080x1920)
 Verification		- Successful
-1638.300597ms
+1555.462467ms
