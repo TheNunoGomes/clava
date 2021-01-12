@@ -1,0 +1,91 @@
+Executing: Baseline. Measuring: Global. Flag: -O2
+Input size		- (1080x1920)
+Verification		- Successful
+5311.647329ms
+Input size		- (1080x1920)
+Verification		- Successful
+5303.676055ms
+Input size		- (1080x1920)
+Verification		- Successful
+5316.551267ms
+Input size		- (1080x1920)
+Verification		- Successful
+5401.753584ms
+Input size		- (1080x1920)
+Verification		- Successful
+5353.249519ms
+Input size		- (1080x1920)
+Verification		- Successful
+5317.403462ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.879585ms
+Input size		- (1080x1920)
+Verification		- Successful
+5306.739261ms
+Input size		- (1080x1920)
+Verification		- Successful
+5538.672088ms
+Input size		- (1080x1920)
+Verification		- Successful
+5396.658641ms
+Input size		- (1080x1920)
+Verification		- Successful
+5305.329317ms
+Input size		- (1080x1920)
+Verification		- Successful
+5357.189047ms
+Input size		- (1080x1920)
+Verification		- Successful
+5398.717905ms
+Input size		- (1080x1920)
+Verification		- Successful
+5313.715793ms
+Input size		- (1080x1920)
+Verification		- Successful
+5324.767571ms
+Input size		- (1080x1920)
+Verification		- Successful
+5306.246760ms
+Input size		- (1080x1920)
+Verification		- Successful
+5394.383457ms
+Input size		- (1080x1920)
+Verification		- Successful
+5306.353673ms
+Input size		- (1080x1920)
+Verification		- Successful
+5310.890740ms
+Input size		- (1080x1920)
+Verification		- Successful
+5317.698781ms
+Input size		- (1080x1920)
+Verification		- Successful
+5306.340962ms
+Input size		- (1080x1920)
+Verification		- Successful
+5538.550120ms
+Input size		- (1080x1920)
+Verification		- Successful
+5300.241244ms
+Input size		- (1080x1920)
+Verification		- Successful
+5308.769555ms
+Input size		- (1080x1920)
+Verification		- Successful
+5312.572256ms
+Input size		- (1080x1920)
+Verification		- Successful
+5307.923771ms
+Input size		- (1080x1920)
+Verification		- Successful
+5538.866611ms
+Input size		- (1080x1920)
+Verification		- Successful
+5304.475521ms
+Input size		- (1080x1920)
+Verification		- Successful
+5307.566107ms
+Input size		- (1080x1920)
+Verification		- Successful
+5301.898511ms
