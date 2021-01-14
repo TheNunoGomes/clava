@@ -1,4 +1,5 @@
 Executing: Baseline. Measuring: Cache. Flag: -Ofast
+<<<<<<< HEAD
 149160.139272ms
 Verification		- Successful
 ==14306== Callgrind, a call-graph generating cache profiler
@@ -102,3 +103,36 @@ Verification		- Successful
 ==14306== LL refs:           93,851,196  (   82,134,325 rd +    11,716,871 wr)
 ==14306== LL misses:         24,974,344  (   14,631,644 rd +    10,342,700 wr)
 ==14306== LL miss rate:             0.2% (          0.1%   +           0.7%  )
+=======
+944063.081045ms
+Verification		- Successful
+==5292== Callgrind, a call-graph generating cache profiler
+==5292== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==5292== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==5292== Command: ./sift ./
+==5292== 
+--5292-- warning: L3 cache found, using its data for the LL simulation.
+==5292== For interactive control, run 'callgrind_control -h'.
+==5292== brk segment overflow in thread #1: can't grow to 0x521d000
+==5292== (see section Limitations in user manual)
+==5292== NOTE: further instances of this message will not be shown
+==5292== 
+==5292== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==5292== Collected : 13089217827 3053429254 1458741478 2165 82153249 11716636 2142 16762764 11079025
+==5292== 
+==5292== I   refs:      13,089,217,827
+==5292== I1  misses:             2,165
+==5292== LLi misses:             2,142
+==5292== I1  miss rate:           0.00%
+==5292== LLi miss rate:           0.00%
+==5292== 
+==5292== D   refs:       4,512,170,732  (3,053,429,254 rd + 1,458,741,478 wr)
+==5292== D1  misses:        93,869,885  (   82,153,249 rd +    11,716,636 wr)
+==5292== LLd misses:        27,841,789  (   16,762,764 rd +    11,079,025 wr)
+==5292== D1  miss rate:            2.1% (          2.7%   +           0.8%  )
+==5292== LLd miss rate:            0.6% (          0.5%   +           0.8%  )
+==5292== 
+==5292== LL refs:           93,872,050  (   82,155,414 rd +    11,716,636 wr)
+==5292== LL misses:         27,843,931  (   16,764,906 rd +    11,079,025 wr)
+==5292== LL miss rate:             0.2% (          0.1%   +           0.8%  )
+>>>>>>> master

@@ -31,7 +31,7 @@ var numberOfExecutions = 30;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
-
+/*
 	call GlobalBaselineO0;
 	call GlobalBaselineO2;
 	call GlobalBaselineO3;
@@ -48,6 +48,7 @@ aspectdef Script
 	call GlobalV2Ofast;
 
 	
+//*/
 
 	call GlobalBaselineO3_VECTORIZATION;
 	call GlobalBaselineOfast_VECTORIZATION;
@@ -58,8 +59,6 @@ aspectdef Script
 	call GlobalV2O3_VECTORIZATION;
 	call GlobalV2Ofast_VECTORIZATION;
 
-
-	
 	call GlobalBaselineO3_CACHE;
 	call GlobalBaselineOfast_CACHE;
 	
@@ -548,7 +547,7 @@ aspectdef GlobalBaselineO3_CACHE
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift_base.h");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O3.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);
@@ -573,7 +572,7 @@ aspectdef GlobalBaselineOfast_CACHE
 	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
-	headerContent = Io.readFile(headerVersions + "/sift_base.h");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast.common");
 		
 	Io.writeFile(imsmooth, imsmoothContent);

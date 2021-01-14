@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Executing: Baseline. Measuring: Global. Flag: -O0
 5909.875645ms
 Verification		- Successful
@@ -58,4 +59,8 @@ Verification		- Successful
 5900.495399ms
 Verification		- Successful
 5915.969128ms
+=======
+Executing: DISPv1. Measuring: Global. Flag: -O0
+6626.137912ms
+>>>>>>> master
 Verification		- Successful
