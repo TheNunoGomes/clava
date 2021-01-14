@@ -1,0 +1,5 @@
+Executing: Baseline. Measuring: Global. Flag: -Ofast
+3027.240983ms
+Checking error: Values mismtach at 4138 element
+Expected value = 59, observed = 36
+Error in Disparity Map

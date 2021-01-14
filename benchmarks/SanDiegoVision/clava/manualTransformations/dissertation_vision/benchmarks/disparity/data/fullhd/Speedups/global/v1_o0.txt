@@ -1,0 +1,3 @@
+Executing: DISPv1. Measuring: Global. Flag: -O0
+6626.137912ms
+Verification		- Successful
