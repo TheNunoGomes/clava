@@ -1,4 +1,5 @@
 Executing: Baseline. Measuring: Global. Flag: -O0
+<<<<<<< HEAD
 24388.417348ms
 Verification		- Successful
 24370.574289ms
@@ -58,4 +59,7 @@ Verification		- Successful
 24365.737212ms
 Verification		- Successful
 24418.463247ms
+=======
+6009.457933ms
+>>>>>>> master
 Verification		- Successful

@@ -1,0 +1,5 @@
+Executing: DISPv1. Measuring: Global. Flag: -Ofast
+2754.061835ms
+Checking error: Values mismtach at 4138 element
+Expected value = 59, observed = 36
+Error in Disparity Map
