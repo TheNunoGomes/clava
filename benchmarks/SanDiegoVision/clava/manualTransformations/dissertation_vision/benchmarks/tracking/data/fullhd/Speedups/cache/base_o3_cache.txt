@@ -1,32 +1,40 @@
 Input size		- (1080x1920)
 Verification		- Successful
-201715.302508ms
-==8226== Callgrind, a call-graph generating cache profiler
-==8226== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
-==8226== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==8226== Command: ./tracking ./
-==8226== 
---8226-- warning: L3 cache found, using its data for the LL simulation.
-==8226== For interactive control, run 'callgrind_control -h'.
-==8226== brk segment overflow in thread #1: can't grow to 0x4e2a000
-==8226== (see section Limitations in user manual)
-==8226== NOTE: further instances of this message will not be shown
-==8226== 
-==8226== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==8226== Collected : 5336994285 1332230931 874301079 2416 19628437 19303153 2401 7066589 11422451
-==8226== 
-==8226== I   refs:      5,336,994,285
-==8226== I1  misses:            2,416
-==8226== LLi misses:            2,401
-==8226== I1  miss rate:          0.00%
-==8226== LLi miss rate:          0.00%
-==8226== 
-==8226== D   refs:      2,206,532,010  (1,332,230,931 rd + 874,301,079 wr)
-==8226== D1  misses:       38,931,590  (   19,628,437 rd +  19,303,153 wr)
-==8226== LLd misses:       18,489,040  (    7,066,589 rd +  11,422,451 wr)
-==8226== D1  miss rate:           1.8% (          1.5%   +         2.2%  )
-==8226== LLd miss rate:           0.8% (          0.5%   +         1.3%  )
-==8226== 
-==8226== LL refs:          38,934,006  (   19,630,853 rd +  19,303,153 wr)
-==8226== LL misses:        18,491,441  (    7,068,990 rd +  11,422,451 wr)
-==8226== LL miss rate:            0.2% (          0.1%   +         1.3%  )
+66272.808063ms
+==27213== Callgrind, a call-graph generating cache profiler
+==27213== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==27213== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==27213== Command: ./tracking ./
+==27213== 
+--27213-- warning: L3 cache found, using its data for the LL simulation.
+==27213== For interactive control, run 'callgrind_control -h'.
+==27213== brk segment overflow in thread #1: can't grow to 0x5021000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== brk segment overflow in thread #1: can't grow to 0x5042000
+==27213== 
+==27213== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==27213== Collected : 4487785595 1077968531 714577893 2831 19633542 19310466 2803 4032591 7960515
+==27213== 
+==27213== I   refs:      4,487,785,595
+==27213== I1  misses:            2,831
+==27213== LLi misses:            2,803
+==27213== I1  miss rate:          0.00%
+==27213== LLi miss rate:          0.00%
+==27213== 
+==27213== D   refs:      1,792,546,424  (1,077,968,531 rd + 714,577,893 wr)
+==27213== D1  misses:       38,944,008  (   19,633,542 rd +  19,310,466 wr)
+==27213== LLd misses:       11,993,106  (    4,032,591 rd +   7,960,515 wr)
+==27213== D1  miss rate:           2.2% (          1.8%   +         2.7%  )
+==27213== LLd miss rate:           0.7% (          0.4%   +         1.1%  )
+==27213== 
+==27213== LL refs:          38,946,839  (   19,636,373 rd +  19,310,466 wr)
+==27213== LL misses:        11,995,909  (    4,035,394 rd +   7,960,515 wr)
+==27213== LL miss rate:            0.2% (          0.1%   +         1.1%  )
