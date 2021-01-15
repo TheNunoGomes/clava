@@ -1,64 +1,30 @@
 Executing: Baseline. Measuring: Cache. Flag: -O3
-<<<<<<< HEAD
-637803.721972ms
+637207.973399ms
 Verification		- Successful
-==15086== Callgrind, a call-graph generating cache profiler
-==15086== Copyright (C) 2002-2013, and GNU GPL'd, by Josef Weidendorfer et al.
-==15086== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
-==15086== Command: ./sift ./
-==15086== 
---15086-- Warning: Cannot auto-detect cache config, using defaults.
---15086--          Run with -v to see.
-==15086== For interactive control, run 'callgrind_control -h'.
-==15086== 
-==15086== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==15086== Collected : 12871216360 3165836575 1569472817 20599 83373639 11734689 1971 18937028 11704769
-==15086== 
-==15086== I   refs:      12,871,216,360
-==15086== I1  misses:            20,599
-==15086== LLi misses:             1,971
-==15086== I1  miss rate:            0.0%
-==15086== LLi miss rate:            0.0%
-==15086== 
-==15086== D   refs:       4,735,309,392  (3,165,836,575 rd + 1,569,472,817 wr)
-==15086== D1  misses:        95,108,328  (   83,373,639 rd +    11,734,689 wr)
-==15086== LLd misses:        30,641,797  (   18,937,028 rd +    11,704,769 wr)
-==15086== D1  miss rate:            2.0% (          2.6%   +           0.7%  )
-==15086== LLd miss rate:            0.6% (          0.5%   +           0.7%  )
-==15086== 
-==15086== LL refs:           95,128,927  (   83,394,238 rd +    11,734,689 wr)
-==15086== LL misses:         30,643,768  (   18,938,999 rd +    11,704,769 wr)
-==15086== LL miss rate:             0.1% (          0.1%   +           0.7%  )
-=======
-1087717.897931ms
-Verification		- Successful
-==4406== Callgrind, a call-graph generating cache profiler
-==4406== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
-==4406== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==4406== Command: ./sift ./
-==4406== 
---4406-- warning: L3 cache found, using its data for the LL simulation.
-==4406== For interactive control, run 'callgrind_control -h'.
-==4406== brk segment overflow in thread #1: can't grow to 0x521d000
-==4406== (see section Limitations in user manual)
-==4406== NOTE: further instances of this message will not be shown
-==4406== 
-==4406== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==4406== Collected : 13308905290 3053429125 1458741016 2097 82130109 11716560 2077 16764986 11078988
-==4406== 
-==4406== I   refs:      13,308,905,290
-==4406== I1  misses:             2,097
-==4406== LLi misses:             2,077
-==4406== I1  miss rate:           0.00%
-==4406== LLi miss rate:           0.00%
-==4406== 
-==4406== D   refs:       4,512,170,141  (3,053,429,125 rd + 1,458,741,016 wr)
-==4406== D1  misses:        93,846,669  (   82,130,109 rd +    11,716,560 wr)
-==4406== LLd misses:        27,843,974  (   16,764,986 rd +    11,078,988 wr)
-==4406== D1  miss rate:            2.1% (          2.7%   +           0.8%  )
-==4406== LLd miss rate:            0.6% (          0.5%   +           0.8%  )
-==4406== 
-==4406== LL refs:           93,848,766  (   82,132,206 rd +    11,716,560 wr)
-==4406== LL misses:         27,846,051  (   16,767,063 rd +    11,078,988 wr)
-==4406== LL miss rate:             0.2% (          0.1%   +           0.8%  )
->>>>>>> master
+==21318== Callgrind, a call-graph generating cache profiler
+==21318== Copyright (C) 2002-2013, and GNU GPL'd, by Josef Weidendorfer et al.
+==21318== Using Valgrind-3.10.0.SVN and LibVEX; rerun with -h for copyright info
+==21318== Command: ./sift ./
+==21318== 
+--21318-- Warning: Cannot auto-detect cache config, using defaults.
+--21318--          Run with -v to see.
+==21318== For interactive control, run 'callgrind_control -h'.
+==21318== 
+==21318== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==21318== Collected : 12871216356 3165836571 1569472813 20599 83373639 11734689 1973 18937039 11704777
+==21318== 
+==21318== I   refs:      12,871,216,356
+==21318== I1  misses:            20,599
+==21318== LLi misses:             1,973
+==21318== I1  miss rate:            0.0%
+==21318== LLi miss rate:            0.0%
+==21318== 
+==21318== D   refs:       4,735,309,384  (3,165,836,571 rd + 1,569,472,813 wr)
+==21318== D1  misses:        95,108,328  (   83,373,639 rd +    11,734,689 wr)
+==21318== LLd misses:        30,641,816  (   18,937,039 rd +    11,704,777 wr)
+==21318== D1  miss rate:            2.0% (          2.6%   +           0.7%  )
+==21318== LLd miss rate:            0.6% (          0.5%   +           0.7%  )
+==21318== 
+==21318== LL refs:           95,128,927  (   83,394,238 rd +    11,734,689 wr)
+==21318== LL misses:         30,643,789  (   18,939,012 rd +    11,704,777 wr)
+==21318== LL miss rate:             0.1% (          0.1%   +           0.7%  )
