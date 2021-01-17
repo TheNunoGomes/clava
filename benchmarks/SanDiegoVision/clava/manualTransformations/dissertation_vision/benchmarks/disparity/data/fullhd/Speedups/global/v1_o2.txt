@@ -1,3 +1,66 @@
+<<<<<<< HEAD
+Executing: Baseline. Measuring: Global. Flag: -O2
+1608.987933ms
+Verification		- Successful
+1617.374046ms
+Verification		- Successful
+1609.605565ms
+Verification		- Successful
+1609.054500ms
+Verification		- Successful
+1622.303867ms
+Verification		- Successful
+1610.708659ms
+Verification		- Successful
+1670.779886ms
+Verification		- Successful
+1617.079231ms
+Verification		- Successful
+1609.630081ms
+Verification		- Successful
+1610.640603ms
+Verification		- Successful
+1620.231489ms
+Verification		- Successful
+1625.843529ms
+Verification		- Successful
+1609.008575ms
+Verification		- Successful
+1611.752415ms
+Verification		- Successful
+1609.705108ms
+Verification		- Successful
+1609.086214ms
+Verification		- Successful
+1627.012068ms
+Verification		- Successful
+1623.414886ms
+Verification		- Successful
+1627.063559ms
+Verification		- Successful
+1633.170417ms
+Verification		- Successful
+1627.930613ms
+Verification		- Successful
+1631.053201ms
+Verification		- Successful
+1611.691579ms
+Verification		- Successful
+1629.934228ms
+Verification		- Successful
+1638.413095ms
+Verification		- Successful
+1610.205544ms
+Verification		- Successful
+1627.640131ms
+Verification		- Successful
+1611.356147ms
+Verification		- Successful
+1654.009994ms
+Verification		- Successful
+1612.344477ms
+=======
 Executing: DISPv1. Measuring: Global. Flag: -O2
 3207.302555ms
+>>>>>>> master
 Verification		- Successful

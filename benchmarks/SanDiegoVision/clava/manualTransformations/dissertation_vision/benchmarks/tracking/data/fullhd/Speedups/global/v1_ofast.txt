@@ -1,0 +1,90 @@
+Input size		- (1080x1920)
+Verification		- Successful
+568.766445ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.483097ms
+Input size		- (1080x1920)
+Verification		- Successful
+564.147145ms
+Input size		- (1080x1920)
+Verification		- Successful
+587.845877ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.802649ms
+Input size		- (1080x1920)
+Verification		- Successful
+569.215115ms
+Input size		- (1080x1920)
+Verification		- Successful
+568.559261ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.541090ms
+Input size		- (1080x1920)
+Verification		- Successful
+577.948815ms
+Input size		- (1080x1920)
+Verification		- Successful
+568.752899ms
+Input size		- (1080x1920)
+Verification		- Successful
+568.203138ms
+Input size		- (1080x1920)
+Verification		- Successful
+565.722237ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.158587ms
+Input size		- (1080x1920)
+Verification		- Successful
+575.254895ms
+Input size		- (1080x1920)
+Verification		- Successful
+563.840351ms
+Input size		- (1080x1920)
+Verification		- Successful
+560.105615ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.181594ms
+Input size		- (1080x1920)
+Verification		- Successful
+559.082810ms
+Input size		- (1080x1920)
+Verification		- Successful
+559.986185ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.475130ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.662313ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.816268ms
+Input size		- (1080x1920)
+Verification		- Successful
+557.901991ms
+Input size		- (1080x1920)
+Verification		- Successful
+559.703525ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.479603ms
+Input size		- (1080x1920)
+Verification		- Successful
+567.972295ms
+Input size		- (1080x1920)
+Verification		- Successful
+568.174673ms
+Input size		- (1080x1920)
+Verification		- Successful
+558.528049ms
+Input size		- (1080x1920)
+Verification		- Successful
+580.430902ms
+Input size		- (1080x1920)
+Verification		- Successful
+559.751038ms

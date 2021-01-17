@@ -1,262 +1,458 @@
 Executing: SIFTv1. Measuring: Vectorization. Flag: -O3
 
 -e Benchmark		- sift
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:28:5: optimized: versioned this loop for when certain strides are 1
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:71:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:71:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:36:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:36:5: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:28:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:28:5: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:71:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:36:5: optimized: loop with 2 iterations completely unrolled (header execution count 6174709)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:28:5: optimized: loop with 2 iterations completely unrolled (header execution count 4939767)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:108:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:142:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:142:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:142:9: optimized: loop with 1 iterations completely unrolled (header execution count 8589937)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:178:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:213:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:213:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:213:9: optimized: loop with 1 iterations completely unrolled (header execution count 8589937)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:77:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:77:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:22:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:22:5: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:77:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:22:5: optimized: loop turned into non-loop; it never loops
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:115:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:159:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:159:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:104:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:47:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:47:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:47:9: optimized: loop with 2 iterations completely unrolled (header execution count 763166)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:45:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:45:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:45:9: optimized: loop with 2 iterations completely unrolled (header execution count 763166)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:47:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:47:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:47:9: optimized: loop with 2 iterations completely unrolled (header execution count 763166)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:19:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:19:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:19:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readFile.c:18:9: optimized:   Inlining printf/7 into readFile/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifDeepCopy.c:20:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifDeepCopy.c:20:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/uiSetArray.c:16:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/uiSetArray.c:16:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:19:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:19:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:19:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fFind3.c:18:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fFind3.c:18:9: optimized: loop with 3 iterations completely unrolled (header execution count 57432047)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSetArray.c:17:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSetArray.c:17:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:65:13: optimized: loop with 5 iterations completely unrolled (header execution count 178992760)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:50:13: optimized: loop with 5 iterations completely unrolled (header execution count 178992753)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:62:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:62:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:47:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:47:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:62:9: optimized: loop with 2 iterations completely unrolled (header execution count 9357490)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:47:9: optimized: loop with 3 iterations completely unrolled (header execution count 11104222)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:44:5: optimized: basic block part vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iSetArray.c:16:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iSetArray.c:16:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:28:5: optimized: versioned this loop for when certain strides are 1
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:36:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:36:5: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:28:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:28:5: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959009)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:36:5: optimized: loop with 2 iterations completely unrolled (header execution count 6174709)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:28:5: optimized: loop with 2 iterations completely unrolled (header execution count 4939767)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:103:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:117:6: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:117:6: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:117:6: optimized: loop with 1 iterations completely unrolled (header execution count 8589913)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:170:5: optimized: Loop 2 distributed: split to 0 loops and 4 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:184:6: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:184:6: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:184:6: optimized: loop with 1 iterations completely unrolled (header execution count 8589913)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fWriteMatrix.c:27:9: optimized:   Inlining fprintf/6 into fWriteMatrix/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fWriteMatrix.c:25:13: optimized:   Inlining fprintf/6 into fWriteMatrix/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fWriteMatrix.c:15:5: optimized:   Inlining sprintf/2 into fWriteMatrix/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:17:9: optimized:   Inlining printf/7 into fMdivide/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:23:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:23:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:19:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:19:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:19:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSelfCheck.c:54:5: optimized:   Inlining printf/7 into fSelfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSelfCheck.c:48:13: optimized:   Inlining printf/7 into fSelfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSelfCheck.c:38:9: optimized:   Inlining printf/7 into fSelfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSelfCheck.c:25:9: optimized:   Inlining printf/7 into fSelfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSelfCheck.c:20:5: optimized:   Inlining sprintf/2 into fSelfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/writeMatrix.c:27:9: optimized:   Inlining fprintf/6 into writeMatrix/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/writeMatrix.c:25:13: optimized:   Inlining fprintf/6 into writeMatrix/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/writeMatrix.c:15:5: optimized:   Inlining sprintf/2 into writeMatrix/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530386)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530386)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:30:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:30:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:25:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:25:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:30:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:25:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:38:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:38:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:33:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:33:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:28:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:28:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:38:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:33:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:28:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifMtimes.c:26:13: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifMtimes.c:26:13: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:97:21: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:96:21: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:95:21: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:84:21: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:73:13: optimized:   Inlining printf/7 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:65:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:64:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:63:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:62:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:60:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:59:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:58:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:57:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:56:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:55:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:54:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:52:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:51:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:50:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:49:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/readImage.c:48:9: optimized:   Inlining fread/12 into readImage/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSum.c:28:9: optimized: versioned this loop for when certain strides are 1
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSum.c:28:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSum.c:35:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSum.c:28:9: optimized: loop with 2 iterations completely unrolled (header execution count 4980214)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSum.c:35:9: optimized: loop with 2 iterations completely unrolled (header execution count 4108676)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:31:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:31:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:26:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:26:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:31:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiDeepCopy.c:19:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiDeepCopy.c:19:9: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSum2.c:45:13: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSum2.c:45:13: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/photonPrintTiming.c:41:13: optimized:   Inlining printf/7 into photonPrintTiming/31 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/photonPrintTiming.c:39:13: optimized:   Inlining printf/7 into photonPrintTiming/31 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:19:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:19:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:19:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/selfCheck.c:56:5: optimized:   Inlining printf/7 into selfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/selfCheck.c:49:13: optimized:   Inlining printf/7 into selfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/selfCheck.c:48:13: optimized:   Inlining printf/7 into selfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/selfCheck.c:40:9: optimized:   Inlining printf/7 into selfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/selfCheck.c:27:9: optimized:   Inlining printf/7 into selfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/selfCheck.c:23:5: optimized:   Inlining sprintf/2 into selfCheck/23 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:47:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:47:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:47:9: optimized: loop with 2 iterations completely unrolled (header execution count 763166)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:17:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:17:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:19:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:19:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:83:13: optimized:   Inlining printf/11 into main/28 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:73:4: optimized:   Inlining printf/11 into main/28 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:54:5: optimized:   Inlining sprintf/6 into main/28 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:50:9: optimized:   Inlining printf/11 into main/28 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:33:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:26:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:33:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530389)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:26:5: optimized: loop with 2 iterations completely unrolled (header execution count 64530388)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:42:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:42:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:34:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:34:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:26:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:26:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:18:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:18:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:42:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:34:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959009)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:26:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959003)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:18:9: optimized: loop with 2 iterations completely unrolled (header execution count 49959005)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:62:13: optimized:   Inlining printf/7 into gaussianss/24 (always_inline).
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:54:13: optimized:  Inlined resizeArray/41 into gaussianss/24 which now has time 7439.606720 and size 359, net change of +16.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:152:17: optimized: Loop 3 distributed: split to 0 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: optimized: loop with 3 iterations completely unrolled (header execution count 59284692)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:39:17: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:39:17: optimized:  loop versioned for vectorization because of possible aliasing
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:39:17: optimized: loop with 2 iterations completely unrolled (header execution count 49959011)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:65:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:65:5: optimized: loop with 2 iterations completely unrolled (header execution count 985756)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:192:7: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:151:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:151:5: optimized: loop with 2 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:117:6: optimized: loop with 1 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:278:7: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:237:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:237:5: optimized: loop with 2 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:203:6: optimized: loop with 2 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:364:7: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:323:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:323:5: optimized: loop turned into non-loop; it never loops
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:289:6: optimized: loop with 3 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:450:7: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:409:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:409:5: optimized: loop turned into non-loop; it never loops
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:375:6: optimized: loop with 4 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:536:7: optimized: Loop 1 distributed: split to 0 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:495:5: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:495:5: optimized: loop with 2 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:461:6: optimized: loop with 5 iterations completely unrolled (header execution count 1804254)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:164:11: optimized: loop with 2 iterations completely unrolled (header execution count 106346593)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:152:5: optimized: loop with 3 iterations completely unrolled (header execution count 104096164)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:135:5: optimized: loop with 3 iterations completely unrolled (header execution count 118118682)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:127:11: optimized: loop with 2 iterations completely unrolled (header execution count 123902435)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:96:5: optimized: loop with 3 iterations completely unrolled (header execution count 118118683)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:90:5: optimized: loop with 2 iterations completely unrolled (header execution count 118118683)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:102:5: optimized: Loop 3 distributed: split to 1 loops and 1 library calls.
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:231:9: optimized: loop vectorized using 16 byte vectors
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:231:9: optimized: loop with 2 iterations completely unrolled (header execution count 59353837)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:102:5: optimized: loop with 2 iterations completely unrolled (header execution count 118118684)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:180:13: optimized: loop with 3 iterations completely unrolled (header execution count 268435456)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:101:13: optimized: versioned this loop for when certain strides are 1
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:94:9: optimized: loop with 4 iterations completely unrolled (header execution count 13634262)
-/home/osboxes/Documents/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:94:9: optimized: loop with 4 iterations completely unrolled (header execution count 3408566)
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:36:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:36:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:8:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:8:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:36:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:36:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:8:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:8:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:117:6: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:117:6: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:103:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:103:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:117:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:117:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:85:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:85:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:103:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:103:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:85:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:85:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:184:6: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:184:6: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:170:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:170:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:184:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:184:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:152:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:152:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:170:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:170:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:152:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:152:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:77:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:77:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:77:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:77:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:8:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:8:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:159:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:159:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:115:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:115:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:159:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:159:9: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:93:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:93:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:115:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:115:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:93:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageBlur.c:93:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:47:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:47:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:47:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:47:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffiConv2.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:47:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:47:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:47:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:47:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiConv2.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDivide.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifDeepCopy.c:20:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifDeepCopy.c:20:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifDeepCopy.c:20:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifDeepCopy.c:8:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ifDeepCopy.c:8:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:19:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:19:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:19:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:19:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopyRange.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iSetArray.c:16:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iSetArray.c:16:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iSetArray.c:16:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iSetArray.c:9:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iSetArray.c:9:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fPlus.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:19:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:19:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:19:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:19:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopy.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fFind3.c:18:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fFind3.c:18:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fFind3.c:18:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fFind3.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fFind3.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMinus.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSetArray.c:17:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSetArray.c:17:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSetArray.c:17:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSetArray.c:9:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fSetArray.c:9:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:65:13: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:65:13: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:50:13: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:50:13: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:62:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:62:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:47:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:47:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:62:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:62:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:47:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:47:9: note: loop with 4 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/imageResize.c:44:5: note: basic block vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:23:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:23:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:23:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:23:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fMdivide.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:19:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:19:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:19:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:19:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iDeepCopyRange.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:71:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:71:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:36:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:36:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:71:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:71:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:10:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:10:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:36:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:36:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:10:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:10:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:142:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:142:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:108:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:108:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:142:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:142:9: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:85:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:85:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:108:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:108:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:85:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:85:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:213:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:213:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:178:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:178:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:213:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:213:9: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:156:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:156:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:178:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:178:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:156:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dX.c:156:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:18:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randWrapper.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iMinus.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffDivide.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isPlus.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:31:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:31:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:26:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:26:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:31:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:31:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:26:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:26:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iHorzcat.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:18:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/randnWrapper.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:38:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:38:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:33:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:33:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:28:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:28:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:38:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:38:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:33:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:33:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:28:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:28:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/horzcat.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iTimes.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:45:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:45:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:45:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:45:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffConv2_dY.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:19:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:19:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:19:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:19:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fDeepCopy.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/uiSetArray.c:16:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/uiSetArray.c:16:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/uiSetArray.c:16:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/uiSetArray.c:9:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/uiSetArray.c:9:7: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiDeepCopy.c:19:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiDeepCopy.c:19:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiDeepCopy.c:19:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiDeepCopy.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fiDeepCopy.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:30:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:30:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:25:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:25:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:30:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:30:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:25:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:25:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fHorzcat.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/fTimes.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:19:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:19:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:19:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:19:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:9:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/isMinus.c:9:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:47:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:47:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:47:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:47:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/iiConv2.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:17:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:17:5: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:17:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:17:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/ffTimes.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:33:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:26:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:33:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:33:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:13:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:13:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:26:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:26:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:13:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/script_sift.c:13:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:42:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:42:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:34:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:34:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:26:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:26:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:42:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:42:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:34:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:34:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:26:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:26:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:7:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/doubleSize.c:7:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:39:17: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:39:17: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:39:17: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:39:17: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:16:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/diffss.c:16:7: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: note: loop with 4 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:65:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:65:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:65:5: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:30:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:30:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:30:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:30:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:151:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:192:7: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:192:7: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:151:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:151:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:117:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:117:6: note: loop with 2 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:117:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:117:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:192:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:192:7: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:117:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:117:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:237:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:278:7: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:278:7: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:237:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:237:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:203:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:203:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:203:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:203:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:278:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:278:7: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:203:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:203:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:323:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:364:7: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:364:7: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:323:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:323:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:289:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:289:6: note: loop with 4 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:289:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:289:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:364:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:364:7: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:289:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:289:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:409:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:450:7: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:450:7: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:409:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:409:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:375:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:375:6: note: loop with 5 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:375:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:375:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:450:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:450:7: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:375:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:375:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:495:5: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:536:7: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:536:7: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:495:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:495:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:461:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:461:6: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:461:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:461:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:536:7: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:536:7: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:461:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:461:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:152:17: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:152:17: note: loop versioned for vectorization because of possible aliasing
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:152:17: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:152:17: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:39:11: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:39:11: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:164:11: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:164:11: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:152:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:152:5: note: loop with 4 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:135:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:135:5: note: loop with 4 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:127:11: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:127:11: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:96:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:96:5: note: loop with 4 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:90:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:90:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:102:5: note: Loop 3 distributed: split to 1 loops and 1 library calls.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:231:9: note: loop vectorized
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:231:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:231:9: note: loop with 6 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:42:6: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:42:6: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:102:5: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftlocalmax.c:102:5: note: loop with 3 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:180:13: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:180:13: note: loop with 4 iterations completely unrolled
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:94:9: note: loop turned into non-loop; it never loops.
+/home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:94:9: note: loop with 5 iterations completely unrolled
