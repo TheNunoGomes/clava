@@ -40,6 +40,22 @@ aspectdef Script
 	
 	call GlobalV2O3_VECTORIZATION;
 	call GlobalV2Ofast_VECTORIZATION;
+	
+	
+	call GlobalBaselineO0_CACHE;
+	call GlobalBaselineO2_CACHE;
+	call GlobalBaselineO3_CACHE;
+	call GlobalBaselineOfast_CACHE;
+	
+	call GlobalV1O0_CACHE;
+	call GlobalV1O2_CACHE;
+	call GlobalV1O3_CACHE;
+	call GlobalV1fast_CACHE;
+
+	call GlobalV2O0_CACHE;
+	call GlobalV2O2_CACHE;
+	call GlobalV2O3_CACHE;
+	call GlobalV2fast_CACHE;
 
 end
 
