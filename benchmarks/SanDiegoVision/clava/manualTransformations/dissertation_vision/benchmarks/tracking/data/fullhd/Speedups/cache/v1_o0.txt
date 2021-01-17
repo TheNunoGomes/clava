@@ -1,0 +1,40 @@
+Input size		- (1080x1920)
+Verification		- Successful
+155143.527473ms
+==20390== Callgrind, a call-graph generating cache profiler
+==20390== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==20390== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==20390== Command: ./tracking ./
+==20390== 
+--20390-- warning: L3 cache found, using its data for the LL simulation.
+==20390== For interactive control, run 'callgrind_control -h'.
+==20390== brk segment overflow in thread #1: can't grow to 0x5021000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== brk segment overflow in thread #1: can't grow to 0x5042000
+==20390== 
+==20390== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==20390== Collected : 11756808689 5349581885 1605563805 2304 20664921 19457564 2275 4032422 7960534
+==20390== 
+==20390== I   refs:      11,756,808,689
+==20390== I1  misses:             2,304
+==20390== LLi misses:             2,275
+==20390== I1  miss rate:           0.00%
+==20390== LLi miss rate:           0.00%
+==20390== 
+==20390== D   refs:       6,955,145,690  (5,349,581,885 rd + 1,605,563,805 wr)
+==20390== D1  misses:        40,122,485  (   20,664,921 rd +    19,457,564 wr)
+==20390== LLd misses:        11,992,956  (    4,032,422 rd +     7,960,534 wr)
+==20390== D1  miss rate:            0.6% (          0.4%   +           1.2%  )
+==20390== LLd miss rate:            0.2% (          0.1%   +           0.5%  )
+==20390== 
+==20390== LL refs:           40,124,789  (   20,667,225 rd +    19,457,564 wr)
+==20390== LL misses:         11,995,231  (    4,034,697 rd +     7,960,534 wr)
+==20390== LL miss rate:             0.1% (          0.0%   +           0.5%  )

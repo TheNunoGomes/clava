@@ -1,40 +1,40 @@
 Input size		- (1080x1920)
 Verification		- Successful
-68171.434105ms
-==27836== Callgrind, a call-graph generating cache profiler
-==27836== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
-==27836== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==27836== Command: ./tracking ./
-==27836== 
---27836-- warning: L3 cache found, using its data for the LL simulation.
-==27836== For interactive control, run 'callgrind_control -h'.
-==27836== brk segment overflow in thread #1: can't grow to 0x5021000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== brk segment overflow in thread #1: can't grow to 0x5042000
-==27836== 
-==27836== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==27836== Collected : 4760581284 1078078124 740825807 2614 20269532 19304921 2590 4032465 7960489
-==27836== 
-==27836== I   refs:      4,760,581,284
-==27836== I1  misses:            2,614
-==27836== LLi misses:            2,590
-==27836== I1  miss rate:          0.00%
-==27836== LLi miss rate:          0.00%
-==27836== 
-==27836== D   refs:      1,818,903,931  (1,078,078,124 rd + 740,825,807 wr)
-==27836== D1  misses:       39,574,453  (   20,269,532 rd +  19,304,921 wr)
-==27836== LLd misses:       11,992,954  (    4,032,465 rd +   7,960,489 wr)
-==27836== D1  miss rate:           2.2% (          1.9%   +         2.6%  )
-==27836== LLd miss rate:           0.7% (          0.4%   +         1.1%  )
-==27836== 
-==27836== LL refs:          39,577,067  (   20,272,146 rd +  19,304,921 wr)
-==27836== LL misses:        11,995,544  (    4,035,055 rd +   7,960,489 wr)
-==27836== LL miss rate:            0.2% (          0.1%   +         1.1%  )
+68490.897686ms
+==21167== Callgrind, a call-graph generating cache profiler
+==21167== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==21167== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==21167== Command: ./tracking ./
+==21167== 
+--21167-- warning: L3 cache found, using its data for the LL simulation.
+==21167== For interactive control, run 'callgrind_control -h'.
+==21167== brk segment overflow in thread #1: can't grow to 0x5021000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== brk segment overflow in thread #1: can't grow to 0x5042000
+==21167== 
+==21167== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==21167== Collected : 4760581297 1078078129 740825812 2613 20269530 19304921 2589 4032464 7960489
+==21167== 
+==21167== I   refs:      4,760,581,297
+==21167== I1  misses:            2,613
+==21167== LLi misses:            2,589
+==21167== I1  miss rate:          0.00%
+==21167== LLi miss rate:          0.00%
+==21167== 
+==21167== D   refs:      1,818,903,941  (1,078,078,129 rd + 740,825,812 wr)
+==21167== D1  misses:       39,574,451  (   20,269,530 rd +  19,304,921 wr)
+==21167== LLd misses:       11,992,953  (    4,032,464 rd +   7,960,489 wr)
+==21167== D1  miss rate:           2.2% (          1.9%   +         2.6%  )
+==21167== LLd miss rate:           0.7% (          0.4%   +         1.1%  )
+==21167== 
+==21167== LL refs:          39,577,064  (   20,272,143 rd +  19,304,921 wr)
+==21167== LL misses:        11,995,542  (    4,035,053 rd +   7,960,489 wr)
+==21167== LL miss rate:            0.2% (          0.1%   +         1.1%  )
