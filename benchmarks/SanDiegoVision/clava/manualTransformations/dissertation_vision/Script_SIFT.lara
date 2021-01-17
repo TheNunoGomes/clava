@@ -63,11 +63,11 @@ aspectdef Script
 //	call GlobalBaselineO3_CACHE;
 //	call GlobalBaselineOfast_CACHE;
 	
-	call GlobalV1O0_CACHE;
+//	call GlobalV1O0_CACHE;
 //	call GlobalV1O3_CACHE;
 //	call GlobalV1Ofast_CACHE;
 	
-	call GlobalV2O0_CACHE;
+//	call GlobalV2O0_CACHE;
 //	call GlobalV2O3_CACHE;
 //	call GlobalV2Ofast_CACHE;
 
