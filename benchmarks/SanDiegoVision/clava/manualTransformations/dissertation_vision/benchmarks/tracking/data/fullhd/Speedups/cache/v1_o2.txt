@@ -1,0 +1,40 @@
+Input size		- (1080x1920)
+Verification		- Successful
+80485.834100ms
+==20856== Callgrind, a call-graph generating cache profiler
+==20856== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==20856== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==20856== Command: ./tracking ./
+==20856== 
+--20856-- warning: L3 cache found, using its data for the LL simulation.
+==20856== For interactive control, run 'callgrind_control -h'.
+==20856== brk segment overflow in thread #1: can't grow to 0x5021000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== brk segment overflow in thread #1: can't grow to 0x5042000
+==20856== 
+==20856== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==20856== Collected : 5680445873 1243223705 853792664 1994 20291771 19304741 1969 4032305 7960469
+==20856== 
+==20856== I   refs:      5,680,445,873
+==20856== I1  misses:            1,994
+==20856== LLi misses:            1,969
+==20856== I1  miss rate:          0.00%
+==20856== LLi miss rate:          0.00%
+==20856== 
+==20856== D   refs:      2,097,016,369  (1,243,223,705 rd + 853,792,664 wr)
+==20856== D1  misses:       39,596,512  (   20,291,771 rd +  19,304,741 wr)
+==20856== LLd misses:       11,992,774  (    4,032,305 rd +   7,960,469 wr)
+==20856== D1  miss rate:           1.9% (          1.6%   +         2.3%  )
+==20856== LLd miss rate:           0.6% (          0.3%   +         0.9%  )
+==20856== 
+==20856== LL refs:          39,598,506  (   20,293,765 rd +  19,304,741 wr)
+==20856== LL misses:        11,994,743  (    4,034,274 rd +   7,960,469 wr)
+==20856== LL miss rate:            0.2% (          0.1%   +         0.9%  )

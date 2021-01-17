@@ -1,4 +1,5 @@
 Executing: SIFTv1. Measuring: Global. Flag: -Ofast
+<<<<<<< HEAD
 7091.909487ms
 Verification		- Successful
 7094.676702ms
@@ -58,4 +59,65 @@ Verification		- Successful
 7099.820923ms
 Verification		- Successful
 7095.119729ms
+=======
+1350.609708ms
+Verification		- Successful
+1343.603950ms
+Verification		- Successful
+1349.726324ms
+Verification		- Successful
+1344.681465ms
+Verification		- Successful
+1349.709996ms
+Verification		- Successful
+1345.894375ms
+Verification		- Successful
+1343.069030ms
+Verification		- Successful
+1383.733506ms
+Verification		- Successful
+1384.621838ms
+Verification		- Successful
+1346.410035ms
+Verification		- Successful
+1348.694269ms
+Verification		- Successful
+1392.126005ms
+Verification		- Successful
+1359.849184ms
+Verification		- Successful
+1340.850015ms
+Verification		- Successful
+1344.057377ms
+Verification		- Successful
+1346.341265ms
+Verification		- Successful
+1341.169019ms
+Verification		- Successful
+1362.292987ms
+Verification		- Successful
+1353.816895ms
+Verification		- Successful
+1352.524000ms
+Verification		- Successful
+1342.728412ms
+Verification		- Successful
+1377.638695ms
+Verification		- Successful
+1343.903560ms
+Verification		- Successful
+1351.395175ms
+Verification		- Successful
+1342.780441ms
+Verification		- Successful
+1344.094946ms
+Verification		- Successful
+1342.438545ms
+Verification		- Successful
+1352.687451ms
+Verification		- Successful
+1342.054482ms
+Verification		- Successful
+1344.730717ms
+>>>>>>> antarex
 Verification		- Successful
