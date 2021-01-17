@@ -59,14 +59,15 @@ aspectdef Script
 	call GlobalV2O3_VECTORIZATION;
 	call GlobalV2Ofast_VECTORIZATION;
 */
+	call GlobalBaselineO0_CACHE;
 //	call GlobalBaselineO3_CACHE;
 //	call GlobalBaselineOfast_CACHE;
 	
-	call GlobalV1O0_CACHE;
+//	call GlobalV1O0_CACHE;
 //	call GlobalV1O3_CACHE;
 //	call GlobalV1Ofast_CACHE;
 	
-	call GlobalV2O0_CACHE;
+//	call GlobalV2O0_CACHE;
 //	call GlobalV2O3_CACHE;
 //	call GlobalV2Ofast_CACHE;
 
@@ -543,6 +544,31 @@ end
 
 /***************************************** CACHE *****************************************/
 
+
+aspectdef GlobalBaselineO0_CACHE
+	var results = "";
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
+	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
+	headerContent = Io.readFile(headerVersions + "/sift.h");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
+		
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(sift_h, headerContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: Baseline. Measuring: Cache. Flag: -O0\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/baseline_o0.txt", results);
+end
 
 aspectdef GlobalBaselineO3_CACHE
 	var results = "";
