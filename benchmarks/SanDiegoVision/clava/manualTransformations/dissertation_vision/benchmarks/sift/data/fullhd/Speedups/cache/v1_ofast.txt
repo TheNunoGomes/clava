@@ -1,104 +1,104 @@
 Executing: SIFTv1. Measuring: Cache. Flag: -Ofast
-151737.500983ms
+150524.255356ms
 Verification		- Successful
-==25197== Callgrind, a call-graph generating cache profiler
-==25197== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
-==25197== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==25197== Command: ./sift ./
-==25197== 
---25197-- warning: L3 cache found, using its data for the LL simulation.
-==25197== For interactive control, run 'callgrind_control -h'.
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
---25197-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
-==25197== brk segment overflow in thread #1: can't grow to 0x5415000
-==25197== brk segment overflow in thread #1: can't grow to 0x5436000
-==25197== brk segment overflow in thread #1: can't grow to 0x5436000
-==25197== brk segment overflow in thread #1: can't grow to 0x5436000
-==25197== brk segment overflow in thread #1: can't grow to 0x5436000
-==25197== brk segment overflow in thread #1: can't grow to 0x5436000
-==25197== brk segment overflow in thread #1: can't grow to 0x4b71000
-==25197== brk segment overflow in thread #1: can't grow to 0x4b71000
-==25197== brk segment overflow in thread #1: can't grow to 0x4a94000
-==25197== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==25197== brk segment overflow in thread #1: can't grow to 0x5c14000
-==25197== brk segment overflow in thread #1: can't grow to 0x5c14000
-==25197== brk segment overflow in thread #1: can't grow to 0x5c14000
-==25197== brk segment overflow in thread #1: can't grow to 0x5c14000
-==25197== brk segment overflow in thread #1: can't grow to 0x5c14000
-==25197== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==25197== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==25197== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==25197== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==25197== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==25197== brk segment overflow in thread #1: can't grow to 0x4b64000
-==25197== brk segment overflow in thread #1: can't grow to 0x4b64000
-==25197== brk segment overflow in thread #1: can't grow to 0x4b64000
-==25197== brk segment overflow in thread #1: can't grow to 0x4b64000
-==25197== brk segment overflow in thread #1: can't grow to 0x4b64000
-==25197== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==25197== brk segment overflow in thread #1: can't grow to 0x5c14000
-==25197== 
-==25197== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==25197== Collected : 12218175139 2946333148 1398546663 2307 82132150 11716793 2270 14629609 10342702
-==25197== 
-==25197== I   refs:      12,218,175,139
-==25197== I1  misses:             2,307
-==25197== LLi misses:             2,270
-==25197== I1  miss rate:           0.00%
-==25197== LLi miss rate:           0.00%
-==25197== 
-==25197== D   refs:       4,344,879,811  (2,946,333,148 rd + 1,398,546,663 wr)
-==25197== D1  misses:        93,848,943  (   82,132,150 rd +    11,716,793 wr)
-==25197== LLd misses:        24,972,311  (   14,629,609 rd +    10,342,702 wr)
-==25197== D1  miss rate:            2.2% (          2.8%   +           0.8%  )
-==25197== LLd miss rate:            0.6% (          0.5%   +           0.7%  )
-==25197== 
-==25197== LL refs:           93,851,250  (   82,134,457 rd +    11,716,793 wr)
-==25197== LL misses:         24,974,581  (   14,631,879 rd +    10,342,702 wr)
-==25197== LL miss rate:             0.2% (          0.1%   +           0.7%  )
+==21222== Callgrind, a call-graph generating cache profiler
+==21222== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==21222== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==21222== Command: ./sift ./
+==21222== 
+--21222-- warning: L3 cache found, using its data for the LL simulation.
+==21222== For interactive control, run 'callgrind_control -h'.
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+--21222-- Warning: DWARF2 CFI reader: unhandled DW_OP_ opcode 0x13
+==21222== brk segment overflow in thread #1: can't grow to 0x5415000
+==21222== brk segment overflow in thread #1: can't grow to 0x5436000
+==21222== brk segment overflow in thread #1: can't grow to 0x5436000
+==21222== brk segment overflow in thread #1: can't grow to 0x5436000
+==21222== brk segment overflow in thread #1: can't grow to 0x5436000
+==21222== brk segment overflow in thread #1: can't grow to 0x5436000
+==21222== brk segment overflow in thread #1: can't grow to 0x4b71000
+==21222== brk segment overflow in thread #1: can't grow to 0x4b71000
+==21222== brk segment overflow in thread #1: can't grow to 0x4a94000
+==21222== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==21222== brk segment overflow in thread #1: can't grow to 0x5c14000
+==21222== brk segment overflow in thread #1: can't grow to 0x5c14000
+==21222== brk segment overflow in thread #1: can't grow to 0x5c14000
+==21222== brk segment overflow in thread #1: can't grow to 0x5c14000
+==21222== brk segment overflow in thread #1: can't grow to 0x5c14000
+==21222== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==21222== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==21222== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==21222== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==21222== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==21222== brk segment overflow in thread #1: can't grow to 0x4b64000
+==21222== brk segment overflow in thread #1: can't grow to 0x4b64000
+==21222== brk segment overflow in thread #1: can't grow to 0x4b64000
+==21222== brk segment overflow in thread #1: can't grow to 0x4b64000
+==21222== brk segment overflow in thread #1: can't grow to 0x4b64000
+==21222== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==21222== brk segment overflow in thread #1: can't grow to 0x5c14000
+==21222== 
+==21222== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==21222== Collected : 12218175151 2946333151 1398546666 2307 82132150 11716793 2270 14629609 10342702
+==21222== 
+==21222== I   refs:      12,218,175,151
+==21222== I1  misses:             2,307
+==21222== LLi misses:             2,270
+==21222== I1  miss rate:           0.00%
+==21222== LLi miss rate:           0.00%
+==21222== 
+==21222== D   refs:       4,344,879,817  (2,946,333,151 rd + 1,398,546,666 wr)
+==21222== D1  misses:        93,848,943  (   82,132,150 rd +    11,716,793 wr)
+==21222== LLd misses:        24,972,311  (   14,629,609 rd +    10,342,702 wr)
+==21222== D1  miss rate:            2.2% (          2.8%   +           0.8%  )
+==21222== LLd miss rate:            0.6% (          0.5%   +           0.7%  )
+==21222== 
+==21222== LL refs:           93,851,250  (   82,134,457 rd +    11,716,793 wr)
+==21222== LL misses:         24,974,581  (   14,631,879 rd +    10,342,702 wr)
+==21222== LL miss rate:             0.2% (          0.1%   +           0.7%  )
