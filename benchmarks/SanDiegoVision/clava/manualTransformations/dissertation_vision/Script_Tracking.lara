@@ -140,11 +140,7 @@ aspectdef GlobalBaselineOfast
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_base.c");
 	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_base.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
-<<<<<<< HEAD
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ODROID.common");
-=======
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ANTAREX.common");
->>>>>>> antarex
 		
 	Io.writeFile(sobelDx, sobelDxContent);
 	Io.writeFile(sobelDy, sobelDyContent);
@@ -249,11 +245,7 @@ aspectdef GlobalV1Ofast
 	sobelDyContent = Io.readFile(sobelDyVersions + "/calcSobel_dY_v1.c");
 	imageBlurContent = Io.readFile(imageBlurVersions + "/imageBlur_v1.c");
 	mainContent = Io.readFile(mainVersions + "/script_tracking_base.c");
-<<<<<<< HEAD
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ODROID.common");
-=======
-	makefileContent = Io.readFile(makefileVersions + "/Makefile_Ofast_ANTAREX.common");
->>>>>>> antarex
 		
 	Io.writeFile(sobelDx, sobelDxContent);
 	Io.writeFile(sobelDy, sobelDyContent);
