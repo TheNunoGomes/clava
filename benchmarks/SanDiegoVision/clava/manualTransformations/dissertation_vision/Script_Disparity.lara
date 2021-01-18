@@ -23,7 +23,7 @@ aspectdef Script_Disparity
 	
 	call GlobalV1O3_VECTORIZATION;
 	
-
+/*
 	call GlobalBaselineO0_CACHE;
 	call GlobalBaselineO2_CACHE;
 	call GlobalBaselineO3_CACHE;
@@ -31,7 +31,7 @@ aspectdef Script_Disparity
 	call GlobalV1O0_CACHE;
 	call GlobalV1O2_CACHE;
 	call GlobalV1O3_CACHE;
-
+*/
 end
 
 aspectdef GlobalBaselineO0
