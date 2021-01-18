@@ -1,4 +1,4 @@
-Executing: Baseline. Measuring: Vectorization. Flag: -O3
+Executing: DISPv1. Measuring: Vectorization. Flag: -O3
 
 -e Benchmark		- disparity
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/common/c/calcSobel_dY.c:50:9: note: loop vectorized
