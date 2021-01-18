@@ -6,7 +6,7 @@ var makefileVersions = Io.getAbsolutePath("./common/makefiles/makefileVersions")
 
 var speedupsGlobal = Io.getAbsolutePath("./benchmarks/disparity/data/fullhd/Speedups/global");
 var vectorization = Io.getAbsolutePath("./benchmarks/disparity/data/fullhd/Speedups/vectorization");
-var cache = Io.getAbsolutePath("./benchmarks/disparity/fullhd/Speedups/cache");
+var cache = Io.getAbsolutePath("./benchmarks/disparity/data/fullhd/Speedups/cache");
 
 var finalSAD = Io.getAbsolutePath("./benchmarks/disparity/src/c/finalSAD.c");
 var makefile = Io.getAbsolutePath("./common/makefiles/Makefile.common");	
@@ -192,7 +192,7 @@ aspectdef GlobalV1O3_VECTORIZATION
 	executor.execute("make", "compile");
 	results += executor.getConsoleOutput();
 
-	Io.writeFile(vectorization + "/baseline_o3.txt", results);
+	Io.writeFile(vectorization + "/v1_o3.txt", results);
 end
 
 
