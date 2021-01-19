@@ -28,7 +28,7 @@ var numberOfExecutions = 30;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
-	
+/*
 
 	call GlobalV2O0;
 	call GlobalV2O2;
@@ -46,17 +46,30 @@ aspectdef Script
 	
 	call GlobalV3O3_VECTORIZATION;
 	call GlobalV3Ofast_VECTORIZATION;
+*/
 
+	call GlobalBaselineO3_VECTORIZATION;
+	call GlobalBaselineOfast_VECTORIZATION;
 
+	call GlobalV1O3_VECTORIZATION;
+	call GlobalV1Ofast_VECTORIZATION;
+	
+	call GlobalV1O0_CACHE;
+	call GlobalV1O2_CACHE;
+	call GlobalV1O3_CACHE;
+	call GlobalV1Ofast_CACHE;
+
+/*
 	call GlobalV2O0_CACHE;
 	call GlobalV2O2_CACHE;
 	call GlobalV2O3_CACHE;
 	call GlobalV2Ofast_CACHE;
-	
+
 	call GlobalV3O0_CACHE;
 	call GlobalV3O2_CACHE;
 	call GlobalV3O3_CACHE;
 	call GlobalV3Ofast_CACHE;
+*/
 
 end
 
