@@ -1,4 +1,4 @@
-Executing: DISPv1. Measuring: Vectorization. Flag: -O3
+Executing: Baseline. Measuring: Vectorization. Flag: -O3
 
 -e Benchmark		- disparity
 <<<<<<< HEAD

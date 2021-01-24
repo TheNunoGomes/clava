@@ -2,6 +2,7 @@ Executing: Baseline. Measuring: Vectorization. Flag: -O3
 
 -e Benchmark		- sift
 <<<<<<< HEAD
+<<<<<<< HEAD
 perl: warning: Setting locale failed.
 perl: warning: Please check that your locale settings:
 	LANGUAGE = (unset),
@@ -14730,6 +14731,8 @@ Analyzing loop at /home/odroid/ngomes/clava/benchmarks/SanDiegoVision/clava/manu
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: note: loop versioned for vectorization because of possible aliasing
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: note: loop turned into non-loop; it never loops.
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/halveSize.c:27:9: note: loop with 4 iterations completely unrolled
+=======
+>>>>>>> antarex
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:65:5: note: loop vectorized
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: note: loop vectorized
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: note: loop versioned for vectorization because of possible aliasing
@@ -14741,6 +14744,7 @@ Analyzing loop at /home/odroid/ngomes/clava/benchmarks/SanDiegoVision/clava/manu
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:106:7: note: loop with 6 iterations completely unrolled
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:30:6: note: loop turned into non-loop; it never loops.
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/imsmooth.c:30:6: note: loop with 3 iterations completely unrolled
+<<<<<<< HEAD
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:165:13: note: loop vectorized
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:165:13: note: loop versioned for vectorization because of possible aliasing
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/gaussianss.c:165:13: note: loop turned into non-loop; it never loops.
@@ -14771,4 +14775,6 @@ Analyzing loop at /home/odroid/ngomes/clava/benchmarks/SanDiegoVision/clava/manu
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:180:13: note: loop with 4 iterations completely unrolled
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:94:9: note: loop turned into non-loop; it never loops.
 /home/specs/ngomes/clava/benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/src/c/siftrefinemx.c:94:9: note: loop with 5 iterations completely unrolled
+>>>>>>> antarex
+=======
 >>>>>>> antarex

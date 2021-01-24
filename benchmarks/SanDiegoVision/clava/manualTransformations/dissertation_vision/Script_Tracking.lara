@@ -26,6 +26,22 @@ var numberOfExecutions = 30;
 aspectdef Script_Tracking
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 
+	call GlobalBaselineO0;
+	call GlobalBaselineO2;
+	call GlobalBaselineO3;
+	call GlobalBaselineOfast;
+
+	call GlobalV1O0;
+	call GlobalV1O2;
+	call GlobalV1O3;
+	call GlobalV1Ofast;
+	
+	call GlobalV2O0;
+	call GlobalV2O2;
+	call GlobalV2O3;
+	call GlobalV2Ofast;
+
+
 	call GlobalBaselineO3_VECTORIZATION;
 	call GlobalBaselineOfast_VECTORIZATION;
 
@@ -35,22 +51,6 @@ aspectdef Script_Tracking
 	call GlobalV2O3_VECTORIZATION;
 	call GlobalV2Ofast_VECTORIZATION;
 
-
-
-	call GlobalBaselineO0_CACHE;
-	call GlobalBaselineO2_CACHE;
-	call GlobalBaselineO3_CACHE;
-	call GlobalBaselineOfast_CACHE;
-
-	call GlobalV1O0_CACHE;
-	call GlobalV1O2_CACHE;
-	call GlobalV1O3_CACHE;
-	call GlobalV1Ofast_CACHE;
-	
-	call GlobalV2O0_CACHE;
-	call GlobalV2O2_CACHE;
-	call GlobalV2O3_CACHE;
-	call GlobalV2Ofast_CACHE;
 end
 
 aspectdef GlobalBaselineO0

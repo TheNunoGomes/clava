@@ -6,7 +6,7 @@ var makefileVersions = Io.getAbsolutePath("./common/makefiles/makefileVersions")
 
 var speedupsGlobal = Io.getAbsolutePath("./benchmarks/disparity/data/fullhd/Speedups/global");
 var vectorization = Io.getAbsolutePath("./benchmarks/disparity/data/fullhd/Speedups/vectorization");
-var cache = Io.getAbsolutePath("./benchmarks/disparity/fullhd/Speedups/cache");
+var cache = Io.getAbsolutePath("./benchmarks/disparity/data/fullhd/Speedups/cache");
 
 var finalSAD = Io.getAbsolutePath("./benchmarks/disparity/src/c/finalSAD.c");
 var makefile = Io.getAbsolutePath("./common/makefiles/Makefile.common");	
@@ -18,22 +18,20 @@ var numberOfExecutions = 30;
 
 aspectdef Script_Disparity
 	executor.setWorkingDir(Io.getAbsolutePath(data));
-/*
+
 	call GlobalBaselineO0;
 	call GlobalBaselineO2;
 	call GlobalBaselineO3;
 
-	call GlobalV1O0;
-	call GlobalV1O2;
-	call GlobalV1O3;
-//*/
+	call GlobalV1O0
+	call GlobalV1O2
+	call GlobalV1O3
 
-//	call GlobalBaselineO3_VECTORIZATION;
-//	call GlobalV1O3_VECTORIZATION;
-	
-	call GlobalBaselineO0_CACHE;
-	call GlobalBaselineO3_CACHE;
-	call GlobalV1O3_CACHE;
+
+	call GlobalBaselineO3_VECTORIZATION;
+
+	call GlobalV1O3_VECTORIZATION;
+
 
 end
 
@@ -195,7 +193,7 @@ aspectdef GlobalV1O3_VECTORIZATION
 	executor.execute("make", "compile");
 	results += executor.getConsoleOutput();
 
-	Io.writeFile(vectorization + "/baseline_o3.txt", results);
+	Io.writeFile(vectorization + "/v1_o3.txt", results);
 end
 
 
@@ -220,6 +218,25 @@ aspectdef GlobalBaselineO0_CACHE
 	Io.writeFile(cache + "/base_o0.txt", results);
 end
 
+aspectdef GlobalBaselineO2_CACHE
+	var results = "";
+	finalSADContent = Io.readFile(finalSADVersions + "/finalSAD_base.c");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
+		
+	Io.writeFile(finalSAD, finalSADContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: Baseline. Measuring: Cache. Flag: -O2\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./disparity ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/base_o2.txt", results);
+end
+
 aspectdef GlobalBaselineO3_CACHE
 	var results = "";
 	finalSADContent = Io.readFile(finalSADVersions + "/finalSAD_base.c");
@@ -237,6 +254,44 @@ aspectdef GlobalBaselineO3_CACHE
 	results += executor.getConsoleOutput();
 	
 	Io.writeFile(cache + "/base_o3.txt", results);
+end
+
+aspectdef GlobalV1O0_CACHE
+	var results = "";
+	finalSADContent = Io.readFile(finalSADVersions + "/finalSAD_v1.c");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
+		
+	Io.writeFile(finalSAD, finalSADContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: DISPv1. Measuring: Cache. Flag: -O0\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./disparity ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/v1_o0.txt", results);
+end
+
+aspectdef GlobalV1O2_CACHE
+	var results = "";
+	finalSADContent = Io.readFile(finalSADVersions + "/finalSAD_v1.c");
+	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");
+		
+	Io.writeFile(finalSAD, finalSADContent);
+	Io.writeFile(makefile, makefileContent);
+	
+	var measuring = "Executing: DISPv1. Measuring: Cache. Flag: -O2\n";
+	results += measuring;
+	println(measuring);
+	
+	executor.execute("make", "compile");
+	executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./disparity ./");
+	results += executor.getConsoleOutput();
+	
+	Io.writeFile(cache + "/v1_o2.txt", results);
 end
 
 aspectdef GlobalV1O3_CACHE

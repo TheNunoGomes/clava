@@ -1,56 +1,56 @@
 Executing: SIFTv1. Measuring: Cache. Flag: -O2
-159408.586158ms
+159587.648366ms
 Verification		- Successful
-==20373== Callgrind, a call-graph generating cache profiler
-==20373== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
-==20373== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
-==20373== Command: ./sift ./
-==20373== 
---20373-- warning: L3 cache found, using its data for the LL simulation.
-==20373== For interactive control, run 'callgrind_control -h'.
-==20373== brk segment overflow in thread #1: can't grow to 0x5415000
-==20373== brk segment overflow in thread #1: can't grow to 0x5436000
-==20373== brk segment overflow in thread #1: can't grow to 0x5436000
-==20373== brk segment overflow in thread #1: can't grow to 0x5436000
-==20373== brk segment overflow in thread #1: can't grow to 0x5436000
-==20373== brk segment overflow in thread #1: can't grow to 0x5436000
-==20373== brk segment overflow in thread #1: can't grow to 0x4b71000
-==20373== brk segment overflow in thread #1: can't grow to 0x4b71000
-==20373== brk segment overflow in thread #1: can't grow to 0x4a94000
-==20373== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==20373== brk segment overflow in thread #1: can't grow to 0x5c14000
-==20373== brk segment overflow in thread #1: can't grow to 0x5c14000
-==20373== brk segment overflow in thread #1: can't grow to 0x5c14000
-==20373== brk segment overflow in thread #1: can't grow to 0x5c14000
-==20373== brk segment overflow in thread #1: can't grow to 0x5c14000
-==20373== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==20373== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==20373== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==20373== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==20373== brk segment overflow in thread #1: can't grow to 0x4ebb000
-==20373== brk segment overflow in thread #1: can't grow to 0x4b64000
-==20373== brk segment overflow in thread #1: can't grow to 0x4b64000
-==20373== brk segment overflow in thread #1: can't grow to 0x4b64000
-==20373== brk segment overflow in thread #1: can't grow to 0x4b64000
-==20373== brk segment overflow in thread #1: can't grow to 0x4b64000
-==20373== brk segment overflow in thread #1: can't grow to 0x4a8f000
-==20373== brk segment overflow in thread #1: can't grow to 0x5c14000
-==20373== 
-==20373== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
-==20373== Collected : 12954544525 3112856624 1523194573 1983 82119706 11716747 1953 14629248 10342651
-==20373== 
-==20373== I   refs:      12,954,544,525
-==20373== I1  misses:             1,983
-==20373== LLi misses:             1,953
-==20373== I1  miss rate:           0.00%
-==20373== LLi miss rate:           0.00%
-==20373== 
-==20373== D   refs:       4,636,051,197  (3,112,856,624 rd + 1,523,194,573 wr)
-==20373== D1  misses:        93,836,453  (   82,119,706 rd +    11,716,747 wr)
-==20373== LLd misses:        24,971,899  (   14,629,248 rd +    10,342,651 wr)
-==20373== D1  miss rate:            2.0% (          2.6%   +           0.8%  )
-==20373== LLd miss rate:            0.5% (          0.5%   +           0.7%  )
-==20373== 
-==20373== LL refs:           93,838,436  (   82,121,689 rd +    11,716,747 wr)
-==20373== LL misses:         24,973,852  (   14,631,201 rd +    10,342,651 wr)
-==20373== LL miss rate:             0.1% (          0.1%   +           0.7%  )
+==30478== Callgrind, a call-graph generating cache profiler
+==30478== Copyright (C) 2002-2015, and GNU GPL'd, by Josef Weidendorfer et al.
+==30478== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==30478== Command: ./sift ./
+==30478== 
+--30478-- warning: L3 cache found, using its data for the LL simulation.
+==30478== For interactive control, run 'callgrind_control -h'.
+==30478== brk segment overflow in thread #1: can't grow to 0x5415000
+==30478== brk segment overflow in thread #1: can't grow to 0x5436000
+==30478== brk segment overflow in thread #1: can't grow to 0x5436000
+==30478== brk segment overflow in thread #1: can't grow to 0x5436000
+==30478== brk segment overflow in thread #1: can't grow to 0x5436000
+==30478== brk segment overflow in thread #1: can't grow to 0x5436000
+==30478== brk segment overflow in thread #1: can't grow to 0x4b71000
+==30478== brk segment overflow in thread #1: can't grow to 0x4b71000
+==30478== brk segment overflow in thread #1: can't grow to 0x4a94000
+==30478== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==30478== brk segment overflow in thread #1: can't grow to 0x5c14000
+==30478== brk segment overflow in thread #1: can't grow to 0x5c14000
+==30478== brk segment overflow in thread #1: can't grow to 0x5c14000
+==30478== brk segment overflow in thread #1: can't grow to 0x5c14000
+==30478== brk segment overflow in thread #1: can't grow to 0x5c14000
+==30478== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==30478== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==30478== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==30478== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==30478== brk segment overflow in thread #1: can't grow to 0x4ebb000
+==30478== brk segment overflow in thread #1: can't grow to 0x4b64000
+==30478== brk segment overflow in thread #1: can't grow to 0x4b64000
+==30478== brk segment overflow in thread #1: can't grow to 0x4b64000
+==30478== brk segment overflow in thread #1: can't grow to 0x4b64000
+==30478== brk segment overflow in thread #1: can't grow to 0x4b64000
+==30478== brk segment overflow in thread #1: can't grow to 0x4a8f000
+==30478== brk segment overflow in thread #1: can't grow to 0x5c14000
+==30478== 
+==30478== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==30478== Collected : 12954544574 3112856632 1523194582 1987 82119706 11716747 1957 14629248 10342651
+==30478== 
+==30478== I   refs:      12,954,544,574
+==30478== I1  misses:             1,987
+==30478== LLi misses:             1,957
+==30478== I1  miss rate:           0.00%
+==30478== LLi miss rate:           0.00%
+==30478== 
+==30478== D   refs:       4,636,051,214  (3,112,856,632 rd + 1,523,194,582 wr)
+==30478== D1  misses:        93,836,453  (   82,119,706 rd +    11,716,747 wr)
+==30478== LLd misses:        24,971,899  (   14,629,248 rd +    10,342,651 wr)
+==30478== D1  miss rate:            2.0% (          2.6%   +           0.8%  )
+==30478== LLd miss rate:            0.5% (          0.5%   +           0.7%  )
+==30478== 
+==30478== LL refs:           93,838,440  (   82,121,693 rd +    11,716,747 wr)
+==30478== LL misses:         24,973,856  (   14,631,205 rd +    10,342,651 wr)
+==30478== LL miss rate:             0.1% (          0.1%   +           0.7%  )
