@@ -17,7 +17,7 @@ Author: Sravanthi Kota Venkata
   const int nbins = 36 ;
   const float threshold = 0.01;
    
-  void imsmooth(F2D* array, float dsigma, F2D* out)
+   
   {
     int M,N;
     int i,j,k;
@@ -42,13 +42,13 @@ Author: Sravanthi Kota Venkata
 
       buffer = fSetArray(M,N,0);
 
-      for(j = 0 ; j < (2*W+1) ; ++j)
+      for(j = 0 ; j < (2*W+1) ; ++j) // VETORIZADO com Ofast
       {
         temp[j] = (float)(expf(-0.5 * (j - W)*(j - W)/(s*s))) ;
         acc += temp[j];
       }
 
-      for(j = 0 ; j < (2*W+1) ; ++j)
+      for(j = 0 ; j < (2*W+1) ; ++j) // VETORIZADO com O3 e com Ofast
       {
         temp[j] /= acc ;
       }
@@ -96,7 +96,7 @@ Author: Sravanthi Kota Venkata
     else
     {
       	printf("Under the threshold.\n");
-        for(i=0;i<M*N;i++)
+        for(i=0;i<M*N;i++) // VETORIZADO com O3 e com Ofast
             asubsref(out, i) = asubsref(array, i);
     }
 

@@ -30,7 +30,7 @@ F2D* calcSobel_dY(F2D* imageIn)
     for(i=1; i<endRow; i++)
     {
     
-        for(j=1; j<endCol; j++)
+        for(j=1; j<endCol; j++) // Vectorized O3/Ofast
         {
             temp = subsref(imageIn,(i-1),j);
             temp -= subsref(imageIn,(i+1),j);

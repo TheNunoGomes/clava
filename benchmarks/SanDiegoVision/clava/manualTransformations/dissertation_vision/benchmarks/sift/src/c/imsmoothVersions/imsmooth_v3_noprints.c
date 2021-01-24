@@ -126,12 +126,12 @@ Author: Sravanthi Kota Venkata
 
       buffer = fSetArray(M,N,0);
 
-      for(j = 0 ; j < (2*W+1) ; ++j)
+      for(j = 0 ; j < (2*W+1) ; ++j) // VETORIZADO com Ofast
       {
         temp[j] = (float)(expf(-0.5 * (j - W)*(j - W)/(s*s))) ;
         acc += temp[j];
       }
-      for(j = 0 ; j < (2*W+1) ; ++j)
+      for(j = 0 ; j < (2*W+1) ; ++j)  // VETORIZADO com O3 e com Ofast
       {
 	temp[j] /= acc ;
       }
@@ -217,7 +217,7 @@ Author: Sravanthi Kota Venkata
 			b += array->data[(j) * array->width + (2+i-W)] * temp[2];
 			b += array->data[(j) * array->width + (3+i-W)] * temp[3];
 			b += array->data[(j) * array->width + (4+i-W)] * temp[4];
-			for(k = 0; k < N-i; ++k) {
+			for(k = 0; k < N-i; ++k) { // VETORIZADO com Ofast
 				b += array->data[(j) * array->width + (k+i)] * temp[k+W];
 			}
 			buffer->data[(j) * array->width + (i)] += b;
@@ -270,7 +270,7 @@ Author: Sravanthi Kota Venkata
 			o += buffer->data[(2+j-W) * array->width + (i)] * temp[2];
 			o += buffer->data[(3+j-W) * array->width + (i)] * temp[3];
 			o += buffer->data[(4+j-W) * array->width + (i)] * temp[4];
-			for(k = 0; k < M-j; ++k) {
+			for(k = 0; k < M-j; ++k) { // VETORIZADO com Ofast
 				o += buffer->data[(k+j) * array->width + (i)] * temp[k+W];
 			}
 			out->data[(j) * array->width + (i)] += o;

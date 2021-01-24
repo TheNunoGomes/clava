@@ -47,7 +47,7 @@ F2D* calcSobel_dX(F2D* imageIn)
     
     for(i=1; i<endRow; i++)
     {
-        for(j=1; j<endCol; j++)
+        for(j=1; j<endCol; j++) // Vectorized O3/Ofast
         {
             temp = subsref(tempOut,(i-1),j);
             temp += subsref(tempOut,(i),j) * 2;
