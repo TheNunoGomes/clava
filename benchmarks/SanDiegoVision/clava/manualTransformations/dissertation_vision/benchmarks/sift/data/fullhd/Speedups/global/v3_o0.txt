@@ -1,132 +1,61 @@
-<<<<<<< HEAD:benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/data/fullhd/Speedups/global/v1_o2.txt
-Executing: SIFTv1. Measuring: Global. Flag: -O2
-<<<<<<< HEAD
-7074.016347ms
-Verification		- Successful
-7078.258543ms
-Verification		- Successful
-7086.198358ms
-Verification		- Successful
-7062.954775ms
-Verification		- Successful
-7065.820654ms
-Verification		- Successful
-7072.522694ms
-Verification		- Successful
-7072.651482ms
-Verification		- Successful
-7072.910936ms
-Verification		- Successful
-7071.891864ms
-Verification		- Successful
-7072.653436ms
-Verification		- Successful
-7056.034395ms
-Verification		- Successful
-7077.821368ms
-Verification		- Successful
-7066.493302ms
-Verification		- Successful
-7066.793463ms
-Verification		- Successful
-7072.060187ms
-Verification		- Successful
-7072.556055ms
-Verification		- Successful
-7062.515597ms
-Verification		- Successful
-7085.340350ms
-Verification		- Successful
-7085.534472ms
-Verification		- Successful
-7081.519103ms
-Verification		- Successful
-7065.168516ms
-Verification		- Successful
-7063.623783ms
-Verification		- Successful
-7071.393436ms
-Verification		- Successful
-7064.684685ms
-Verification		- Successful
-7068.176183ms
-Verification		- Successful
-7065.644712ms
-Verification		- Successful
-7065.793501ms
-Verification		- Successful
-7063.952813ms
-Verification		- Successful
-7068.662711ms
-Verification		- Successful
-7080.330690ms
-=======
-1413.493715ms
-=======
 Executing: SIFTv3. Measuring: Global. Flag: -O0
-3806.386557ms
->>>>>>> antarex:benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/data/fullhd/Speedups/global/v3_o0.txt
+17564.818309ms
 Verification		- Successful
-3809.734855ms
+17486.095552ms
 Verification		- Successful
-3799.731066ms
+17485.074362ms
 Verification		- Successful
-3801.437280ms
+17502.079195ms
 Verification		- Successful
-3800.522073ms
+17495.303494ms
 Verification		- Successful
-3800.016079ms
+17479.660696ms
 Verification		- Successful
-3801.455972ms
+17503.255031ms
 Verification		- Successful
-3898.217619ms
+17497.314776ms
 Verification		- Successful
-3800.734679ms
+17492.828838ms
 Verification		- Successful
-3801.852260ms
+17504.587278ms
 Verification		- Successful
-3801.614391ms
+17493.670378ms
 Verification		- Successful
-3806.829316ms
+17486.633931ms
 Verification		- Successful
-3813.853974ms
+17495.239911ms
 Verification		- Successful
-3800.901315ms
+17501.786459ms
 Verification		- Successful
-3803.052110ms
+17490.025070ms
 Verification		- Successful
-3798.913656ms
+17496.109623ms
 Verification		- Successful
-3809.986196ms
+17495.275057ms
 Verification		- Successful
-3800.803553ms
+17489.058765ms
 Verification		- Successful
-3800.179230ms
+17497.133959ms
 Verification		- Successful
-3945.691197ms
+17503.892003ms
 Verification		- Successful
-3813.793180ms
+17518.747907ms
 Verification		- Successful
-3806.552456ms
+17499.157823ms
 Verification		- Successful
-3800.228719ms
+17516.414862ms
 Verification		- Successful
-3803.146230ms
+17497.695226ms
 Verification		- Successful
-3851.664084ms
+17517.795189ms
 Verification		- Successful
-3802.227935ms
+17500.334661ms
 Verification		- Successful
-3802.215266ms
+17505.890554ms
 Verification		- Successful
-3821.668952ms
+17515.130317ms
 Verification		- Successful
-3802.377183ms
+17517.200589ms
 Verification		- Successful
-<<<<<<< HEAD:benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/data/fullhd/Speedups/global/v1_o2.txt
-1417.360440ms
->>>>>>> antarex
-=======
-3802.581152ms
->>>>>>> antarex:benchmarks/SanDiegoVision/clava/manualTransformations/dissertation_vision/benchmarks/sift/data/fullhd/Speedups/global/v3_o0.txt
+17495.342368ms
 Verification		- Successful

@@ -1,131 +1,61 @@
 Executing: SIFTv2. Measuring: Global. Flag: -Ofast
-<<<<<<< HEAD
-<<<<<<< HEAD
-5675.907045ms
+7099.232681ms
 Verification		- Successful
-5735.823472ms
+7094.201744ms
 Verification		- Successful
-5670.978811ms
+7096.157471ms
 Verification		- Successful
-5666.311660ms
+7089.331931ms
 Verification		- Successful
-5674.084518ms
+7104.834654ms
 Verification		- Successful
-5676.552444ms
+7096.030641ms
 Verification		- Successful
-5670.219938ms
+7092.321896ms
 Verification		- Successful
-5682.829612ms
+7088.954398ms
 Verification		- Successful
-5675.762323ms
+7089.308938ms
 Verification		- Successful
-5662.885940ms
+7091.953114ms
 Verification		- Successful
-5662.486858ms
+7093.283724ms
 Verification		- Successful
-5671.458246ms
+7093.719092ms
 Verification		- Successful
-5671.548577ms
+7105.018537ms
 Verification		- Successful
-5662.363814ms
+7095.334950ms
 Verification		- Successful
-5664.215247ms
+7099.179361ms
 Verification		- Successful
-5663.019261ms
+7094.405796ms
 Verification		- Successful
-5660.993158ms
+7095.162622ms
 Verification		- Successful
-5666.526796ms
+7094.161593ms
 Verification		- Successful
-5663.054712ms
+7098.614454ms
 Verification		- Successful
-5667.359241ms
+7095.391620ms
 Verification		- Successful
-5665.810549ms
+7098.009048ms
 Verification		- Successful
-5664.341483ms
+7097.376057ms
 Verification		- Successful
-5667.289778ms
+7091.082346ms
 Verification		- Successful
-5683.490034ms
+7093.638356ms
 Verification		- Successful
-5663.059119ms
+7100.742517ms
 Verification		- Successful
-5668.535757ms
+7085.765498ms
 Verification		- Successful
-5670.668437ms
+7094.574054ms
 Verification		- Successful
-5673.369319ms
+7096.472073ms
 Verification		- Successful
-5667.176966ms
+7095.380631ms
 Verification		- Successful
-5668.340017ms
-=======
-743.400521ms
-=======
-730.505204ms
->>>>>>> antarex
-Verification		- Successful
-729.516330ms
-Verification		- Successful
-729.684258ms
-Verification		- Successful
-731.007288ms
-Verification		- Successful
-731.733120ms
-Verification		- Successful
-733.098081ms
-Verification		- Successful
-731.761233ms
-Verification		- Successful
-755.490701ms
-Verification		- Successful
-730.318280ms
-Verification		- Successful
-733.354788ms
-Verification		- Successful
-731.563571ms
-Verification		- Successful
-731.449452ms
-Verification		- Successful
-733.771612ms
-Verification		- Successful
-729.679260ms
-Verification		- Successful
-732.006917ms
-Verification		- Successful
-730.166089ms
-Verification		- Successful
-730.980851ms
-Verification		- Successful
-738.112077ms
-Verification		- Successful
-744.818916ms
-Verification		- Successful
-731.141479ms
-Verification		- Successful
-747.242322ms
-Verification		- Successful
-730.890169ms
-Verification		- Successful
-732.718822ms
-Verification		- Successful
-744.202834ms
-Verification		- Successful
-731.834557ms
-Verification		- Successful
-730.967218ms
-Verification		- Successful
-741.113033ms
-Verification		- Successful
-735.879962ms
-Verification		- Successful
-730.232988ms
-Verification		- Successful
-<<<<<<< HEAD
-727.679695ms
->>>>>>> antarex
-=======
-755.720593ms
->>>>>>> antarex
+7093.963941ms
 Verification		- Successful

@@ -1,61 +1,61 @@
-Executing: SIFTv3. Measuring: Global. Flag: -O3
-5640.093503ms
+Executing: SIFTv1. Measuring: Global. Flag: -O2
+7064.048124ms
 Verification		- Successful
-5638.691313ms
+7059.906471ms
 Verification		- Successful
-5632.394227ms
+7077.761955ms
 Verification		- Successful
-5641.187866ms
+7071.922615ms
 Verification		- Successful
-5639.217766ms
+7068.516868ms
 Verification		- Successful
-5634.187414ms
+7066.507896ms
 Verification		- Successful
-5644.753032ms
+7071.312336ms
 Verification		- Successful
-5633.349261ms
+7069.321863ms
 Verification		- Successful
-5636.004518ms
+7064.926297ms
 Verification		- Successful
-5646.179141ms
+7072.233999ms
 Verification		- Successful
-5653.889211ms
+7070.942558ms
 Verification		- Successful
-5649.971303ms
+7062.042214ms
 Verification		- Successful
-5641.202913ms
+7065.689753ms
 Verification		- Successful
-5635.963524ms
+7060.988481ms
 Verification		- Successful
-5637.792875ms
+7066.663869ms
 Verification		- Successful
-5647.357923ms
+7059.104133ms
 Verification		- Successful
-5649.105983ms
+7057.375949ms
 Verification		- Successful
-5650.206429ms
+7060.670325ms
 Verification		- Successful
-5646.200395ms
+7073.087755ms
 Verification		- Successful
-5634.411296ms
+7055.246939ms
 Verification		- Successful
-5642.256823ms
+7059.159642ms
 Verification		- Successful
-5648.189664ms
+7078.068489ms
 Verification		- Successful
-5648.060918ms
+7068.357738ms
 Verification		- Successful
-5638.834617ms
+7066.789010ms
 Verification		- Successful
-5647.464885ms
+7059.756478ms
 Verification		- Successful
-5638.795786ms
+7068.872738ms
 Verification		- Successful
-5639.747900ms
+7065.427950ms
 Verification		- Successful
-5643.474727ms
+7072.921150ms
 Verification		- Successful
-5641.489754ms
+7057.231307ms
 Verification		- Successful
-5638.327337ms
+7066.555734ms
 Verification		- Successful
