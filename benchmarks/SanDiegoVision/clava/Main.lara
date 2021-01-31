@@ -62,7 +62,7 @@ for(var benchmarkName of benchmarkNames) {
 		benchmark.compile();
 		
 		var results = "";
-		for(var i = 0; i < 1; i++) {
+		for(var i = 0; i < 30; i++) {
 			var executor = benchmark.execute();
 			results += executor.getConsoleOutput();
 		}
