@@ -46,10 +46,9 @@ for(var benchmarkName of benchmarkNames) {
 		//*/
 		Utils.timeMethodCalls(benchmarkName);
 		
-		Transformations.replaceDoublesWithFloats();
-		/*
+		//Transformations.replaceDoublesWithFloats();
 		Transformations.replacePowCalls();
-		Transformations.replaceCeilCalls();
+		//Transformations.replaceCeilCalls();
 		//*/
 		/*
 		var loggerOut = new Logger();
@@ -66,7 +65,7 @@ for(var benchmarkName of benchmarkNames) {
 			var executor = benchmark.execute();
 			results += executor.getConsoleOutput();
 		}
-		Io.writeFile("./replaceDoublesWithFloats.txt", results);
+		Io.writeFile("./replacePowCalls.txt", results);
 		//println(ex.getReturnValue());
 	}
 }
