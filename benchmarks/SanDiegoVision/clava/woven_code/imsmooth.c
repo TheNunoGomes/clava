@@ -13,6 +13,7 @@ This function is similar to imageBlur in common/c folder.
 Here, we can specify the sigma value for the gaussian filter
 function.
 **/
+extern int dFCount;
 void imsmooth(F2D *array, float dsigma, F2D *out) {
    int M, N;
    int i, j, k;
@@ -33,7 +34,8 @@ void imsmooth(F2D *array, float dsigma, F2D *out) {
       float acc = 0.0;
       buffer = fSetArray(M, N, 0);
       for(j = 0; j < (2 * W + 1); ++j) {
-         temp[j] = (float) (expf(-0.5 * (j - W) * (j - W) / (s * s)));
+         dFCount++;
+         temp[j] = (float) (expf(-0.5f * (j - W) * (j - W) / (s * s)));
          acc += temp[j];
       }
       for(j = 0; j < (2 * W + 1); ++j) {

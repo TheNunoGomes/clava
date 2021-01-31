@@ -131,7 +131,7 @@ F2D * siftlocalmax(F2D *in, float thresh, int intervals, int M, int N) {
       {
          float v = pt->data[ptoffset]; //*pt ;
          int is_greater = (v >= thresh) ? 1 : 0;
-         ((ptoffset < pt->width * pt->height) ? (void) (0) : __assert_fail("ptoffset < pt->width*pt->height", "/tmp/__clava_woven_8173a31c-0416-445e-a156-7ca4d2895da6_osboxes/siftlocalmax.c", 174, __extension__ "F2D *siftlocalmax(F2D *, float, int, int, int)"));
+         ((ptoffset < pt->width * pt->height) ? (void) (0) : __assert_fail("ptoffset < pt->width*pt->height", "/tmp/__clava_woven_9a66db7b-0fed-4a6b-b462-14b94304ee8b_osboxes/siftlocalmax.c", 174, __extension__ "F2D *siftlocalmax(F2D *, float, int, int, int)"));
          i = 0;
          while(is_greater && i < nneighbors) {
             if(v > pt->data[ptoffset + neighbors->data[i]]) is_greater *= 1;

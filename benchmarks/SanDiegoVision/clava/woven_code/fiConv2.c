@@ -2,6 +2,7 @@
 /********************************
 Author: Sravanthi Kota Venkata
 ********************************/
+extern int dFCount;
 F2D * fiConv2(I2D *a, F2D *b) {
    F2D *c;
    F2D *out;
@@ -11,8 +12,12 @@ F2D * fiConv2(I2D *a, F2D *b) {
    na = a->width;
    mb = b->height;
    nb = b->width;
-   r_index = ceil((mb + 1.0) / 2.0);
-   c_index = ceil((nb + 1.0) / 2.0);
+   dFCount++;
+   dFCount++;
+   r_index = ceil((mb + 1.0f) / 2.0f);
+   dFCount++;
+   dFCount++;
+   c_index = ceil((nb + 1.0f) / 2.0f);
    ci = ma + mb - 1;
    cj = na + nb - 1;
    c = fSetArray(ci, cj, 0);

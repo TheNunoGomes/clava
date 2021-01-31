@@ -1,6 +1,7 @@
 import lara.benchmark.SDVBSBenchmarkSet;
 import lara.benchmark.BenchmarkSet;
 import lara.code.Timer;
+import lara.Io;
 
 import lara.utils.Utils;
 import lara.utils.Transformations;
@@ -59,8 +60,13 @@ for(var benchmarkName of benchmarkNames) {
 		*/
 		//Transformations.loopSplitting();
 		benchmark.compile();
-		for(var i = 0; i < 30; i++)
-			benchmark.execute();
+		
+		var results = "";
+		for(var i = 0; i < 1; i++) {
+			var executor = benchmark.execute();
+			results += executor.getConsoleOutput();
+		}
+		Io.writeFile("./replaceDoublesWithFloats.txt", results);
 		//println(ex.getReturnValue());
 	}
 }

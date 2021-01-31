@@ -29,6 +29,7 @@ intensity images in the range [0,1] are around 0.01. Smaller
 values mean more keypoints.
 
 **/
+extern int dFCount;
 F2D * sift(F2D *I) {
    int rows, cols, K;
    int subLevels, omin, Octaves, r, NBP, NBO, smin, smax, intervals, o;
@@ -58,7 +59,8 @@ F2D * sift(F2D *I) {
    minVal = log2f((((rows) < (cols)) ? (rows) : (cols)));
    Octaves = (int) (floor(minVal)) - omin - 4;
    /*Upto 16x16 images*/
-   sigma0 = 1.6 * pow(2, (1.0 / subLevels));
+   dFCount++;
+   sigma0 = 1.6 * pow(2, (1.0f / subLevels));
    sigman = 0.5;
    thresh = (0.04 / subLevels) / 2;
    r = 10;
@@ -139,8 +141,10 @@ F2D * sift(F2D *I) {
       minima.
       The 80% tricks discards early very weak points before refinement.
       **/
-      idxf = siftlocalmax(temp, 0.8 * thresh, intervals, sizeRows, sizeCols);
-      t = siftlocalmax(negate, 0.8 * thresh, intervals, sizeRows, sizeCols);
+      dFCount++;
+      idxf = siftlocalmax(temp, 0.8f * thresh, intervals, sizeRows, sizeCols);
+      dFCount++;
+      t = siftlocalmax(negate, 0.8f * thresh, intervals, sizeRows, sizeCols);
       idxft = fHorzcat(idxf, t);
       /**
       Since indices is the 1-D index of the temp/negate arrays, we compute
@@ -156,13 +160,15 @@ F2D * sift(F2D *I) {
             for(j = 0; j < idx->width; j++) {
                int v, u, w, z;
                w = idx->data[(i) * idx->width + (j)];
-               v = ceil((w / (sizeRows * sizeCols)) + 0.5);
+               dFCount++;
+               v = ceil((w / (sizeRows * sizeCols)) + 0.5f);
                u = floor(w / (sizeRows * sizeCols));
                z = w - (sizeRows * sizeCols * u);
                /** v is the interval number, s **/
                s_->data[(i) * s_->width + (j)] = v;
                /** row number of the index **/
-               y->data[(i) * y->width + (j)] = ceil((z / sizeRows) + 0.5);
+               dFCount++;
+               y->data[(i) * y->width + (j)] = ceil((z / sizeRows) + 0.5f);
                /** col number of the index **/
                x->data[(i) * x->width + (j)] = z - (sizeCols * floor(z / sizeRows));
             }
