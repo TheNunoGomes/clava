@@ -1,91 +1,91 @@
 Executing: TRACKv2. Measuring: Global. Flag: -O0
 Input size		- (1080x1920)
 Verification		- Successful
-1428.716636ms
+8599.735479ms
 Input size		- (1080x1920)
 Verification		- Successful
-1415.234935ms
+8601.896865ms
 Input size		- (1080x1920)
 Verification		- Successful
-1429.701636ms
+8572.272019ms
 Input size		- (1080x1920)
 Verification		- Successful
-1422.418629ms
+8561.560273ms
 Input size		- (1080x1920)
 Verification		- Successful
-1443.441830ms
+8604.819862ms
 Input size		- (1080x1920)
 Verification		- Successful
-1429.695620ms
+8656.492971ms
 Input size		- (1080x1920)
 Verification		- Successful
-1428.935346ms
+8647.375457ms
 Input size		- (1080x1920)
 Verification		- Successful
-1428.753176ms
+8593.110542ms
 Input size		- (1080x1920)
 Verification		- Successful
-1432.812996ms
+8699.329475ms
 Input size		- (1080x1920)
 Verification		- Successful
-1428.866738ms
+8557.020353ms
 Input size		- (1080x1920)
 Verification		- Successful
-1429.192453ms
+8869.384913ms
 Input size		- (1080x1920)
 Verification		- Successful
-1428.901465ms
+8877.366602ms
 Input size		- (1080x1920)
 Verification		- Successful
-1429.871846ms
+8689.045341ms
 Input size		- (1080x1920)
 Verification		- Successful
-1414.255756ms
+8593.768890ms
 Input size		- (1080x1920)
 Verification		- Successful
-1437.179316ms
+8565.159073ms
 Input size		- (1080x1920)
 Verification		- Successful
-1431.127991ms
+8875.011912ms
 Input size		- (1080x1920)
 Verification		- Successful
-1428.790064ms
+8595.343946ms
 Input size		- (1080x1920)
 Verification		- Successful
-1428.106444ms
+8620.735338ms
 Input size		- (1080x1920)
 Verification		- Successful
-1438.878052ms
+8599.936050ms
 Input size		- (1080x1920)
 Verification		- Successful
-1447.811944ms
+8597.512327ms
 Input size		- (1080x1920)
 Verification		- Successful
-1433.125163ms
+8647.307917ms
 Input size		- (1080x1920)
 Verification		- Successful
-1432.104458ms
+8638.487690ms
 Input size		- (1080x1920)
 Verification		- Successful
-1445.596334ms
+8634.998479ms
 Input size		- (1080x1920)
 Verification		- Successful
-1430.055915ms
+8636.593500ms
 Input size		- (1080x1920)
 Verification		- Successful
-1430.140886ms
+8634.072903ms
 Input size		- (1080x1920)
 Verification		- Successful
-1413.684563ms
+8635.719462ms
 Input size		- (1080x1920)
 Verification		- Successful
-1432.744634ms
+8634.219437ms
 Input size		- (1080x1920)
 Verification		- Successful
-1429.218122ms
+8634.492264ms
 Input size		- (1080x1920)
 Verification		- Successful
-1429.800231ms
+8636.873566ms
 Input size		- (1080x1920)
 Verification		- Successful
-1429.444089ms
+8636.864019ms

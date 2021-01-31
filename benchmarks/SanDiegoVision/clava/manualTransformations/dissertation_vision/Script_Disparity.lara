@@ -19,18 +19,19 @@ var numberOfExecutions = 30;
 aspectdef Script_Disparity
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 
-//	call GlobalBaselineO3_VECTORIZATION;
-	
-//	call GlobalV1O3_VECTORIZATION;
-	
+	call GlobalBaselineO0;
+	call GlobalBaselineO2;
+	call GlobalBaselineO3;
 
-	call GlobalBaselineO0_CACHE;
-	call GlobalBaselineO2_CACHE;
-	call GlobalBaselineO3_CACHE;
+	call GlobalV1O0;
+	call GlobalV1O2;
+	call GlobalV1O3;
 
-	call GlobalV1O0_CACHE;
-	call GlobalV1O2_CACHE;
-	call GlobalV1O3_CACHE;
+
+	call GlobalBaselineO3_VECTORIZATION;
+
+	call GlobalV1O3_VECTORIZATION;
+
 
 end
 

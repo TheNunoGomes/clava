@@ -1,5 +1,66 @@
 <<<<<<< HEAD
 Executing: Baseline. Measuring: Global. Flag: -O3
+<<<<<<< HEAD
+9921.798050ms
+Verification		- Successful
+9922.570168ms
+Verification		- Successful
+9922.981918ms
+Verification		- Successful
+9923.258126ms
+Verification		- Successful
+9906.462016ms
+Verification		- Successful
+9935.525225ms
+Verification		- Successful
+9917.869333ms
+Verification		- Successful
+9908.321878ms
+Verification		- Successful
+9905.282047ms
+Verification		- Successful
+9912.736618ms
+Verification		- Successful
+9926.921522ms
+Verification		- Successful
+9927.018401ms
+Verification		- Successful
+9930.150863ms
+Verification		- Successful
+9931.438640ms
+Verification		- Successful
+9934.633979ms
+Verification		- Successful
+9938.711265ms
+Verification		- Successful
+9930.409208ms
+Verification		- Successful
+9932.472226ms
+Verification		- Successful
+9925.600779ms
+Verification		- Successful
+9932.011529ms
+Verification		- Successful
+9929.165533ms
+Verification		- Successful
+9916.542157ms
+Verification		- Successful
+9933.051488ms
+Verification		- Successful
+9937.243814ms
+Verification		- Successful
+9932.353503ms
+Verification		- Successful
+9922.471636ms
+Verification		- Successful
+9914.089041ms
+Verification		- Successful
+9904.242048ms
+Verification		- Successful
+9900.209688ms
+Verification		- Successful
+9906.921811ms
+=======
 1373.685322ms
 Verification		- Successful
 1341.404981ms
@@ -59,6 +120,7 @@ Verification		- Successful
 1342.531893ms
 Verification		- Successful
 1345.880666ms
+>>>>>>> antarex
 =======
 Executing: DISPv1. Measuring: Global. Flag: -O3
 2787.133918ms

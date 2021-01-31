@@ -100,7 +100,7 @@ F2D* imageBlur_1080x1920(I2D* imageIn)
     imageOut = fMallocHandle(rows, cols);
     tempOut = fMallocHandle(rows, cols);
 
-    // VECTORIZADO
+
     for(i=0; i<rows; i++) {
 	imageOut->data[(i) * cols + (0)] = 0;
 	imageOut->data[(i) * cols + (1)] = 0;
@@ -112,7 +112,7 @@ F2D* imageBlur_1080x1920(I2D* imageIn)
 	tempOut->data[(i) * cols + (cols-2)] = 0;
 	tempOut->data[(i) * cols + (cols-1)] = 0;
     }
-    for(j=0; j<cols; j++) {
+    for(j=0; j<cols; j++) { //VECTORIZADO Ofast
 	imageOut->data[(0) * cols + (j)] = 0;
 	imageOut->data[(1) * cols+ (j)] = 0;
 	imageOut->data[(rows-2) * cols + (j)] = 0;
@@ -155,8 +155,7 @@ F2D* imageBlur_1080x1920(I2D* imageIn)
     
     for(i=2; i<endRow; i++)
     {
-    	// VECTORIZADO
-        for(j=2; j<endCol; j++)
+        for(j=2; j<endCol; j++)    	// VECTORIZADO Ofast
         {
             temp = subsref(tempOut,(i-2),j);
             temp += subsref(tempOut,(i-1),j) * 4;

@@ -48,7 +48,7 @@ F2D* imageBlur(I2D* imageIn)
     
     for(i=2; i<endRow; i++)
     {
-        for(j=2; j<endCol; j++)
+        for(j=2; j<endCol; j++) // Vectorized O3/Ofast
         {
             temp = subsref(tempOut,(i-2),j);
             temp += subsref(tempOut,(i-1),j) * 4;

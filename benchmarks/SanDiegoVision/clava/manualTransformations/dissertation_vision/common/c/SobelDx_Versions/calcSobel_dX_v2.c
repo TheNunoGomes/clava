@@ -104,8 +104,7 @@ F2D* calcSobel_dX_540x960(F2D* imageIn)
 	tempOut->data[(i) * cols + (cols-1)] = 0;
     }
     
-    // VECTORIZADO
-    for(j=0; j<cols; j++) {
+    for(j=0; j<cols; j++) {    // VECTORIZADO Ofast
 	imageOut->data[(0) * cols + (j)] = 0;
 	imageOut->data[(rows-1) * cols + (j)] = 0;
 	
@@ -138,8 +137,7 @@ F2D* calcSobel_dX_540x960(F2D* imageIn)
     
     for(i=1; i<endRow; i++)
     {
-    	// VECTORIZADO
-        for(j=1; j<endCol; j++)
+        for(j=1; j<endCol; j++)    // VECTORIZADO Ofast
         {
             temp = subsref(tempOut,(i-1),j);
             temp += subsref(tempOut,(i),j) * 2;

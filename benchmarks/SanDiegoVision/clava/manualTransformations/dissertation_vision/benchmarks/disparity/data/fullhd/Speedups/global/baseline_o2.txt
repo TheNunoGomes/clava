@@ -1,5 +1,66 @@
 Executing: Baseline. Measuring: Global. Flag: -O2
 <<<<<<< HEAD
+<<<<<<< HEAD
+10644.859452ms
+Verification		- Successful
+10638.891533ms
+Verification		- Successful
+10655.042368ms
+Verification		- Successful
+10658.660282ms
+Verification		- Successful
+10657.213218ms
+Verification		- Successful
+10662.134407ms
+Verification		- Successful
+10664.123385ms
+Verification		- Successful
+10662.882736ms
+Verification		- Successful
+10656.134994ms
+Verification		- Successful
+10659.876821ms
+Verification		- Successful
+10656.498494ms
+Verification		- Successful
+10654.058112ms
+Verification		- Successful
+10665.527466ms
+Verification		- Successful
+10662.339843ms
+Verification		- Successful
+10658.383480ms
+Verification		- Successful
+10657.084416ms
+Verification		- Successful
+10653.597714ms
+Verification		- Successful
+10652.202192ms
+Verification		- Successful
+10657.023381ms
+Verification		- Successful
+10649.349151ms
+Verification		- Successful
+10661.693369ms
+Verification		- Successful
+10651.468296ms
+Verification		- Successful
+10664.027427ms
+Verification		- Successful
+10657.542888ms
+Verification		- Successful
+10653.145947ms
+Verification		- Successful
+10657.824307ms
+Verification		- Successful
+10657.197774ms
+Verification		- Successful
+10665.584877ms
+Verification		- Successful
+10658.208058ms
+Verification		- Successful
+10652.987795ms
+=======
 1661.856978ms
 Verification		- Successful
 1601.375338ms
@@ -59,6 +120,7 @@ Verification		- Successful
 1686.930674ms
 Verification		- Successful
 2120.333488ms
+>>>>>>> antarex
 =======
 3865.481089ms
 >>>>>>> master
