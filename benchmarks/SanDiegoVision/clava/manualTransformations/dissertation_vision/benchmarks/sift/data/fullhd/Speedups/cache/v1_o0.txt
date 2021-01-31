@@ -1,0 +1,32 @@
+Executing: SIFTv1. Measuring: Cache. Flag: -O0
+4371613.948465ms
+Verification		- Successful
+==25599== Callgrind, a call-graph generating cache profiler
+==25599== Copyright (C) 2002-2017, and GNU GPL'd, by Josef Weidendorfer et al.
+==25599== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==25599== Command: ./sift ./
+==25599== 
+--25599-- warning: L3 cache found, using its data for the LL simulation.
+==25599== For interactive control, run 'callgrind_control -h'.
+==25599== brk segment overflow in thread #1: can't grow to 0x521d000
+==25599== (see section Limitations in user manual)
+==25599== NOTE: further instances of this message will not be shown
+==25599== 
+==25599== Events    : Ir Dr Dw I1mr D1mr D1mw ILmr DLmr DLmw
+==25599== Collected : 56857711950 31238417474 4740435965 2250 82044875 11716746 2236 16764918 11079044
+==25599== 
+==25599== I   refs:      56,857,711,950
+==25599== I1  misses:             2,250
+==25599== LLi misses:             2,236
+==25599== I1  miss rate:           0.00%
+==25599== LLi miss rate:           0.00%
+==25599== 
+==25599== D   refs:      35,978,853,439  (31,238,417,474 rd + 4,740,435,965 wr)
+==25599== D1  misses:        93,761,621  (    82,044,875 rd +    11,716,746 wr)
+==25599== LLd misses:        27,843,962  (    16,764,918 rd +    11,079,044 wr)
+==25599== D1  miss rate:            0.3% (           0.3%   +           0.2%  )
+==25599== LLd miss rate:            0.1% (           0.1%   +           0.2%  )
+==25599== 
+==25599== LL refs:           93,763,871  (    82,047,125 rd +    11,716,746 wr)
+==25599== LL misses:         27,846,198  (    16,767,154 rd +    11,079,044 wr)
+==25599== LL miss rate:             0.0% (           0.0%   +           0.2%  )

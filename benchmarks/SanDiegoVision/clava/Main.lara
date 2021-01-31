@@ -17,7 +17,7 @@ aspectdef Main
 setDebug(!true);
 var benchmarkNames = ["sift"];
 for(var benchmarkName of benchmarkNames) {
-	for(var benchmark of setupSanDiego(benchmarkName, ["SQCIF"])) {
+	for(var benchmark of setupSanDiego(benchmarkName, ["FullHD"])) {
 		/*
 		var mainFunction = Query.search("function", { name: "main" }).first();
 		var mainFile = mainFunction.ancestor("file");
@@ -44,8 +44,9 @@ for(var benchmarkName of benchmarkNames) {
 		
 		//*/
 		Utils.timeMethodCalls(benchmarkName);
-		/*
+		
 		Transformations.replaceDoublesWithFloats();
+		/*
 		Transformations.replacePowCalls();
 		Transformations.replaceCeilCalls();
 		//*/
@@ -58,8 +59,8 @@ for(var benchmarkName of benchmarkNames) {
 		*/
 		//Transformations.loopSplitting();
 		benchmark.compile();
-		//for(var i = 0; i < 10; i++)
-		//	benchmark.execute();
+		for(var i = 0; i < 30; i++)
+			benchmark.execute();
 		//println(ex.getReturnValue());
 	}
 }
@@ -73,32 +74,6 @@ function setupSanDiego(benchmarkNames, inputSizes) {
 	
 	return sdvbs;
 }
-	
-	/* PSEUDO CODIGO
-
-	1. Construir os 3 loops - parametros base, ainda que errados
-
-	2. Alterar os parametros dos loops - Referencia abaixo, devera ser preciso fazer rebuild da AST
-	2.1. VAR node = (
-      	//Moldura superior
-		for(j = 0; j < W; ++j)
-			for(i = 0; i < N; ++i)
-     	     	for(k=0; k<=j+W; k++)
-					subsref(out,j,i) += subsref(buffer,k,i) * temp[k+W-j]; (SUBSTITUIDO PELA MACRO)
-     	 //Valores interiores da matriz
-     	 for(j = W; j < M-W-1; ++j)
-     	 	for(i = 0; i < N; ++i)
-     	     	for(k=0; k<=2*W; k++)
-     	         		subsref(out,j,i) += subsref(buffer,k+j-W,i) * temp[k]; (SUBSTITUIDO PELA MACRO)
-     	 //Moldura inferior
-	 	 for(j = M-W-1; j < M; ++j)
-     	 	for(i = 0; i < N; ++i)
-     	     	for(k=0; k<=M+W-j-1; k++)
-     	     	    subsref(out,j,i) += subsref(buffer,k+j-W,i) * temp[k]; (SUBSTITUIDO PELA MACRO)
-	)
-	loop_0.replaceWith(node)
-	
-	*/
 
 aspectdef QuickLoop
 
