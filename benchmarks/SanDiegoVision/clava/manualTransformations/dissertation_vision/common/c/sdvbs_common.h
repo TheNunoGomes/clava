@@ -8,6 +8,7 @@ Author: Sravanthi Kota Venkata
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "energymonitor.h"
 #include "energymonitor_c.h"
 
 typedef struct
