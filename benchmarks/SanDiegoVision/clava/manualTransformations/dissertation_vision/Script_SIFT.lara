@@ -24,13 +24,12 @@ var makesfilesFiles = Io.getFiles(makefileVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 1;
+var numberOfExecutions = 30;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 
 	call GlobalBaselineO0;
-	/*
 	call GlobalBaselineO2;
 	call GlobalBaselineO3;
 	call GlobalBaselineOfast;
@@ -46,9 +45,8 @@ aspectdef Script
 	call GlobalV2O2;
 	call GlobalV2O3;
 	call GlobalV2Ofast;
-*/
+
 	call GlobalV3O0;
-	/*
 	call GlobalV3O2;
 	call GlobalV3O3;
 	call GlobalV3Ofast;
@@ -66,7 +64,7 @@ aspectdef Script
 	
 	call GlobalV3O3_VECTORIZATION;
 	call GlobalV3Ofast_VECTORIZATION;
-*/
+
 end
 
 
