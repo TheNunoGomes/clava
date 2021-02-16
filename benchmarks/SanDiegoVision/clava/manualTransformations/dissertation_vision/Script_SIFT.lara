@@ -11,6 +11,8 @@ var speedupsGlobal = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/
 var vectorization = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/vectorization");
 var cache = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/cache");
 
+var resultsDir = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Results");
+
 var imsmooth = Io.getAbsolutePath("./benchmarks/sift/src/c/imsmooth.c");
 var gaussianss = Io.getAbsolutePath("./benchmarks/sift/src/c/gaussianss.c");
 var script_sift = Io.getAbsolutePath("./benchmarks/sift/src/c/script_sift.c");
@@ -24,53 +26,75 @@ var makesfilesFiles = Io.getFiles(makefileVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 30;
+var numberOfExecutions = 1;
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
-
-	call GlobalBaselineO0;
-	call GlobalBaselineO2;
-	call GlobalBaselineO3;
-	call GlobalBaselineOfast;
-
-
-	call GlobalV1O0;
-	call GlobalV1O2;
-	call GlobalV1O3;
-	call GlobalV1Ofast;
 	
-	
-	call GlobalV2O0;
-	call GlobalV2O2;
-	call GlobalV2O3;
-	call GlobalV2Ofast;
-
-	call GlobalV3O0;
-	call GlobalV3O2;
-	call GlobalV3O3;
-	call GlobalV3Ofast;
-
-
-
-	call GlobalBaselineO3_VECTORIZATION;
-	call GlobalBaselineOfast_VECTORIZATION;
-
-	call GlobalV1O3_VECTORIZATION;
-	call GlobalV1Ofast_VECTORIZATION;
-
-	call GlobalV2O3_VECTORIZATION;
-	call GlobalV2Ofast_VECTORIZATION;
-	
-	call GlobalV3O3_VECTORIZATION;
-	call GlobalV3Ofast_VECTORIZATION;
+	call Profile("base", "global", "energy", "O0");
+	call Profile("v3", "global", "energy", "O0");
 
 end
 
+aspectdef Profile
+	input
+		version,
+		scope,
+		metric,
+		flag,
+	end
+
+	var results = "";
+		
+	if(scope == "global") {
+		imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_" + version + ".c");
+		scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_" + metric + ".c");
+	} 
+	else {
+		imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_" + version + "_" + "metric" + ".c");
+		scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift.c");
+	}
+
+	if(version == "base")
+		gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
+	else 
+		gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_v1.c");
+
+	makefileContent = Io.readFile(makefileVersions + "/" + metric + "/Makefile_" + flag + ".common");
+	
+	Io.writeFile(imsmooth, imsmoothContent);
+	Io.writeFile(gaussianss, gaussContent);
+	Io.writeFile(script_sift, scriptSiftContent);
+	Io.writeFile(makefile, makefileContent);
+		
+	var measuring = "Executing: SIFT_" + version + ". Scope: " + scope + ". Measuring: " + metric + ". Flag: -" + flag + "\n";
+	results += measuring;
+	println(measuring);
+			
+	executor.execute("make", "compile");
+
+	for(var i = 0; i < numberOfExecutions; i++) {
+		if(metric == "vectorization") {
+			results += executor.getConsoleOutput();
+			break;
+		}
+		else if(metric == "cache") {
+			executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+			results += executor.getConsoleOutput();
+			break;
+		}
+		else {
+				executor.execute("./sift ./");
+				results += executor.getConsoleOutput();
+		}
+	}
+
+	Io.writeFile(resultsDir + "/" + scope + "/" + metric + "/" flag + "/SIFT_" + version + ".txt", results);
+end
 
 aspectdef GlobalBaselineO0
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O0.common");
@@ -94,7 +118,7 @@ end
 
 aspectdef GlobalBaselineO2
 	var results = "";
-	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base_noprints.c");
+	imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_base.c");
 	gaussContent = Io.readFile(gaussianssVersions + "/gaussianss_base.c");
 	scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_global.c");
 	makefileContent = Io.readFile(makefileVersions + "/Makefile_O2.common");

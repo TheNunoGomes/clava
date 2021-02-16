@@ -2,7 +2,6 @@
 Author: Sravanthi Kota Venkata
 ********************************/
 
-#define _POSIX_C_SOURCE 199309L
 #include "sift.h"
 #include <math.h>
 #include <assert.h>
@@ -10,7 +9,13 @@ Author: Sravanthi Kota Venkata
 #include <string.h>
 
 #include <time.h>
-#include <sys/resource.h>
+//#include <sys/resource.h>
+
+//struct rusage ruse;
+
+//#define CPU_TIME (getrusage(RUSAGE_SELF,&ruse), ruse.ru_utime.tv_sec + \
+    ruse.ru_stime.tv_sec + 1e-6 * \
+    (ruse.ru_utime.tv_usec + ruse.ru_stime.tv_usec))
 
 const double win_factor = 1.5 ;
 const int nbins = 36 ;
@@ -27,11 +32,10 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   int M,N ;
   int i,j,k;
   float s ;
-	
-    printf("W = %d\t\t\t ", (int) ceil(4*dsigma) );
-    printf("MxN = %d\t\t\t ", array->height);
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+
+    //double first, second;
+    // Save user and CPU start time
+    //first = CPU_TIME;
   /* ------------------------------------------------------------------
   **                                                Check the arguments
   ** --------------------------------------------------------------- */ 
@@ -44,7 +48,7 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   **                                                         Do the job
   ** --------------------------------------------------------------- */ 
   if(s > threshold) 
-  { 
+  {
     int W = (int) ceil(4*s) ;
     float temp[2*W+1];
     F2D* buffer;
@@ -52,13 +56,13 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
    
     buffer = fSetArray(M,N,0);
     
-    for(j = 0 ; j < (2*W+1) ; ++j) 
+    for(j = 0 ; j < (2*W+1) ; ++j) // VETORIZADO com Ofast
     {
       temp[j] = (float)(expf(-0.5 * (j - W)*(j - W)/(s*s))) ;
       acc += temp[j];
     }
 
-    for(j = 0 ; j < (2*W+1) ; ++j) 
+    for(j = 0 ; j < (2*W+1) ; ++j) // VETORIZADO com O3 e com Ofast
     {
       temp[j] /= acc ;
     }
@@ -99,12 +103,13 @@ void imsmooth(F2D* array, float dsigma, F2D* out)
   } 
   else 
   {
-      for(i=0;i<M*N;i++)
+      for(i=0;i<M*N;i++)          // VETORIZADO com O3 e com Ofast
           asubsref(out, i) = asubsref(array, i);
   }
 
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-  printf("%f\n", clava_timing_duration_0);
+
+    // Save end time
+    //second = CPU_TIME;
+    //printf("t - \t%.3f\n", (second - first)*1000);
   return;
 }

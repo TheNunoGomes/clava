@@ -17,12 +17,14 @@ Author: Sravanthi Kota Venkata
   const int nbins = 36 ;
   const float threshold = 0.01;
    
-   
+  void imsmooth(F2D* array, float dsigma, F2D* out)
   {
     int M,N;
     int i,j,k;
     float s;
 
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -42,13 +44,13 @@ Author: Sravanthi Kota Venkata
 
       buffer = fSetArray(M,N,0);
 
-      for(j = 0 ; j < (2*W+1) ; ++j) // VETORIZADO com Ofast
+      for(j = 0 ; j < (2*W+1) ; ++j)
       {
         temp[j] = (float)(expf(-0.5 * (j - W)*(j - W)/(s*s))) ;
         acc += temp[j];
       }
 
-      for(j = 0 ; j < (2*W+1) ; ++j) // VETORIZADO com O3 e com Ofast
+      for(j = 0 ; j < (2*W+1) ; ++j)
       {
         temp[j] /= acc ;
       }
@@ -96,10 +98,13 @@ Author: Sravanthi Kota Venkata
     else
     {
       	printf("Under the threshold.\n");
-        for(i=0;i<M*N;i++) // VETORIZADO com O3 e com Ofast
+        for(i=0;i<M*N;i++)
             asubsref(out, i) = asubsref(array, i);
     }
 
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%f\n", clava_timing_duration_0);
     return;
   }
   void imsmooth5W(F2D* array, float dsigma, F2D* out)
@@ -108,6 +113,8 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -223,6 +230,10 @@ Author: Sravanthi Kota Venkata
 	}
       fFreeHandle(buffer);
 
+
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%f\n", clava_timing_duration_0);
     return;
   }
   
@@ -232,6 +243,8 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -364,6 +377,10 @@ Author: Sravanthi Kota Venkata
 
       fFreeHandle(buffer);
 
+
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%f\n", clava_timing_duration_0);
     return;
   }
   
@@ -373,6 +390,8 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -513,6 +532,9 @@ Author: Sravanthi Kota Venkata
 	
       fFreeHandle(buffer);
 
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%f\n", clava_timing_duration_0);
     return;
   }
   
@@ -522,6 +544,8 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -678,6 +702,10 @@ Author: Sravanthi Kota Venkata
 	
       fFreeHandle(buffer);
 
+
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%f\n", clava_timing_duration_0);
     return;
   }
   
@@ -687,6 +715,8 @@ Author: Sravanthi Kota Venkata
     int i,j,k;
     float s;
 
+	struct timespec clava_timing_start_0, clava_timing_end_0;
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     /* ------------------------------------------------------------------
     **                                                Check the arguments
     ** --------------------------------------------------------------- */
@@ -866,6 +896,10 @@ Author: Sravanthi Kota Venkata
 	}
       fFreeHandle(buffer);
 
+
+	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
+	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
+   printf("%f\n", clava_timing_duration_0);
     return;
   }
   
