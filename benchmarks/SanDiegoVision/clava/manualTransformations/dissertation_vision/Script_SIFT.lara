@@ -6,6 +6,9 @@ var gaussianssVersions = Io.getAbsolutePath("./benchmarks/sift/src/c/gaussianssV
 var scriptSiftVersions = Io.getAbsolutePath("./benchmarks/sift/src/c/scriptSiftVersions");
 var makefileVersions = Io.getAbsolutePath("./common/makefiles/makefileVersions");
 
+
+var energymonitor = Io.getAbsolutePath("./common/energymonitor");
+
 var speedupsHotspot = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/hotspot");
 var speedupsGlobal = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/global");
 var vectorization = Io.getAbsolutePath("./benchmarks/sift/data/fullhd/Speedups/vectorization");
@@ -26,13 +29,11 @@ var makesfilesFiles = Io.getFiles(makefileVersions);
 var data = Io.getAbsolutePath("./benchmarks/sift/data/fullhd");
 var executor = new ProcessExecutor();
 
-var numberOfExecutions = 1;
-
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 	
-	call Profile("base", "global", "energy", "O0");
-	call Profile("v3", "global", "energy", "O0");
+	call Profile("base", "global", "energy", "O0", 30);
+	call Profile("v3", "global", "energy", "O0", 30);
 
 end
 
@@ -42,6 +43,7 @@ aspectdef Profile
 		scope,
 		metric,
 		flag,
+		numberOfExecutions
 	end
 
 	var results = "";
@@ -73,20 +75,22 @@ aspectdef Profile
 			
 	executor.execute("make", "compile");
 
-	for(var i = 0; i < numberOfExecutions; i++) {
-		if(metric == "vectorization") {
-			results += executor.getConsoleOutput();
-			break;
-		}
-		else if(metric == "cache") {
-			executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
-			results += executor.getConsoleOutput();
-			break;
-		}
-		else {
+	for(var i = 0; i < numberOfExecutions; i++) {	
+		switch(metric) {
+			case "energy":
+				var cppCompile = "g++ *.o " + energymonitor + "/*.cpp -lpthread";
+				executor.execute(cppCompile);
+				executor.execute("./a.out ./");
+			case "time":
 				executor.execute("./sift ./");
-				results += executor.getConsoleOutput();
-		}
+				break;
+			case "cache":
+				executor.execute("valgrind --tool=callgrind --simulate-cache=yes ./sift ./");
+				break;
+			default:
+				break;
+		}	
+		results += executor.getConsoleOutput();
 	}
 
 	Io.writeFile(resultsDir + "/" + scope + "/" + metric + "/" flag + "/SIFT_" + version + ".txt", results);
