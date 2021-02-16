@@ -6,6 +6,7 @@ Author: Sravanthi Kota Venkata
 #include <stdio.h>
 #include <stdlib.h>
 #include "sift.h"
+#include "energymonitor_c.h"
 
 #include <time.h>
 #include <sys/resource.h>
@@ -37,6 +38,8 @@ void normalizeImage(F2D* image)
 int main(int argc, char* argv[])
 {
     double first, second;
+	
+	
 
     I2D* im;
     F2D *image;
@@ -59,18 +62,24 @@ int main(int argc, char* argv[])
     rows = image->height;
     cols = image->width;
 
-    
-	struct timespec clava_timing_start_0, clava_timing_end_0;
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
+	
+	
+	emonitor_t monitor = monitor_new(263808);
 	
     /** Normalize the input image to lie between 0-1 **/
 	normalizeImage(image);
     /** Extract sift features for the normalized image **/
     frames = sift(image);
     
-	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
-	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
-   printf("%fms\n", clava_timing_duration_0);
+    
+    
+	edata_t data = monitor_stop(monitor);
+	
+	printf("Samples: %d\n", data_get_samples(data));
+	printf("Average CPU: %f\n", data_get_average_cpu(data));
+	printf("Average GPU: %f\n", data_get_average_gpu(data));
+	printf("Average MEM: %f\n", data_get_average_mem(data));
+	
 #ifdef CHECK   
     {
         int ret=0;

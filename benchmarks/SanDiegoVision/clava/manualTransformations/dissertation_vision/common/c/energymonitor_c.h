@@ -1,8 +1,11 @@
 #ifndef ENERGYMONITOR_C_H_
 #define ENERGYMONITOR_C_H_
 
+#define __USE_XOPEN
+
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/types.h>
 
 #ifdef __cplusplus
 extern "C" {
