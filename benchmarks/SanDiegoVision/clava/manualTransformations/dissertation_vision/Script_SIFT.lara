@@ -31,9 +31,10 @@ var executor = new ProcessExecutor();
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
+	var N = 1;
 	
-	call Profile("base", "global", "energy", "O0", 30);
-	call Profile("v3", "global", "energy", "O0", 30);
+	call Profile("base", "global", "energy", "O0", N);
+	//call Profile("v3", "global", "energy", "O0", N);
 
 end
 
@@ -74,12 +75,20 @@ aspectdef Profile
 	println(measuring);
 			
 	executor.execute("make", "compile");
+	if(metric == "energy") {
+		var dataFiles = Io.getFiles(data, "*.o");
+		var energymonitorFiles = Io.getFiles(energymonitor);
+		println(isArray(dataFiles));
+		println(dataFiles.getClass());
+		var cppCompile = ["g++"].concat(dataFiles);
+		cppCompile = cppCompile.concat(energymonitorFiles);
+		cppCompile = cppCompile.push("-lpthread");
+		executor.execute(cppCompile);
+	}
 
 	for(var i = 0; i < numberOfExecutions; i++) {	
 		switch(metric) {
 			case "energy":
-				var cppCompile = "g++ *.o " + energymonitor + "/*.cpp -lpthread";
-				executor.execute(cppCompile);
 				executor.execute("./a.out ./");
 			case "time":
 				executor.execute("./sift ./");
@@ -92,8 +101,8 @@ aspectdef Profile
 		}	
 		results += executor.getConsoleOutput();
 	}
-
-	Io.writeFile(resultsDir + "/" + scope + "/" + metric + "/" flag + "/SIFT_" + version + ".txt", results);
+	var file = resultsDir + "/" + scope + "/" + metric + "/" + flag + "/SIFT_" + version + ".txt";
+	Io.writeFile(file, results);
 end
 
 aspectdef GlobalBaselineO0
@@ -1050,4 +1059,3 @@ aspectdef GlobalV3Ofast_CACHE
 	
 	Io.writeFile(cache + "/v3_ofast.txt", results);
 end
-
