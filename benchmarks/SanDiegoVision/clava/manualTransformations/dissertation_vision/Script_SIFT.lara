@@ -34,7 +34,9 @@ aspectdef Script
 	var N = 1;
 	
 	call Profile("base", "global", "energy", "O0", N);
-	//call Profile("v3", "global", "energy", "O0", N);
+	call Profile("v1", "global", "energy", "O0", N);
+	call Profile("v2", "global", "energy", "O0", N);
+	call Profile("v3", "global", "energy", "O0", N);
 
 end
 
@@ -77,12 +79,11 @@ aspectdef Profile
 	executor.execute("make", "compile");
 	if(metric == "energy") {
 		var dataFiles = Io.getFiles(data, "*.o");
-		var energymonitorFiles = Io.getFiles(energymonitor);
-		println(isArray(dataFiles));
-		println(dataFiles.getClass());
-		var cppCompile = ["g++"].concat(dataFiles);
-		cppCompile = cppCompile.concat(energymonitorFiles);
-		cppCompile = cppCompile.push("-lpthread");
+		var cppFiles = Io.getFiles(energymonitor, "*.cpp");
+		var headerFiles = Io.getFiles(energymonitor, "*.h");
+		
+		var cppCompile = ["g++"].concat(dataFiles).concat(cppFiles).concat(headerFiles).concat(["-lpthread"]);
+
 		executor.execute(cppCompile);
 	}
 
@@ -90,6 +91,7 @@ aspectdef Profile
 		switch(metric) {
 			case "energy":
 				executor.execute("./a.out ./");
+				break;
 			case "time":
 				executor.execute("./sift ./");
 				break;

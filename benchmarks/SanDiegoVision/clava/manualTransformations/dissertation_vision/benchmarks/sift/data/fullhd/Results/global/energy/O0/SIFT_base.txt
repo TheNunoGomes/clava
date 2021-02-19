@@ -1,2 +1,8 @@
 Executing: SIFT_base. Scope: global. Measuring: energy. Flag: -O0
-Could not start process
+Samples: 0
+Average CPU: 0.000000
+Average GPU: 0.000000
+Average MEM: 0.000000
+Verification		- Successful
+/dev/sensor_armOpen Fail
+Could not open sensors.
