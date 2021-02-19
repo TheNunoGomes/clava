@@ -31,7 +31,7 @@ var executor = new ProcessExecutor();
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
-	var N = 1;
+	var N = 30;
 	
 	call Profile("base", "global", "energy", "O0", N);
 	call Profile("v1", "global", "energy", "O0", N);
