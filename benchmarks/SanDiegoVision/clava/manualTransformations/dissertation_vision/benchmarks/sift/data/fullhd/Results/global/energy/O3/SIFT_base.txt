@@ -1,6 +1,6 @@
 Executing: SIFT_base. Scope: global. Measuring: energy. Flag: -O3
-Samples:		21
-Average CPU:		1.665569
-Average GPU:		0.002825
-Average MEM:		0.090134
+Samples:		27
+Average CPU:		1.903319
+Average GPU:		0.002862
+Average MEM:		0.085360
 Verification		- Successful
