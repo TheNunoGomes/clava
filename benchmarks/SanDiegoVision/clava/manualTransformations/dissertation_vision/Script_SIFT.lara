@@ -33,10 +33,25 @@ aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 	var N = 30;
 	
-	//call Profile("base", "global", "energy", "O0", N);
-	//call Profile("v1", "global", "energy", "O0", N);
+	call Profile("base", "global", "energy", "O0", N);
+	call Profile("v1", "global", "energy", "O0", N);
 	call Profile("v2", "global", "energy", "O0", N);
-	//call Profile("v3", "global", "energy", "O0", N);
+	call Profile("v3", "global", "energy", "O0", N);
+	
+	call Profile("base", "global", "energy", "O2", N);
+	call Profile("v1", "global", "energy", "O2", N);
+	call Profile("v2", "global", "energy", "O2", N);
+	call Profile("v3", "global", "energy", "O2", N);
+	
+	call Profile("base", "global", "energy", "O3", N);
+	call Profile("v1", "global", "energy", "O3", N);
+	call Profile("v2", "global", "energy", "O3", N);
+	call Profile("v3", "global", "energy", "O3", N);
+	
+	call Profile("base", "global", "energy", "Ofast", N);
+	call Profile("v1", "global", "energy", "Ofast", N);
+	call Profile("v2", "global", "energy", "Ofast", N);
+	call Profile("v3", "global", "energy", "Ofast", N);
 
 end
 
