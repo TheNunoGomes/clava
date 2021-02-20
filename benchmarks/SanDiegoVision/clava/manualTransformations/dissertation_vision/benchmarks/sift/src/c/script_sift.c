@@ -75,10 +75,10 @@ int main(int argc, char* argv[])
     
 	edata_t data = monitor_stop(monitor);
 	
-	printf("Samples: %d\n", data_get_samples(data));
-	printf("Average CPU: %f\n", data_get_average_cpu(data));
-	printf("Average GPU: %f\n", data_get_average_gpu(data));
-	printf("Average MEM: %f\n", data_get_average_mem(data));
+	printf("Samples:\t\t%d\n", data_get_samples(data));
+	printf("Average CPU:\t\t%f\n", data_get_average_cpu(data));
+	printf("Average GPU:\t\t%f\n", data_get_average_gpu(data));
+	printf("Average MEM:\t\t%f\n", data_get_average_mem(data));
 	
 #ifdef CHECK   
     {

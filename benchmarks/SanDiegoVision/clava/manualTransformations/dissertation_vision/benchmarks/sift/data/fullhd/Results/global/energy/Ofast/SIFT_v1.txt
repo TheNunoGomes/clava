@@ -1,0 +1,151 @@
+Executing: SIFT_v1. Scope: global. Measuring: energy. Flag: -Ofast
+Samples:		131
+Average CPU:		1.699781
+Average GPU:		0.002823
+Average MEM:		0.065375
+Verification		- Successful
+Samples:		131
+Average CPU:		1.699910
+Average GPU:		0.002823
+Average MEM:		0.065881
+Verification		- Successful
+Samples:		131
+Average CPU:		1.711444
+Average GPU:		0.002823
+Average MEM:		0.066203
+Verification		- Successful
+Samples:		132
+Average CPU:		1.713740
+Average GPU:		0.002823
+Average MEM:		0.066274
+Verification		- Successful
+Samples:		131
+Average CPU:		1.695686
+Average GPU:		0.002823
+Average MEM:		0.065421
+Verification		- Successful
+Samples:		132
+Average CPU:		1.695335
+Average GPU:		0.002823
+Average MEM:		0.065680
+Verification		- Successful
+Samples:		131
+Average CPU:		1.696379
+Average GPU:		0.002823
+Average MEM:		0.065669
+Verification		- Successful
+Samples:		132
+Average CPU:		1.694238
+Average GPU:		0.002823
+Average MEM:		0.065753
+Verification		- Successful
+Samples:		131
+Average CPU:		1.699867
+Average GPU:		0.002826
+Average MEM:		0.065771
+Verification		- Successful
+Samples:		131
+Average CPU:		1.702284
+Average GPU:		0.002826
+Average MEM:		0.065752
+Verification		- Successful
+Samples:		131
+Average CPU:		1.714254
+Average GPU:		0.002826
+Average MEM:		0.066157
+Verification		- Successful
+Samples:		131
+Average CPU:		1.711477
+Average GPU:		0.002826
+Average MEM:		0.066213
+Verification		- Successful
+Samples:		131
+Average CPU:		1.713984
+Average GPU:		0.002826
+Average MEM:		0.066028
+Verification		- Successful
+Samples:		132
+Average CPU:		1.713832
+Average GPU:		0.002826
+Average MEM:		0.066027
+Verification		- Successful
+Samples:		131
+Average CPU:		1.697132
+Average GPU:		0.002826
+Average MEM:		0.065596
+Verification		- Successful
+Samples:		131
+Average CPU:		1.696781
+Average GPU:		0.002826
+Average MEM:		0.065439
+Verification		- Successful
+Samples:		132
+Average CPU:		1.706843
+Average GPU:		0.002826
+Average MEM:		0.066110
+Verification		- Successful
+Samples:		131
+Average CPU:		1.712438
+Average GPU:		0.002826
+Average MEM:		0.066010
+Verification		- Successful
+Samples:		132
+Average CPU:		1.710244
+Average GPU:		0.002826
+Average MEM:		0.066429
+Verification		- Successful
+Samples:		131
+Average CPU:		1.714925
+Average GPU:		0.002826
+Average MEM:		0.065946
+Verification		- Successful
+Samples:		131
+Average CPU:		1.699982
+Average GPU:		0.002826
+Average MEM:		0.065845
+Verification		- Successful
+Samples:		132
+Average CPU:		1.696735
+Average GPU:		0.002826
+Average MEM:		0.065634
+Verification		- Successful
+Samples:		131
+Average CPU:		1.698169
+Average GPU:		0.002826
+Average MEM:		0.065734
+Verification		- Successful
+Samples:		131
+Average CPU:		1.681169
+Average GPU:		0.002826
+Average MEM:		0.065550
+Verification		- Successful
+Samples:		131
+Average CPU:		1.682312
+Average GPU:		0.002826
+Average MEM:		0.065504
+Verification		- Successful
+Samples:		132
+Average CPU:		1.695331
+Average GPU:		0.002833
+Average MEM:		0.066164
+Verification		- Successful
+Samples:		132
+Average CPU:		1.689253
+Average GPU:		0.002826
+Average MEM:		0.066054
+Verification		- Successful
+Samples:		132
+Average CPU:		1.693699
+Average GPU:		0.002826
+Average MEM:		0.065680
+Verification		- Successful
+Samples:		132
+Average CPU:		1.688494
+Average GPU:		0.002826
+Average MEM:		0.065689
+Verification		- Successful
+Samples:		132
+Average CPU:		1.706616
+Average GPU:		0.002826
+Average MEM:		0.066201
+Verification		- Successful
