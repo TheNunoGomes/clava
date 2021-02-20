@@ -54,7 +54,7 @@ COMMON_SRC := $(wildcard $(COMMON_DIR)/*.c)
 EXE =
 INCLUDES = -I$(COMMON_DIR) -I$(C_DIR)
 
-COMPILE_C = $(CC) $(CFLAGS) -c -lm -O0 -w $(INCLUDES)
+COMPILE_C = $(CC) $(CFLAGS) -c -lm -Ofast -w $(INCLUDES)
 
 COMPILE_G = $(CC) $(CFLAGS) -g -lm $(INCLUDES)
 COMPILE_PG = $(COMPILE_G) -pg
