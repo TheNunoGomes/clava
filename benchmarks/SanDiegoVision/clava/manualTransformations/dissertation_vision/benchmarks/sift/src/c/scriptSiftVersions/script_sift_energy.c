@@ -63,10 +63,11 @@ int main(int argc, char* argv[])
     cols = image->width;
 
     
+	emonitor_t monitor = monitor_new(263808);
+    
 	struct timespec clava_timing_start_0, clava_timing_end_0;
 	clock_gettime(CLOCK_MONOTONIC, &clava_timing_start_0);
     
-	emonitor_t monitor = monitor_new(263808);
 	
     /** Normalize the input image to lie between 0-1 **/
 	normalizeImage(image);
@@ -74,19 +75,19 @@ int main(int argc, char* argv[])
     frames = sift(image);
     
     
-    
-	edata_t data = monitor_stop(monitor);
-
 	clock_gettime(CLOCK_MONOTONIC, &clava_timing_end_0);
 	double clava_timing_duration_0 = ((clava_timing_end_0.tv_sec + ((double) clava_timing_end_0.tv_nsec / 1000000000)) - (clava_timing_start_0.tv_sec + ((double) clava_timing_start_0.tv_nsec / 1000000000))) * (1000);
     printf("Clava Timer:\t\t%f ms\n", clava_timing_duration_0);
+    
+	edata_t data = monitor_stop(monitor);
+
 
 
 	printf("Samples:\t\t%d\n", data_get_samples(data));
 	printf("Average CPU:\t\t%f\n", data_get_average_cpu(data));
 	printf("Average GPU:\t\t%f\n", data_get_average_gpu(data));
 	printf("Average MEM:\t\t%f\n", data_get_average_mem(data));
-	printf("Energy time:\t\t%f ms\n", data_get_samples(data)*263808/1000);
+	printf("Energy time:\t\t%f ms\n", data_get_samples(data)*263808.0/1000.0);
 	
 #ifdef CHECK   
     {
