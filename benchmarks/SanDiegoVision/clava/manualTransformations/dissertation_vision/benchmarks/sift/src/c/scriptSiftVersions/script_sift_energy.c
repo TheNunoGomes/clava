@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
 	printf("Average CPU:\t\t%f\n", data_get_average_cpu(data));
 	printf("Average GPU:\t\t%f\n", data_get_average_gpu(data));
 	printf("Average MEM:\t\t%f\n", data_get_average_mem(data));
-	printf("Energy time:\t\t%f ms\n", data_get_samples(data)*263808/1000);
+	printf("Energy time:\t\t%f ms\n", data_get_samples(data)*263808.0/1000.0);
 	
 #ifdef CHECK   
     {
