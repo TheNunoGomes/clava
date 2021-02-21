@@ -45,10 +45,10 @@ aspectdef Script
 	call Profile("v3", "global", "energy", "O2", N);
 	*/
 
-	call Profile("base", "global", "energy", "O3", N);
-	call Profile("v1", "global", "energy", "O3", N);
+	//call Profile("base", "global", "energy", "O3", N);
+	//call Profile("v1", "global", "energy", "O3", N);
 	call Profile("v2", "global", "energy", "O3", N);
-	call Profile("v3", "global", "energy", "O3", N);
+	//call Profile("v3", "global", "energy", "O3", N);
 	
 	/*
 	call Profile("base", "global", "energy", "Ofast", N);
