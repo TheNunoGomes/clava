@@ -2,14 +2,10 @@
 Author: Sravanthi Kota Venkata
 ********************************/
 
-#define _POSIX_C_SOURCE 199309L
 #include <stdio.h>
 #include <stdlib.h>
 #include "sift.h"
-#include "energymonitor_c.h"
 
-#include <time.h>
-#include <sys/resource.h>
 
 void normalizeImage(F2D* image)
 {
@@ -37,10 +33,6 @@ void normalizeImage(F2D* image)
 
 int main(int argc, char* argv[])
 {
-    double first, second;
-	
-	
-
     I2D* im;
     F2D *image;
     int rows, cols, i, j;
@@ -61,25 +53,11 @@ int main(int argc, char* argv[])
     iFreeHandle(im);
     rows = image->height;
     cols = image->width;
-
-	
-	
-	emonitor_t monitor = monitor_new(263808);
-	
+    
     /** Normalize the input image to lie between 0-1 **/
 	normalizeImage(image);
     /** Extract sift features for the normalized image **/
     frames = sift(image);
-    
-    
-    
-	edata_t data = monitor_stop(monitor);
-	
-	printf("Samples:\t\t%d\n", data_get_samples(data));
-	printf("Average CPU:\t\t%f\n", data_get_average_cpu(data));
-	printf("Average GPU:\t\t%f\n", data_get_average_gpu(data));
-	printf("Average MEM:\t\t%f\n", data_get_average_mem(data));
-	
 #ifdef CHECK   
     {
         int ret=0;
