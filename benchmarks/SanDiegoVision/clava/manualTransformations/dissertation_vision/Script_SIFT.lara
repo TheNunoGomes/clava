@@ -31,7 +31,7 @@ var executor = new ProcessExecutor();
 
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
-	var N = 1;
+	var N = 30;
 
 	call Profile("base", "hotspot", "time", "O0", N);
 	call Profile("base", "hotspot", "time", "O0", N);
@@ -118,7 +118,7 @@ aspectdef Profile
 		scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift_" + metric + ".c");
 	} 
 	else {
-		imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_" + version + "_" + "metric" + ".c");
+		imsmoothContent = Io.readFile(imsmoothVersions + "/imsmooth_" + version + "_" + metric + ".c");
 		scriptSiftContent = Io.readFile(scriptSiftVersions + "/script_sift.c");
 	}
 
