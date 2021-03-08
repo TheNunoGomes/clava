@@ -32,14 +32,37 @@ var executor = new ProcessExecutor();
 aspectdef Script
 	executor.setWorkingDir(Io.getAbsolutePath(data));
 	var N = 1;
+
+	call Profile("base", "hotspot", "time", "O0", N);
+	call Profile("base", "hotspot", "time", "O0", N);
+	call Profile("base", "hotspot", "time", "O0", N);
+	call Profile("base", "hotspot", "time", "O0", N);
 	
-	//call Profile("base", "global", "energy", "O0", N);
-	//call Profile("v1", "global", "energy", "O0", N);
+	call Profile("base", "hotspot", "time", "O2", N);
+	call Profile("base", "hotspot", "time", "O2", N);
+	call Profile("base", "hotspot", "time", "O2", N);
+	call Profile("base", "hotspot", "time", "O2", N);
 	
-	//call Profile("v2", "global", "energy", "O0", N);
+	call Profile("base", "hotspot", "time", "O3", N);
+	call Profile("base", "hotspot", "time", "O3", N);
+	call Profile("base", "hotspot", "time", "O3", N);
+	call Profile("base", "hotspot", "time", "O3", N);
 	
+	call Profile("base", "hotspot", "time", "Ofast", N);
+	call Profile("base", "hotspot", "time", "Ofast", N);
+	call Profile("base", "hotspot", "time", "Ofast", N);
+	call Profile("base", "hotspot", "time", "Ofast", N);
+	
+
+	/*
+
 	call Profile("base", "global", "time", "O0", N);
+	call Profile("base", "global", "energy", "O0", N);
+
 	call Profile("v1", "global", "time", "O0", N);
+	call Profile("v1", "global", "energy", "O0", N);
+	
+	call Profile("v2", "global", "energy", "O0", N);
 	call Profile("v2", "global", "time", "O0", N);
 	call Profile("v3", "global", "time", "O0", N);
 	
@@ -58,7 +81,6 @@ aspectdef Script
 	call Profile("v2", "global", "time", "Ofast", N);
 	call Profile("v3", "global", "time", "Ofast", N);
 	
-	/*
 	call Profile("v3", "global", "energy", "O0", N);
 	
 	call Profile("base", "global", "energy", "O2", N);
