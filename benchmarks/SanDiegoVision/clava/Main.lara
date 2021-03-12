@@ -19,7 +19,6 @@ setDebug(!true);
 var benchmarkNames = ["sift"];
 for(var benchmarkName of benchmarkNames) {
 	for(var benchmark of setupSanDiego(benchmarkName, ["FullHD"])) {
-		/*
 		var mainFunction = Query.search("function", { name: "main" }).first();
 		var mainFile = mainFunction.ancestor("file");
 		mainFile.addGlobal(powCount, ClavaJoinPoints.builtinType("int"), "0");
@@ -35,7 +34,6 @@ for(var benchmarkName of benchmarkNames) {
 			//"photonEndTiming",
 			"printf"
 		]);
-		/*
 		var logLocation = mainFunction.descendants("statement")[mainFunction.descendants("statement").length-2];
 		loggerPow.text("  Pow calls: ").int("powCount");
 		loggerPow.logBefore(logLocation);
@@ -44,24 +42,24 @@ for(var benchmarkName of benchmarkNames) {
 		loggerDF.logBefore(logLocation);
 		
 		//*/
-		Utils.timeMethodCalls(benchmarkName);
+		//Utils.timeMethodCalls(benchmarkName);
 		
-		//Transformations.replaceDoublesWithFloats();
-		Transformations.replacePowCalls();
+		Transformations.replaceDoublesWithFloats();
+		//Transformations.replacePowCalls();
 		//Transformations.replaceCeilCalls();
 		//*/
-		/*
+		
 		var loggerOut = new Logger();
 		var array = Query.search("function", {name: "imsmooth"}).search("loop", {kind: "for"}).scope("loop", {kind: "for"}).scope("loop", {kind: "for", isInnermost: true}).chain();
 		var chain = array[array.length - 1];
 		loggerOut.text("out = ").double("out->data[(j) * out->width + (i)]");
 		loggerOut.log(chain["loop_2"].body.stmts[0]);
-		*/
+		//*/
 		//Transformations.loopSplitting();
 		benchmark.compile();
 		
 		var results = "";
-		for(var i = 0; i < 30; i++) {
+		for(var i = 0; i < 1; i++) {
 			var executor = benchmark.execute();
 			results += executor.getConsoleOutput();
 		}
