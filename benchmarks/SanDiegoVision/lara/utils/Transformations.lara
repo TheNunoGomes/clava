@@ -120,14 +120,14 @@ Transformations.replaceDoublesWithFloats =  function() {
 			if(argument.type.code !== "double")
 				continue;
 			if(argument.instanceOf("literal")) {
-				debug("Replacing double "+ expression.code + " for float " + expression.code + 
+				debug("Replacing double "+ argument.code + " for float " + argument.code + 
 						"f in " + $call.code + " of type " + $call.type.code + ".");
 				if(!functions.includes($call.ancestor("file").name)) {
 					functions.push($call.ancestor("file").name);
 					$call.ancestor("file").addGlobal(dFCount, ClavaJoinPoints.builtinType("int"), "0");
 				}
 				$call.ancestor("statement").insertBefore(dFCount + "++;");
-				expression.replaceWith(expression.code + "f");
+				argument.replaceWith(argument.code + "f");
 				count++;
 			}
 		}
