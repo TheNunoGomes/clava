@@ -110,34 +110,35 @@ Transformations.loopSplitting_3Levels = function() {
 * @author {Nuno Gomes}
 */
 Transformations.replaceDoublesWithFloats =  function() {
-	debug("Replacing doubles.");
-	var count = 0;
-	var functions = [];
 	for(var $call of Query.search("call")) {
-		//if($call.type.code === "double")
-			//continue;
 		for(var argument of $call.args) {
 			if(argument.type.code !== "double")
 				continue;
-			for(var expression of argument.descendants) {
-				if(expression.type.code === "double" && expression.descendants.length === 0) {
-					debug("Replacing double "+ expression.code + " for float " + expression.code + 
-							"f in " + $call.code + " of type " + $call.type.code + ".");
-					if(!functions.includes($call.ancestor("file").name)) {
-						functions.push($call.ancestor("file").name);
-						$call.ancestor("file").addGlobal(dFCount, ClavaJoinPoints.builtinType("int"), "0");
-					}
-					$call.ancestor("statement").insertBefore(dFCount + "++;");
-					expression.replaceWith(expression.code + "f");
-					count++;
-				}
+			if(argument.instanceOf("literal")) {
+				argument.replaceWith(argument.code + "f");
 			}
 		}
 	}
-	
-	debug(functions);
-	debug("Number of doubles replaced with floats: " + count);
 }
+		//	for(var expression of argument.descendants) {
+		//		if(expression.type.code === "double" && expression.descendants.length === 0) {
+		//			debug("Replacing double "+ expression.code + " for float " + expression.code + 
+		//					"f in " + $call.code + " of type " + $call.type.code + ".");
+		//			if(!functions.includes($call.ancestor("file").name)) {
+		//				functions.push($call.ancestor("file").name);
+		//				$call.ancestor("file").addGlobal(dFCount, ClavaJoinPoints.builtinType("int"), "0");
+		//			}
+		//			$call.ancestor("statement").insertBefore(dFCount + "++;");
+		//			expression.replaceWith(expression.code + "f");
+		//			count++;
+		//		}
+		//	}
+		//}
+//	}
+	
+//	debug(functions);
+//	debug("Number of doubles replaced with floats: " + count);
+//}
 
 /** 
 * Replace every call of the function pow(k, n), with:
